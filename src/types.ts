@@ -9,6 +9,30 @@ export type FileKind =
   | 'zip'
   | 'text'
 
+export interface HistoryEntry {
+  author: string
+  date: string
+  change: 'inhoud' | 'opmaak'
+  summary: string
+}
+
+/** A document from data/documents.json (see CLAUDE.md, section 4). */
+export interface Document {
+  id: string
+  title: string
+  filename: string
+  folder: string
+  country: 'BE' | 'NL' | 'DE'
+  topic: string
+  layer: 'wet' | 'sector' | 'procedure' | 'klant'
+  status: 'goedgekeurd' | 'concept' | 'verouderd'
+  owner: string | null
+  created: string
+  modified: string
+  text: string
+  history: HistoryEntry[]
+}
+
 export interface FileItem {
   id: string
   parentId: string | null
@@ -18,6 +42,8 @@ export interface FileItem {
   size: number
   modified: string // ISO date
   modifiedBy: string
+  /** Set for files backed by a dataset document; undefined for folders. */
+  document?: Document
 }
 
 export type SortKey = 'name' | 'modified' | 'modifiedBy' | 'size'

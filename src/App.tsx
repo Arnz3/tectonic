@@ -1,9 +1,21 @@
 import { useMemo, useState } from 'react'
-import { mockFiles } from './mockData'
-import type { FileItem, SortKey, SortState } from './types'
+import { PreviewPanel } from './components/PreviewPanel'
+import { libraryItems } from './library'
+import type { Document, FileItem, SortKey, SortState } from './types'
 import { views } from './views'
 
-const byId = new Map(mockFiles.map((f) => [f.id, f]))
+const MAX_QUERY_LENGTH = 100
+
+const byId = new Map(libraryItems.map((f) => [f.id, f]))
+
+function matches(item: FileItem, q: string): boolean {
+  const doc = item.document
+  return (
+    item.name.toLowerCase().includes(q) ||
+    (doc !== undefined &&
+      (doc.title.toLowerCase().includes(q) || doc.topic.toLowerCase().includes(q) || doc.text.toLowerCase().includes(q)))
+  )
+}
 
 function ancestors(folderId: string | null): FileItem[] {
   const chain: FileItem[] = []
@@ -41,6 +53,7 @@ export default function App() {
   const [query, setQuery] = useState('')
   const [viewId, setViewId] = useState(loadViewId)
   const [sort, setSort] = useState<SortState>({ key: 'name', dir: 'asc' })
+  const [preview, setPreview] = useState<Document | null>(null)
 
   const view = views.find((v) => v.id === viewId) ?? views[0]
   const searching = query.trim().length > 0
@@ -48,8 +61,8 @@ export default function App() {
   const items = useMemo(() => {
     const q = query.trim().toLowerCase()
     const source = q
-      ? mockFiles.filter((f) => f.name.toLowerCase().includes(q))
-      : mockFiles.filter((f) => f.parentId === folderId)
+      ? libraryItems.filter((f) => matches(f, q))
+      : libraryItems.filter((f) => f.parentId === folderId)
     return [...source].sort((a, b) => compare(a, b, sort))
   }, [folderId, query, sort])
 
@@ -70,8 +83,8 @@ export default function App() {
     if (item.kind === 'folder') {
       setFolderId(item.id)
       setQuery('')
-    } else {
-      alert(`Openen van "${item.name}" (mock)`)
+    } else if (item.document) {
+      setPreview(item.document)
     }
   }
 
@@ -87,8 +100,9 @@ export default function App() {
           className="search"
           type="search"
           placeholder="Zoeken in deze bibliotheek"
+          maxLength={MAX_QUERY_LENGTH}
           value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          onChange={(e) => setQuery(e.target.value.slice(0, MAX_QUERY_LENGTH))}
         />
         <span className="avatar">AC</span>
       </header>
@@ -157,6 +171,8 @@ export default function App() {
             />
           )}
         </main>
+
+        {preview && <PreviewPanel doc={preview} onClose={() => setPreview(null)} />}
       </div>
     </div>
   )

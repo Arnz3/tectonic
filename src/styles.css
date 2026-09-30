@@ -316,3 +316,112 @@ button.crumb:hover {
     padding: 6px;
   }
 }
+
+/* Preview panel */
+.preview-panel {
+  width: 420px;
+  flex-shrink: 0;
+  overflow: auto;
+  padding: 16px 20px 24px;
+  background: var(--surface);
+  border-left: 1px solid var(--border);
+}
+.preview-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+.preview-header h2 {
+  flex: 1;
+  margin: 0;
+  font-size: 18px;
+}
+.close {
+  padding: 4px 8px;
+  border-radius: 2px;
+}
+.close:hover {
+  background: var(--hover);
+}
+.preview-panel h3 {
+  margin: 20px 0 8px;
+  font-size: 14px;
+}
+.preview-meta {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 4px 12px;
+  margin: 16px 0 0;
+}
+.preview-meta dt {
+  color: var(--muted);
+}
+.preview-meta dd {
+  margin: 0;
+}
+.preview-text {
+  white-space: pre-wrap;
+  line-height: 1.5;
+  padding: 12px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+.status,
+.change {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.status-goedgekeurd {
+  background: #dff6dd;
+  color: #107c10;
+}
+.status-concept {
+  background: #fff4ce;
+  color: #8a6d00;
+}
+.status-verouderd {
+  background: #edebe9;
+  color: var(--muted);
+}
+.warning {
+  color: #a4262c;
+  font-weight: 600;
+}
+.history {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.history li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border);
+}
+.change {
+  flex-shrink: 0;
+  width: 60px;
+  text-align: center;
+}
+.change-inhoud {
+  background: var(--selected);
+  color: var(--accent-dark);
+}
+.change-opmaak {
+  background: var(--hover);
+  color: var(--muted);
+}
+
+@media (max-width: 900px) {
+  .preview-panel {
+    position: fixed;
+    inset: 48px 0 0 auto;
+    width: min(420px, 100vw);
+    box-shadow: -4px 0 12px rgba(0, 0, 0, 0.1);
+  }
+}

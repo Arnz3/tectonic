@@ -1,0 +1,616 @@
+[
+  {
+    "id": "doc-01",
+    "title": "Procedure maaltijdcheques 2025",
+    "filename": "Procedure_maaltijdcheques_2025.docx",
+    "folder": "Payroll BE / Procedures",
+    "country": "BE",
+    "topic": "maaltijdcheques",
+    "layer": "procedure",
+    "status": "goedgekeurd",
+    "owner": "An Peeters",
+    "created": "2025-01-10",
+    "modified": "2025-03-12",
+    "text": "Procedure maaltijdcheques 2025 – Payroll België\n\nDeze procedure vervangt alle eerdere versies en geldt vanaf 1 januari 2025 voor alle klanten met Belgische werknemers. Maaltijdcheques worden uitsluitend elektronisch toegekend via de erkende uitgever van de klant. Papieren maaltijdcheques worden niet meer verwerkt.\n\nBedragen. De totale nominale waarde van een maaltijdcheque bedraagt € 10,00 per gewerkte dag. De werkgeversbijdrage bedraagt maximaal € 8,40 per gewerkte dag. De werknemersbijdrage bedraagt minimaal € 1,60 per gewerkte dag en wordt ingehouden op het nettoloon.\n\nBerekening van het aantal cheques. Het aantal maaltijdcheques is gelijk aan het aantal effectief gewerkte dagen in de maand. Voor deeltijdse werknemers gebruikt de payrollconsultant altijd de urenformule: het totaal aantal gewerkte uren gedeeld door de normale dagelijkse arbeidsduur van een voltijdse werknemer. Dagen van ziekte, vakantie of klein verlet geven geen recht op een maaltijdcheque.\n\nVerwerking. De payrollconsultant controleert vóór de maandelijkse loonafsluiting de prestaties in het tijdsregistratiesysteem en laadt het aantal cheques op naar de uitgever uiterlijk op de derde werkdag van de volgende maand. Correcties op vorige maanden worden verwerkt in de eerstvolgende loonrun en nooit met terugwerkende kracht op een afgesloten loonstrook.\n\nControle. Bij een afwijking van meer dan twee cheques ten opzichte van de vorige maand vraagt de consultant bevestiging aan de HR-contactpersoon van de klant.\n\nVragen over deze procedure richt je aan de eigenaar van dit document, An Peeters, Payroll BE.",
+    "history": [
+      {
+        "author": "An Peeters",
+        "date": "2025-03-12",
+        "change": "inhoud",
+        "summary": "Werkgeversbijdrage aangepast naar € 8,40"
+      },
+      {
+        "author": "An Peeters",
+        "date": "2025-02-18",
+        "change": "inhoud",
+        "summary": "Deadline opladen naar derde werkdag"
+      },
+      {
+        "author": "Jens Maes",
+        "date": "2025-02-01",
+        "change": "opmaak",
+        "summary": "Lay-out en huisstijl"
+      },
+      {
+        "author": "An Peeters",
+        "date": "2025-01-24",
+        "change": "inhoud",
+        "summary": "Urenformule verplicht voor deeltijdsen"
+      },
+      {
+        "author": "An Peeters",
+        "date": "2025-01-10",
+        "change": "inhoud",
+        "summary": "Eerste versie op basis van nieuwe bedragen 2025"
+      }
+    ]
+  },
+  {
+    "id": "doc-02",
+    "title": "Procedure maaltijdcheques 2023",
+    "filename": "Procedure_maaltijdcheques_2023.docx",
+    "folder": "Payroll BE / Procedures",
+    "country": "BE",
+    "topic": "maaltijdcheques",
+    "layer": "procedure",
+    "status": "goedgekeurd",
+    "owner": "Pieter Wouters",
+    "created": "2023-01-15",
+    "modified": "2023-02-20",
+    "text": "Procedure maaltijdcheques 2023 – Payroll België\n\nDeze procedure geldt voor alle klanten met Belgische werknemers die maaltijdcheques toekennen. Maaltijdcheques worden bij voorkeur elektronisch toegekend. Papieren maaltijdcheques zijn nog toegestaan tot het einde van het lopende contract met de uitgever.\n\nBedragen. De totale nominale waarde van een maaltijdcheque bedraagt € 8,25 per gewerkte dag. De werkgeversbijdrage bedraagt maximaal € 7,15 per gewerkte dag. De werknemersbijdrage bedraagt minimaal € 1,10 per gewerkte dag en wordt ingehouden op het nettoloon.\n\nBerekening van het aantal cheques. Het aantal maaltijdcheques is gelijk aan het aantal effectief gewerkte dagen in de maand. Voor deeltijdse werknemers mag de payrollconsultant kiezen tussen de dagformule en de urenformule, zolang dezelfde formule het hele kalenderjaar wordt toegepast. Dagen van ziekte of vakantie geven geen recht op een maaltijdcheque.\n\nVerwerking. De payrollconsultant controleert na de loonafsluiting de prestaties en laadt het aantal cheques op naar de uitgever uiterlijk op de vijfde werkdag van de volgende maand. Correcties op vorige maanden mogen met terugwerkende kracht worden verwerkt als de klant daarom vraagt.\n\nControle. De consultant vergelijkt het aantal cheques steekproefsgewijs met de vorige maand en noteert afwijkingen in het klantendossier.\n\nVragen over deze procedure richt je aan Pieter Wouters, Payroll BE.",
+    "history": [
+      {
+        "author": "Jens Maes",
+        "date": "2023-02-20",
+        "change": "opmaak",
+        "summary": "Titels en nummering"
+      },
+      {
+        "author": "An Peeters",
+        "date": "2023-02-14",
+        "change": "inhoud",
+        "summary": "Regels voor deeltijdsen verduidelijkt"
+      },
+      {
+        "author": "An Peeters",
+        "date": "2023-02-06",
+        "change": "inhoud",
+        "summary": "Bedragen 2023 ingevuld"
+      },
+      {
+        "author": "Pieter Wouters",
+        "date": "2023-01-15",
+        "change": "inhoud",
+        "summary": "Eerste versie"
+      }
+    ]
+  },
+  {
+    "id": "doc-03",
+    "title": "Werkinstructie maaltijdcheques team Antwerpen",
+    "filename": "Werkinstructie_MC_Antwerpen.docx",
+    "folder": "HR BE / Team Antwerpen",
+    "country": "BE",
+    "topic": "maaltijdcheques",
+    "layer": "procedure",
+    "status": "goedgekeurd",
+    "owner": "Sofie Claes",
+    "created": "2023-06-05",
+    "modified": "2023-06-12",
+    "text": "Procedure maaltijdcheques 2023 – Payroll België\n\nDeze procedure geldt voor alle klanten met Belgische werknemers die maaltijdcheques toekennen. Maaltijdcheques worden bij voorkeur elektronisch toegekend. Papieren maaltijdcheques zijn nog toegestaan tot het einde van het lopende contract met de uitgever.\n\nBedragen. De totale nominale waarde van een maaltijdcheque bedraagt € 8,25 per gewerkte dag. De werkgeversbijdrage bedraagt maximaal € 7,15 per gewerkte dag. De werknemersbijdrage bedraagt minimaal € 1,10 per gewerkte dag en wordt ingehouden op het nettoloon.\n\nBerekening van het aantal cheques. Het aantal maaltijdcheques is gelijk aan het aantal effectief gewerkte dagen in de maand. Voor deeltijdse werknemers mag de payrollconsultant kiezen tussen de dagformule en de urenformule, zolang dezelfde formule het hele kalenderjaar wordt toegepast. Dagen van ziekte of vakantie geven geen recht op een maaltijdcheque.\n\nVerwerking. De payrollconsultant controleert na de loonafsluiting de prestaties en laadt het aantal cheques op naar de uitgever uiterlijk op de vijfde werkdag van de volgende maand. Correcties op vorige maanden mogen met terugwerkende kracht worden verwerkt als de klant daarom vraagt.\n\nControle. De consultant vergelijkt het aantal cheques steekproefsgewijs met de vorige maand en noteert afwijkingen in het klantendossier.\n\nVragen over deze procedure richt je aan Pieter Wouters, Payroll BE. Kopie voor team Antwerpen.",
+    "history": [
+      {
+        "author": "Jens Maes",
+        "date": "2023-06-12",
+        "change": "opmaak",
+        "summary": "Logo team Antwerpen toegevoegd"
+      },
+      {
+        "author": "Sofie Claes",
+        "date": "2023-06-05",
+        "change": "inhoud",
+        "summary": "Overgenomen uit centrale procedure"
+      }
+    ]
+  },
+  {
+    "id": "doc-04",
+    "title": "Maaltijdcheques – info klantenteam",
+    "filename": "MC_info_klantenteam.docx",
+    "folder": "Klantendienst / Gedeelde documenten",
+    "country": "BE",
+    "topic": "maaltijdcheques",
+    "layer": "procedure",
+    "status": "goedgekeurd",
+    "owner": null,
+    "created": "2024-02-10",
+    "modified": "2024-09-03",
+    "text": "Procedure maaltijdcheques 2023 – Payroll België\n\nDeze procedure geldt voor alle klanten met Belgische werknemers die maaltijdcheques toekennen. Maaltijdcheques worden bij voorkeur elektronisch toegekend. Papieren maaltijdcheques zijn nog toegestaan tot het einde van het lopende contract met de uitgever.\n\nBedragen. De totale nominale waarde van een maaltijdcheque bedraagt € 8,25 per gewerkte dag. De werkgeversbijdrage bedraagt maximaal € 7,15 per gewerkte dag. De werknemersbijdrage bedraagt minimaal € 1,10 per gewerkte dag en wordt ingehouden op het nettoloon.\n\nBerekening van het aantal cheques. Het aantal maaltijdcheques is gelijk aan het aantal effectief gewerkte dagen in de maand. Voor deeltijdse werknemers mag de payrollconsultant kiezen tussen de dagformule en de urenformule, zolang dezelfde formule het hele kalenderjaar wordt toegepast. Dagen van ziekte of vakantie geven geen recht op een maaltijdcheque.\n\nVerwerking. De payrollconsultant controleert na de loonafsluiting de prestaties en laadt het aantal cheques op naar de uitgever uiterlijk op de vijfde werkdag van de volgende maand. Correcties op vorige maanden mogen met terugwerkende kracht worden verwerkt als de klant daarom vraagt.\n\nControle. De consultant vergelijkt het aantal cheques steekproefsgewijs met de vorige maand en noteert afwijkingen in het klantendossier.\n\nVragen over deze procedure richt je aan Pieter Wouters, Payroll BE.",
+    "history": [
+      {
+        "author": "Jens Maes",
+        "date": "2024-09-03",
+        "change": "opmaak",
+        "summary": "Lettertype aangepast"
+      },
+      {
+        "author": "Sofie Claes",
+        "date": "2024-02-10",
+        "change": "inhoud",
+        "summary": "Tekst gekopieerd voor klantvragen"
+      }
+    ]
+  },
+  {
+    "id": "doc-05",
+    "title": "Procedure maaltijdcheques Nederland 2025",
+    "filename": "Procedure_maaltijdcheques_NL_2025.docx",
+    "folder": "Payroll NL / Procedures",
+    "country": "NL",
+    "topic": "maaltijdcheques",
+    "layer": "procedure",
+    "status": "goedgekeurd",
+    "owner": "Femke de Jong",
+    "created": "2025-01-20",
+    "modified": "2025-02-14",
+    "text": "Procedure maaltijdcheques 2025 – Payroll Nederland\n\nDeze procedure geldt voor klanten met Nederlandse werknemers die in hun arbeidsvoorwaardenpakket een maaltijdcheque aanbieden. In Nederland is de maaltijdcheque een vrijwillige regeling van de werkgever. De voorwaarden volgen uit het arbeidsvoorwaardenreglement van de klant.\n\nBedragen. De totale nominale waarde van een maaltijdcheque bedraagt € 7,50 per gewerkte dag. De werkgeversbijdrage bedraagt maximaal € 6,50 per gewerkte dag. De werknemersbijdrage bedraagt € 1,00 per gewerkte dag en wordt verrekend met het nettoloon.\n\nBerekening van het aantal cheques. Het aantal maaltijdcheques is gelijk aan het aantal gewerkte dagen volgens het rooster van de werknemer. Voor deeltijdse werknemers telt enkel het aantal roosterdagen; een urenformule wordt niet gebruikt. Bij ziekte vervalt het recht op een maaltijdcheque voor die dag.\n\nVerwerking. De salarisadministrateur verwerkt de maaltijdcheques in de maandelijkse salarisrun en geeft het aantal cheques door aan de uitgever uiterlijk op de vijfde werkdag van de volgende maand. Correcties worden meegenomen in de eerstvolgende salarisrun.\n\nLet op: deze procedure geldt alleen voor Nederland. Voor Belgische werknemers geldt de Belgische procedure van Payroll BE.\n\nVragen over deze procedure richt je aan Femke de Jong, Payroll NL.",
+    "history": [
+      {
+        "author": "Jens Maes",
+        "date": "2025-02-14",
+        "change": "opmaak",
+        "summary": "Huisstijl"
+      },
+      {
+        "author": "Femke de Jong",
+        "date": "2025-02-11",
+        "change": "inhoud",
+        "summary": "Roosterdagen voor deeltijd"
+      },
+      {
+        "author": "Femke de Jong",
+        "date": "2025-01-20",
+        "change": "inhoud",
+        "summary": "Eerste versie"
+      }
+    ]
+  },
+  {
+    "id": "doc-06",
+    "title": "Teams-bericht: eindejaarspremie deadline",
+    "filename": "Teams_PayrollBE_eindejaarspremie_2025-10-14.txt",
+    "folder": "Teams / Payroll BE",
+    "country": "BE",
+    "topic": "eindejaarspremie",
+    "layer": "procedure",
+    "status": "concept",
+    "owner": null,
+    "created": "2025-10-14",
+    "modified": "2025-10-14",
+    "text": "[Export Microsoft Teams] Team: Payroll BE › Kanaal: Algemeen\n\n14/10/2025 09:12 – Sofie Claes:\nHoi allemaal, even een reminder over de eindejaarspremie van dit jaar, want ik kreeg er al vragen over van klanten. Correcties op de eindejaarspremie moeten uiterlijk op 10 december bij de payrollconsultant binnen zijn. Daarna verwerken we niets meer voor december. Werknemers met minstens zes maanden anciënniteit op 31 december hebben recht op een eindejaarspremie; wie in de loop van het jaar vertrekt, krijgt een premie pro rata.\n\n14/10/2025 09:20 – Jens Maes:\nTop, bedankt! Geldt dat ook voor klanten met een eigen sectorregeling?\n\n14/10/2025 09:31 – Sofie Claes:\nJa, voor iedereen, tenzij er een sectorale afwijking in het klantendossier staat. De eindejaarspremie wordt berekend op basis van het brutomaandloon van november en pro rata de gewerkte maanden in het jaar. De eindejaarspremie wordt uitbetaald met het loon van december. Stuur begin november ook een herinnering naar de HR-contactpersoon van elke klant.\n\n14/10/2025 09:45 – Pieter Wouters:\nOpgelet, in de Procedure eindejaarspremie 2025 van Payroll BE staat volgens mij een andere deadline voor correcties op de eindejaarspremie. Kan iemand dat nakijken?\n\n14/10/2025 10:02 – Sofie Claes:\nIk heb vorig jaar ook 10 december gebruikt en dat ging prima. Ik pas het wel aan als het anders blijkt.\n\n14/10/2025 10:05 – Jens Maes:\nIk zet dit bericht even vast in het kanaal zodat iedereen het terugvindt.",
+    "history": [
+      {
+        "author": "Sofie Claes",
+        "date": "2025-10-14",
+        "change": "inhoud",
+        "summary": "Bericht geplaatst in kanaal Algemeen"
+      }
+    ]
+  },
+  {
+    "id": "doc-07",
+    "title": "Procedure eindejaarspremie 2025",
+    "filename": "Procedure_eindejaarspremie_2025.docx",
+    "folder": "Payroll BE / Procedures",
+    "country": "BE",
+    "topic": "eindejaarspremie",
+    "layer": "procedure",
+    "status": "goedgekeurd",
+    "owner": "Pieter Wouters",
+    "created": "2025-04-02",
+    "modified": "2025-06-03",
+    "text": "Procedure eindejaarspremie 2025 – Payroll België\n\nDeze procedure beschrijft hoe Payroll BE de eindejaarspremie berekent en uitbetaalt voor klanten met Belgische werknemers. Sectorale afwijkingen staan in het klantendossier en gaan altijd voor op deze algemene procedure.\n\nRecht op de premie. Werknemers met minstens zes maanden anciënniteit op 31 december hebben recht op een eindejaarspremie. Werknemers die in de loop van het jaar vertrekken, ontvangen een premie pro rata, behalve bij ontslag om dringende reden.\n\nBerekening. De eindejaarspremie wordt berekend op basis van het brutomaandloon van november en pro rata de gewerkte maanden in het jaar. Periodes van gewaarborgd loon bij ziekte tellen mee als gewerkte periode. Periodes van onbetaald verlof tellen niet mee.\n\nTiming. Correcties op de eindejaarspremie moeten uiterlijk op 30 november bij de payrollconsultant binnen zijn. De eindejaarspremie wordt uitbetaald met het loon van december, uiterlijk op 20 december. Correcties die later binnenkomen, worden verwerkt met het loon van januari.\n\nCommunicatie. De payrollconsultant stuurt begin november een herinnering naar de HR-contactpersoon van elke klant met de deadline voor correcties en de lijst van werknemers met een pro-rataberekening.\n\nVragen over deze procedure richt je aan de eigenaar van dit document, Pieter Wouters, Payroll BE.",
+    "history": [
+      {
+        "author": "An Peeters",
+        "date": "2025-06-03",
+        "change": "inhoud",
+        "summary": "Gewaarborgd loon telt mee"
+      },
+      {
+        "author": "Jens Maes",
+        "date": "2025-05-20",
+        "change": "opmaak",
+        "summary": "Lay-out"
+      },
+      {
+        "author": "Pieter Wouters",
+        "date": "2025-05-15",
+        "change": "inhoud",
+        "summary": "Deadline correcties op 30 november"
+      },
+      {
+        "author": "Pieter Wouters",
+        "date": "2025-04-02",
+        "change": "inhoud",
+        "summary": "Eerste versie 2025"
+      }
+    ]
+  },
+  {
+    "id": "doc-08",
+    "title": "Verlofbeleid 2025",
+    "filename": "Verlofbeleid_2025.pdf",
+    "folder": "HR BE / Verlof",
+    "country": "BE",
+    "topic": "verlof",
+    "layer": "procedure",
+    "status": "goedgekeurd",
+    "owner": "Sofie Claes",
+    "created": "2024-11-18",
+    "modified": "2024-12-12",
+    "text": "Verlofbeleid 2025 – België\n\nDit beleid beschrijft hoe medewerkers in België jaarlijkse vakantie en extralegaal verlof aanvragen en opnemen. Het geldt vanaf 1 januari 2025 en vervangt het verlofbeleid van 2023.\n\nWettelijke vakantie. Een voltijdse medewerker heeft recht op twintig dagen wettelijke vakantie op basis van de prestaties van het vorige jaar. Deeltijdse medewerkers bouwen vakantie op in verhouding tot hun arbeidsregime.\n\nExtralegaal verlof. Bovenop de wettelijke vakantie krijgt elke medewerker zes dagen extralegaal verlof. Deze dagen moeten opgenomen worden vóór 31 maart van het volgende jaar. Niet opgenomen extralegale dagen vervallen en worden niet uitbetaald.\n\nAanvragen. Vakantie wordt aangevraagd in het HR-portaal, minstens twee weken vooraf voor periodes langer dan drie dagen. De leidinggevende keurt de aanvraag goed of af binnen vijf werkdagen. Tijdens de piekperiode van de loonafsluiting, van de 25e tot de 3e werkdag van de volgende maand, kunnen payrollconsultants maximaal twee dagen na elkaar verlof nemen.\n\nOverdracht. Wettelijke vakantie moet in principe binnen het kalenderjaar opgenomen worden. Een overdracht is alleen mogelijk bij langdurige ziekte of zwangerschapsrust.\n\nVragen over dit beleid richt je aan HR BE.",
+    "history": [
+      {
+        "author": "Jens Maes",
+        "date": "2024-12-12",
+        "change": "opmaak",
+        "summary": "Omgezet naar pdf-sjabloon"
+      },
+      {
+        "author": "Sofie Claes",
+        "date": "2024-12-09",
+        "change": "inhoud",
+        "summary": "Regel piekperiode loonafsluiting"
+      },
+      {
+        "author": "Sofie Claes",
+        "date": "2024-11-18",
+        "change": "inhoud",
+        "summary": "Nieuw beleid met zes extralegale dagen"
+      }
+    ]
+  },
+  {
+    "id": "doc-09",
+    "title": "Verlofbeleid 2023",
+    "filename": "Verlofbeleid_2023.pdf",
+    "folder": "HR BE / Verlof",
+    "country": "BE",
+    "topic": "verlof",
+    "layer": "procedure",
+    "status": "verouderd",
+    "owner": "Sofie Claes",
+    "created": "2022-12-01",
+    "modified": "2023-01-05",
+    "text": "Verlofbeleid 2023 – België\n\nDit beleid beschrijft hoe medewerkers in België jaarlijkse vakantie en extralegaal verlof aanvragen en opnemen.\n\nWettelijke vakantie. Een voltijdse medewerker heeft recht op twintig dagen wettelijke vakantie op basis van de prestaties van het vorige jaar. Deeltijdse medewerkers bouwen vakantie op in verhouding tot hun arbeidsregime.\n\nExtralegaal verlof. Bovenop de wettelijke vakantie krijgt elke medewerker vier dagen extralegaal verlof. Deze dagen moeten opgenomen worden vóór 31 december van hetzelfde jaar. Niet opgenomen extralegale dagen vervallen.\n\nAanvragen. Vakantie wordt aangevraagd per e-mail aan de leidinggevende, minstens een week vooraf. De leidinggevende registreert de goedgekeurde aanvraag in de verlofkalender van het team.\n\nKlein verlet. Voor familiale gebeurtenissen zoals een huwelijk of een overlijden krijgt de medewerker klein verlet volgens het arbeidsreglement. Klein verlet wordt aangevraagd bij de leidinggevende en telt niet mee als vakantie.\n\nPiekperiodes. Tijdens de loonafsluiting vragen we payrollconsultants om geen verlof te nemen zonder overleg met hun teamleider.\n\nOverdracht. Wettelijke vakantie moet binnen het kalenderjaar opgenomen worden.\n\nVragen over dit beleid richt je aan HR BE.",
+    "history": [
+      {
+        "author": "Jens Maes",
+        "date": "2023-01-05",
+        "change": "opmaak",
+        "summary": "Lay-out"
+      },
+      {
+        "author": "Sofie Claes",
+        "date": "2022-12-01",
+        "change": "inhoud",
+        "summary": "Eerste versie"
+      }
+    ]
+  },
+  {
+    "id": "doc-10",
+    "title": "Werkinstructie vakantie aanvragen in HR-portaal",
+    "filename": "Werkinstructie_vakantie_HR-portaal.docx",
+    "folder": "HR BE / Verlof",
+    "country": "BE",
+    "topic": "verlof",
+    "layer": "procedure",
+    "status": "concept",
+    "owner": "Sofie Claes",
+    "created": "2025-01-15",
+    "modified": "2025-01-20",
+    "text": "Werkinstructie: vakantie aanvragen in het HR-portaal\n\nDeze werkinstructie legt stap voor stap uit hoe je als medewerker in België vakantie aanvraagt in het nieuwe HR-portaal. Ze is een aanvulling op het verlofbeleid 2025.\n\nStap 1. Meld je aan op het HR-portaal en kies in het menu voor Afwezigheden en daarna Nieuwe aanvraag.\n\nStap 2. Kies het type verlof: wettelijke vakantie, extralegaal verlof of klein verlet. Het portaal toont je resterende saldo per type.\n\nStap 3. Selecteer de begin- en einddatum. Voor een halve dag kies je voormiddag of namiddag. Aanvragen voor periodes langer dan drie dagen dien je minstens twee weken vooraf in.\n\nStap 4. Voeg eventueel een opmerking toe voor je leidinggevende en klik op Indienen. Je ontvangt een bevestiging per e-mail.\n\nStap 5. Je leidinggevende keurt de aanvraag goed of af binnen vijf werkdagen. De status volg je op onder Mijn aanvragen.\n\nOpmerking: payrollconsultants houden rekening met de piekperiode rond de loonafsluiting. Deze werkinstructie is nog in opmaak; schermafbeeldingen volgen.",
+    "history": [
+      {
+        "author": "Jens Maes",
+        "date": "2025-01-20",
+        "change": "opmaak",
+        "summary": "Nummering stappen"
+      },
+      {
+        "author": "Sofie Claes",
+        "date": "2025-01-15",
+        "change": "inhoud",
+        "summary": "Stappen uitgeschreven"
+      }
+    ]
+  },
+  {
+    "id": "doc-11",
+    "title": "Car policy bedrijfswagens 2025",
+    "filename": "Car_policy_2025.pdf",
+    "folder": "Fleet / België",
+    "country": "BE",
+    "topic": "bedrijfswagens",
+    "layer": "procedure",
+    "status": "goedgekeurd",
+    "owner": "Pieter Wouters",
+    "created": "2024-10-01",
+    "modified": "2024-11-08",
+    "text": "Car policy bedrijfswagens 2025 – België\n\nDit beleid regelt de toekenning en het gebruik van bedrijfswagens voor medewerkers in België.\n\nToekenning. Een bedrijfswagen wordt toegekend aan medewerkers vanaf functieniveau 5 en aan medewerkers die gemiddeld meer dan 15.000 dienstkilometers per jaar rijden. De keuze gebeurt uit de catalogus van de fleetafdeling binnen het budget van de functiecategorie.\n\nElektrisch. Vanaf 1 januari 2025 worden enkel nog volledig elektrische wagens besteld. Bestaande contracten voor brandstofwagens lopen door tot hun einddatum. Medewerkers met een elektrische wagen krijgen een laadpas en kunnen een laadpaal thuis laten installeren op kosten van de werkgever.\n\nPrivégebruik. Privégebruik is toegestaan in België en in de buurlanden. Het voordeel van alle aard wordt berekend door Payroll BE en maandelijks verwerkt op de loonstrook.\n\nEigen bijdrage. Wie een wagen kiest boven het budget van de functiecategorie, betaalt het verschil als maandelijkse eigen bijdrage via het nettoloon.\n\nSchade en boetes. Schade wordt binnen 48 uur gemeld aan de fleetafdeling. Verkeersboetes zijn altijd ten laste van de bestuurder.\n\nVragen over dit beleid richt je aan de fleetafdeling België.",
+    "history": [
+      {
+        "author": "Jens Maes",
+        "date": "2024-11-08",
+        "change": "opmaak",
+        "summary": "Tabellen opgemaakt"
+      },
+      {
+        "author": "Pieter Wouters",
+        "date": "2024-11-05",
+        "change": "inhoud",
+        "summary": "Alleen nog elektrische wagens"
+      },
+      {
+        "author": "Pieter Wouters",
+        "date": "2024-10-01",
+        "change": "inhoud",
+        "summary": "Eerste versie 2025"
+      }
+    ]
+  },
+  {
+    "id": "doc-12",
+    "title": "Procedure tankkaart en laadpas",
+    "filename": "Procedure_tankkaart_laadpas.docx",
+    "folder": "Fleet / België",
+    "country": "BE",
+    "topic": "bedrijfswagens",
+    "layer": "procedure",
+    "status": "goedgekeurd",
+    "owner": null,
+    "created": "2024-03-12",
+    "modified": "2024-11-20",
+    "text": "Procedure tankkaart en laadpas\n\nDeze procedure beschrijft het gebruik van de tankkaart en de laadpas bij een bedrijfswagen in België.\n\nGebruik. De tankkaart en de laadpas zijn persoonlijk en mogen alleen gebruikt worden voor de bedrijfswagen die aan de medewerker is toegekend. Tanken of laden voor een andere wagen is niet toegestaan.\n\nThuis laden. De kosten van thuis laden worden maandelijks terugbetaald op basis van de gemeten kWh van de laadpaal, tegen het tarief dat de fleetafdeling elk kwartaal vastlegt. De terugbetaling verschijnt als onkostenvergoeding op de loonstrook.\n\nVerlies of diefstal. Meld verlies of diefstal onmiddellijk bij de kaartuitgever en daarna bij de fleetafdeling. Een nieuwe kaart wordt binnen vijf werkdagen geleverd.\n\nControle. De fleetafdeling controleert maandelijks het verbruik. Bij een verbruik dat duidelijk afwijkt van het gemiddelde voor het type wagen, wordt de medewerker om uitleg gevraagd.\n\nEinde contract. Bij het einde van het contract of bij uitdiensttreding worden de tankkaart en laadpas samen met de bedrijfswagen ingeleverd.",
+    "history": [
+      {
+        "author": "Jens Maes",
+        "date": "2024-11-20",
+        "change": "inhoud",
+        "summary": "Thuis laden toegevoegd"
+      },
+      {
+        "author": "Pieter Wouters",
+        "date": "2024-03-12",
+        "change": "inhoud",
+        "summary": "Eerste versie"
+      }
+    ]
+  },
+  {
+    "id": "doc-13",
+    "title": "Bedrijfswagenbeleid Duitsland 2025",
+    "filename": "Bedrijfswagenbeleid_DE_2025.pdf",
+    "folder": "Fleet / Duitsland",
+    "country": "DE",
+    "topic": "bedrijfswagens",
+    "layer": "procedure",
+    "status": "goedgekeurd",
+    "owner": "Lukas Becker",
+    "created": "2024-10-15",
+    "modified": "2024-12-02",
+    "text": "Bedrijfswagenbeleid 2025 – Duitsland\n\nDit beleid regelt de toekenning en het gebruik van bedrijfswagens voor medewerkers in Duitsland.\n\nToekenning. Een bedrijfswagen wordt toegekend aan medewerkers vanaf functieniveau 6 en aan medewerkers in een verkoopfunctie. De keuze gebeurt uit de catalogus van de fleetafdeling binnen het budget van de functiecategorie.\n\nElektrisch. Nieuwe bestellingen zijn bij voorkeur volledig elektrisch of plug-in hybride. Medewerkers met een elektrische wagen krijgen een laadpas; een laadpaal thuis wordt voor de helft terugbetaald.\n\nPrivégebruik. Privégebruik is toegestaan. Het voordeel wordt berekend volgens de maandelijkse forfaitaire methode op basis van de cataloguswaarde en verwerkt door Payroll DE.\n\nEigen bijdrage. Wie een wagen kiest boven het budget, betaalt het verschil als maandelijkse eigen bijdrage.\n\nSchade en boetes. Schade wordt binnen 72 uur gemeld aan de fleetafdeling. Verkeersboetes zijn altijd ten laste van de bestuurder.\n\nLet op: dit beleid geldt alleen voor Duitsland. Vragen richt je aan Lukas Becker, Fleet DE.",
+    "history": [
+      {
+        "author": "Lukas Becker",
+        "date": "2024-12-02",
+        "change": "inhoud",
+        "summary": "Laadpaal thuis voor de helft terugbetaald"
+      },
+      {
+        "author": "Lukas Becker",
+        "date": "2024-10-15",
+        "change": "inhoud",
+        "summary": "Eerste versie"
+      }
+    ]
+  },
+  {
+    "id": "doc-14",
+    "title": "Onboarding checklist België",
+    "filename": "Onboarding_checklist_BE.docx",
+    "folder": "HR BE / Onboarding",
+    "country": "BE",
+    "topic": "onboarding",
+    "layer": "procedure",
+    "status": "goedgekeurd",
+    "owner": "Sofie Claes",
+    "created": "2024-05-06",
+    "modified": "2025-02-05",
+    "text": "Onboarding checklist nieuwe medewerker – België\n\nDeze checklist helpt leidinggevenden en HR om een nieuwe medewerker in België vlot te laten starten.\n\nVoor de eerste werkdag. HR stuurt het arbeidscontract ter ondertekening en vraagt de identiteitsgegevens, het rekeningnummer en de gezinssituatie op. De leidinggevende bestelt laptop, badge en toegang tot de nodige systemen. Payroll BE registreert de medewerker minstens vijf werkdagen voor de start.\n\nEerste werkdag. De leidinggevende verwelkomt de medewerker, stelt een buddy voor en overloopt de planning van de eerste weken. IT overhandigt de laptop en helpt bij de eerste aanmelding.\n\nEerste week. De medewerker volgt de verplichte opleidingen over informatieveiligheid en privacy. HR legt het verlofbeleid en de extralegale voordelen uit, zoals ecocheques en de hospitalisatieverzekering.\n\nEerste maand. De leidinggevende plant een opvolggesprek en bespreekt de doelstellingen voor de proefperiode. De buddy blijft het eerste aanspreekpunt voor praktische vragen.\n\nNa drie maanden. Evaluatiegesprek met leidinggevende en HR. Feedback over de onboarding wordt verzameld via een korte vragenlijst.",
+    "history": [
+      {
+        "author": "Jens Maes",
+        "date": "2025-02-05",
+        "change": "opmaak",
+        "summary": "Checklist als tabel"
+      },
+      {
+        "author": "Sofie Claes",
+        "date": "2025-02-03",
+        "change": "inhoud",
+        "summary": "Verplichte opleidingen toegevoegd"
+      },
+      {
+        "author": "Sofie Claes",
+        "date": "2024-05-06",
+        "change": "inhoud",
+        "summary": "Eerste versie"
+      }
+    ]
+  },
+  {
+    "id": "doc-15",
+    "title": "Werkinstructie nieuwe medewerker registreren in payroll",
+    "filename": "Werkinstructie_registratie_payroll.docx",
+    "folder": "Payroll BE / Procedures",
+    "country": "BE",
+    "topic": "onboarding",
+    "layer": "procedure",
+    "status": "goedgekeurd",
+    "owner": "An Peeters",
+    "created": "2024-06-10",
+    "modified": "2025-01-08",
+    "text": "Werkinstructie: nieuwe medewerker registreren in payroll\n\nDeze werkinstructie beschrijft hoe een payrollconsultant van Payroll BE een nieuwe medewerker van een klant registreert.\n\nGegevens. Controleer of het dossier volledig is: identiteitsgegevens, rijksregisternummer, adres, rekeningnummer, gezinssituatie voor de bedrijfsvoorheffing, arbeidsregime en loon. Ontbrekende gegevens vraag je op bij de HR-contactpersoon van de klant.\n\nDimona. Doe de Dimona-aangifte ten laatste op het moment dat de medewerker begint te werken. Bewaar het bevestigingsnummer in het dossier.\n\nLoonfiche. Maak de loonfiche aan met het juiste paritair comité en de juiste looncategorie. Controleer of de klant extralegale voordelen toekent, zoals ecocheques, een eindejaarspremie of een bedrijfswagen, en activeer de bijhorende looncodes.\n\nEerste loonstrook. Controleer bij de eerste loonafsluiting de prestaties en de pro-rataberekening als de medewerker in de loop van de maand start.\n\nControle. Laat de registratie nakijken door een collega als het om een klant met een sectorale afwijking gaat of als de medewerker een bijzonder arbeidsregime heeft.\n\nAfsluiten. Vink de registratie af in de onboarding checklist van de klant zodat HR weet dat de medewerker in payroll staat.",
+    "history": [
+      {
+        "author": "An Peeters",
+        "date": "2025-01-08",
+        "change": "inhoud",
+        "summary": "Extralegale voordelen activeren"
+      },
+      {
+        "author": "An Peeters",
+        "date": "2024-06-10",
+        "change": "inhoud",
+        "summary": "Eerste versie"
+      }
+    ]
+  },
+  {
+    "id": "doc-16",
+    "title": "Procedure ecocheques 2025",
+    "filename": "Procedure_ecocheques_2025.docx",
+    "folder": "Payroll BE / Procedures",
+    "country": "BE",
+    "topic": "ecocheques",
+    "layer": "procedure",
+    "status": "goedgekeurd",
+    "owner": "An Peeters",
+    "created": "2025-03-03",
+    "modified": "2025-03-10",
+    "text": "Procedure ecocheques 2025 – Payroll België\n\nDeze procedure beschrijft hoe Payroll BE ecocheques berekent en toekent voor klanten met Belgische werknemers.\n\nBedrag. Een voltijdse werknemer met een volledige referteperiode ontvangt ecocheques voor een totaal van € 250 per jaar. Deeltijdse werknemers ontvangen een bedrag in verhouding tot hun arbeidsregime.\n\nReferteperiode. De referteperiode loopt van 1 juni van het vorige jaar tot 31 mei van het lopende jaar. Periodes van gewaarborgd loon en vakantie tellen mee. Periodes van onbetaald verlof tellen niet mee.\n\nToekenning. Ecocheques worden elektronisch toegekend in juni via de uitgever van de klant. Werknemers die vóór 31 mei uit dienst gaan, ontvangen het pro-rata bedrag bij hun laatste loonafrekening.\n\nUit dienst. Bij uitdiensttreding vermeldt de payrollconsultant het pro-rata bedrag apart op de laatste loonstrook, zodat de werknemer ziet waarvoor de ecocheques werden toegekend.\n\nAfwijkingen. Sectorale regelingen of klantafspraken kunnen een ander bedrag of een andere referteperiode bepalen. Controleer altijd het klantendossier voor je de ecocheques berekent.\n\nVragen over deze procedure richt je aan Payroll BE.",
+    "history": [
+      {
+        "author": "Jens Maes",
+        "date": "2025-03-10",
+        "change": "opmaak",
+        "summary": "Lay-out"
+      },
+      {
+        "author": "An Peeters",
+        "date": "2025-03-03",
+        "change": "inhoud",
+        "summary": "Eerste versie"
+      }
+    ]
+  },
+  {
+    "id": "doc-17",
+    "title": "Sectorakkoord ecocheques (samenvatting)",
+    "filename": "Sectorakkoord_ecocheques_samenvatting.pdf",
+    "folder": "Payroll BE / Regelgeving",
+    "country": "BE",
+    "topic": "ecocheques",
+    "layer": "sector",
+    "status": "goedgekeurd",
+    "owner": "Pieter Wouters",
+    "created": "2024-09-09",
+    "modified": "2024-09-09",
+    "text": "Sectorakkoord ecocheques – samenvatting (fictief voorbeeld)\n\nDeze samenvatting beschrijft een fictief sectorakkoord over ecocheques, gebruikt als intern opleidingsvoorbeeld. Ze is geen weergave van een bestaand akkoord.\n\nToepassingsgebied. Het akkoord geldt voor werkgevers en werknemers van de fictieve sector bedienden en administratie.\n\nBedrag. Werknemers met een volledige referteperiode ontvangen ecocheques voor een totaal van € 250 per jaar. Voor deeltijdse werknemers wordt het bedrag berekend in verhouding tot het arbeidsregime.\n\nReferteperiode. De referteperiode loopt van 1 juni van het vorige jaar tot 31 mei van het lopende jaar.\n\nAlternatief. Ondernemingen kunnen de ecocheques via een ondernemingsakkoord omzetten in een ander voordeel met dezelfde waarde, op voorwaarde dat de omzetting schriftelijk wordt vastgelegd vóór 31 maart.\n\nToekenning. De ecocheques worden uiterlijk in de maand juni toegekend. Werknemers die in de loop van de referteperiode uit dienst gaan, hebben recht op een bedrag in verhouding tot hun prestaties.\n\nGeldigheid. Ecocheques zijn twee jaar geldig en kunnen alleen gebruikt worden voor producten en diensten met een ecologisch karakter uit de lijst die de sociale partners opstellen.",
+    "history": [
+      {
+        "author": "Pieter Wouters",
+        "date": "2024-09-09",
+        "change": "inhoud",
+        "summary": "Samenvatting opgesteld"
+      }
+    ]
+  },
+  {
+    "id": "doc-18",
+    "title": "Klantafspraak ecocheques Voorbeeld NV",
+    "filename": "Klantafspraak_ecocheques_VoorbeeldNV.docx",
+    "folder": "Payroll BE / Klanten",
+    "country": "BE",
+    "topic": "ecocheques",
+    "layer": "klant",
+    "status": "goedgekeurd",
+    "owner": "An Peeters",
+    "created": "2025-04-22",
+    "modified": "2025-04-25",
+    "text": "Klantafspraak ecocheques – Voorbeeld NV (fictieve klant)\n\nDit document legt de afspraken vast met de fictieve klant Voorbeeld NV over de toekenning van ecocheques.\n\nAfwijkend bedrag. Voorbeeld NV kent via een ondernemingsakkoord ecocheques toe voor een totaal van € 300 per jaar aan voltijdse werknemers met een volledige referteperiode, in plaats van het sectorbedrag van € 250.\n\nReferteperiode. De referteperiode volgt de sector: van 1 juni van het vorige jaar tot 31 mei van het lopende jaar.\n\nToekenning. De ecocheques worden in twee delen toegekend: de helft in juni en de helft in december. De payrollconsultant zet dit als herinnering in de planning van de klant.\n\nContactpersoon. Vragen van de klant over ecocheques worden beantwoord door de vaste payrollconsultant van Voorbeeld NV. Wijzigingen aan deze afspraak moeten schriftelijk bevestigd worden door de HR-directeur van de klant.\n\nDeeltijdse werknemers. Voor deeltijdse werknemers berekent de payrollconsultant het bedrag in verhouding tot het arbeidsregime, zoals in de algemene procedure ecocheques van Payroll BE. Uitzendkrachten vallen niet onder deze afspraak.",
+    "history": [
+      {
+        "author": "Jens Maes",
+        "date": "2025-04-25",
+        "change": "opmaak",
+        "summary": "Klantlogo toegevoegd"
+      },
+      {
+        "author": "An Peeters",
+        "date": "2025-04-22",
+        "change": "inhoud",
+        "summary": "Afspraak € 300 vastgelegd"
+      }
+    ]
+  },
+  {
+    "id": "doc-19",
+    "title": "Kader loonbetaling en premies (samenvatting)",
+    "filename": "Kader_loonbetaling_premies.pdf",
+    "folder": "Payroll BE / Regelgeving",
+    "country": "BE",
+    "topic": "loonbetaling",
+    "layer": "wet",
+    "status": "goedgekeurd",
+    "owner": "Pieter Wouters",
+    "created": "2024-01-22",
+    "modified": "2024-02-02",
+    "text": "Kader loonbetaling en premies – interne samenvatting (fictief)\n\nDeze interne samenvatting beschrijft een fictief kader voor loonbetaling en premies, gebruikt als achtergrond bij de procedures van Payroll BE. Ze is geen weergave van bestaande wetgeving.\n\nLoonbetaling. Het loon wordt minstens eenmaal per maand betaald, uiterlijk op de vierde werkdag na de periode waarop het betrekking heeft.\n\nPremies. Premies zoals een eindejaarspremie worden betaald op het moment dat in de sectorregeling of het arbeidsreglement is bepaald. Ontbreekt zo een regeling, dan wordt de premie betaald samen met het loon van de maand waarin ze verschuldigd is.\n\nLoonstrook. Bij elke loonbetaling ontvangt de werknemer een loonstrook met het brutoloon, de inhoudingen, de premies en het nettoloon.\n\nBetalingswijze. Het loon wordt betaald via overschrijving op de rekening die de werknemer heeft opgegeven. Een wijziging van het rekeningnummer moet de werknemer schriftelijk melden, uiterlijk vijf werkdagen voor de loonafsluiting.\n\nInhoudingen. Inhoudingen op het loon zijn alleen toegestaan voor sociale bijdragen, bedrijfsvoorheffing, eigen bijdragen voor voordelen en andere inhoudingen waarmee de werknemer schriftelijk heeft ingestemd.",
+    "history": [
+      {
+        "author": "Jens Maes",
+        "date": "2024-02-02",
+        "change": "opmaak",
+        "summary": "Lay-out"
+      },
+      {
+        "author": "Pieter Wouters",
+        "date": "2024-01-22",
+        "change": "inhoud",
+        "summary": "Samenvatting opgesteld"
+      }
+    ]
+  },
+  {
+    "id": "doc-20",
+    "title": "Onboarding checklist Nederland",
+    "filename": "Onboarding_checklist_NL.docx",
+    "folder": "HR NL / Onboarding",
+    "country": "NL",
+    "topic": "onboarding",
+    "layer": "procedure",
+    "status": "goedgekeurd",
+    "owner": "Femke de Jong",
+    "created": "2024-08-19",
+    "modified": "2024-08-23",
+    "text": "Onboarding checklist nieuwe medewerker – Nederland\n\nDeze checklist helpt leidinggevenden en HR om een nieuwe medewerker in Nederland vlot te laten starten.\n\nVoor de eerste werkdag. HR stuurt de arbeidsovereenkomst ter ondertekening en vraagt een kopie van het identiteitsbewijs, het BSN en het rekeningnummer op. De leidinggevende bestelt laptop, pas en toegang tot de nodige systemen. Payroll NL verwerkt de medewerker in de salarisadministratie en meldt hem aan bij de pensioenuitvoerder.\n\nEerste werkdag. De leidinggevende verwelkomt de medewerker, stelt een buddy voor en overloopt de planning van de eerste weken. IT overhandigt de laptop en helpt bij de eerste aanmelding.\n\nEerste week. De medewerker volgt de verplichte opleidingen over informatieveiligheid en privacy. HR legt de verlofregeling en de secundaire arbeidsvoorwaarden uit.\n\nEerste maand. De leidinggevende plant een opvolggesprek en bespreekt de doelstellingen voor de proeftijd.\n\nNa drie maanden. Evaluatiegesprek met leidinggevende en HR. Feedback over de onboarding wordt verzameld via een korte vragenlijst, zodat de checklist regelmatig verbeterd kan worden.\n\nLet op: deze checklist geldt alleen voor Nederland. Voor medewerkers in België gebruik je de Belgische onboarding checklist.",
+    "history": [
+      {
+        "author": "Jens Maes",
+        "date": "2024-08-23",
+        "change": "opmaak",
+        "summary": "Huisstijl NL"
+      },
+      {
+        "author": "Femke de Jong",
+        "date": "2024-08-19",
+        "change": "inhoud",
+        "summary": "Eerste versie"
+      }
+    ]
+  }
+]
