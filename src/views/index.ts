@@ -10,6 +10,8 @@ export interface ViewDefinition {
   id: string
   label: string
   icon: string
+  /** Optional image shown instead of `icon` (path under /public). */
+  logo?: string
   component: ComponentType<ViewProps>
   /**
    * 'folder': shows the current folder (default).
@@ -32,5 +34,5 @@ export const views: ViewDefinition[] = [
   { id: 'tiles', label: 'Tegels', icon: '▦', component: TilesView },
   { id: 'compact', label: 'Compact', icon: '⋮⋮', component: CompactView },
   { id: 'graph', label: 'Kennisgraaf', icon: '◉', component: KnowledgeGraphView, scope: 'library' },
-  { id: 'askme', label: 'ASKME', icon: '✦', component: AskMeView, scope: 'library', search: 'question' },
+  { id: 'askme', label: 'Graffify', icon: '✦', logo: '/graffify-logo.png', component: AskMeView, scope: 'library', search: 'question' },
 ]

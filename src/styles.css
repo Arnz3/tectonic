@@ -1048,3 +1048,10 @@ button.crumb:hover {
     transition: none;
   }
 }
+
+.view-logo {
+  height: 16px;
+  width: auto;
+  vertical-align: -3px;
+  mix-blend-mode: multiply;
+}

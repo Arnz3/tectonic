@@ -127,8 +127,9 @@ function buildTopic(topicId: string, docs: Document[], color: string): Topic {
 
   // A document is replaced by a best document it is related to, if it is older.
   // Prefer a replacement in the same lane (old law → new law), then the oldest newer one.
+  // Client documents belong to different clients, so they never replace each other.
   const replacementOf = (doc: Document): string | undefined =>
-    bestDocs
+    laneOf(doc) === 'client' ? undefined : bestDocs
       .filter((b) => b.id !== doc.id && b.country === doc.country && b.modified > doc.modified && neighbours(doc.id).has(b.id))
       .sort((a, b) => Number(laneOf(a) !== laneOf(doc)) - Number(laneOf(b) !== laneOf(doc)) || a.modified.localeCompare(b.modified))[0]?.id
 

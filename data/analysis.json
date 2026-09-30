@@ -21,11 +21,11 @@
     {
       "source": "doc-03",
       "target": "doc-04",
-      "similarity": 0.96,
+      "similarity": 0.95,
       "relation": "duplicaat",
       "statement_a": "",
       "statement_b": "",
-      "explanation": "Vrijwel identieke tekst (gelijkenis 0,96)."
+      "explanation": "Vrijwel identieke tekst (gelijkenis 0,95)."
     },
     {
       "source": "doc-23",
@@ -66,7 +66,7 @@
     {
       "source": "doc-01",
       "target": "doc-02",
-      "similarity": 0.76,
+      "similarity": 0.75,
       "relation": "gelijkaardig",
       "statement_a": "",
       "statement_b": "",
@@ -75,15 +75,15 @@
     {
       "source": "doc-01",
       "target": "doc-04",
-      "similarity": 0.76,
+      "similarity": 0.74,
       "relation": "gelijkaardig",
       "statement_a": "",
       "statement_b": "",
       "explanation": ""
     },
     {
-      "source": "doc-01",
-      "target": "doc-03",
+      "source": "doc-08",
+      "target": "doc-09",
       "similarity": 0.74,
       "relation": "gelijkaardig",
       "statement_a": "",
@@ -109,9 +109,9 @@
       "explanation": ""
     },
     {
-      "source": "doc-08",
-      "target": "doc-09",
-      "similarity": 0.73,
+      "source": "doc-01",
+      "target": "doc-03",
+      "similarity": 0.72,
       "relation": "gelijkaardig",
       "statement_a": "",
       "statement_b": "",
@@ -145,18 +145,18 @@
       "explanation": "Ander land (BE en DE): ander toepassingsgebied, geen tegenstrijdigheid."
     },
     {
-      "source": "doc-02",
-      "target": "doc-05",
-      "similarity": 0.63,
-      "relation": "ander_toepassingsgebied",
+      "source": "doc-07",
+      "target": "doc-36",
+      "similarity": 0.62,
+      "relation": "gelijkaardig",
       "statement_a": "",
       "statement_b": "",
-      "explanation": "Ander land (BE en NL): ander toepassingsgebied, geen tegenstrijdigheid."
+      "explanation": ""
     },
     {
-      "source": "doc-04",
+      "source": "doc-02",
       "target": "doc-05",
-      "similarity": 0.62,
+      "similarity": 0.61,
       "relation": "ander_toepassingsgebied",
       "statement_a": "",
       "statement_b": "",
@@ -165,14 +165,14 @@
     {
       "source": "doc-01",
       "target": "doc-05",
-      "similarity": 0.62,
+      "similarity": 0.6,
       "relation": "ander_toepassingsgebied",
       "statement_a": "",
       "statement_b": "",
       "explanation": "Ander land (BE en NL): ander toepassingsgebied, geen tegenstrijdigheid."
     },
     {
-      "source": "doc-03",
+      "source": "doc-04",
       "target": "doc-05",
       "similarity": 0.6,
       "relation": "ander_toepassingsgebied",
@@ -181,27 +181,18 @@
       "explanation": "Ander land (BE en NL): ander toepassingsgebied, geen tegenstrijdigheid."
     },
     {
+      "source": "doc-03",
+      "target": "doc-05",
+      "similarity": 0.58,
+      "relation": "ander_toepassingsgebied",
+      "statement_a": "",
+      "statement_b": "",
+      "explanation": "Ander land (BE en NL): ander toepassingsgebied, geen tegenstrijdigheid."
+    },
+    {
       "source": "doc-16",
       "target": "doc-17",
-      "similarity": 0.57,
-      "relation": "gelijkaardig",
-      "statement_a": "",
-      "statement_b": "",
-      "explanation": ""
-    },
-    {
-      "source": "doc-17",
-      "target": "doc-18",
-      "similarity": 0.48,
-      "relation": "gelijkaardig",
-      "statement_a": "",
-      "statement_b": "",
-      "explanation": ""
-    },
-    {
-      "source": "doc-16",
-      "target": "doc-18",
-      "similarity": 0.48,
+      "similarity": 0.56,
       "relation": "gelijkaardig",
       "statement_a": "",
       "statement_b": "",
@@ -217,8 +208,44 @@
       "explanation": ""
     },
     {
-      "source": "doc-06",
-      "target": "doc-07",
+      "source": "doc-02",
+      "target": "doc-34",
+      "similarity": 0.47,
+      "relation": "gelijkaardig",
+      "statement_a": "",
+      "statement_b": "",
+      "explanation": ""
+    },
+    {
+      "source": "doc-04",
+      "target": "doc-34",
+      "similarity": 0.47,
+      "relation": "gelijkaardig",
+      "statement_a": "",
+      "statement_b": "",
+      "explanation": ""
+    },
+    {
+      "source": "doc-16",
+      "target": "doc-35",
+      "similarity": 0.47,
+      "relation": "gelijkaardig",
+      "statement_a": "",
+      "statement_b": "",
+      "explanation": ""
+    },
+    {
+      "source": "doc-17",
+      "target": "doc-18",
+      "similarity": 0.46,
+      "relation": "gelijkaardig",
+      "statement_a": "",
+      "statement_b": "",
+      "explanation": ""
+    },
+    {
+      "source": "doc-01",
+      "target": "doc-34",
       "similarity": 0.46,
       "relation": "gelijkaardig",
       "statement_a": "",
@@ -235,6 +262,24 @@
       "explanation": ""
     },
     {
+      "source": "doc-16",
+      "target": "doc-18",
+      "similarity": 0.46,
+      "relation": "gelijkaardig",
+      "statement_a": "",
+      "statement_b": "",
+      "explanation": ""
+    },
+    {
+      "source": "doc-03",
+      "target": "doc-34",
+      "similarity": 0.46,
+      "relation": "gelijkaardig",
+      "statement_a": "",
+      "statement_b": "",
+      "explanation": ""
+    },
+    {
       "source": "doc-23",
       "target": "doc-27",
       "similarity": 0.45,
@@ -244,18 +289,18 @@
       "explanation": ""
     },
     {
-      "source": "doc-23",
-      "target": "doc-31",
-      "similarity": 0.43,
+      "source": "doc-17",
+      "target": "doc-35",
+      "similarity": 0.45,
       "relation": "gelijkaardig",
       "statement_a": "",
       "statement_b": "",
       "explanation": ""
     },
     {
-      "source": "doc-29",
-      "target": "doc-30",
-      "similarity": 0.43,
+      "source": "doc-06",
+      "target": "doc-07",
+      "similarity": 0.44,
       "relation": "gelijkaardig",
       "statement_a": "",
       "statement_b": "",
@@ -271,8 +316,26 @@
       "explanation": ""
     },
     {
+      "source": "doc-23",
+      "target": "doc-31",
+      "similarity": 0.43,
+      "relation": "gelijkaardig",
+      "statement_a": "",
+      "statement_b": "",
+      "explanation": ""
+    },
+    {
       "source": "doc-06",
       "target": "doc-32",
+      "similarity": 0.42,
+      "relation": "gelijkaardig",
+      "statement_a": "",
+      "statement_b": "",
+      "explanation": ""
+    },
+    {
+      "source": "doc-29",
+      "target": "doc-30",
       "similarity": 0.42,
       "relation": "gelijkaardig",
       "statement_a": "",
@@ -298,15 +361,6 @@
       "explanation": ""
     },
     {
-      "source": "doc-23",
-      "target": "doc-33",
-      "similarity": 0.4,
-      "relation": "ander_toepassingsgebied",
-      "statement_a": "",
-      "statement_b": "",
-      "explanation": "Ander land (BE en NL): ander toepassingsgebied, geen tegenstrijdigheid."
-    },
-    {
       "source": "doc-26",
       "target": "doc-27",
       "similarity": 0.4,
@@ -314,6 +368,24 @@
       "statement_a": "",
       "statement_b": "",
       "explanation": ""
+    },
+    {
+      "source": "doc-05",
+      "target": "doc-34",
+      "similarity": 0.4,
+      "relation": "ander_toepassingsgebied",
+      "statement_a": "",
+      "statement_b": "",
+      "explanation": "Ander land (NL en BE): ander toepassingsgebied, geen tegenstrijdigheid."
+    },
+    {
+      "source": "doc-23",
+      "target": "doc-33",
+      "similarity": 0.39,
+      "relation": "ander_toepassingsgebied",
+      "statement_a": "",
+      "statement_b": "",
+      "explanation": "Ander land (BE en NL): ander toepassingsgebied, geen tegenstrijdigheid."
     },
     {
       "source": "doc-22",
@@ -327,7 +399,7 @@
     {
       "source": "doc-22",
       "target": "doc-23",
-      "similarity": 0.39,
+      "similarity": 0.38,
       "relation": "gelijkaardig",
       "statement_a": "",
       "statement_b": "",
@@ -336,6 +408,15 @@
     {
       "source": "doc-26",
       "target": "doc-31",
+      "similarity": 0.37,
+      "relation": "gelijkaardig",
+      "statement_a": "",
+      "statement_b": "",
+      "explanation": ""
+    },
+    {
+      "source": "doc-06",
+      "target": "doc-36",
       "similarity": 0.37,
       "relation": "gelijkaardig",
       "statement_a": "",
@@ -354,20 +435,20 @@
     {
       "source": "doc-22",
       "target": "doc-24",
-      "similarity": 0.37,
+      "similarity": 0.36,
       "relation": "gelijkaardig",
       "statement_a": "",
       "statement_b": "",
       "explanation": ""
     },
     {
-      "source": "doc-25",
-      "target": "doc-33",
+      "source": "doc-18",
+      "target": "doc-35",
       "similarity": 0.36,
-      "relation": "ander_toepassingsgebied",
+      "relation": "gelijkaardig",
       "statement_a": "",
       "statement_b": "",
-      "explanation": "Ander land (BE en NL): ander toepassingsgebied, geen tegenstrijdigheid."
+      "explanation": ""
     },
     {
       "source": "doc-21",
@@ -379,9 +460,9 @@
       "explanation": ""
     },
     {
-      "source": "doc-24",
+      "source": "doc-25",
       "target": "doc-33",
-      "similarity": 0.36,
+      "similarity": 0.35,
       "relation": "ander_toepassingsgebied",
       "statement_a": "",
       "statement_b": "",
@@ -444,22 +525,23 @@
         "doc-01",
         "doc-02",
         "doc-03",
-        "doc-04"
+        "doc-04",
+        "doc-34"
       ],
       "topic": "maaltijdcheques",
-      "independent_sources": 2,
+      "independent_sources": 3,
       "experts": [
         {
           "author": "An Peeters",
-          "score": 4.75,
-          "inhoud": 6,
+          "score": 5.69,
+          "inhoud": 7,
           "opmaak": 0,
-          "documents": 2,
+          "documents": 3,
           "last_activity": "2025-03-12",
           "reasons": [
             "Eigenaar van het aanbevolen document",
             "4 inhoudelijke wijzigingen op het aanbevolen document",
-            "Werkte inhoudelijk aan 2 documenten",
+            "Werkte inhoudelijk aan 3 documenten",
             "Laatste inhoudelijke wijziging: 12/03/2025"
           ],
           "warning": null
@@ -532,22 +614,23 @@
       "documents": [
         "doc-06",
         "doc-07",
-        "doc-32"
+        "doc-32",
+        "doc-36"
       ],
       "topic": "eindejaarspremie",
-      "independent_sources": 3,
+      "independent_sources": 4,
       "experts": [
         {
           "author": "Pieter Wouters",
-          "score": 2.94,
-          "inhoud": 2,
+          "score": 3.87,
+          "inhoud": 3,
           "opmaak": 0,
-          "documents": 1,
+          "documents": 2,
           "last_activity": "2025-05-15",
           "reasons": [
             "Eigenaar van het aanbevolen document",
             "2 inhoudelijke wijzigingen op het aanbevolen document",
-            "Werkte inhoudelijk aan 1 document",
+            "Werkte inhoudelijk aan 2 documenten",
             "Laatste inhoudelijke wijziging: 15/05/2025"
           ],
           "warning": null
@@ -768,36 +851,37 @@
       "documents": [
         "doc-16",
         "doc-17",
-        "doc-18"
+        "doc-18",
+        "doc-35"
       ],
       "topic": "ecocheques",
-      "independent_sources": 3,
+      "independent_sources": 4,
       "experts": [
         {
           "author": "An Peeters",
-          "score": 3.24,
-          "inhoud": 2,
+          "score": 4.22,
+          "inhoud": 3,
           "opmaak": 0,
-          "documents": 2,
+          "documents": 3,
           "last_activity": "2025-04-22",
           "reasons": [
             "Eigenaar van het aanbevolen document",
             "1 inhoudelijke wijziging op het aanbevolen document",
-            "Werkte inhoudelijk aan 2 documenten",
+            "Werkte inhoudelijk aan 3 documenten",
             "Laatste inhoudelijke wijziging: 22/04/2025"
           ],
           "warning": null
         },
         {
           "author": "Pieter Wouters",
-          "score": 0.87,
-          "inhoud": 1,
+          "score": 1.85,
+          "inhoud": 2,
           "opmaak": 0,
-          "documents": 1,
-          "last_activity": "2024-09-09",
+          "documents": 2,
+          "last_activity": "2025-01-13",
           "reasons": [
-            "Werkte inhoudelijk aan 1 document",
-            "Laatste inhoudelijke wijziging: 09/09/2024"
+            "Werkte inhoudelijk aan 2 documenten",
+            "Laatste inhoudelijke wijziging: 13/01/2025"
           ],
           "warning": null
         }
@@ -981,6 +1065,72 @@
           "reasons": [
             "Werkte inhoudelijk aan 1 document",
             "Laatste inhoudelijke wijziging: 12/03/2024"
+          ],
+          "warning": null
+        }
+      ]
+    },
+    {
+      "documents": [
+        "doc-37"
+      ],
+      "topic": "verlof",
+      "independent_sources": 1,
+      "experts": [
+        {
+          "author": "An Peeters",
+          "score": 0.55,
+          "inhoud": 1,
+          "opmaak": 0,
+          "documents": 1,
+          "last_activity": "2021-09-01",
+          "reasons": [
+            "Werkte inhoudelijk aan 1 document",
+            "Laatste inhoudelijke wijziging: 01/09/2021"
+          ],
+          "warning": null
+        }
+      ]
+    },
+    {
+      "documents": [
+        "doc-38"
+      ],
+      "topic": "bedrijfswagens",
+      "independent_sources": 1,
+      "experts": [
+        {
+          "author": "Pieter Wouters",
+          "score": 0.8,
+          "inhoud": 1,
+          "opmaak": 0,
+          "documents": 1,
+          "last_activity": "2024-05-15",
+          "reasons": [
+            "Werkte inhoudelijk aan 1 document",
+            "Laatste inhoudelijke wijziging: 15/05/2024"
+          ],
+          "warning": null
+        }
+      ]
+    },
+    {
+      "documents": [
+        "doc-39"
+      ],
+      "topic": "onboarding",
+      "independent_sources": 1,
+      "experts": [
+        {
+          "author": "Sofie Claes",
+          "score": 0.93,
+          "inhoud": 1,
+          "opmaak": 0,
+          "documents": 1,
+          "last_activity": "2025-08-01",
+          "reasons": [
+            "Werkte inhoudelijk aan 1 document",
+            "Laatste inhoudelijke wijziging: 01/08/2025"
           ],
           "warning": null
         }
@@ -1298,6 +1448,54 @@
     },
     "doc-33": {
       "Femke de Jong": {
+        "inhoud": 1,
+        "opmaak": 0
+      }
+    },
+    "doc-34": {
+      "An Peeters": {
+        "inhoud": 1,
+        "opmaak": 0
+      },
+      "Jens Maes": {
+        "inhoud": 0,
+        "opmaak": 1
+      }
+    },
+    "doc-35": {
+      "An Peeters": {
+        "inhoud": 1,
+        "opmaak": 0
+      },
+      "Pieter Wouters": {
+        "inhoud": 1,
+        "opmaak": 0
+      }
+    },
+    "doc-36": {
+      "Pieter Wouters": {
+        "inhoud": 1,
+        "opmaak": 0
+      },
+      "Jens Maes": {
+        "inhoud": 0,
+        "opmaak": 1
+      }
+    },
+    "doc-37": {
+      "An Peeters": {
+        "inhoud": 1,
+        "opmaak": 0
+      }
+    },
+    "doc-38": {
+      "Pieter Wouters": {
+        "inhoud": 1,
+        "opmaak": 0
+      }
+    },
+    "doc-39": {
+      "Sofie Claes": {
         "inhoud": 1,
         "opmaak": 0
       }

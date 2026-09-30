@@ -3,7 +3,8 @@ import { primaryCluster, type AnalysisEdge } from './analysis'
 import { EdgePanel } from './components/EdgePanel'
 import { PersonPanel } from './components/PersonPanel'
 import { PreviewPanel } from './components/PreviewPanel'
-import { libraryItems } from './library'
+import { documents, libraryItems } from './library'
+import { buildTopics, topicForQuestion } from './views/askme/askmeData'
 import type { Document, FileItem, SortKey, SortState } from './types'
 import { views } from './views'
 import { isSearchGap, MAX_QUERY_LENGTH, useVoteSummaries } from './votes'
@@ -17,6 +18,16 @@ function matches(item: FileItem, q: string): boolean {
     (doc !== undefined &&
       (doc.title.toLowerCase().includes(q) || doc.topic.toLowerCase().includes(q) || doc.text.toLowerCase().includes(q)))
   )
+}
+
+const allTopics = buildTopics(documents)
+
+/** Plain search first; a question without literal matches shows the documents of its topic. */
+function searchOrAsk(q: string): FileItem[] {
+  const hits = libraryItems.filter((f) => matches(f, q))
+  if (hits.length > 0) return hits
+  const topic = topicForQuestion(q, allTopics, documents)
+  return topic ? libraryItems.filter((f) => f.document?.topic === topic.id) : []
 }
 
 function ancestors(folderId: string | null): FileItem[] {
@@ -70,7 +81,7 @@ export default function App() {
   const items = useMemo(() => {
     const q = query.trim().toLowerCase()
     const source = q && !questionMode
-      ? libraryItems.filter((f) => matches(f, q))
+      ? searchOrAsk(q)
       : libraryScope
         ? libraryItems.filter((f) => f.document)
         : libraryItems.filter((f) => f.parentId === folderId)
@@ -147,7 +158,7 @@ export default function App() {
                   className={v.id === view.id ? 'active' : ''}
                   onClick={() => changeView(v.id)}
                 >
-                  <span aria-hidden>{v.icon}</span> {v.label}
+                  {v.logo ? <img className="view-logo" src={v.logo} alt="" /> : <span aria-hidden>{v.icon}</span>} {v.label}
                 </button>
               ))}
             </div>

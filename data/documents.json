@@ -873,7 +873,7 @@
     "id": "doc-28",
     "title": "Klantafspraak extra verlofdag Bakkerij Janssens",
     "filename": "Klantafspraak_verlofdag_Bakkerij_Janssens.pdf",
-    "folder": "Payroll BE / Klanten",
+    "folder": "Payroll BE / Klanten / Bakkerij Janssens",
     "country": "BE",
     "topic": "geboorteverlof",
     "layer": "klant",
@@ -901,7 +901,7 @@
     "id": "doc-29",
     "title": "Geboorteakte Jan (Bakkerij Janssens)",
     "filename": "Geboorteakte_Jan_Bakkerij_Janssens.pdf",
-    "folder": "Payroll BE / Klanten",
+    "folder": "Payroll BE / Klanten / Bakkerij Janssens",
     "country": "BE",
     "topic": "geboorteverlof",
     "layer": "klant",
@@ -923,7 +923,7 @@
     "id": "doc-30",
     "title": "Loonfiche Jan september 2025",
     "filename": "Loonfiche_Jan_2025-09.pdf",
-    "folder": "Payroll BE / Klanten",
+    "folder": "Payroll BE / Klanten / Bakkerij Janssens",
     "country": "BE",
     "topic": "geboorteverlof",
     "layer": "klant",
@@ -1010,6 +1010,156 @@
         "date": "2024-03-12",
         "change": "inhoud",
         "summary": "Procedure opgesteld"
+      }
+    ]
+  },
+  {
+    "id": "doc-34",
+    "title": "Klantafspraak maaltijdcheques Bakkerij Janssens",
+    "filename": "Klantafspraak_maaltijdcheques_Bakkerij_Janssens.pdf",
+    "folder": "Payroll BE / Klanten / Bakkerij Janssens",
+    "country": "BE",
+    "topic": "maaltijdcheques",
+    "layer": "klant",
+    "status": "goedgekeurd",
+    "owner": "An Peeters",
+    "created": "2024-12-02",
+    "modified": "2024-12-10",
+    "text": "Bakkerij Janssens kent maaltijdcheques toe aan al haar werknemers, ook aan de deeltijdse verkopers. Per effectief gewerkte dag ontvangt de werknemer één maaltijdcheque. De werkgeversbijdrage volgt de procedure maaltijdcheques 2025 van Payroll BE; de bakkerij kiest niet voor een lagere bijdrage. Dagen klein verlet, ziekte en geboorteverlof geven geen recht op een maaltijdcheque. Voor werknemers die om vier uur 's nachts beginnen en een korte dag presteren, telt elke begonnen dag als gewerkte dag. De cheques worden elektronisch toegekend via de kaart van de uitgever, samen met de loonverwerking van de maand. De payrollconsultant controleert elke maand het aantal gewerkte dagen in de prestaties die de zaakvoerder doorgeeft.",
+    "history": [
+      {
+        "author": "An Peeters",
+        "date": "2024-12-10",
+        "change": "inhoud",
+        "summary": "Afspraak 2025 vastgelegd"
+      },
+      {
+        "author": "Jens Maes",
+        "date": "2024-12-02",
+        "change": "opmaak",
+        "summary": "Scan opgeladen"
+      }
+    ]
+  },
+  {
+    "id": "doc-35",
+    "title": "Ecocheques Bakkerij Janssens 2025",
+    "filename": "Ecocheques_Bakkerij_Janssens_2025.pdf",
+    "folder": "Payroll BE / Klanten / Bakkerij Janssens",
+    "country": "BE",
+    "topic": "ecocheques",
+    "layer": "klant",
+    "status": "goedgekeurd",
+    "owner": "An Peeters",
+    "created": "2025-01-13",
+    "modified": "2025-01-20",
+    "text": "Bakkerij Janssens betaalt de ecocheques jaarlijks uit in december, samen met het loon van november. Het bedrag volgt het sectorakkoord ecocheques en wordt pro rata berekend volgens de prestaties in de referteperiode. Deeltijdse werknemers ontvangen een bedrag in verhouding tot hun arbeidsregime. Werknemers die in de loop van het jaar vertrekken, krijgen hun ecocheques bij de eindafrekening. De zaakvoerder vroeg om de ecocheques elektronisch toe te kennen, op dezelfde kaart als de maaltijdcheques. De payrollconsultant stuurt in november een overzicht per werknemer naar de zaakvoerder ter controle. Deze afspraak vervangt eerdere mondelinge afspraken over een uitbetaling in juni.",
+    "history": [
+      {
+        "author": "An Peeters",
+        "date": "2025-01-20",
+        "change": "inhoud",
+        "summary": "Uitbetaling in december"
+      },
+      {
+        "author": "Pieter Wouters",
+        "date": "2025-01-13",
+        "change": "inhoud",
+        "summary": "Pro rata toegevoegd"
+      }
+    ]
+  },
+  {
+    "id": "doc-36",
+    "title": "Eindejaarspremie Bakkerij Janssens",
+    "filename": "Eindejaarspremie_Bakkerij_Janssens.pdf",
+    "folder": "Payroll BE / Klanten / Bakkerij Janssens",
+    "country": "BE",
+    "topic": "eindejaarspremie",
+    "layer": "klant",
+    "status": "goedgekeurd",
+    "owner": "Pieter Wouters",
+    "created": "2024-11-12",
+    "modified": "2024-11-20",
+    "text": "De eindejaarspremie bij Bakkerij Janssens volgt de sectorregeling voor ambachtelijke bakkerijen. Werknemers met minstens zes maanden anciënniteit op 31 december ontvangen een eindejaarspremie gelijk aan hun brutomaandloon van december. Wie in de loop van het jaar vertrekt, krijgt een premie pro rata de gewerkte maanden. De premie wordt uitbetaald met het loon van december. Correcties moeten uiterlijk begin december bij de payrollconsultant zijn, zodat ze in dezelfde loonrun worden verwerkt. Periodes van geboorteverlof en ziekte tellen mee als gelijkgestelde periodes. De zaakvoerder bevestigt elk jaar in november de lijst van werknemers die recht hebben op de premie.",
+    "history": [
+      {
+        "author": "Pieter Wouters",
+        "date": "2024-11-20",
+        "change": "inhoud",
+        "summary": "Sectorregeling toegepast"
+      },
+      {
+        "author": "Jens Maes",
+        "date": "2024-11-12",
+        "change": "opmaak",
+        "summary": "Lay-out"
+      }
+    ]
+  },
+  {
+    "id": "doc-37",
+    "title": "Arbeidsreglement Bakkerij Janssens: verlof",
+    "filename": "Arbeidsreglement_Bakkerij_Janssens_verlof.pdf",
+    "folder": "Payroll BE / Klanten / Bakkerij Janssens",
+    "country": "BE",
+    "topic": "verlof",
+    "layer": "klant",
+    "status": "goedgekeurd",
+    "owner": "An Peeters",
+    "created": "2021-08-20",
+    "modified": "2021-09-01",
+    "text": "Uittreksel uit het arbeidsreglement over verlof. De arbeidstijd bedraagt 38 uur per week, gespreid over vijf dagen, met vroege diensten vanaf vier uur. Vakantiedagen worden minstens een maand vooraf aangevraagd bij de zaakvoerder. In de weken voor Pasen, de eindejaarsperiode en de lokale kermis kan geen vakantie worden opgenomen, behalve in overleg. Klein verlet en geboorteverlof volgen de wettelijke regels; het ondernemingsakkoord kent bij een geboorte één extra verlofdag toe. Afwezigheden worden dezelfde dag gemeld bij de zaakvoerder. Het verlof wordt geregistreerd in het HR-portaal zodat de payrollconsultant het correct kan verwerken in de loonverwerking.",
+    "history": [
+      {
+        "author": "An Peeters",
+        "date": "2021-09-01",
+        "change": "inhoud",
+        "summary": "Uittreksel verlof"
+      }
+    ]
+  },
+  {
+    "id": "doc-38",
+    "title": "Bestelwagen Bakkerij Janssens: voordeel alle aard",
+    "filename": "Bestelwagen_Bakkerij_Janssens.pdf",
+    "folder": "Payroll BE / Klanten / Bakkerij Janssens",
+    "country": "BE",
+    "topic": "bedrijfswagens",
+    "layer": "klant",
+    "status": "goedgekeurd",
+    "owner": "Pieter Wouters",
+    "created": "2024-05-06",
+    "modified": "2024-05-15",
+    "text": "Bakkerij Janssens heeft één bestelwagen voor leveringen aan restaurants en winkels. De chauffeur mag de bestelwagen na de leveringen meenemen naar huis, omdat hij de volgende ochtend vroeg vertrekt. Privégebruik in het weekend is niet toegestaan. Omdat de wagen enkel voor woon-werkverkeer wordt gebruikt, geldt er volgens de car policy van Payroll BE geen voordeel alle aard, zolang het verbod op privégebruik schriftelijk is vastgelegd. De tankkaart mag alleen voor de bestelwagen worden gebruikt. De zaakvoerder bezorgt elk jaar het rittenregister aan de payrollconsultant. Bij een wijziging van de chauffeur of het gebruik wordt deze afspraak opnieuw bekeken.",
+    "history": [
+      {
+        "author": "Pieter Wouters",
+        "date": "2024-05-15",
+        "change": "inhoud",
+        "summary": "Geen voordeel alle aard"
+      }
+    ]
+  },
+  {
+    "id": "doc-39",
+    "title": "Onboarding nieuwe bakker Bakkerij Janssens",
+    "filename": "Onboarding_Bakkerij_Janssens.docx",
+    "folder": "Payroll BE / Klanten / Bakkerij Janssens",
+    "country": "BE",
+    "topic": "onboarding",
+    "layer": "klant",
+    "status": "concept",
+    "owner": "Sofie Claes",
+    "created": "2025-07-28",
+    "modified": "2025-08-01",
+    "text": "Checklist voor de indiensttreding van een nieuwe bakker of verkoper bij Bakkerij Janssens. Deze checklist is nog in concept. Voor de eerste werkdag: Dimona-aangifte, arbeidsovereenkomst met vermelding van de vroege diensten, kopie van de identiteitskaart en het rekeningnummer. Registreer de werknemer in de payroll volgens de werkinstructie nieuwe medewerker registreren. Bezorg de werknemer het arbeidsreglement en de afspraken over maaltijdcheques en ecocheques. Plan een opleiding hygiëne en voedselveiligheid in de eerste week. De zaakvoerder bevestigt de indiensttreding per mail aan de payrollconsultant, uiterlijk de dag voor de start.",
+    "history": [
+      {
+        "author": "Sofie Claes",
+        "date": "2025-08-01",
+        "change": "inhoud",
+        "summary": "Eerste versie"
       }
     ]
   }
