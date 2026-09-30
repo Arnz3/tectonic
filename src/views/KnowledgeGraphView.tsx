@@ -1,8 +1,10 @@
-import { useEffect, useMemo, useRef } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { DataSet, Network, type Edge, type Node, type Options } from 'vis-network/standalone'
 import { analysis, contentChanges, independentSources, primaryCluster, type AnalysisEdge, type Relation } from '../analysis'
 import { libraryItems } from '../library'
+import { formatDate } from '../format'
 import type { Document, FileItem, ViewProps } from '../types'
+import { timelineLayout, type TimelineLayout } from './timelineLayout'
 
 export const statusColors: Record<Document['status'], string> = {
   goedgekeurd: '#0078d4',
@@ -19,6 +21,8 @@ export const relationStyles: Record<Relation, { label: string; color: string; wi
 }
 
 const fileById = new Map(libraryItems.filter((f) => f.document).map((f) => [f.id, f]))
+
+type LayoutMode = 'free' | 'timeline'
 
 const options: Options = {
   // Fixed seed so the demo lays out the same way every time.
@@ -62,8 +66,64 @@ function toNode(doc: Document): Node {
     },
     font: reasons ? { color: RECOMMENDED_BORDER, bold: { color: RECOMMENDED_BORDER } } : undefined,
     widthConstraint: { maximum: 170 },
-    title: tooltip([doc.filename, `${doc.folder} · ${doc.country} · ${doc.status}`, `${changes} inhoudelijke wijzigingen`]),
+    title: tooltip([
+      doc.filename,
+      `${doc.folder} · ${doc.country} · ${doc.status}`,
+      `Gewijzigd: ${formatDate(doc.modified)}`,
+      `${changes} inhoudelijke wijzigingen`,
+    ]),
   }
+}
+
+// Invisible, non-interactive nodes at the corners of the timeline, so fit() keeps lane labels and the axis in view.
+function anchorNodes(layout: TimelineLayout): Node[] {
+  const invisible = { shape: 'dot', size: 0, color: 'rgba(0,0,0,0)', label: undefined, chosen: false, physics: false }
+  return [
+    { id: '__anchor-top-left', x: -230, y: 0, ...invisible },
+    { id: '__anchor-bottom-right', x: layout.width + 60, y: layout.axisY + 45, ...invisible },
+  ]
+}
+
+/** Lanes, date grid and axis, drawn on the canvas below the nodes. Text via fillText, never as HTML. */
+function drawTimeline(ctx: CanvasRenderingContext2D, layout: TimelineLayout) {
+  const left = -230
+  const right = layout.width + 60
+  ctx.save()
+  layout.lanes.forEach((lane, i) => {
+    ctx.fillStyle = i % 2 === 0 ? 'rgba(3, 120, 124, 0.05)' : 'rgba(0, 0, 0, 0)'
+    ctx.fillRect(left, lane.top, right - left, lane.bottom - lane.top)
+    ctx.strokeStyle = '#e1dfdd'
+    ctx.lineWidth = 1
+    ctx.beginPath()
+    ctx.moveTo(left, lane.bottom)
+    ctx.lineTo(right, lane.bottom)
+    ctx.stroke()
+    ctx.fillStyle = '#605e5c'
+    ctx.font = '600 16px Segoe UI, system-ui, sans-serif'
+    ctx.textAlign = 'left'
+    ctx.textBaseline = 'top'
+    ctx.fillText(lane.label, left + 12, lane.top + 12)
+  })
+  ctx.setLineDash([4, 6])
+  ctx.strokeStyle = '#d2d0ce'
+  ctx.fillStyle = '#605e5c'
+  ctx.font = '13px Segoe UI, system-ui, sans-serif'
+  ctx.textAlign = 'center'
+  for (const tick of layout.ticks) {
+    ctx.beginPath()
+    ctx.moveTo(tick.x, 0)
+    ctx.lineTo(tick.x, layout.axisY)
+    ctx.stroke()
+    ctx.fillText(tick.label, tick.x, layout.axisY + 12)
+  }
+  ctx.setLineDash([])
+  ctx.strokeStyle = '#8a8886'
+  ctx.lineWidth = 2
+  ctx.beginPath()
+  ctx.moveTo(left, layout.axisY)
+  ctx.lineTo(right, layout.axisY)
+  ctx.stroke()
+  ctx.restore()
 }
 
 const edgeId = (e: AnalysisEdge) => `${e.source}|${e.target}`
@@ -76,6 +136,8 @@ export function KnowledgeGraphView({ items, onOpen, onSelectEdge }: ViewProps) {
   onOpenRef.current = onOpen
   const onSelectEdgeRef = useRef(onSelectEdge)
   onSelectEdgeRef.current = onSelectEdge
+  const [mode, setMode] = useState<LayoutMode>('free')
+  const timelineRef = useRef<TimelineLayout | null>(null)
 
   // The graph shows the given documents plus their direct neighbours (1 hop).
   const { matchedIds, docIds, edges } = useMemo(() => {
@@ -106,6 +168,9 @@ export function KnowledgeGraphView({ items, onOpen, onSelectEdge }: ViewProps) {
       const edge = params.edges.length === 1 ? edgeById.get(params.edges[0]) : undefined
       if (edge) onSelectEdgeRef.current(edge)
     })
+    network.on('beforeDrawing', (ctx: CanvasRenderingContext2D) => {
+      if (timelineRef.current) drawTimeline(ctx, timelineRef.current)
+    })
     networkRef.current = network
     // Keep the graph centred when the container changes size, e.g. when the side panel opens.
     const resizeObserver = new ResizeObserver(() => {
@@ -121,7 +186,19 @@ export function KnowledgeGraphView({ items, onOpen, onSelectEdge }: ViewProps) {
   }, [])
 
   useEffect(() => {
-    const nodes = new DataSet<Node>(docIds.map((id) => toNode(fileById.get(id)!.document!)))
+    const network = networkRef.current
+    if (!network) return
+    const docs = docIds.map((id) => fileById.get(id)!.document!)
+    const viewport = { width: containerRef.current?.clientWidth || 1000, height: containerRef.current?.clientHeight || 600 }
+    const layout = mode === 'timeline' && docs.length > 0 ? timelineLayout(docs, viewport) : null
+    timelineRef.current = layout
+
+    const docNodes = docs.map((doc) => {
+      const node = toNode(doc)
+      const pos = layout?.positions.get(doc.id)
+      return pos ? { ...node, ...pos, fixed: { x: true, y: true } } : node
+    })
+    const nodes = new DataSet<Node>(layout ? [...docNodes, ...anchorNodes(layout)] : docNodes)
     const visEdges = new DataSet<Edge>(
       edges.map((e) => {
         const style = relationStyles[e.relation]
@@ -138,19 +215,37 @@ export function KnowledgeGraphView({ items, onOpen, onSelectEdge }: ViewProps) {
         }
       }),
     )
-    networkRef.current?.setData({ nodes, edges: visEdges })
-  }, [docIds, edges])
+    // Timeline positions are fixed, so physics would only fight them.
+    network.setOptions({
+      physics: { enabled: layout === null },
+      // Curved edges in the timeline so lines between nodes in one row do not run through the nodes in between.
+      edges: { smooth: layout ? { enabled: true, type: 'curvedCW', roundness: 0.25 } : false },
+    })
+    network.setData({ nodes, edges: visEdges })
+    if (layout) network.fit({ animation: false })
+  }, [docIds, edges, mode])
 
   return (
     <div className="graph-view">
-      {docIds.length > 0 && (
-        <div className="sources-badge">
-          {docIds.length} {docIds.length === 1 ? 'document' : 'documenten'} gevonden ·{' '}
-          <strong>
-            {independentSources(docIds)} {independentSources(docIds) === 1 ? 'onafhankelijke bron' : 'onafhankelijke bronnen'}
-          </strong>
+      <div className="graph-toolbar">
+        {docIds.length > 0 && (
+          <span className="sources-badge">
+            {docIds.length} {docIds.length === 1 ? 'document' : 'documenten'} gevonden ·{' '}
+            <strong>
+              {independentSources(docIds)} {independentSources(docIds) === 1 ? 'onafhankelijke bron' : 'onafhankelijke bronnen'}
+            </strong>
+          </span>
+        )}
+        <div className="spacer" />
+        <div className="segmented" role="group" aria-label="Indeling">
+          <button className={mode === 'free' ? 'active' : ''} aria-pressed={mode === 'free'} onClick={() => setMode('free')}>
+            Vrije graaf
+          </button>
+          <button className={mode === 'timeline' ? 'active' : ''} aria-pressed={mode === 'timeline'} onClick={() => setMode('timeline')}>
+            Tijdlijnweergave
+          </button>
         </div>
-      )}
+      </div>
       <Legend />
       <div className="graph-body">
         <div className="graph-area">
