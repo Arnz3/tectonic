@@ -191,3 +191,43 @@ Echte SharePoint/SPFx-integratie, authenticatie, database, vectordatabase, embed
 4. Klik rode lijn → twee bedragen letterlijk naast elkaar + uitleg.
 5. Klik doc-01 → redenen van aanbeveling.
 6. Paneel "Wie weet hier meer van?" → de persoon met de meeste inhoudelijke wijzigingen bovenaan.
+
+## 12. Uitbreidingen (na M4, in deze volgorde)
+
+### M4b – Expertscore (in analyze.py, output in analysis.json)
+Per zoekcluster/verbonden component, per auteur:
+
+score = Σ over inhoud-wijzigingen:
+          doc_weight × recency_weight
+        + 0.5 × aantal_verschillende_documenten
+        + 1.0 als eigenaar van het aanbevolen document
+
+doc_weight: aanbevolen = 1.0, goedgekeurd = 0.8, concept = 0.5,
+            verouderd of kopie in duplicaatgroep = 0.2
+recency_weight: 0.5 ^ (dagen_geleden / 365)
+opmaak-wijzigingen: tellen niet mee in de score (wel tonen, apart).
+
+Output per auteur: score, aantal inhoud-wijzigingen, aantal documenten,
+laatste activiteit, reasons[] (leesbare NL-strings), warning (nullable).
+warning = "Werkte vooral aan verouderde versies" als > 50% van zijn
+inhoud-wijzigingen op documenten met doc_weight ≤ 0.2 valt.
+
+Dataset: voeg een auteur "Tom" toe met veel inhoud-wijzigingen op
+doc-02/03/04 (verouderd + kopieën) en bijna niets op doc-01.
+
+UI: paneel "Aanspreekpunt" (niet "expert"): top 3 met score-balk,
+redenen en eventuele waarschuwing in waarschuwingskleur.
+
+### M4c – Tijd als x-as
+Knopen x-positie vast op `modified` (lineaire schaal over zichtbare docs),
+y in banen per land. vis-network: physics uit of alleen verticaal.
+Datumlabels onder de as. Schakelaar "Tijdlijnweergave / Vrije graaf".
+
+### M4d – Mensen als knopen (schakelaar "Toon mensen")
+Ronde knopen per auteur, verbonden met documenten waar ze inhoud-wijzigingen
+deden. Lijndikte = aantal wijzigingen. Andere vorm en kleur dan documenten.
+Klik op persoon = zijpaneel met score, redenen en waarschuwing.
+
+### Later / alleen in pitch
+Tijdschuifregelaar, bel rond duplicaatgroepen, focusmodus bij conflict,
+transparantie volgens veroudering.

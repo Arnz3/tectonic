@@ -57,14 +57,17 @@ export default function App() {
 
   const view = views.find((v) => v.id === viewId) ?? views[0]
   const searching = query.trim().length > 0
+  const libraryScope = view.scope === 'library'
 
   const items = useMemo(() => {
     const q = query.trim().toLowerCase()
     const source = q
       ? libraryItems.filter((f) => matches(f, q))
-      : libraryItems.filter((f) => f.parentId === folderId)
+      : libraryScope
+        ? libraryItems.filter((f) => f.document)
+        : libraryItems.filter((f) => f.parentId === folderId)
     return [...source].sort((a, b) => compare(a, b, sort))
-  }, [folderId, query, sort])
+  }, [folderId, query, sort, libraryScope])
 
   function changeView(id: string) {
     setViewId(id)
@@ -141,6 +144,8 @@ export default function App() {
               <span className="crumb current">
                 Zoekresultaten voor “{query.trim()}” ({items.length})
               </span>
+            ) : libraryScope ? (
+              <span className="crumb current">Alle documenten ({items.length})</span>
             ) : (
               <>
                 <button className="crumb" onClick={() => setFolderId(null)}>
@@ -158,7 +163,7 @@ export default function App() {
             )}
           </div>
 
-          {items.length === 0 ? (
+          {items.length === 0 && !libraryScope ? (
             <div className="empty">{searching ? 'Geen bestanden gevonden.' : 'Deze map is leeg.'}</div>
           ) : (
             <ViewComponent

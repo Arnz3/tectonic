@@ -1,9 +1,11 @@
+import { analysis } from '../analysis'
 import { formatDate } from '../format'
 import type { Document } from '../types'
 
 const countryLabel: Record<Document['country'], string> = { BE: 'België', NL: 'Nederland', DE: 'Duitsland' }
 
 export function PreviewPanel({ doc, onClose }: { doc: Document; onClose: () => void }) {
+  const reasons = analysis.recommended[doc.id]
   return (
     <aside className="preview-panel" aria-label="Voorbeeld">
       <div className="preview-header">
@@ -35,6 +37,17 @@ export function PreviewPanel({ doc, onClose }: { doc: Document; onClose: () => v
         <dt>Gewijzigd</dt>
         <dd>{formatDate(doc.modified)}</dd>
       </dl>
+
+      {reasons && (
+        <div className="recommended-box">
+          <div className="recommended-title">✓ Aanbevolen document</div>
+          <ul>
+            {reasons.map((r) => (
+              <li key={r}>{r}</li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       <h3>Inhoud</h3>
       <div className="preview-text">{doc.text}</div>
