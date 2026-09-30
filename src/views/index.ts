@@ -1,5 +1,6 @@
 import type { ComponentType } from 'react'
 import type { ViewProps } from '../types'
+import { AskMeView } from './AskMeView'
 import { CompactView } from './CompactView'
 import { KnowledgeGraphView } from './KnowledgeGraphView'
 import { ListView } from './ListView'
@@ -15,6 +16,11 @@ export interface ViewDefinition {
    * 'library': shows every document in the library, regardless of the open folder.
    */
   scope?: 'folder' | 'library'
+  /**
+   * 'filter': the search box filters `items` (default).
+   * 'question': the search box is a question; the view receives all items and reads `query` itself.
+   */
+  search?: 'filter' | 'question'
 }
 
 /**
@@ -26,4 +32,5 @@ export const views: ViewDefinition[] = [
   { id: 'tiles', label: 'Tegels', icon: '▦', component: TilesView },
   { id: 'compact', label: 'Compact', icon: '⋮⋮', component: CompactView },
   { id: 'graph', label: 'Kennisgraaf', icon: '◉', component: KnowledgeGraphView, scope: 'library' },
+  { id: 'askme', label: 'ASKME', icon: '✦', component: AskMeView, scope: 'library', search: 'question' },
 ]

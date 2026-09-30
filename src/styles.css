@@ -747,3 +747,304 @@ button.crumb:hover {
   background: #fdf3f4;
   color: #a4262c;
 }
+
+/* ASKME: topic graph and trust timeline */
+.askme {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.askme-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 14px;
+}
+.askme-back {
+  color: var(--accent);
+  font-weight: 600;
+  padding: 0;
+}
+.askme-back:hover {
+  text-decoration: underline;
+}
+.askme-sep {
+  color: var(--muted);
+}
+.askme-hint {
+  color: var(--muted);
+  font-size: 13px;
+}
+.askme-stage-wrap {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.askme-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.askme-stage {
+  position: relative;
+  height: 560px;
+}
+.askme-stage svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.askme-timeline {
+  min-width: 640px;
+}
+.askme-tip {
+  position: absolute;
+  pointer-events: none;
+  background: #242424;
+  color: #fff;
+  font-size: 12px;
+  line-height: 1.4;
+  padding: 7px 10px;
+  border-radius: 6px;
+  max-width: 300px;
+  opacity: 0;
+  transition: opacity 0.12s;
+  z-index: 5;
+}
+.askme-tip-title {
+  font-weight: 600;
+}
+
+/* topic graph */
+.askme-link {
+  stroke: #d2d0ce;
+  stroke-width: 1.6;
+}
+.askme-bubble {
+  stroke-width: 2;
+}
+.askme-topic {
+  cursor: pointer;
+}
+.askme-topic:focus-visible {
+  outline: none;
+}
+.askme-topic:focus-visible .askme-bubble {
+  stroke-width: 4;
+}
+.askme-center-glyph {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.8;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+.askme-count {
+  text-anchor: middle;
+  font-size: 22px;
+  font-weight: 700;
+  pointer-events: none;
+}
+.askme-node-label {
+  text-anchor: middle;
+  font-size: 15px;
+  font-weight: 600;
+  fill: var(--text);
+  pointer-events: none;
+}
+.askme-node-sub {
+  text-anchor: middle;
+  font-size: 12px;
+  fill: var(--muted);
+  pointer-events: none;
+}
+
+/* timeline */
+.askme-lane-bg {
+  fill: #fff;
+}
+.askme-lane-bg.alt {
+  fill: #f7f8fa;
+}
+.askme-lane-sep {
+  stroke: var(--border);
+}
+.askme-lane-name {
+  font-size: 17px;
+  font-weight: 600;
+  fill: var(--text);
+}
+.askme-lane-count {
+  font-size: 13.5px;
+  fill: var(--muted);
+}
+.askme-lane-none {
+  font-size: 12px;
+  font-weight: 600;
+  fill: #c8373c;
+}
+.askme-grid {
+  stroke: #e9ebee;
+}
+.askme-base {
+  stroke: var(--border);
+}
+.askme-year {
+  font-size: 14px;
+  fill: var(--muted);
+}
+.askme-today {
+  stroke: #2563eb;
+  stroke-width: 2;
+}
+.askme-today-t {
+  font-size: 14px;
+  font-weight: 700;
+  fill: #2563eb;
+}
+.askme-card {
+  cursor: pointer;
+}
+.askme-card:focus-visible {
+  outline: none;
+}
+.askme-card:focus-visible .askme-card-bg {
+  stroke: var(--accent);
+  stroke-width: 2;
+}
+.askme-card-bg {
+  fill: #fff;
+  stroke: #e3e7ee;
+  stroke-width: 1;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.06)) drop-shadow(0 4px 10px rgba(0, 0, 0, 0.04));
+  transition: stroke 0.15s;
+}
+.askme-card-bg.t-expired {
+  fill: #fdeeee;
+  stroke: #f5c6c6;
+}
+.askme-card-bg.t-similar {
+  fill: #fff4e8;
+  stroke: #f9d5ae;
+}
+.askme-card-bg.t-other_scope {
+  fill: #f7f8fa;
+  stroke: #d5dae1;
+}
+.askme-card:hover .askme-card-bg {
+  stroke: #aeb7c6;
+}
+.askme-card:hover .askme-card-bg.t-similar {
+  stroke: #f2a95b;
+}
+.askme-card:hover .askme-card-bg.t-expired {
+  stroke: #ee9a9a;
+}
+.askme-card-bg.bundle {
+  stroke: #f2a95b;
+  stroke-width: 1.6;
+  stroke-dasharray: 6 4;
+}
+.askme-card:hover .askme-card-bg.bundle {
+  stroke: #e07b0e;
+}
+.askme-title {
+  font-size: 13.5px;
+  font-weight: 600;
+  fill: var(--text);
+  pointer-events: none;
+}
+.askme-title.muted {
+  fill: var(--muted);
+}
+.askme-sub {
+  font-size: 12.5px;
+  fill: var(--muted);
+  pointer-events: none;
+}
+.askme-glyph {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  pointer-events: none;
+}
+.askme-badge {
+  pointer-events: none;
+}
+.askme-badge circle {
+  fill: #f28a1a;
+  stroke: #fff;
+  stroke-width: 2;
+}
+.askme-badge text {
+  fill: #fff;
+  font-size: 11px;
+  font-weight: 700;
+}
+.askme-chev {
+  cursor: pointer;
+}
+.askme-chev path {
+  fill: none;
+  stroke: #e07b0e;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.askme-conn {
+  fill: none;
+  stroke-width: 2;
+}
+.askme-conn.red {
+  stroke: #e5484d;
+}
+.askme-conn.orange {
+  stroke: #f28a1a;
+}
+.askme-conn.green {
+  stroke: #1e9e63;
+}
+.askme-dot.red {
+  fill: #e5484d;
+}
+.askme-dot.orange {
+  fill: #f28a1a;
+}
+.askme-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 26px;
+  margin: 0 14px 14px;
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 13px;
+  color: var(--text);
+}
+.askme-legend > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.askme-legend-icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+.askme-legend-icon path {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+}
+@media (prefers-reduced-motion: reduce) {
+  .askme-tip,
+  .askme-card-bg {
+    transition: none;
+  }
+}

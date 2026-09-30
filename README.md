@@ -56,6 +56,17 @@ src/views/              weergaven: Lijst, Tegels, Compact, Kennisgraaf
 
 In de Kennisgraaf kun je wisselen tussen een **vrije graaf** en een **tijdlijnweergave** (x-as = laatst gewijzigd, een baan per land), en met **Toon mensen** de auteurs als knopen tonen.
 
+### ASKME
+
+**ASKME** is een extra weergave naast de Kennisgraaf. Ze toont de onderwerpen van de bibliotheek als bollen rond "Documenten". Klik op een onderwerp, of typ in ASKME een vraag in de zoekbalk (bijvoorbeeld *"Hoeveel bedragen de maaltijdcheques?"*), en er opent een tijdlijn met een kaartje per document. Er is een baan per soort bron: Regelgeving, Procedures, Klant en Teams & mail.
+
+- **Groen**: het aanbevolen document uit `analysis.json`, met een pijl tot vandaag.
+- **Oranje, stippelrand, +N**: een duplicaatgroep, samengevoegd tot het nieuwste exemplaar. Klik erop om de kopieën horizontaal naast elkaar te zien.
+- **Rood**: verouderd, of ouder dan het aanbevolen document waarmee het verbonden is. Een volle rode lijn loopt naar het document dat het vervangt.
+- **Lichtgrijs**: ander land (ander toepassingsgebied). **Grijs**: ondersteunend.
+
+Klik op een kaartje om het document te openen in het voorbeeldpaneel. In ASKME filtert de zoekbalk niet; de vraag bepaalt welk onderwerp opent (op onderwerpnaam, synoniemen of gedeelde woorden). De code staat in `src/views/AskMeView.tsx` en `src/views/askme/` (D3).
+
 **In productie** zou de analyse draaien bij elke documentwijziging via de Microsoft Graph API, in plaats van vooraf op een vaste dataset.
 
 ## Een nieuwe weergave toevoegen

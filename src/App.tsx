@@ -65,16 +65,17 @@ export default function App() {
   const view = views.find((v) => v.id === viewId) ?? views[0]
   const searching = query.trim().length > 0
   const libraryScope = view.scope === 'library'
+  const questionMode = view.search === 'question'
 
   const items = useMemo(() => {
     const q = query.trim().toLowerCase()
-    const source = q
+    const source = q && !questionMode
       ? libraryItems.filter((f) => matches(f, q))
       : libraryScope
         ? libraryItems.filter((f) => f.document)
         : libraryItems.filter((f) => f.parentId === folderId)
     return [...source].sort((a, b) => compare(a, b, sort))
-  }, [folderId, query, sort, libraryScope])
+  }, [folderId, query, sort, libraryScope, questionMode])
 
   function changeView(id: string) {
     setViewId(id)
@@ -101,7 +102,7 @@ export default function App() {
   const trimmedQuery = query.trim()
   const voteSummaries = useVoteSummaries(trimmedQuery)
   const shownDocIds = items.filter((i) => i.document).map((i) => i.id)
-  const searchGap = searching && isSearchGap(voteSummaries, shownDocIds)
+  const searchGap = searching && !questionMode && isSearchGap(voteSummaries, shownDocIds)
   const gapContact = searchGap ? primaryCluster(shownDocIds)?.experts[0]?.author : undefined
 
   const ViewComponent = view.component
@@ -115,7 +116,7 @@ export default function App() {
         <input
           className="search"
           type="search"
-          placeholder="Zoeken in deze bibliotheek"
+          placeholder={questionMode ? 'Stel een vraag, bv. Hoeveel bedragen de maaltijdcheques?' : 'Zoeken in deze bibliotheek'}
           maxLength={MAX_QUERY_LENGTH}
           value={query}
           onChange={(e) => setQuery(e.target.value.slice(0, MAX_QUERY_LENGTH))}
@@ -153,7 +154,9 @@ export default function App() {
           </div>
 
           <div className="breadcrumb">
-            {searching ? (
+            {searching && questionMode ? (
+              <span className="crumb current">Vraag: “{query.trim()}”</span>
+            ) : searching ? (
               <span className="crumb current">
                 Zoekresultaten voor “{query.trim()}” ({items.length})
               </span>
