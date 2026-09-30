@@ -1,11 +1,13 @@
-import { analysis } from '../analysis'
+import { recommendationsFor } from '../analysis'
 import { formatDate } from '../format'
 import type { Document } from '../types'
+import { useVoteSummaries } from '../votes'
+import { VoteBox } from './VoteBox'
 
 const countryLabel: Record<Document['country'], string> = { BE: 'België', NL: 'Nederland', DE: 'Duitsland' }
 
-export function PreviewPanel({ doc, onClose }: { doc: Document; onClose: () => void }) {
-  const reasons = analysis.recommended[doc.id]
+export function PreviewPanel({ doc, query, onClose }: { doc: Document; query: string; onClose: () => void }) {
+  const reasons = recommendationsFor(useVoteSummaries(query))[doc.id]
   return (
     <aside className="preview-panel" aria-label="Voorbeeld">
       <div className="preview-header">
@@ -48,6 +50,8 @@ export function PreviewPanel({ doc, onClose }: { doc: Document; onClose: () => v
           </ul>
         </div>
       )}
+
+      {query && <VoteBox docId={doc.id} query={query} />}
 
       <h3>Inhoud</h3>
       <div className="preview-text">{doc.text}</div>

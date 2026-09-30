@@ -1,13 +1,12 @@
 import { useMemo, useState } from 'react'
-import type { AnalysisEdge } from './analysis'
+import { primaryCluster, type AnalysisEdge } from './analysis'
 import { EdgePanel } from './components/EdgePanel'
 import { PersonPanel } from './components/PersonPanel'
 import { PreviewPanel } from './components/PreviewPanel'
 import { libraryItems } from './library'
 import type { Document, FileItem, SortKey, SortState } from './types'
 import { views } from './views'
-
-const MAX_QUERY_LENGTH = 100
+import { isSearchGap, MAX_QUERY_LENGTH, useVoteSummaries } from './votes'
 
 const byId = new Map(libraryItems.map((f) => [f.id, f]))
 
@@ -99,6 +98,12 @@ export default function App() {
     }
   }
 
+  const trimmedQuery = query.trim()
+  const voteSummaries = useVoteSummaries(trimmedQuery)
+  const shownDocIds = items.filter((i) => i.document).map((i) => i.id)
+  const searchGap = searching && isSearchGap(voteSummaries, shownDocIds)
+  const gapContact = searchGap ? primaryCluster(shownDocIds)?.experts[0]?.author : undefined
+
   const ViewComponent = view.component
   const crumbs = ancestors(folderId)
 
@@ -171,6 +176,18 @@ export default function App() {
             )}
           </div>
 
+          {searchGap && (
+            <div className="search-gap" role="status">
+              Niemand vond hier iets nuttigs.
+              {gapContact && (
+                <>
+                  {' '}
+                  Aanspreekpunt: <strong>{gapContact}</strong>
+                </>
+              )}
+            </div>
+          )}
+
           {items.length === 0 && !libraryScope ? (
             <div className="empty">{searching ? 'Geen bestanden gevonden.' : 'Deze map is leeg.'}</div>
           ) : (
@@ -183,11 +200,12 @@ export default function App() {
               showPath={searching}
               onSelectEdge={(edge) => setPanel({ kind: 'edge', edge })}
               onSelectPerson={(author, docIds) => setPanel({ kind: 'person', author, docIds })}
+              query={trimmedQuery}
             />
           )}
         </main>
 
-        {panel?.kind === 'document' && <PreviewPanel doc={panel.doc} onClose={() => setPanel(null)} />}
+        {panel?.kind === 'document' && <PreviewPanel doc={panel.doc} query={trimmedQuery} onClose={() => setPanel(null)} />}
         {panel?.kind === 'edge' && <EdgePanel edge={panel.edge} onClose={() => setPanel(null)} />}
         {panel?.kind === 'person' && <PersonPanel author={panel.author} docIds={panel.docIds} onClose={() => setPanel(null)} />}
       </div>

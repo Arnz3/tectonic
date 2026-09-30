@@ -680,3 +680,70 @@ button.crumb:hover {
   margin: 4px 0;
   padding-left: 18px;
 }
+
+/* Votes (M4e) */
+.vote-box {
+  margin-top: 16px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--bg);
+}
+.vote-question {
+  font-weight: 600;
+}
+.vote-query {
+  font-style: italic;
+}
+.vote-buttons,
+.reason-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+.vote-buttons button,
+.reason-chips button {
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+}
+.reason-chips button {
+  font-size: 12px;
+}
+.vote-buttons button:hover,
+.reason-chips button:hover {
+  border-color: var(--accent);
+}
+.vote-buttons button.active,
+.reason-chips button.active {
+  background: var(--selected);
+  border-color: var(--accent);
+  color: var(--accent-dark);
+  font-weight: 600;
+}
+.vote-summary {
+  margin-top: 10px;
+  font-size: 13px;
+}
+.vote-usefulness,
+.vote-reasons,
+.simulated-mark {
+  color: var(--muted);
+  font-size: 12px;
+}
+.vote-note {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+}
+.search-gap {
+  margin-bottom: 12px;
+  padding: 10px 14px;
+  border: 1px solid #f1bbbc;
+  border-left: 4px solid #a4262c;
+  border-radius: 4px;
+  background: #fdf3f4;
+  color: #a4262c;
+}

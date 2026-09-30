@@ -1,9 +1,10 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { DataSet, Network, type Edge, type Node, type Options } from 'vis-network/standalone'
-import { analysis, contentChanges, independentSources, primaryCluster, type AnalysisEdge, type Relation } from '../analysis'
+import { analysis, contentChanges, independentSources, primaryCluster, recommendationsFor, type AnalysisEdge, type Relation } from '../analysis'
 import { libraryItems } from '../library'
 import { formatDate } from '../format'
 import type { Document, FileItem, ViewProps } from '../types'
+import { useVoteSummaries, type VoteSummary } from '../votes'
 import { timelineLayout, type TimelineLayout } from './timelineLayout'
 
 export const statusColors: Record<Document['status'], string> = {
@@ -51,12 +52,15 @@ function tooltip(lines: string[]): HTMLElement {
   return el
 }
 
-function toNode(doc: Document): Node {
-  const reasons = analysis.recommended[doc.id]
+function toNode(doc: Document, reasons: string[] | undefined, votes: VoteSummary | undefined): Node {
   const changes = contentChanges(doc.id)
+  const lines = [doc.title]
+  if (reasons) lines.push('✓ Aanbevolen')
+  if (votes) lines.push(`👍 ${votes.up} · 👎 ${votes.down}`)
+  if (votes?.recentlyRejected) lines.push('⚠ Recent vaker afgekeurd')
   return {
     id: doc.id,
-    label: reasons ? `${doc.title}\n✓ Aanbevolen` : doc.title,
+    label: lines.join('\n'),
     size: 10 + changes * 4,
     borderWidth: reasons ? 5 : 1,
     borderWidthSelected: reasons ? 6 : 3,
@@ -73,6 +77,8 @@ function toNode(doc: Document): Node {
       `${doc.folder} · ${doc.country} · ${doc.status}`,
       `Gewijzigd: ${formatDate(doc.modified)}`,
       `${changes} inhoudelijke wijzigingen`,
+      ...(votes ? [`Stemmen voor deze zoekopdracht: 👍 ${votes.up} · 👎 ${votes.down}`] : []),
+      ...(votes?.hasSimulated ? ['(bevat gesimuleerde demostemmen)'] : []),
     ]),
   }
 }
@@ -183,7 +189,7 @@ function personEdges(p: Person): Edge[] {
 const edgeId = (e: AnalysisEdge) => `${e.source}|${e.target}`
 const edgeById = new Map(analysis.edges.map((e) => [edgeId(e), e]))
 
-export function KnowledgeGraphView({ items, onOpen, onSelectEdge, onSelectPerson }: ViewProps) {
+export function KnowledgeGraphView({ items, onOpen, onSelectEdge, onSelectPerson, query }: ViewProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const networkRef = useRef<Network | null>(null)
   const onOpenRef = useRef(onOpen)
@@ -194,6 +200,7 @@ export function KnowledgeGraphView({ items, onOpen, onSelectEdge, onSelectPerson
   onSelectPersonRef.current = onSelectPerson
   const [mode, setMode] = useState<LayoutMode>('free')
   const [showPeople, setShowPeople] = useState(false)
+  const votes = useVoteSummaries(query)
   const timelineRef = useRef<TimelineLayout | null>(null)
 
   // The graph shows the given documents plus their direct neighbours (1 hop).
@@ -264,8 +271,9 @@ export function KnowledgeGraphView({ items, onOpen, onSelectEdge, onSelectPerson
         : null
     timelineRef.current = layout
 
+    const recommended = recommendationsFor(votes)
     const docNodes = docs.map((doc) => {
-      const node = toNode(doc)
+      const node = toNode(doc, recommended[doc.id], votes.get(doc.id))
       const pos = layout?.positions.get(doc.id)
       return pos ? { ...node, ...pos, fixed: { x: true, y: true } } : node
     })
@@ -300,7 +308,7 @@ export function KnowledgeGraphView({ items, onOpen, onSelectEdge, onSelectPerson
     })
     network.setData({ nodes, edges: visEdges })
     if (layout) network.fit({ animation: false })
-  }, [docIds, edges, mode, showPeople])
+  }, [docIds, edges, mode, showPeople, votes])
 
   return (
     <div className="graph-view">

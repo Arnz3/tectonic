@@ -1,0 +1,393 @@
+{
+  "_comment": "Gesimuleerde stemmen voor de demo. Niet van echte gebruikers.",
+  "seed_reference": "2025-10-14T12:00:00Z",
+  "votes": [
+    {
+      "query_key": "maaltijdcheque",
+      "query_raw": "maaltijdcheques",
+      "doc_id": "doc-02",
+      "vote": 1,
+      "reason": null,
+      "session_id": "seed-001",
+      "timestamp": "2024-08-30T11:00:00Z"
+    },
+    {
+      "query_key": "maaltijdcheque",
+      "query_raw": "Maaltijdcheques",
+      "doc_id": "doc-02",
+      "vote": 1,
+      "reason": null,
+      "session_id": "seed-002",
+      "timestamp": "2024-09-29T10:00:00Z"
+    },
+    {
+      "query_key": "maaltijdcheque",
+      "query_raw": "maaltijdcheque",
+      "doc_id": "doc-02",
+      "vote": 1,
+      "reason": null,
+      "session_id": "seed-003",
+      "timestamp": "2024-10-29T09:00:00Z"
+    },
+    {
+      "query_key": "maaltijdcheque",
+      "query_raw": "Maaltijdcheques?",
+      "doc_id": "doc-02",
+      "vote": 1,
+      "reason": null,
+      "session_id": "seed-004",
+      "timestamp": "2024-11-18T08:00:00Z"
+    },
+    {
+      "query_key": "maaltijdcheque",
+      "query_raw": "maaltijdcheques",
+      "doc_id": "doc-02",
+      "vote": 1,
+      "reason": null,
+      "session_id": "seed-005",
+      "timestamp": "2024-12-18T07:00:00Z"
+    },
+    {
+      "query_key": "maaltijdcheque",
+      "query_raw": "Maaltijdcheques",
+      "doc_id": "doc-02",
+      "vote": 1,
+      "reason": null,
+      "session_id": "seed-006",
+      "timestamp": "2025-01-17T06:00:00Z"
+    },
+    {
+      "query_key": "maaltijdcheque",
+      "query_raw": "maaltijdcheque",
+      "doc_id": "doc-02",
+      "vote": 1,
+      "reason": null,
+      "session_id": "seed-007",
+      "timestamp": "2025-02-16T12:00:00Z"
+    },
+    {
+      "query_key": "maaltijdcheque",
+      "query_raw": "Maaltijdcheques?",
+      "doc_id": "doc-02",
+      "vote": 1,
+      "reason": null,
+      "session_id": "seed-008",
+      "timestamp": "2025-03-18T11:00:00Z"
+    },
+    {
+      "query_key": "maaltijdcheque",
+      "query_raw": "maaltijdcheques",
+      "doc_id": "doc-02",
+      "vote": 1,
+      "reason": null,
+      "session_id": "seed-009",
+      "timestamp": "2025-04-17T10:00:00Z"
+    },
+    {
+      "query_key": "maaltijdcheque",
+      "query_raw": "Maaltijdcheques",
+      "doc_id": "doc-02",
+      "vote": 1,
+      "reason": null,
+      "session_id": "seed-010",
+      "timestamp": "2025-05-17T09:00:00Z"
+    },
+    {
+      "query_key": "maaltijdcheque",
+      "query_raw": "maaltijdcheque",
+      "doc_id": "doc-02",
+      "vote": 1,
+      "reason": null,
+      "session_id": "seed-011",
+      "timestamp": "2025-06-16T08:00:00Z"
+    },
+    {
+      "query_key": "maaltijdcheque",
+      "query_raw": "Maaltijdcheques?",
+      "doc_id": "doc-02",
+      "vote": 1,
+      "reason": null,
+      "session_id": "seed-012",
+      "timestamp": "2025-07-06T07:00:00Z"
+    },
+    {
+      "query_key": "maaltijdcheque",
+      "query_raw": "maaltijdcheques",
+      "doc_id": "doc-02",
+      "vote": 1,
+      "reason": null,
+      "session_id": "seed-013",
+      "timestamp": "2025-07-26T06:00:00Z"
+    },
+    {
+      "query_key": "maaltijdcheque",
+      "query_raw": "Maaltijdcheques",
+      "doc_id": "doc-02",
+      "vote": 1,
+      "reason": null,
+      "session_id": "seed-014",
+      "timestamp": "2025-08-15T12:00:00Z"
+    },
+    {
+      "query_key": "maaltijdcheque",
+      "query_raw": "maaltijdcheques",
+      "doc_id": "doc-02",
+      "vote": -1,
+      "reason": "verouderd",
+      "session_id": "seed-015",
+      "timestamp": "2025-10-12T11:00:00Z"
+    },
+    {
+      "query_key": "maaltijdcheque",
+      "query_raw": "Maaltijdcheques",
+      "doc_id": "doc-02",
+      "vote": -1,
+      "reason": "verouderd",
+      "session_id": "seed-016",
+      "timestamp": "2025-10-08T10:00:00Z"
+    },
+    {
+      "query_key": "maaltijdcheque",
+      "query_raw": "maaltijdcheque",
+      "doc_id": "doc-02",
+      "vote": -1,
+      "reason": "verouderd",
+      "session_id": "seed-017",
+      "timestamp": "2025-10-01T09:00:00Z"
+    },
+    {
+      "query_key": "maaltijdcheque",
+      "query_raw": "Maaltijdcheques?",
+      "doc_id": "doc-02",
+      "vote": -1,
+      "reason": "verouderd",
+      "session_id": "seed-018",
+      "timestamp": "2025-09-20T08:00:00Z"
+    },
+    {
+      "query_key": "maaltijdcheque",
+      "query_raw": "maaltijdcheques",
+      "doc_id": "doc-02",
+      "vote": -1,
+      "reason": "klopt_niet",
+      "session_id": "seed-019",
+      "timestamp": "2025-10-05T07:00:00Z"
+    },
+    {
+      "query_key": "maaltijdcheque",
+      "query_raw": "maaltijdcheques",
+      "doc_id": "doc-01",
+      "vote": 1,
+      "reason": null,
+      "session_id": "seed-020",
+      "timestamp": "2025-10-13T06:00:00Z"
+    },
+    {
+      "query_key": "maaltijdcheque",
+      "query_raw": "Maaltijdcheques",
+      "doc_id": "doc-01",
+      "vote": 1,
+      "reason": null,
+      "session_id": "seed-021",
+      "timestamp": "2025-10-10T12:00:00Z"
+    },
+    {
+      "query_key": "maaltijdcheque",
+      "query_raw": "maaltijdcheque",
+      "doc_id": "doc-01",
+      "vote": 1,
+      "reason": null,
+      "session_id": "seed-022",
+      "timestamp": "2025-10-06T11:00:00Z"
+    },
+    {
+      "query_key": "maaltijdcheque",
+      "query_raw": "Maaltijdcheques?",
+      "doc_id": "doc-01",
+      "vote": 1,
+      "reason": null,
+      "session_id": "seed-023",
+      "timestamp": "2025-10-02T10:00:00Z"
+    },
+    {
+      "query_key": "maaltijdcheque",
+      "query_raw": "maaltijdcheques",
+      "doc_id": "doc-01",
+      "vote": 1,
+      "reason": null,
+      "session_id": "seed-024",
+      "timestamp": "2025-09-27T09:00:00Z"
+    },
+    {
+      "query_key": "maaltijdcheque",
+      "query_raw": "Maaltijdcheques",
+      "doc_id": "doc-01",
+      "vote": 1,
+      "reason": null,
+      "session_id": "seed-025",
+      "timestamp": "2025-09-23T08:00:00Z"
+    },
+    {
+      "query_key": "maaltijdcheque",
+      "query_raw": "maaltijdcheques",
+      "doc_id": "doc-01",
+      "vote": -1,
+      "reason": "niet_relevant",
+      "session_id": "seed-026",
+      "timestamp": "2025-10-09T07:00:00Z"
+    },
+    {
+      "query_key": "maaltijdcheque",
+      "query_raw": "maaltijdcheques",
+      "doc_id": "doc-03",
+      "vote": 1,
+      "reason": null,
+      "session_id": "seed-027",
+      "timestamp": "2024-12-18T06:00:00Z"
+    },
+    {
+      "query_key": "maaltijdcheque",
+      "query_raw": "Maaltijdcheques",
+      "doc_id": "doc-03",
+      "vote": 1,
+      "reason": null,
+      "session_id": "seed-028",
+      "timestamp": "2025-03-28T12:00:00Z"
+    },
+    {
+      "query_key": "maaltijdcheque",
+      "query_raw": "maaltijdcheque",
+      "doc_id": "doc-03",
+      "vote": 1,
+      "reason": null,
+      "session_id": "seed-029",
+      "timestamp": "2025-07-16T11:00:00Z"
+    },
+    {
+      "query_key": "maaltijdcheque",
+      "query_raw": "maaltijdcheques",
+      "doc_id": "doc-04",
+      "vote": 1,
+      "reason": null,
+      "session_id": "seed-030",
+      "timestamp": "2025-02-06T10:00:00Z"
+    },
+    {
+      "query_key": "maaltijdcheque",
+      "query_raw": "Maaltijdcheques",
+      "doc_id": "doc-04",
+      "vote": 1,
+      "reason": null,
+      "session_id": "seed-031",
+      "timestamp": "2025-05-27T09:00:00Z"
+    },
+    {
+      "query_key": "maaltijdcheque",
+      "query_raw": "maaltijdcheques",
+      "doc_id": "doc-04",
+      "vote": -1,
+      "reason": "verouderd",
+      "session_id": "seed-032",
+      "timestamp": "2025-10-11T08:00:00Z"
+    },
+    {
+      "query_key": "maaltijdcheque",
+      "query_raw": "Maaltijdcheques",
+      "doc_id": "doc-04",
+      "vote": -1,
+      "reason": "verouderd",
+      "session_id": "seed-033",
+      "timestamp": "2025-09-29T07:00:00Z"
+    },
+    {
+      "query_key": "maaltijdcheque",
+      "query_raw": "maaltijdcheques",
+      "doc_id": "doc-05",
+      "vote": -1,
+      "reason": "ander_toepassingsgebied",
+      "session_id": "seed-034",
+      "timestamp": "2025-10-11T06:00:00Z"
+    },
+    {
+      "query_key": "maaltijdcheque",
+      "query_raw": "Maaltijdcheques",
+      "doc_id": "doc-05",
+      "vote": -1,
+      "reason": "ander_toepassingsgebied",
+      "session_id": "seed-035",
+      "timestamp": "2025-10-07T12:00:00Z"
+    },
+    {
+      "query_key": "maaltijdcheque",
+      "query_raw": "maaltijdcheque",
+      "doc_id": "doc-05",
+      "vote": -1,
+      "reason": "ander_toepassingsgebied",
+      "session_id": "seed-036",
+      "timestamp": "2025-09-25T11:00:00Z"
+    },
+    {
+      "query_key": "laadpaal",
+      "query_raw": "laadpaal",
+      "doc_id": "doc-11",
+      "vote": -1,
+      "reason": "ander_toepassingsgebied",
+      "session_id": "seed-037",
+      "timestamp": "2025-10-12T10:00:00Z"
+    },
+    {
+      "query_key": "laadpaal",
+      "query_raw": "Laadpaal",
+      "doc_id": "doc-11",
+      "vote": -1,
+      "reason": "ander_toepassingsgebied",
+      "session_id": "seed-038",
+      "timestamp": "2025-10-06T09:00:00Z"
+    },
+    {
+      "query_key": "laadpaal",
+      "query_raw": "laadpaal",
+      "doc_id": "doc-11",
+      "vote": -1,
+      "reason": "ander_toepassingsgebied",
+      "session_id": "seed-039",
+      "timestamp": "2025-09-28T08:00:00Z"
+    },
+    {
+      "query_key": "laadpaal",
+      "query_raw": "laadpaal",
+      "doc_id": "doc-12",
+      "vote": -1,
+      "reason": "niet_relevant",
+      "session_id": "seed-040",
+      "timestamp": "2025-10-10T07:00:00Z"
+    },
+    {
+      "query_key": "laadpaal",
+      "query_raw": "Laadpaal",
+      "doc_id": "doc-12",
+      "vote": -1,
+      "reason": "niet_relevant",
+      "session_id": "seed-041",
+      "timestamp": "2025-10-03T06:00:00Z"
+    },
+    {
+      "query_key": "laadpaal",
+      "query_raw": "laadpaal",
+      "doc_id": "doc-13",
+      "vote": -1,
+      "reason": "ander_toepassingsgebied",
+      "session_id": "seed-042",
+      "timestamp": "2025-10-08T12:00:00Z"
+    },
+    {
+      "query_key": "laadpaal",
+      "query_raw": "Laadpaal",
+      "doc_id": "doc-13",
+      "vote": -1,
+      "reason": "ander_toepassingsgebied",
+      "session_id": "seed-043",
+      "timestamp": "2025-09-24T11:00:00Z"
+    }
+  ]
+}

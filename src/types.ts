@@ -68,4 +68,6 @@ export interface ViewProps {
   onSelectEdge: (edge: AnalysisEdge) => void
   /** Only used by views that show people; `docIds` are the documents currently shown. */
   onSelectPerson: (author: string, docIds: string[]) => void
+  /** The current search query (trimmed), empty when not searching. */
+  query: string
 }

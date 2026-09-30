@@ -326,7 +326,8 @@ def format_date(iso: str) -> str:
     return date.fromisoformat(iso).strftime("%d/%m/%Y")
 
 
-def recommend(component: list[str], docs_by_id: dict[str, dict], edges: list[dict]) -> tuple[str, list[str]] | None:
+def recommend(component: list[str], docs_by_id: dict[str, dict], edges: list[dict]) -> tuple[str, list[str], list[str]] | None:
+    """Returns (recommended id, reasons, ids that tie with it under the rules)."""
     members = set(component)
     contradictions = [
         e for e in edges if e["relation"] == CONTRADICTORY and e["source"] in members and e["target"] in members
@@ -355,6 +356,12 @@ def recommend(component: list[str], docs_by_id: dict[str, dict], edges: list[dic
     candidates.sort(key=lambda d: (status_rank.get(d["status"], 2), d["owner"] is None))
     best = candidates[0]
 
+    def rule_rank(d: dict) -> tuple:
+        return status_rank.get(d["status"], 2), d["owner"] is None, d["modified"]
+
+    # Documents the rules cannot separate; only then may votes break the tie (in the UI, M4e).
+    ties = [d["id"] for d in candidates if rule_rank(d) == rule_rank(best)]
+
     reasons = []
     if best["modified"] == max(docs_by_id[d]["modified"] for d in component):
         reasons.append(f"Meest recent ({format_date(best['modified'])})")
@@ -372,7 +379,7 @@ def recommend(component: list[str], docs_by_id: dict[str, dict], edges: list[dic
     outdated = sorted(d for d in component if docs_by_id[d]["status"] == "verouderd")
     if outdated:
         reasons.append(f"Vervangt verouderde versie {', '.join(outdated)}")
-    return best["id"], reasons
+    return best["id"], reasons, ties
 
 
 def clusters_and_recommendations(docs_by_id: dict[str, dict], edges: list[dict], dup_groups: list[dict]):
@@ -382,13 +389,16 @@ def clusters_and_recommendations(docs_by_id: dict[str, dict], edges: list[dict],
     copy_ids = {c for g in dup_groups for c in g["copies"]}
 
     components = connected_components(list(docs_by_id), same_scope)
-    recommended = {}
+    recommended, ties = {}, {}
     for component in components:
         if len(component) < 2:
             continue
         result = recommend(component, docs_by_id, edges)
         if result:
-            recommended[result[0]] = result[1]
+            best, reasons, tied = result
+            recommended[best] = reasons
+            if len(tied) > 1:
+                ties[best] = tied
 
     # Every document belongs to exactly one cluster, so the UI can always find its experts.
     reference = reference_date(docs_by_id)
@@ -402,7 +412,7 @@ def clusters_and_recommendations(docs_by_id: dict[str, dict], edges: list[dict],
         }
         for component in components
     ]
-    return clusters, recommended
+    return clusters, recommended, ties
 
 
 def cluster_topic(component: list[str], docs_by_id: dict[str, dict]) -> str:
@@ -508,11 +518,12 @@ def main() -> None:
 
     edges = build_edges(docs, similarity_matrix(docs), use_llm=not args.no_llm)
     dup_groups = duplicate_groups(docs_by_id, edges)
-    clusters, recommended = clusters_and_recommendations(docs_by_id, edges, dup_groups)
+    clusters, recommended, ties = clusters_and_recommendations(docs_by_id, edges, dup_groups)
 
     analysis = {
         "edges": edges,
         "recommended": recommended,
+        "recommendation_ties": ties,
         "duplicate_groups": dup_groups,
         "clusters": clusters,
         "author_stats": author_stats(docs),
