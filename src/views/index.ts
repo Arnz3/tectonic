@@ -2,7 +2,7 @@ import type { ComponentType } from 'react'
 import type { ViewProps } from '../types'
 import { AskMeView } from './AskMeView'
 import { CompactView } from './CompactView'
-import { KnowledgeGraphView } from './KnowledgeGraphView'
+// import { KnowledgeGraphView } from './KnowledgeGraphView'
 import { ListView } from './ListView'
 import { TilesView } from './TilesView'
 
@@ -33,6 +33,7 @@ export const views: ViewDefinition[] = [
   { id: 'list', label: 'Lijst', icon: '☰', component: ListView },
   { id: 'tiles', label: 'Tegels', icon: '▦', component: TilesView },
   { id: 'compact', label: 'Compact', icon: '⋮⋮', component: CompactView },
-  { id: 'graph', label: 'Kennisgraaf', icon: '◉', component: KnowledgeGraphView, scope: 'library' },
+  // Hidden for the Graffify demo; uncomment to show the original Kennisgraaf again.
+  // { id: 'graph', label: 'Kennisgraaf', icon: '◉', component: KnowledgeGraphView, scope: 'library' },
   { id: 'askme', label: 'Graffify', icon: '✦', logo: '/graffify-logo.png', component: AskMeView, scope: 'library', search: 'question' },
 ]
