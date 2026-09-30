@@ -12,6 +12,8 @@ export const statusColors: Record<Document['status'], string> = {
   verouderd: '#a19f9d',
 }
 const RECOMMENDED_BORDER = '#107c10'
+export const PERSON_COLOR = '#8764b8'
+const PERSON_PREFIX = 'person:'
 
 export const relationStyles: Record<Relation, { label: string; color: string; width: number; dashes: boolean }> = {
   gelijkaardig: { label: 'Gelijkaardig', color: '#b3b0ad', width: 1.5, dashes: false },
@@ -126,17 +128,72 @@ function drawTimeline(ctx: CanvasRenderingContext2D, layout: TimelineLayout) {
   ctx.restore()
 }
 
+interface Person {
+  author: string
+  /** Content changes per visible document. */
+  changes: Map<string, number>
+}
+
+/** Everyone with content changes on the given documents. Formatting changes do not make someone a node. */
+function peopleFor(docs: Document[]): Person[] {
+  const people = new Map<string, Person>()
+  for (const doc of docs) {
+    for (const h of doc.history) {
+      if (h.change !== 'inhoud') continue
+      const p = people.get(h.author) ?? { author: h.author, changes: new Map() }
+      p.changes.set(doc.id, (p.changes.get(doc.id) ?? 0) + 1)
+      people.set(h.author, p)
+    }
+  }
+  return [...people.values()].sort((a, b) => a.author.localeCompare(b.author, 'nl'))
+}
+
+function personNode(p: Person): Node {
+  const total = [...p.changes.values()].reduce((a, b) => a + b, 0)
+  return {
+    id: PERSON_PREFIX + p.author,
+    label: p.author,
+    shape: 'circle',
+    margin: { top: 8, right: 8, bottom: 8, left: 8 },
+    // Same size for every person, regardless of name length.
+    widthConstraint: { minimum: 78, maximum: 78 },
+    color: {
+      background: PERSON_COLOR,
+      border: '#ffffff',
+      highlight: { background: PERSON_COLOR, border: '#323130' },
+      hover: { background: PERSON_COLOR, border: '#323130' },
+    },
+    font: { color: '#ffffff', size: 12, strokeWidth: 0 },
+    title: tooltip([p.author, `${total} inhoudelijke wijzigingen op ${p.changes.size} zichtbare documenten`]),
+  }
+}
+
+function personEdges(p: Person): Edge[] {
+  return [...p.changes].map(([docId, count]) => ({
+    id: `${PERSON_PREFIX}${p.author}|${docId}`,
+    from: PERSON_PREFIX + p.author,
+    to: docId,
+    width: 1 + count * 1.2,
+    color: { color: 'rgba(135, 100, 184, 0.45)', highlight: PERSON_COLOR, hover: PERSON_COLOR },
+    smooth: false,
+    title: tooltip([`${p.author}: ${count} inhoudelijke ${count === 1 ? 'wijziging' : 'wijzigingen'}`]),
+  }))
+}
+
 const edgeId = (e: AnalysisEdge) => `${e.source}|${e.target}`
 const edgeById = new Map(analysis.edges.map((e) => [edgeId(e), e]))
 
-export function KnowledgeGraphView({ items, onOpen, onSelectEdge }: ViewProps) {
+export function KnowledgeGraphView({ items, onOpen, onSelectEdge, onSelectPerson }: ViewProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const networkRef = useRef<Network | null>(null)
   const onOpenRef = useRef(onOpen)
   onOpenRef.current = onOpen
   const onSelectEdgeRef = useRef(onSelectEdge)
   onSelectEdgeRef.current = onSelectEdge
+  const onSelectPersonRef = useRef(onSelectPerson)
+  onSelectPersonRef.current = onSelectPerson
   const [mode, setMode] = useState<LayoutMode>('free')
+  const [showPeople, setShowPeople] = useState(false)
   const timelineRef = useRef<TimelineLayout | null>(null)
 
   // The graph shows the given documents plus their direct neighbours (1 hop).
@@ -153,13 +210,20 @@ export function KnowledgeGraphView({ items, onOpen, onSelectEdge }: ViewProps) {
       edges: analysis.edges.filter((e) => visible.has(e.source) && visible.has(e.target)),
     }
   }, [items])
+  const docIdsRef = useRef(docIds)
+  docIdsRef.current = docIds
 
   useEffect(() => {
     const container = containerRef.current
     if (!container) return
     const network = new Network(container, {}, options)
     network.on('click', (params: { nodes: string[]; edges: string[] }) => {
-      const file: FileItem | undefined = fileById.get(params.nodes[0])
+      const nodeId = params.nodes[0]
+      if (nodeId?.startsWith(PERSON_PREFIX)) {
+        onSelectPersonRef.current(nodeId.slice(PERSON_PREFIX.length), docIdsRef.current)
+        return
+      }
+      const file: FileItem | undefined = fileById.get(nodeId)
       if (file) {
         onOpenRef.current(file)
         return
@@ -190,7 +254,14 @@ export function KnowledgeGraphView({ items, onOpen, onSelectEdge }: ViewProps) {
     if (!network) return
     const docs = docIds.map((id) => fileById.get(id)!.document!)
     const viewport = { width: containerRef.current?.clientWidth || 1000, height: containerRef.current?.clientHeight || 600 }
-    const layout = mode === 'timeline' && docs.length > 0 ? timelineLayout(docs, viewport) : null
+    const people = showPeople ? peopleFor(docs) : []
+    const layout =
+      mode === 'timeline' && docs.length > 0
+        ? timelineLayout(docs, viewport, {
+            label: 'Mensen',
+            items: people.map((p) => ({ id: PERSON_PREFIX + p.author, docIds: [...p.changes.keys()] })),
+          })
+        : null
     timelineRef.current = layout
 
     const docNodes = docs.map((doc) => {
@@ -198,7 +269,12 @@ export function KnowledgeGraphView({ items, onOpen, onSelectEdge }: ViewProps) {
       const pos = layout?.positions.get(doc.id)
       return pos ? { ...node, ...pos, fixed: { x: true, y: true } } : node
     })
-    const nodes = new DataSet<Node>(layout ? [...docNodes, ...anchorNodes(layout)] : docNodes)
+    const personNodes = people.map((p) => {
+      const node = personNode(p)
+      const pos = layout?.positions.get(node.id as string)
+      return pos ? { ...node, ...pos, fixed: { x: true, y: true } } : node
+    })
+    const nodes = new DataSet<Node>([...docNodes, ...personNodes, ...(layout ? anchorNodes(layout) : [])])
     const visEdges = new DataSet<Edge>(
       edges.map((e) => {
         const style = relationStyles[e.relation]
@@ -215,6 +291,7 @@ export function KnowledgeGraphView({ items, onOpen, onSelectEdge }: ViewProps) {
         }
       }),
     )
+    visEdges.add(people.flatMap(personEdges))
     // Timeline positions are fixed, so physics would only fight them.
     network.setOptions({
       physics: { enabled: layout === null },
@@ -223,7 +300,7 @@ export function KnowledgeGraphView({ items, onOpen, onSelectEdge }: ViewProps) {
     })
     network.setData({ nodes, edges: visEdges })
     if (layout) network.fit({ animation: false })
-  }, [docIds, edges, mode])
+  }, [docIds, edges, mode, showPeople])
 
   return (
     <div className="graph-view">
@@ -237,6 +314,10 @@ export function KnowledgeGraphView({ items, onOpen, onSelectEdge }: ViewProps) {
           </span>
         )}
         <div className="spacer" />
+        <label className="toggle">
+          <input type="checkbox" checked={showPeople} onChange={(e) => setShowPeople(e.target.checked)} />
+          Toon mensen
+        </label>
         <div className="segmented" role="group" aria-label="Indeling">
           <button className={mode === 'free' ? 'active' : ''} aria-pressed={mode === 'free'} onClick={() => setMode('free')}>
             Vrije graaf
@@ -246,7 +327,7 @@ export function KnowledgeGraphView({ items, onOpen, onSelectEdge }: ViewProps) {
           </button>
         </div>
       </div>
-      <Legend />
+      <Legend showPeople={showPeople} />
       <div className="graph-body">
         <div className="graph-area">
           {docIds.length === 0 && <div className="empty graph-empty">Geen documenten gevonden voor deze zoekopdracht.</div>}
@@ -298,7 +379,7 @@ function ContactPanel({ matchedIds }: { matchedIds: string[] }) {
   )
 }
 
-function Legend() {
+function Legend({ showPeople }: { showPeople: boolean }) {
   return (
     <div className="graph-legend" aria-label="Legende">
       <span className="legend-title">Documenten</span>
@@ -325,6 +406,21 @@ function Legend() {
           </div>
         )
       })}
+      {showPeople && (
+        <>
+          <span className="legend-title">Mensen</span>
+          <div className="legend-row">
+            <span className="legend-dot" style={{ background: PERSON_COLOR }} />
+            Persoon
+          </div>
+          <div className="legend-row">
+            <svg width="28" height="10" aria-hidden>
+              <line x1="0" y1="5" x2="28" y2="5" stroke="rgba(135, 100, 184, 0.6)" strokeWidth={3} />
+            </svg>
+            Werkte inhoudelijk aan (dikte = aantal wijzigingen)
+          </div>
+        </>
+      )}
     </div>
   )
 }

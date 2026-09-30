@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import type { AnalysisEdge } from './analysis'
 import { EdgePanel } from './components/EdgePanel'
+import { PersonPanel } from './components/PersonPanel'
 import { PreviewPanel } from './components/PreviewPanel'
 import { libraryItems } from './library'
 import type { Document, FileItem, SortKey, SortState } from './types'
@@ -55,7 +56,12 @@ export default function App() {
   const [query, setQuery] = useState('')
   const [viewId, setViewId] = useState(loadViewId)
   const [sort, setSort] = useState<SortState>({ key: 'name', dir: 'asc' })
-  const [panel, setPanel] = useState<{ kind: 'document'; doc: Document } | { kind: 'edge'; edge: AnalysisEdge } | null>(null)
+  const [panel, setPanel] = useState<
+    | { kind: 'document'; doc: Document }
+    | { kind: 'edge'; edge: AnalysisEdge }
+    | { kind: 'person'; author: string; docIds: string[] }
+    | null
+  >(null)
 
   const view = views.find((v) => v.id === viewId) ?? views[0]
   const searching = query.trim().length > 0
@@ -176,12 +182,14 @@ export default function App() {
               pathOf={pathOf}
               showPath={searching}
               onSelectEdge={(edge) => setPanel({ kind: 'edge', edge })}
+              onSelectPerson={(author, docIds) => setPanel({ kind: 'person', author, docIds })}
             />
           )}
         </main>
 
         {panel?.kind === 'document' && <PreviewPanel doc={panel.doc} onClose={() => setPanel(null)} />}
         {panel?.kind === 'edge' && <EdgePanel edge={panel.edge} onClose={() => setPanel(null)} />}
+        {panel?.kind === 'person' && <PersonPanel author={panel.author} docIds={panel.docIds} onClose={() => setPanel(null)} />}
       </div>
     </div>
   )

@@ -530,6 +530,7 @@ button.crumb:hover {
   background: var(--surface);
 }
 .segmented button {
+  white-space: nowrap;
   padding: 4px 12px;
   font-size: 13px;
   color: var(--accent-dark);
@@ -656,4 +657,26 @@ button.crumb:hover {
   .who-knows {
     width: 200px;
   }
+}
+.toggle {
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  cursor: pointer;
+}
+.person-cluster {
+  margin-top: 16px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-left: 4px solid #8764b8;
+  border-radius: 4px;
+}
+.person-cluster h3 {
+  margin: 0 0 6px;
+}
+.person-reasons {
+  margin: 4px 0;
+  padding-left: 18px;
 }

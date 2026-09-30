@@ -66,4 +66,6 @@ export interface ViewProps {
   showPath: boolean
   /** Only used by views that show relations between documents. */
   onSelectEdge: (edge: AnalysisEdge) => void
+  /** Only used by views that show people; `docIds` are the documents currently shown. */
+  onSelectPerson: (author: string, docIds: string[]) => void
 }
