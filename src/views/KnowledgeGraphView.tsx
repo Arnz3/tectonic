@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef } from 'react'
 import { DataSet, Network, type Edge, type Node, type Options } from 'vis-network/standalone'
-import { analysis, contentChanges, type Relation } from '../analysis'
+import { analysis, contentChanges, independentSources, topAuthors, type AnalysisEdge, type Relation } from '../analysis'
 import { libraryItems } from '../library'
 import type { Document, FileItem, ViewProps } from '../types'
 
@@ -66,11 +66,16 @@ function toNode(doc: Document): Node {
   }
 }
 
-export function KnowledgeGraphView({ items, onOpen }: ViewProps) {
+const edgeId = (e: AnalysisEdge) => `${e.source}|${e.target}`
+const edgeById = new Map(analysis.edges.map((e) => [edgeId(e), e]))
+
+export function KnowledgeGraphView({ items, onOpen, onSelectEdge }: ViewProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const networkRef = useRef<Network | null>(null)
   const onOpenRef = useRef(onOpen)
   onOpenRef.current = onOpen
+  const onSelectEdgeRef = useRef(onSelectEdge)
+  onSelectEdgeRef.current = onSelectEdge
 
   // The graph shows the given documents plus their direct neighbours (1 hop).
   const { docIds, edges } = useMemo(() => {
@@ -90,9 +95,15 @@ export function KnowledgeGraphView({ items, onOpen }: ViewProps) {
     const container = containerRef.current
     if (!container) return
     const network = new Network(container, {}, options)
-    network.on('click', (params: { nodes: string[] }) => {
+    network.on('click', (params: { nodes: string[]; edges: string[] }) => {
       const file: FileItem | undefined = fileById.get(params.nodes[0])
-      if (file) onOpenRef.current(file)
+      if (file) {
+        onOpenRef.current(file)
+        return
+      }
+      // A click on a node also selects its edges, so only handle edges when no node was hit.
+      const edge = params.edges.length === 1 ? edgeById.get(params.edges[0]) : undefined
+      if (edge) onSelectEdgeRef.current(edge)
     })
     networkRef.current = network
     // Keep the graph centred when the container changes size, e.g. when the side panel opens.
@@ -114,10 +125,12 @@ export function KnowledgeGraphView({ items, onOpen }: ViewProps) {
       edges.map((e) => {
         const style = relationStyles[e.relation]
         return {
-          id: `${e.source}|${e.target}`,
+          id: edgeId(e),
           from: e.source,
           to: e.target,
           width: style.width,
+          // Thicken on hover so it is clear that edges can be clicked.
+          hoverWidth: 1.5,
           dashes: style.dashes,
           color: { color: style.color, highlight: style.color, hover: style.color },
           title: tooltip([`${style.label} (gelijkenis ${e.similarity.toFixed(2).replace('.', ',')})`]),
@@ -129,12 +142,49 @@ export function KnowledgeGraphView({ items, onOpen }: ViewProps) {
 
   return (
     <div className="graph-view">
+      {docIds.length > 0 && (
+        <div className="sources-badge">
+          {docIds.length} {docIds.length === 1 ? 'document' : 'documenten'} gevonden ·{' '}
+          <strong>
+            {independentSources(docIds)} {independentSources(docIds) === 1 ? 'onafhankelijke bron' : 'onafhankelijke bronnen'}
+          </strong>
+        </div>
+      )}
       <Legend />
-      <div className="graph-area">
-        {docIds.length === 0 && <div className="empty graph-empty">Geen documenten gevonden voor deze zoekopdracht.</div>}
-        <div ref={containerRef} className="graph-canvas" />
+      <div className="graph-body">
+        <div className="graph-area">
+          {docIds.length === 0 && <div className="empty graph-empty">Geen documenten gevonden voor deze zoekopdracht.</div>}
+          <div ref={containerRef} className="graph-canvas" />
+        </div>
+        <WhoKnowsMore docIds={docIds} />
       </div>
     </div>
+  )
+}
+
+function WhoKnowsMore({ docIds }: { docIds: string[] }) {
+  const authors = topAuthors(docIds, 3)
+  if (authors.length === 0) return null
+  const max = authors[0].inhoud
+  return (
+    <aside className="who-knows" aria-label="Wie weet hier meer van?">
+      <h3>Wie weet hier meer van?</h3>
+      <p className="who-knows-sub">Op basis van inhoudelijke wijzigingen</p>
+      <ol>
+        {authors.map((a) => (
+          <li key={a.author}>
+            <div className="who-name">{a.author}</div>
+            <div className="who-bar">
+              <span style={{ width: `${(a.inhoud / max) * 100}%` }} />
+            </div>
+            <div className="who-counts">
+              {a.inhoud} inhoudelijk
+              {a.opmaak > 0 && <small> · {a.opmaak} opmaak</small>}
+            </div>
+          </li>
+        ))}
+      </ol>
+    </aside>
   )
 }
 

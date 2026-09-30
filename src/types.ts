@@ -1,3 +1,5 @@
+import type { AnalysisEdge } from './analysis'
+
 export type FileKind =
   | 'folder'
   | 'word'
@@ -62,4 +64,6 @@ export interface ViewProps {
   /** Resolves the folder path of an item, handy when showing search results. */
   pathOf: (item: FileItem) => string
   showPath: boolean
+  /** Only used by views that show relations between documents. */
+  onSelectEdge: (edge: AnalysisEdge) => void
 }

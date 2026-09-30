@@ -1,4 +1,6 @@
 import { useMemo, useState } from 'react'
+import type { AnalysisEdge } from './analysis'
+import { EdgePanel } from './components/EdgePanel'
 import { PreviewPanel } from './components/PreviewPanel'
 import { libraryItems } from './library'
 import type { Document, FileItem, SortKey, SortState } from './types'
@@ -53,7 +55,7 @@ export default function App() {
   const [query, setQuery] = useState('')
   const [viewId, setViewId] = useState(loadViewId)
   const [sort, setSort] = useState<SortState>({ key: 'name', dir: 'asc' })
-  const [preview, setPreview] = useState<Document | null>(null)
+  const [panel, setPanel] = useState<{ kind: 'document'; doc: Document } | { kind: 'edge'; edge: AnalysisEdge } | null>(null)
 
   const view = views.find((v) => v.id === viewId) ?? views[0]
   const searching = query.trim().length > 0
@@ -87,7 +89,7 @@ export default function App() {
       setFolderId(item.id)
       setQuery('')
     } else if (item.document) {
-      setPreview(item.document)
+      setPanel({ kind: 'document', doc: item.document })
     }
   }
 
@@ -173,11 +175,13 @@ export default function App() {
               onSort={onSort}
               pathOf={pathOf}
               showPath={searching}
+              onSelectEdge={(edge) => setPanel({ kind: 'edge', edge })}
             />
           )}
         </main>
 
-        {preview && <PreviewPanel doc={preview} onClose={() => setPreview(null)} />}
+        {panel?.kind === 'document' && <PreviewPanel doc={panel.doc} onClose={() => setPanel(null)} />}
+        {panel?.kind === 'edge' && <EdgePanel edge={panel.edge} onClose={() => setPanel(null)} />}
       </div>
     </div>
   )

@@ -507,3 +507,111 @@ button.crumb:hover {
   margin: 6px 0 0;
   padding-left: 18px;
 }
+
+/* Sources badge, who-knows panel, edge panel */
+.sources-badge {
+  padding: 8px 12px;
+  background: var(--selected);
+  color: var(--accent-dark);
+  border-bottom: 1px solid var(--border);
+  border-radius: 4px 4px 0 0;
+}
+.sources-badge + .graph-legend {
+  border-radius: 0;
+}
+.graph-body {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+}
+.who-knows {
+  width: 220px;
+  flex-shrink: 0;
+  padding: 12px 14px;
+  background: var(--surface);
+  border-left: 1px solid var(--border);
+  overflow: auto;
+}
+.who-knows h3 {
+  margin: 0;
+  font-size: 14px;
+}
+.who-knows-sub {
+  margin: 2px 0 12px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.who-knows ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.who-knows li {
+  margin-bottom: 12px;
+}
+.who-name {
+  font-weight: 600;
+}
+.who-bar {
+  height: 6px;
+  margin: 4px 0;
+  background: var(--hover);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.who-bar span {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+}
+.who-counts {
+  font-size: 12px;
+}
+.who-counts small {
+  color: var(--muted);
+  font-size: 11px;
+}
+.relation-chip {
+  display: inline-block;
+  padding: 2px 10px;
+  border: 2px solid;
+  border-radius: 12px;
+  font-size: 14px;
+}
+.edge-docs {
+  margin: 12px 0 16px;
+  font-weight: 600;
+}
+.edge-docs small {
+  color: var(--muted);
+  font-weight: 400;
+}
+.statements {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.statement {
+  padding: 10px;
+  border: 1px solid;
+  border-top-width: 4px;
+  border-radius: 4px;
+  background: var(--bg);
+}
+.statement-doc {
+  font-weight: 600;
+}
+.statement-meta {
+  color: var(--muted);
+  font-size: 12px;
+}
+.statement blockquote {
+  margin: 8px 0 0;
+  line-height: 1.45;
+}
+
+@media (max-width: 1100px) {
+  .who-knows {
+    width: 180px;
+  }
+}
