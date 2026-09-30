@@ -6,7 +6,7 @@ import type { Document } from '../../types'
 export type Trust = 'best' | 'similar' | 'expired' | 'support' | 'other_scope'
 
 export const TRUST: Record<Trust, { color: string; label: string }> = {
-  best: { color: '#1e9e63', label: 'Aanbevolen bron' },
+  best: { color: '#1e9e63', label: 'Meest betrouwbaar per categorie' },
   similar: { color: '#f28a1a', label: 'Gelijkaardige documenten (klik om te bekijken)' },
   expired: { color: '#e5484d', label: 'Verouderd of vervangen' },
   support: { color: '#98a2b3', label: 'Ondersteunend' },
@@ -98,9 +98,9 @@ function neighbours(id: string): Set<string> {
 
 function buildTopic(topicId: string, docs: Document[], color: string): Topic {
   const byId = new Map(docs.map((d) => [d.id, d]))
-  const best = docs.filter((d) => recommended.has(d.id))
+  const recommendedDocs = docs.filter((d) => recommended.has(d.id))
   // The country the recommendation applies to; documents from other countries are a different scope.
-  const home = best[0]?.country ?? mostCommon(docs.map((d) => d.country))
+  const home = recommendedDocs[0]?.country ?? mostCommon(docs.map((d) => d.country))
 
   // Duplicate groups inside this topic (at least two members present).
   const groups: Record<string, DocGroup> = {}
@@ -114,18 +114,32 @@ function buildTopic(topicId: string, docs: Document[], color: string): Topic {
     members.forEach((m) => groupOf.set(m, id))
   })
 
-  // A document is replaced by a recommended document it is related to, if it is older.
+  // Most trustworthy document per lane, with the same rules as analyze.py: approved, with an owner,
+  // most recent. Copies in a duplicate group and documents from another country do not compete.
+  const laneBest = new Set<string>()
+  for (const lane of LANES) {
+    const candidates = docs
+      .filter((d) => laneOf(d) === lane.id && d.country === home && d.status === 'goedgekeurd' && !groupOf.has(d.id))
+      .sort((a, b) => Number(a.owner === null) - Number(b.owner === null) || b.modified.localeCompare(a.modified))
+    if (candidates[0]) laneBest.add(candidates[0].id)
+  }
+  const bestDocs = docs.filter((d) => laneBest.has(d.id))
+
+  // A document is replaced by a best document it is related to, if it is older.
+  // Prefer a replacement in the same lane (old law → new law), then the oldest newer one.
   const replacementOf = (doc: Document): string | undefined =>
-    best.find((b) => b.id !== doc.id && b.country === doc.country && b.modified > doc.modified && neighbours(doc.id).has(b.id))?.id
+    bestDocs
+      .filter((b) => b.id !== doc.id && b.country === doc.country && b.modified > doc.modified && neighbours(doc.id).has(b.id))
+      .sort((a, b) => Number(laneOf(a) !== laneOf(doc)) - Number(laneOf(b) !== laneOf(doc)) || a.modified.localeCompare(b.modified))[0]?.id
 
   const timelineDocs: TimelineDoc[] = docs.map((doc) => {
     const owner = doc.owner ?? 'Geen eigenaar'
     let trust: Trust
     let sub: string
     let replacedBy: string | undefined
-    if (recommended.has(doc.id)) {
+    if (laneBest.has(doc.id)) {
       trust = 'best'
-      sub = `Aanbevolen · ${owner}`
+      sub = `${recommended.has(doc.id) ? 'Aanbevolen' : 'Meest betrouwbaar'} · ${owner}`
     } else if (doc.country !== home) {
       trust = 'other_scope'
       sub = `Geldt voor ${COUNTRY[doc.country]}`
@@ -185,12 +199,16 @@ export function buildTopics(docs: Document[]): Topic[] {
 export function topicForQuestion(query: string, topics: Topic[], docs: Document[]): Topic | undefined {
   const q = query.toLowerCase()
   if (!q) return undefined
+  const allWords = q.split(/[^a-zà-ÿ0-9-]+/).filter(Boolean)
+  // Synonyms must match whole words ("auto" must not match "koffieautomaat"); a plural -s is fine.
+  const padded = ` ${allWords.join(' ')} `
+  const hasWord = (s: string) => padded.includes(` ${s} `) || padded.includes(` ${s}s `)
   const byName = topics.find((t) => {
     const stem = t.id.replace(/s$/, '')
-    return q.includes(stem) || (SYNONYMS[t.id] ?? []).some((s) => q.includes(s))
+    return q.includes(stem) || (SYNONYMS[t.id] ?? []).some(hasWord)
   })
   if (byName) return byName
-  const words = q.split(/[^a-zà-ÿ0-9-]+/).filter((w) => w.length >= 5)
+  const words = allWords.filter((w) => w.length >= 5)
   if (words.length === 0) return undefined
   const hits = new Map<string, number>()
   for (const d of docs) {

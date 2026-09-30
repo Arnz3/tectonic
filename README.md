@@ -38,7 +38,7 @@ De LLM-resultaten worden bewaard in `data/llm_cache.json` (per documentpaar, ong
 De zware analyse gebeurt **vooraf**; de frontend leest alleen JSON. Dat houdt de demo snel en voorspelbaar, en de API-key blijft uit de browser.
 
 ```
-data/documents.json     fictieve dataset (20 documenten)
+data/documents.json     fictieve dataset (33 documenten)
 scripts/analyze.py      gelijkenis, relaties, duplicaatgroepen, aanbevelingen, auteursstatistieken
 data/analysis.json      output van analyze.py, gelezen door de frontend
 data/llm_cache.json     gecachte Gemini-oordelen

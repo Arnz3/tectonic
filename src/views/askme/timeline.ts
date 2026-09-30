@@ -236,7 +236,7 @@ export function createTimeline(opts: {
     lanesSel.select('.askme-lane-count').text((d) => `${d.total} ${d.total === 1 ? 'bron' : 'bronnen'}`).transition(t()).attr('y', (d) => d.h / 2 + 18)
     lanesSel
       .select('.askme-lane-none')
-      .text((d) => (d.total > 0 && !docs.some((r) => r.lane === d.lane.id && r.trust === 'best') ? 'Geen aanbevolen bron' : ''))
+      .text((d) => (d.total > 0 && !docs.some((r) => r.lane === d.lane.id && r.trust === 'best') ? 'Geen betrouwbare bron' : ''))
       .transition(t())
       .attr('y', (d) => d.h / 2 + 36)
 

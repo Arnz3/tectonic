@@ -666,5 +666,351 @@
         "summary": "Eerste versie"
       }
     ]
+  },
+  {
+    "id": "doc-21",
+    "title": "Wet geboorteverlof 2023 (samenvatting)",
+    "filename": "Samenvatting_wet_geboorteverlof_2023.pdf",
+    "folder": "Payroll BE / Regelgeving",
+    "country": "BE",
+    "topic": "geboorteverlof",
+    "layer": "wet",
+    "status": "goedgekeurd",
+    "owner": "Pieter Wouters",
+    "created": "2023-01-02",
+    "modified": "2023-01-10",
+    "text": "Samenvatting van de regeling rond geboorteverlof die geldt vanaf 1 januari 2023. Deze samenvatting is fictief en dient alleen als interne demo. Vanaf 1 januari 2023 heeft de werknemer bij de geboorte van een kind recht op 20 dagen geboorteverlof. De vorige regeling voorzag 15 dagen; die regeling is vervangen. Het verlof moet worden opgenomen binnen vier maanden na de bevalling en kan in losse dagen of in één blok. De eerste drie dagen blijven ten laste van de werkgever als gewaarborgd loon. De overige dagen worden vergoed door het ziekenfonds. De werknemer moet de werkgever vooraf op de hoogte brengen van de gevraagde verlofdagen en een kopie van de geboorteakte bezorgen. Werkgevers mogen in een ondernemingsakkoord of arbeidsreglement extra verlofdagen toekennen bovenop het wettelijke minimum, maar nooit minder. Payrollconsultants passen hun klantendossiers, sjablonen en interne procedures aan zodat overal 20 dagen staat.",
+    "history": [
+      {
+        "author": "Pieter Wouters",
+        "date": "2023-01-10",
+        "change": "inhoud",
+        "summary": "Duur aangepast naar 20 dagen"
+      },
+      {
+        "author": "Pieter Wouters",
+        "date": "2023-01-02",
+        "change": "inhoud",
+        "summary": "Samenvatting opgesteld"
+      }
+    ]
+  },
+  {
+    "id": "doc-22",
+    "title": "Regeling geboorteverlof 2021 (samenvatting)",
+    "filename": "Samenvatting_geboorteverlof_2021.pdf",
+    "folder": "Payroll BE / Regelgeving",
+    "country": "BE",
+    "topic": "geboorteverlof",
+    "layer": "wet",
+    "status": "verouderd",
+    "owner": "Pieter Wouters",
+    "created": "2021-01-04",
+    "modified": "2021-01-15",
+    "text": "Samenvatting van de regeling rond geboorteverlof die geldt vanaf 1 januari 2021. Deze samenvatting is fictief en dient alleen als interne demo. Vanaf 1 januari 2021 heeft de werknemer bij de geboorte van een kind recht op 15 dagen geboorteverlof. Het verlof moet worden opgenomen binnen vier maanden na de bevalling en kan in losse dagen of in één blok. De eerste drie dagen zijn ten laste van de werkgever als gewaarborgd loon. De overige dagen worden vergoed door het ziekenfonds. De werknemer moet de werkgever vooraf op de hoogte brengen van de gevraagde verlofdagen en een kopie van de geboorteakte bezorgen. Werkgevers mogen in een ondernemingsakkoord of arbeidsreglement extra verlofdagen toekennen bovenop het wettelijke minimum. Payrollconsultants controleren bij elke aanvraag of de werknemer de vier maanden niet overschrijdt.",
+    "history": [
+      {
+        "author": "Pieter Wouters",
+        "date": "2021-01-15",
+        "change": "inhoud",
+        "summary": "Samenvatting opgesteld"
+      },
+      {
+        "author": "Jens Maes",
+        "date": "2021-01-12",
+        "change": "opmaak",
+        "summary": "Lay-out"
+      }
+    ]
+  },
+  {
+    "id": "doc-23",
+    "title": "Procedure geboorteverlof (intranet)",
+    "filename": "Procedure_geboorteverlof_intranet.docx",
+    "folder": "Payroll BE / Procedures",
+    "country": "BE",
+    "topic": "geboorteverlof",
+    "layer": "procedure",
+    "status": "goedgekeurd",
+    "owner": "Tom Vermeulen",
+    "created": "2021-03-01",
+    "modified": "2021-03-10",
+    "text": "Procedure geboorteverlof. Deze procedure beschrijft hoe de payrollconsultant het geboorteverlof van een werknemer verwerkt. Bij de geboorte van een kind heeft de werknemer recht op 15 dagen geboorteverlof. Het verlof moet worden opgenomen binnen vier maanden na de bevalling en mag in losse dagen worden opgenomen. De eerste drie dagen betaalt de werkgever als gewaarborgd loon. De overige twaalf dagen vergoedt het ziekenfonds via een uitkering. De werknemer bezorgt een kopie van de geboorteakte aan de werkgever of rechtstreeks aan de payrollconsultant. Registreer de eerste drie dagen in de loonverwerking met de looncode voor gewaarborgd loon. Voor de overige dagen maak je een aangifte sociaal risico bij het ziekenfonds, zodat de werknemer zijn uitkering ontvangt. Controleer altijd of het klantendossier een afwijkende afspraak bevat, zoals extra verlofdagen die de werkgever bovenop het wettelijke geboorteverlof toekent. Zulke afspraken gaan voor op deze algemene procedure. Bij twijfel over de duur van het geboorteverlof neem je contact op met de juridische dienst. Vragen van werknemers over hun uitkering verwijs je door naar hun ziekenfonds.",
+    "history": [
+      {
+        "author": "Tom Vermeulen",
+        "date": "2021-03-10",
+        "change": "inhoud",
+        "summary": "Stappen voor aangifte toegevoegd"
+      },
+      {
+        "author": "Tom Vermeulen",
+        "date": "2021-03-01",
+        "change": "inhoud",
+        "summary": "Procedure opgesteld"
+      }
+    ]
+  },
+  {
+    "id": "doc-24",
+    "title": "Werkinstructie geboorteverlof team Gent",
+    "filename": "Werkinstructie_geboorteverlof_Gent.docx",
+    "folder": "HR BE / Team Gent",
+    "country": "BE",
+    "topic": "geboorteverlof",
+    "layer": "procedure",
+    "status": "goedgekeurd",
+    "owner": "Sofie Claes",
+    "created": "2022-05-20",
+    "modified": "2022-06-01",
+    "text": "Werkinstructie geboorteverlof voor team Gent, overgenomen van het intranet. Deze procedure beschrijft hoe de payrollconsultant het geboorteverlof van een werknemer verwerkt. Bij de geboorte van een kind heeft de werknemer recht op 15 dagen geboorteverlof. Het verlof moet worden opgenomen binnen vier maanden na de bevalling en mag in losse dagen worden opgenomen. De eerste drie dagen betaalt de werkgever als gewaarborgd loon. De overige twaalf dagen vergoedt het ziekenfonds via een uitkering. De werknemer bezorgt een kopie van de geboorteakte aan de werkgever of rechtstreeks aan de payrollconsultant. Registreer de eerste drie dagen in de loonverwerking met de looncode voor gewaarborgd loon. Voor de overige dagen maak je een aangifte sociaal risico bij het ziekenfonds, zodat de werknemer zijn uitkering ontvangt. Controleer altijd of het klantendossier een afwijkende afspraak bevat, zoals extra verlofdagen die de werkgever bovenop het wettelijke geboorteverlof toekent. Zulke afspraken gaan voor op deze algemene procedure. Bij twijfel over de duur van het geboorteverlof neem je contact op met de juridische dienst. Vragen van werknemers over hun uitkering verwijs je door naar hun ziekenfonds.",
+    "history": [
+      {
+        "author": "Tom Vermeulen",
+        "date": "2022-06-01",
+        "change": "inhoud",
+        "summary": "Tekst overgenomen van intranet"
+      },
+      {
+        "author": "Jens Maes",
+        "date": "2022-05-20",
+        "change": "opmaak",
+        "summary": "Lay-out team Gent"
+      }
+    ]
+  },
+  {
+    "id": "doc-25",
+    "title": "Opleiding nieuwe consultants: geboorteverlof",
+    "filename": "Opleiding_geboorteverlof.pptx",
+    "folder": "HR BE / Opleidingen",
+    "country": "BE",
+    "topic": "geboorteverlof",
+    "layer": "procedure",
+    "status": "goedgekeurd",
+    "owner": null,
+    "created": "2022-11-10",
+    "modified": "2022-11-15",
+    "text": "Opleiding nieuwe consultants, module geboorteverlof. Deze procedure beschrijft hoe de payrollconsultant het geboorteverlof van een werknemer verwerkt. Bij de geboorte van een kind heeft de werknemer recht op 15 dagen geboorteverlof. Het verlof moet worden opgenomen binnen vier maanden na de bevalling en mag in losse dagen worden opgenomen. De eerste drie dagen betaalt de werkgever als gewaarborgd loon. De overige twaalf dagen vergoedt het ziekenfonds via een uitkering. De werknemer bezorgt een kopie van de geboorteakte aan de werkgever of rechtstreeks aan de payrollconsultant. Registreer de eerste drie dagen in de loonverwerking met de looncode voor gewaarborgd loon. Voor de overige dagen maak je een aangifte sociaal risico bij het ziekenfonds, zodat de werknemer zijn uitkering ontvangt. Controleer altijd of het klantendossier een afwijkende afspraak bevat, zoals extra verlofdagen die de werkgever bovenop het wettelijke geboorteverlof toekent. Zulke afspraken gaan voor op deze algemene procedure. Bij twijfel over de duur van het geboorteverlof neem je contact op met de juridische dienst. Vragen van werknemers over hun uitkering verwijs je door naar hun ziekenfonds.",
+    "history": [
+      {
+        "author": "Tom Vermeulen",
+        "date": "2022-11-15",
+        "change": "inhoud",
+        "summary": "Module geboorteverlof toegevoegd"
+      },
+      {
+        "author": "Jens Maes",
+        "date": "2022-11-10",
+        "change": "opmaak",
+        "summary": "Slides opgemaakt"
+      }
+    ]
+  },
+  {
+    "id": "doc-26",
+    "title": "Procedure geboorteverlof 2023",
+    "filename": "Procedure_geboorteverlof_2023.docx",
+    "folder": "Payroll BE / Procedures",
+    "country": "BE",
+    "topic": "geboorteverlof",
+    "layer": "procedure",
+    "status": "goedgekeurd",
+    "owner": "Sofie Claes",
+    "created": "2023-01-12",
+    "modified": "2023-01-20",
+    "text": "Procedure geboorteverlof 2023. Deze procedure vervangt de vorige procedure geboorteverlof op het intranet. Sinds 1 januari 2023 heeft de werknemer bij de geboorte van een kind recht op 20 dagen geboorteverlof in plaats van 15 dagen. Het verlof moet worden opgenomen binnen vier maanden na de bevalling en mag in losse dagen worden opgenomen. De eerste drie dagen betaalt de werkgever als gewaarborgd loon. De overige zeventien dagen vergoedt het ziekenfonds via een uitkering. De werknemer bezorgt een kopie van de geboorteakte aan de werkgever of rechtstreeks aan de payrollconsultant. Registreer de eerste drie dagen met de looncode voor gewaarborgd loon en maak voor de overige dagen een aangifte sociaal risico bij het ziekenfonds. Controleer altijd of het klantendossier extra verlofdagen toekent bovenop het wettelijke geboorteverlof; tel die dagen op bij de 20 wettelijke dagen. Oude werkinstructies en opleidingen die nog 15 dagen vermelden, zijn verouderd.",
+    "history": [
+      {
+        "author": "Sofie Claes",
+        "date": "2023-01-20",
+        "change": "inhoud",
+        "summary": "Duur naar 20 dagen"
+      },
+      {
+        "author": "An Peeters",
+        "date": "2023-01-16",
+        "change": "inhoud",
+        "summary": "Klantafspraken toegevoegd"
+      },
+      {
+        "author": "Jens Maes",
+        "date": "2023-01-12",
+        "change": "opmaak",
+        "summary": "Lay-out"
+      }
+    ]
+  },
+  {
+    "id": "doc-27",
+    "title": "Werkinstructie looncode en aangifte geboorteverlof",
+    "filename": "Werkinstructie_looncode_geboorteverlof.docx",
+    "folder": "Payroll BE / Procedures",
+    "country": "BE",
+    "topic": "geboorteverlof",
+    "layer": "procedure",
+    "status": "concept",
+    "owner": "An Peeters",
+    "created": "2025-01-28",
+    "modified": "2025-02-03",
+    "text": "Werkinstructie voor het registreren van geboorteverlof in de loonsoftware. Deze instructie is nog in concept. Registreer de eerste drie dagen geboorteverlof met looncode 1250, gewaarborgd loon ten laste van de werkgever. Voor de overige dagen maak je in het portaal van de sociale zekerheid een aangifte sociaal risico met scenario geboorteverlof. Vul de geboortedatum van het kind en de gevraagde verlofdagen in en voeg een kopie van de geboorteakte toe aan het dossier. Controleer na de loonverwerking of de loonfiche de drie dagen gewaarborgd loon correct toont. Als de klant extra verlofdagen toekent, registreer je die met de looncode voor klein verlet ten laste van de werkgever. Bij een correctie na de afsluiting van de maand maak je een regularisatie in de volgende loonperiode. Vragen over de uitkering van het ziekenfonds beantwoordt het ziekenfonds zelf; de payrollconsultant geeft daar geen advies over.",
+    "history": [
+      {
+        "author": "An Peeters",
+        "date": "2025-02-03",
+        "change": "inhoud",
+        "summary": "Looncodes aangevuld"
+      },
+      {
+        "author": "An Peeters",
+        "date": "2025-01-28",
+        "change": "inhoud",
+        "summary": "Eerste versie"
+      }
+    ]
+  },
+  {
+    "id": "doc-28",
+    "title": "Klantafspraak extra verlofdag Bakkerij Janssens",
+    "filename": "Klantafspraak_verlofdag_Bakkerij_Janssens.pdf",
+    "folder": "Payroll BE / Klanten",
+    "country": "BE",
+    "topic": "geboorteverlof",
+    "layer": "klant",
+    "status": "goedgekeurd",
+    "owner": "An Peeters",
+    "created": "2022-08-25",
+    "modified": "2022-09-01",
+    "text": "Ondernemingsakkoord Bakkerij Janssens (fictieve klant), artikel 4: extra verlofdag bij geboorte. Bovenop het wettelijke geboorteverlof krijgt elke werknemer van Bakkerij Janssens bij de geboorte van zijn of haar kind één extra betaalde verlofdag. Deze dag is volledig ten laste van de werkgever en wordt betaald aan het normale dagloon. De extra dag moet worden opgenomen binnen dezelfde termijn als het wettelijke geboorteverlof. De werknemer vraagt de dag aan via zijn leidinggevende en vermeldt dat het om de extra verlofdag uit het ondernemingsakkoord gaat. De payrollconsultant van SD Worx registreert deze dag apart, zodat ze niet wordt meegeteld in de aangifte bij het ziekenfonds. Deze afspraak geldt voor onbepaalde duur en werd ondertekend door de zaakvoerder en de werknemersvertegenwoordiging. Een wijziging van het wettelijke geboorteverlof verandert niets aan deze extra dag: ze komt telkens bovenop het wettelijke aantal dagen.",
+    "history": [
+      {
+        "author": "An Peeters",
+        "date": "2022-09-01",
+        "change": "inhoud",
+        "summary": "Afspraak geregistreerd"
+      },
+      {
+        "author": "Jens Maes",
+        "date": "2022-08-25",
+        "change": "opmaak",
+        "summary": "Scan opgeladen"
+      }
+    ]
+  },
+  {
+    "id": "doc-29",
+    "title": "Geboorteakte Jan (Bakkerij Janssens)",
+    "filename": "Geboorteakte_Jan_Bakkerij_Janssens.pdf",
+    "folder": "Payroll BE / Klanten",
+    "country": "BE",
+    "topic": "geboorteverlof",
+    "layer": "klant",
+    "status": "goedgekeurd",
+    "owner": null,
+    "created": "2025-09-10",
+    "modified": "2025-09-10",
+    "text": "Kopie van een geboorteakte, opgeladen via het klantportaal door Bakkerij Janssens (fictieve klant) voor werknemer Jan (fictief). Geboorte van een dochter op 8 september 2025. De werknemer vraagt geboorteverlof aan in de periode van 22 september tot en met eind november 2025, verspreid over losse dagen. De zaakvoerder vraagt de payrollconsultant hoeveel dagen geboorteverlof Jan in totaal kan opnemen, rekening houdend met de extra verlofdag uit het ondernemingsakkoord van de bakkerij. De vier maanden om het verlof op te nemen lopen tot 8 januari 2026. Het document bevat enkel de gegevens die nodig zijn voor de loonverwerking en de aangifte bij het ziekenfonds. Andere persoonsgegevens werden niet overgenomen. Deze akte wordt bewaard in het dossier van de werknemer volgens de bewaartermijnen van de klant.",
+    "history": [
+      {
+        "author": "An Peeters",
+        "date": "2025-09-10",
+        "change": "inhoud",
+        "summary": "Opgeladen via klantportaal"
+      }
+    ]
+  },
+  {
+    "id": "doc-30",
+    "title": "Loonfiche Jan september 2025",
+    "filename": "Loonfiche_Jan_2025-09.pdf",
+    "folder": "Payroll BE / Klanten",
+    "country": "BE",
+    "topic": "geboorteverlof",
+    "layer": "klant",
+    "status": "goedgekeurd",
+    "owner": null,
+    "created": "2025-09-30",
+    "modified": "2025-09-30",
+    "text": "Loonfiche september 2025 van werknemer Jan (fictief) bij Bakkerij Janssens (fictieve klant). Gewerkte dagen: 18. Looncode 1250, gewaarborgd loon geboorteverlof: 3 dagen, op 22, 23 en 24 september 2025, ten laste van de werkgever. Extra verlofdag volgens het ondernemingsakkoord: nog niet opgenomen. De resterende dagen geboorteverlof worden vergoed door het ziekenfonds en staan daarom niet op deze loonfiche. Brutoloon, sociale bijdragen en bedrijfsvoorheffing werden berekend volgens de gewone regels voor september. Opmerking van de payrollconsultant: de aangifte sociaal risico voor de overige dagen geboorteverlof is verstuurd naar het ziekenfonds. Controleer bij de loonverwerking van oktober en november of de extra verlofdag en de volgende verlofdagen correct worden geregistreerd. Deze loonfiche werd automatisch aangemaakt na de loonrun van september en is beschikbaar in de app van de werknemer.",
+    "history": [
+      {
+        "author": "An Peeters",
+        "date": "2025-09-30",
+        "change": "inhoud",
+        "summary": "Loonrun september"
+      }
+    ]
+  },
+  {
+    "id": "doc-31",
+    "title": "Mail aan klant: geboorteverlof 15 dagen",
+    "filename": "Mail_klant_geboorteverlof_2024-04-12.txt",
+    "folder": "Teams / Payroll BE",
+    "country": "BE",
+    "topic": "geboorteverlof",
+    "layer": "procedure",
+    "status": "concept",
+    "owner": null,
+    "created": "2024-04-12",
+    "modified": "2024-04-12",
+    "text": "[Export Outlook] Van: Tom Vermeulen, payrollconsultant. Aan: zaakvoerder van een klant uit de voedingssector (fictief). Onderwerp: geboorteverlof. Beste, zoals telefonisch besproken: uw werknemers hebben bij de geboorte van een kind recht op 15 dagen geboorteverlof. De eerste drie dagen zijn voor rekening van de werkgever als gewaarborgd loon, de rest wordt betaald door het ziekenfonds. Het verlof moet worden opgenomen binnen vier maanden na de geboorte. Uw werknemer bezorgt ons best zo snel mogelijk een kopie van de geboorteakte, zodat wij de aangifte bij het ziekenfonds kunnen doen. Als u in uw onderneming extra verlofdagen toekent, laat het ons dan weten, dan houden we daar rekening mee in de loonverwerking. Voor vragen over de uitkering kan uw werknemer terecht bij zijn ziekenfonds. Met vriendelijke groeten, Tom, payrollconsultant.",
+    "history": [
+      {
+        "author": "Tom Vermeulen",
+        "date": "2024-04-12",
+        "change": "inhoud",
+        "summary": "Mail verstuurd"
+      }
+    ]
+  },
+  {
+    "id": "doc-32",
+    "title": "Teams-bericht: geboorteverlof is 15 dagen",
+    "filename": "Teams_PayrollBE_geboorteverlof_2025-09-22.txt",
+    "folder": "Teams / Payroll BE",
+    "country": "BE",
+    "topic": "geboorteverlof",
+    "layer": "procedure",
+    "status": "concept",
+    "owner": null,
+    "created": "2025-09-22",
+    "modified": "2025-09-22",
+    "text": "[Export Microsoft Teams] Team: Payroll BE, kanaal Algemeen. 22/09/2025 10:05, An Peeters: Ik krijg een vraag van Bakkerij Janssens over het geboorteverlof van een werknemer, weet iemand hoeveel dagen dat nu is? 22/09/2025 10:11, Tom Vermeulen: Is 15 dagen hoor, dat heb ik vorig jaar nog zo verwerkt en zo staat het ook in de opleiding voor nieuwe consultants. De eerste drie dagen gewaarborgd loon, de rest via het ziekenfonds. 22/09/2025 10:20, Sofie Claes: Opgelet, volgens mij is dat intussen aangepast. Kijk in de Procedure geboorteverlof 2023 van Payroll BE voor het juiste aantal dagen, en check ook het klantendossier voor extra verlofdagen. 22/09/2025 10:24, Tom Vermeulen: Ok, ik laat het na de loonrun nog eens nakijken door de juridische dienst. 22/09/2025 10:30, An Peeters: Bedankt, ik wacht nog even met antwoorden aan de klant.",
+    "history": [
+      {
+        "author": "Tom Vermeulen",
+        "date": "2025-09-22",
+        "change": "inhoud",
+        "summary": "Bericht in kanaal"
+      },
+      {
+        "author": "Sofie Claes",
+        "date": "2025-09-22",
+        "change": "inhoud",
+        "summary": "Reactie in kanaal"
+      }
+    ]
+  },
+  {
+    "id": "doc-33",
+    "title": "Geboorteverlof Nederland (partnerverlof)",
+    "filename": "Partnerverlof_Nederland.docx",
+    "folder": "Payroll NL / Procedures",
+    "country": "NL",
+    "topic": "geboorteverlof",
+    "layer": "procedure",
+    "status": "goedgekeurd",
+    "owner": "Femke de Jong",
+    "created": "2024-03-01",
+    "modified": "2024-03-12",
+    "text": "Procedure geboorteverlof voor Nederlandse klanten (fictief voorbeeld). In Nederland heeft de partner na de geboorte van een kind recht op geboorteverlof van één werkweek, gevolgd door aanvullend geboorteverlof van maximaal vijf werkweken. Het eerste deel wordt volledig doorbetaald door de werkgever. Voor het aanvullende geboorteverlof ontvangt de werknemer een uitkering via de uitvoeringsinstantie, en niet via het ziekenfonds zoals in België. Het verlof moet binnen zes maanden na de geboorte worden opgenomen. De werknemer meldt het verlof vooraf aan de werkgever. De payrollconsultant registreert het verlof in de loonverwerking en controleert of de klant in de cao extra afspraken maakte. Deze procedure geldt alleen voor Nederland; Belgische dossiers volgen de Belgische procedure geboorteverlof.",
+    "history": [
+      {
+        "author": "Femke de Jong",
+        "date": "2024-03-12",
+        "change": "inhoud",
+        "summary": "Procedure opgesteld"
+      }
+    ]
   }
 ]
