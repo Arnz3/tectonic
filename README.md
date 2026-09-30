@@ -52,6 +52,9 @@ src/views/              weergaven: Lijst, Tegels, Compact, Kennisgraaf
 3. De `MAX_LLM_PAIRS = 12` sterkste paren binnen hetzelfde land gaan naar Gemini: *duplicaat*, *tegenstrijdig* of *consistent*, met de letterlijke zinnen die verschillen. Citaten die niet letterlijk in het document staan, worden geweigerd. Zonder API of bij een fout: vanaf `SIM_DUP = 0.9` duplicaat, anders gelijkaardig.
 4. Duplicaatgroepen tellen als één bron; de oudste is het origineel.
 5. Aanbevolen document per cluster: niet verouderd, goedgekeurd boven concept, met eigenaar, meest recent, en niet tegengesproken door een nieuwer goedgekeurd document van hetzelfde land.
+6. Aanspreekpunt per cluster: een score per auteur op basis van inhoudelijke wijzigingen, gewogen naar het document (aanbevolen, goedgekeurd, concept, verouderd of kopie) en naar recentheid, met een waarschuwing voor wie vooral aan verouderde versies werkte.
+
+In de Kennisgraaf kun je wisselen tussen een **vrije graaf** en een **tijdlijnweergave** (x-as = laatst gewijzigd, een baan per land), en met **Toon mensen** de auteurs als knopen tonen.
 
 **In productie** zou de analyse draaien bij elke documentwijziging via de Microsoft Graph API, in plaats van vooraf op een vaste dataset.
 
@@ -64,7 +67,7 @@ src/views/              weergaven: Lijst, Tegels, Compact, Kennisgraaf
 
 - **Geen echte SharePoint-integratie**: een eigen clone met een vaste dataset, geen SPFx, geen authenticatie.
 - **TF-IDF in plaats van embeddings**: werkt goed voor bijna letterlijke kopieën en gedeelde woordenschat, minder voor documenten die hetzelfde zeggen in andere woorden.
-- **"Wie weet hier meer van?" is een startpunt, geen expertiseoordeel**: het telt inhoudelijke wijzigingen, niet of die wijzigingen juist waren.
+- **"Aanspreekpunt" is een startpunt, geen expertiseoordeel**: de score weegt inhoudelijke wijzigingen naar betrouwbaarheid en recentheid van het document, maar zegt niet of die wijzigingen juist waren. Recentheid wordt gemeten vanaf de laatste wijziging in de dataset, zodat de score bij elke run gelijk blijft.
 - **Originele bron = oudste document** in een duplicaatgroep: een heuristiek.
 - **Gemini-oordelen zijn niet volledig deterministisch** (het model ondersteunt geen `temperature` meer); de cache maakt de demo wel reproduceerbaar.
 - Bewust niet gebouwd: uploads, bewerken, zoeken met embeddings, chatassistent, meertaligheid.
