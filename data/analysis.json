@@ -1,0 +1,416 @@
+{
+  "edges": [
+    {
+      "source": "doc-02",
+      "target": "doc-04",
+      "similarity": 0.99,
+      "relation": "duplicaat",
+      "statement_a": "",
+      "statement_b": "",
+      "explanation": "Vrijwel identieke tekst (gelijkenis 0,99)."
+    },
+    {
+      "source": "doc-02",
+      "target": "doc-03",
+      "similarity": 0.95,
+      "relation": "duplicaat",
+      "statement_a": "",
+      "statement_b": "",
+      "explanation": "Vrijwel identieke tekst (gelijkenis 0,95)."
+    },
+    {
+      "source": "doc-03",
+      "target": "doc-04",
+      "similarity": 0.95,
+      "relation": "duplicaat",
+      "statement_a": "",
+      "statement_b": "",
+      "explanation": "Vrijwel identieke tekst (gelijkenis 0,95)."
+    },
+    {
+      "source": "doc-14",
+      "target": "doc-20",
+      "similarity": 0.8,
+      "relation": "ander_toepassingsgebied",
+      "statement_a": "",
+      "statement_b": "",
+      "explanation": "Ander land (BE en NL): ander toepassingsgebied, geen tegenstrijdigheid."
+    },
+    {
+      "source": "doc-01",
+      "target": "doc-02",
+      "similarity": 0.75,
+      "relation": "gelijkaardig",
+      "statement_a": "",
+      "statement_b": "",
+      "explanation": ""
+    },
+    {
+      "source": "doc-08",
+      "target": "doc-09",
+      "similarity": 0.75,
+      "relation": "gelijkaardig",
+      "statement_a": "",
+      "statement_b": "",
+      "explanation": ""
+    },
+    {
+      "source": "doc-01",
+      "target": "doc-04",
+      "similarity": 0.74,
+      "relation": "gelijkaardig",
+      "statement_a": "",
+      "statement_b": "",
+      "explanation": ""
+    },
+    {
+      "source": "doc-01",
+      "target": "doc-03",
+      "similarity": 0.72,
+      "relation": "gelijkaardig",
+      "statement_a": "",
+      "statement_b": "",
+      "explanation": ""
+    },
+    {
+      "source": "doc-11",
+      "target": "doc-13",
+      "similarity": 0.63,
+      "relation": "ander_toepassingsgebied",
+      "statement_a": "",
+      "statement_b": "",
+      "explanation": "Ander land (BE en DE): ander toepassingsgebied, geen tegenstrijdigheid."
+    },
+    {
+      "source": "doc-02",
+      "target": "doc-05",
+      "similarity": 0.62,
+      "relation": "ander_toepassingsgebied",
+      "statement_a": "",
+      "statement_b": "",
+      "explanation": "Ander land (BE en NL): ander toepassingsgebied, geen tegenstrijdigheid."
+    },
+    {
+      "source": "doc-04",
+      "target": "doc-05",
+      "similarity": 0.6,
+      "relation": "ander_toepassingsgebied",
+      "statement_a": "",
+      "statement_b": "",
+      "explanation": "Ander land (BE en NL): ander toepassingsgebied, geen tegenstrijdigheid."
+    },
+    {
+      "source": "doc-01",
+      "target": "doc-05",
+      "similarity": 0.6,
+      "relation": "ander_toepassingsgebied",
+      "statement_a": "",
+      "statement_b": "",
+      "explanation": "Ander land (BE en NL): ander toepassingsgebied, geen tegenstrijdigheid."
+    },
+    {
+      "source": "doc-03",
+      "target": "doc-05",
+      "similarity": 0.59,
+      "relation": "ander_toepassingsgebied",
+      "statement_a": "",
+      "statement_b": "",
+      "explanation": "Ander land (BE en NL): ander toepassingsgebied, geen tegenstrijdigheid."
+    },
+    {
+      "source": "doc-16",
+      "target": "doc-17",
+      "similarity": 0.54,
+      "relation": "gelijkaardig",
+      "statement_a": "",
+      "statement_b": "",
+      "explanation": ""
+    },
+    {
+      "source": "doc-17",
+      "target": "doc-18",
+      "similarity": 0.45,
+      "relation": "gelijkaardig",
+      "statement_a": "",
+      "statement_b": "",
+      "explanation": ""
+    },
+    {
+      "source": "doc-16",
+      "target": "doc-18",
+      "similarity": 0.44,
+      "relation": "gelijkaardig",
+      "statement_a": "",
+      "statement_b": "",
+      "explanation": ""
+    },
+    {
+      "source": "doc-06",
+      "target": "doc-07",
+      "similarity": 0.44,
+      "relation": "gelijkaardig",
+      "statement_a": "",
+      "statement_b": "",
+      "explanation": ""
+    }
+  ],
+  "recommended": {
+    "doc-01": [
+      "Meest recent (12/03/2025)",
+      "Goedgekeurd",
+      "Eigenaar: An Peeters"
+    ],
+    "doc-07": [
+      "Laatst gewijzigd 03/06/2025",
+      "Goedgekeurd",
+      "Eigenaar: Pieter Wouters"
+    ],
+    "doc-08": [
+      "Meest recent (12/12/2024)",
+      "Goedgekeurd",
+      "Eigenaar: Sofie Claes",
+      "Vervangt verouderde versie doc-09"
+    ],
+    "doc-18": [
+      "Meest recent (25/04/2025)",
+      "Goedgekeurd",
+      "Eigenaar: An Peeters"
+    ]
+  },
+  "duplicate_groups": [
+    {
+      "original": "doc-02",
+      "copies": [
+        "doc-03",
+        "doc-04"
+      ]
+    }
+  ],
+  "clusters": [
+    {
+      "documents": [
+        "doc-01",
+        "doc-02",
+        "doc-03",
+        "doc-04"
+      ],
+      "independent_sources": 2
+    },
+    {
+      "documents": [
+        "doc-06",
+        "doc-07"
+      ],
+      "independent_sources": 2
+    },
+    {
+      "documents": [
+        "doc-08",
+        "doc-09"
+      ],
+      "independent_sources": 2
+    },
+    {
+      "documents": [
+        "doc-16",
+        "doc-17",
+        "doc-18"
+      ],
+      "independent_sources": 3
+    }
+  ],
+  "author_stats": {
+    "doc-01": {
+      "An Peeters": {
+        "inhoud": 4,
+        "opmaak": 0
+      },
+      "Jens Maes": {
+        "inhoud": 0,
+        "opmaak": 1
+      }
+    },
+    "doc-02": {
+      "An Peeters": {
+        "inhoud": 2,
+        "opmaak": 0
+      },
+      "Pieter Wouters": {
+        "inhoud": 1,
+        "opmaak": 0
+      },
+      "Jens Maes": {
+        "inhoud": 0,
+        "opmaak": 1
+      }
+    },
+    "doc-03": {
+      "Sofie Claes": {
+        "inhoud": 1,
+        "opmaak": 0
+      },
+      "Jens Maes": {
+        "inhoud": 0,
+        "opmaak": 1
+      }
+    },
+    "doc-04": {
+      "Sofie Claes": {
+        "inhoud": 1,
+        "opmaak": 0
+      },
+      "Jens Maes": {
+        "inhoud": 0,
+        "opmaak": 1
+      }
+    },
+    "doc-05": {
+      "Femke de Jong": {
+        "inhoud": 2,
+        "opmaak": 0
+      },
+      "Jens Maes": {
+        "inhoud": 0,
+        "opmaak": 1
+      }
+    },
+    "doc-06": {
+      "Sofie Claes": {
+        "inhoud": 1,
+        "opmaak": 0
+      }
+    },
+    "doc-07": {
+      "Pieter Wouters": {
+        "inhoud": 2,
+        "opmaak": 0
+      },
+      "An Peeters": {
+        "inhoud": 1,
+        "opmaak": 0
+      },
+      "Jens Maes": {
+        "inhoud": 0,
+        "opmaak": 1
+      }
+    },
+    "doc-08": {
+      "Sofie Claes": {
+        "inhoud": 2,
+        "opmaak": 0
+      },
+      "Jens Maes": {
+        "inhoud": 0,
+        "opmaak": 1
+      }
+    },
+    "doc-09": {
+      "Sofie Claes": {
+        "inhoud": 1,
+        "opmaak": 0
+      },
+      "Jens Maes": {
+        "inhoud": 0,
+        "opmaak": 1
+      }
+    },
+    "doc-10": {
+      "Sofie Claes": {
+        "inhoud": 1,
+        "opmaak": 0
+      },
+      "Jens Maes": {
+        "inhoud": 0,
+        "opmaak": 1
+      }
+    },
+    "doc-11": {
+      "Pieter Wouters": {
+        "inhoud": 2,
+        "opmaak": 0
+      },
+      "Jens Maes": {
+        "inhoud": 0,
+        "opmaak": 1
+      }
+    },
+    "doc-12": {
+      "Jens Maes": {
+        "inhoud": 1,
+        "opmaak": 0
+      },
+      "Pieter Wouters": {
+        "inhoud": 1,
+        "opmaak": 0
+      }
+    },
+    "doc-13": {
+      "Lukas Becker": {
+        "inhoud": 2,
+        "opmaak": 0
+      }
+    },
+    "doc-14": {
+      "Sofie Claes": {
+        "inhoud": 2,
+        "opmaak": 0
+      },
+      "Jens Maes": {
+        "inhoud": 0,
+        "opmaak": 1
+      }
+    },
+    "doc-15": {
+      "An Peeters": {
+        "inhoud": 2,
+        "opmaak": 0
+      }
+    },
+    "doc-16": {
+      "An Peeters": {
+        "inhoud": 1,
+        "opmaak": 0
+      },
+      "Jens Maes": {
+        "inhoud": 0,
+        "opmaak": 1
+      }
+    },
+    "doc-17": {
+      "Pieter Wouters": {
+        "inhoud": 1,
+        "opmaak": 0
+      }
+    },
+    "doc-18": {
+      "An Peeters": {
+        "inhoud": 1,
+        "opmaak": 0
+      },
+      "Jens Maes": {
+        "inhoud": 0,
+        "opmaak": 1
+      }
+    },
+    "doc-19": {
+      "Pieter Wouters": {
+        "inhoud": 1,
+        "opmaak": 0
+      },
+      "Jens Maes": {
+        "inhoud": 0,
+        "opmaak": 1
+      }
+    },
+    "doc-20": {
+      "Femke de Jong": {
+        "inhoud": 1,
+        "opmaak": 0
+      },
+      "Jens Maes": {
+        "inhoud": 0,
+        "opmaak": 1
+      }
+    }
+  }
+}

@@ -9,6 +9,18 @@ npm install
 npm run dev
 ```
 
+## Analyse draaien
+
+De verbanden tussen documenten worden vooraf berekend en naar `data/analysis.json` geschreven. De frontend leest alleen die JSON.
+
+```sh
+python3 -m venv .venv
+.venv/bin/pip install -r requirements.txt
+.venv/bin/python scripts/analyze.py --no-llm
+```
+
+Drempels (`SIM_EDGE`, `SIM_DUP`, `MAX_LLM_PAIRS`) staan bovenaan `scripts/analyze.py`.
+
 ## Een nieuwe weergave toevoegen
 
 1. Maak een component in `src/views/` dat `ViewProps` ontvangt (zie `src/types.ts`) en `items` rendert.
