@@ -5,7 +5,8 @@ Reads data/documents.json and writes data/analysis.json with:
   - duplicate groups (copies of one original source),
   - per cluster the number of independent sources,
   - the recommended document per cluster and the reasons why,
-  - per document the number of content/formatting changes per author.
+  - per document the number of content/formatting changes per author,
+  - per cluster an expert score per author ("Aanspreekpunt").
 
 Usage:
     python scripts/analyze.py            # classify the strongest pairs with Gemini
@@ -48,6 +49,16 @@ GEMINI_TIMEOUT_SECONDS = 60
 SIM_EDGE = 0.35  # minimum similarity for a candidate edge
 SIM_DUP = 0.9  # fallback: similarity at or above this counts as a duplicate
 MAX_LLM_PAIRS = 12  # only the most similar same-country pairs go to the LLM
+
+# Expert score (CLAUDE.md, section 12, M4b).
+DOC_WEIGHT_RECOMMENDED = 1.0
+DOC_WEIGHT_APPROVED = 0.8
+DOC_WEIGHT_DRAFT = 0.5
+DOC_WEIGHT_OUTDATED_OR_COPY = 0.2
+RECENCY_HALF_LIFE_DAYS = 365
+BONUS_PER_DOCUMENT = 0.5
+BONUS_OWNER_RECOMMENDED = 1.0
+OUTDATED_WARNING_SHARE = 0.5
 
 # Relations that can appear on an edge.
 DUPLICATE = "duplicaat"
@@ -370,21 +381,110 @@ def clusters_and_recommendations(docs_by_id: dict[str, dict], edges: list[dict],
     same_scope = [e for e in edges if e["relation"] != OTHER_SCOPE]
     copy_ids = {c for g in dup_groups for c in g["copies"]}
 
-    clusters, recommended = [], {}
-    for component in connected_components(list(docs_by_id), same_scope):
+    components = connected_components(list(docs_by_id), same_scope)
+    recommended = {}
+    for component in components:
         if len(component) < 2:
             continue
-        clusters.append(
-            {
-                "documents": component,
-                # Copies are not independent: each duplicate group counts once, via its original.
-                "independent_sources": sum(1 for d in component if d not in copy_ids),
-            }
-        )
         result = recommend(component, docs_by_id, edges)
         if result:
             recommended[result[0]] = result[1]
+
+    # Every document belongs to exactly one cluster, so the UI can always find its experts.
+    reference = reference_date(docs_by_id)
+    clusters = [
+        {
+            "documents": component,
+            "topic": cluster_topic(component, docs_by_id),
+            # Copies are not independent: each duplicate group counts once, via its original.
+            "independent_sources": sum(1 for d in component if d not in copy_ids),
+            "experts": expert_scores(component, docs_by_id, recommended, copy_ids, reference),
+        }
+        for component in components
+    ]
     return clusters, recommended
+
+
+def cluster_topic(component: list[str], docs_by_id: dict[str, dict]) -> str:
+    counts: dict[str, int] = defaultdict(int)
+    for d in component:
+        counts[docs_by_id[d]["topic"]] += 1
+    return min(counts, key=lambda t: (-counts[t], t))
+
+
+def reference_date(docs_by_id: dict[str, dict]) -> date:
+    """'Today' for the recency weight: the latest change in the dataset, so re-runs give the same scores."""
+    return max(date.fromisoformat(e["date"]) for d in docs_by_id.values() for e in d["history"])
+
+
+def doc_weight(doc: dict, recommended: dict, copy_ids: set[str]) -> float:
+    if doc["id"] in recommended:
+        return DOC_WEIGHT_RECOMMENDED
+    if doc["status"] == "verouderd" or doc["id"] in copy_ids:
+        return DOC_WEIGHT_OUTDATED_OR_COPY
+    if doc["status"] == "goedgekeurd":
+        return DOC_WEIGHT_APPROVED
+    return DOC_WEIGHT_DRAFT
+
+
+def plural(n: int, one: str, many: str) -> str:
+    return f"{n} {one if n == 1 else many}"
+
+
+def expert_scores(component: list[str], docs_by_id: dict[str, dict], recommended: dict,
+                  copy_ids: set[str], reference: date) -> list[dict]:
+    per_author: dict[str, dict] = {}
+    for doc_id in component:
+        doc = docs_by_id[doc_id]
+        weight = doc_weight(doc, recommended, copy_ids)
+        for entry in doc["history"]:
+            a = per_author.setdefault(entry["author"], {
+                "sum": 0.0, "inhoud": 0, "opmaak": 0, "docs": set(), "low_weight": 0,
+                "on_recommended": 0, "last": None,
+            })
+            if entry["change"] == "opmaak":
+                a["opmaak"] += 1  # shown separately, never scored
+                continue
+            days_ago = (reference - date.fromisoformat(entry["date"])).days
+            a["sum"] += weight * 0.5 ** (days_ago / RECENCY_HALF_LIFE_DAYS)
+            a["inhoud"] += 1
+            a["docs"].add(doc_id)
+            a["low_weight"] += weight <= DOC_WEIGHT_OUTDATED_OR_COPY
+            a["on_recommended"] += doc_id in recommended
+            a["last"] = max(a["last"] or entry["date"], entry["date"])
+
+    owners_of_recommended = {docs_by_id[d]["owner"] for d in component if d in recommended}
+    experts = []
+    for author, a in per_author.items():
+        if a["inhoud"] == 0:
+            continue
+        is_owner = author in owners_of_recommended
+        score = a["sum"] + BONUS_PER_DOCUMENT * len(a["docs"]) + (BONUS_OWNER_RECOMMENDED if is_owner else 0)
+
+        reasons = []
+        if is_owner:
+            reasons.append("Eigenaar van het aanbevolen document")
+        if a["on_recommended"]:
+            reasons.append(f"{plural(a['on_recommended'], 'inhoudelijke wijziging', 'inhoudelijke wijzigingen')} op het aanbevolen document")
+        reasons.append(f"Werkte inhoudelijk aan {plural(len(a['docs']), 'document', 'documenten')}")
+        reasons.append(f"Laatste inhoudelijke wijziging: {format_date(a['last'])}")
+
+        warning = None
+        if a["low_weight"] / a["inhoud"] > OUTDATED_WARNING_SHARE:
+            warning = "Werkte vooral aan verouderde versies"
+
+        experts.append({
+            "author": author,
+            "score": round(score, 2),
+            "inhoud": a["inhoud"],
+            "opmaak": a["opmaak"],
+            "documents": len(a["docs"]),
+            "last_activity": a["last"],
+            "reasons": reasons,
+            "warning": warning,
+        })
+    experts.sort(key=lambda e: (-e["score"], e["author"]))
+    return experts
 
 
 def author_stats(docs: list[dict]) -> dict:

@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef } from 'react'
 import { DataSet, Network, type Edge, type Node, type Options } from 'vis-network/standalone'
-import { analysis, contentChanges, independentSources, topAuthors, type AnalysisEdge, type Relation } from '../analysis'
+import { analysis, contentChanges, independentSources, primaryCluster, type AnalysisEdge, type Relation } from '../analysis'
 import { libraryItems } from '../library'
 import type { Document, FileItem, ViewProps } from '../types'
 
@@ -78,7 +78,7 @@ export function KnowledgeGraphView({ items, onOpen, onSelectEdge }: ViewProps) {
   onSelectEdgeRef.current = onSelectEdge
 
   // The graph shows the given documents plus their direct neighbours (1 hop).
-  const { docIds, edges } = useMemo(() => {
+  const { matchedIds, docIds, edges } = useMemo(() => {
     const matched = new Set(items.filter((i) => i.document).map((i) => i.id))
     const visible = new Set(matched)
     for (const e of analysis.edges) {
@@ -86,6 +86,7 @@ export function KnowledgeGraphView({ items, onOpen, onSelectEdge }: ViewProps) {
       if (matched.has(e.target)) visible.add(e.source)
     }
     return {
+      matchedIds: [...matched],
       docIds: [...visible].sort(),
       edges: analysis.edges.filter((e) => visible.has(e.source) && visible.has(e.target)),
     }
@@ -156,30 +157,44 @@ export function KnowledgeGraphView({ items, onOpen, onSelectEdge }: ViewProps) {
           {docIds.length === 0 && <div className="empty graph-empty">Geen documenten gevonden voor deze zoekopdracht.</div>}
           <div ref={containerRef} className="graph-canvas" />
         </div>
-        <WhoKnowsMore docIds={docIds} />
+        <ContactPanel matchedIds={matchedIds} />
       </div>
     </div>
   )
 }
 
-function WhoKnowsMore({ docIds }: { docIds: string[] }) {
-  const authors = topAuthors(docIds, 3)
-  if (authors.length === 0) return null
-  const max = authors[0].inhoud
+function ContactPanel({ matchedIds }: { matchedIds: string[] }) {
+  const cluster = primaryCluster(matchedIds)
+  const experts = cluster?.experts.slice(0, 3) ?? []
+  if (!cluster || experts.length === 0) return null
+  const max = experts[0].score
   return (
-    <aside className="who-knows" aria-label="Wie weet hier meer van?">
-      <h3>Wie weet hier meer van?</h3>
-      <p className="who-knows-sub">Op basis van inhoudelijke wijzigingen</p>
+    <aside className="who-knows" aria-label="Aanspreekpunt">
+      <h3>Aanspreekpunt</h3>
+      <p className="who-knows-sub">
+        Onderwerp: {cluster.topic}
+        <br />
+        Op basis van recente inhoudelijke wijzigingen aan betrouwbare documenten
+      </p>
       <ol>
-        {authors.map((a) => (
-          <li key={a.author}>
-            <div className="who-name">{a.author}</div>
-            <div className="who-bar">
-              <span style={{ width: `${(a.inhoud / max) * 100}%` }} />
+        {experts.map((e) => (
+          <li key={e.author}>
+            <div className="who-name">
+              {e.author}
+              <span className="who-score">{e.score.toFixed(1).replace('.', ',')}</span>
             </div>
+            <div className="who-bar">
+              <span style={{ width: `${(e.score / max) * 100}%` }} />
+            </div>
+            {e.warning && <div className="who-warning">⚠ {e.warning}</div>}
+            <ul className="who-reasons">
+              {e.reasons.map((r) => (
+                <li key={r}>{r}</li>
+              ))}
+            </ul>
             <div className="who-counts">
-              {a.inhoud} inhoudelijk
-              {a.opmaak > 0 && <small> · {a.opmaak} opmaak</small>}
+              {e.inhoud} inhoudelijk
+              {e.opmaak > 0 && <small> · {e.opmaak} opmaak (telt niet mee)</small>}
             </div>
           </li>
         ))}

@@ -231,3 +231,69 @@ Klik op persoon = zijpaneel met score, redenen en waarschuwing.
 ### Later / alleen in pitch
 Tijdschuifregelaar, bel rond duplicaatgroepen, focusmodus bij conflict,
 transparantie volgens veroudering.
+
+### M4e – Stemmen per zoekopdracht (upvote / downvote)
+
+**Doel:** meten of een document nuttig was voor een specifieke zoekopdracht.
+Belangrijk principe: nuttig ≠ correct. Stemmen zijn een extra signaal naast de
+vertrouwensregels, ze overrulen de aanbeveling nooit.
+
+**Interactie**
+- In het zijpaneel van een document (alleen als er een actieve zoekopdracht is):
+  "Was dit document nuttig voor '<zoekterm>'?" met 👍 en 👎.
+- Bij 👎 verschijnen optionele redenchips: "Verouderd", "Klopt niet",
+  "Ander land/situatie", "Niet relevant". Eén klik, geen vrije tekst.
+- Eén stem per sessie per (zoekterm, document); opnieuw klikken = stem wijzigen.
+
+**Data**
+Stem-object:
+{ "query_key": "maaltijdcheques", "query_raw": "Maaltijdcheques!",
+  "doc_id": "doc-01", "vote": 1 | -1, "reason": null | "verouderd" |
+  "klopt_niet" | "ander_toepassingsgebied" | "niet_relevant",
+  "session_id": "<anoniem>", "timestamp": "2025-..." }
+
+query_key = normalisatie: lowercase, trim, leestekens weg, meervoud-s weg
+aan het einde, spaties samengevoegd. (Geen NLP-bibliotheek nodig.)
+
+**Opslag** (kies op basis van de bestaande clone)
+- Heeft de clone een backend: endpoint POST /api/votes en GET /api/votes?query_key=…,
+  opslag in een JSON-bestand of SQLite.
+- Geen backend: localStorage in de browser.
+- In beide gevallen: `data/votes_seed.json` met gesimuleerde stemmen voor de demo
+  (markeren als gesimuleerd in de UI-tooltip en README).
+
+**Seed-scenario (moet in de demo zichtbaar zijn)**
+- doc-02 (oude versie) heeft veel oude upvotes voor "maaltijdcheques"
+  (mensen zijn hem gewend), maar recente downvotes met reden "verouderd".
+- doc-01 (aanbevolen) heeft minder stemmen, overwegend positief.
+- Voor één zoekterm (bijv. "mobiliteitsbudget nederland") zijn alle getoonde
+  documenten gedownvote → zichtbaar als zoekgat.
+
+**Aggregatie** (runtime, niet in analyze.py want stemmen veranderen)
+Per (query_key, doc_id): up, down, redenen-telling, en een
+Wilson lower bound (95%) als nuttigheidsscore, zodat 1 upvote ≠ 100%.
+
+**Weergave**
+- Knoop: klein label "👍 12 · 👎 3" voor de huidige zoekterm.
+- Zijpaneel: stemmen voor deze zoekterm + top-redenen van downvotes.
+- Signaal "Recent vaker afgekeurd": als ≥ 3 downvotes met reden
+  "verouderd" of "klopt_niet" in de laatste 30 dagen (seed-data) →
+  waarschuwingslabel op de knoop.
+- Zoekgat: als voor een zoekterm geen enkel document een positieve
+  nuttigheidsscore heeft → melding "Niemand vond hier iets nuttigs.
+  Aanspreekpunt: <top-expert>".
+
+**Invloed op aanbeveling** (bescheiden, in code)
+- Alleen als tie-breaker tussen documenten die volgens de regels uit sectie 5
+  gelijk scoren.
+- Downvotes met reden "verouderd"/"klopt_niet" verschijnen wel als extra reden
+  in het zijpaneel ("3 collega's meldden recent dat dit verouderd is").
+
+**Security (Aikido)**
+- doc_id valideren tegen de lijst bekende documenten; onbekend = 400.
+- reason alleen uit de vaste lijst; query_raw max 100 tekens, als platte tekst tonen.
+- session_id server-side genereren (of random in de browser), nooit een
+  gebruikers-id uit de request vertrouwen.
+- Eenvoudige rate limit op het stem-endpoint (bijv. 30 stemmen/minuut per sessie).
+- In README vermelden: stemmen zijn manipuleerbaar zonder authenticatie;
+  in productie gekoppeld aan Entra ID-login, één stem per medewerker.

@@ -194,21 +194,309 @@
         "doc-03",
         "doc-04"
       ],
-      "independent_sources": 2
+      "topic": "maaltijdcheques",
+      "independent_sources": 2,
+      "experts": [
+        {
+          "author": "An Peeters",
+          "score": 4.75,
+          "inhoud": 6,
+          "opmaak": 0,
+          "documents": 2,
+          "last_activity": "2025-03-12",
+          "reasons": [
+            "Eigenaar van het aanbevolen document",
+            "4 inhoudelijke wijzigingen op het aanbevolen document",
+            "Werkte inhoudelijk aan 2 documenten",
+            "Laatste inhoudelijke wijziging: 12/03/2025"
+          ],
+          "warning": null
+        },
+        {
+          "author": "Tom Vermeulen",
+          "score": 3.23,
+          "inhoud": 9,
+          "opmaak": 0,
+          "documents": 4,
+          "last_activity": "2025-02-25",
+          "reasons": [
+            "1 inhoudelijke wijziging op het aanbevolen document",
+            "Werkte inhoudelijk aan 4 documenten",
+            "Laatste inhoudelijke wijziging: 25/02/2025"
+          ],
+          "warning": "Werkte vooral aan verouderde versies"
+        },
+        {
+          "author": "Sofie Claes",
+          "score": 1.1,
+          "inhoud": 2,
+          "opmaak": 0,
+          "documents": 2,
+          "last_activity": "2024-02-10",
+          "reasons": [
+            "Werkte inhoudelijk aan 2 documenten",
+            "Laatste inhoudelijke wijziging: 10/02/2024"
+          ],
+          "warning": "Werkte vooral aan verouderde versies"
+        },
+        {
+          "author": "Pieter Wouters",
+          "score": 0.62,
+          "inhoud": 1,
+          "opmaak": 0,
+          "documents": 1,
+          "last_activity": "2023-01-15",
+          "reasons": [
+            "Werkte inhoudelijk aan 1 document",
+            "Laatste inhoudelijke wijziging: 15/01/2023"
+          ],
+          "warning": null
+        }
+      ]
+    },
+    {
+      "documents": [
+        "doc-05"
+      ],
+      "topic": "maaltijdcheques",
+      "independent_sources": 1,
+      "experts": [
+        {
+          "author": "Femke de Jong",
+          "score": 1.48,
+          "inhoud": 2,
+          "opmaak": 0,
+          "documents": 1,
+          "last_activity": "2025-02-11",
+          "reasons": [
+            "Werkte inhoudelijk aan 1 document",
+            "Laatste inhoudelijke wijziging: 11/02/2025"
+          ],
+          "warning": null
+        }
+      ]
     },
     {
       "documents": [
         "doc-06",
         "doc-07"
       ],
-      "independent_sources": 2
+      "topic": "eindejaarspremie",
+      "independent_sources": 2,
+      "experts": [
+        {
+          "author": "Pieter Wouters",
+          "score": 2.94,
+          "inhoud": 2,
+          "opmaak": 0,
+          "documents": 1,
+          "last_activity": "2025-05-15",
+          "reasons": [
+            "Eigenaar van het aanbevolen document",
+            "2 inhoudelijke wijzigingen op het aanbevolen document",
+            "Werkte inhoudelijk aan 1 document",
+            "Laatste inhoudelijke wijziging: 15/05/2025"
+          ],
+          "warning": null
+        },
+        {
+          "author": "An Peeters",
+          "score": 1.28,
+          "inhoud": 1,
+          "opmaak": 0,
+          "documents": 1,
+          "last_activity": "2025-06-03",
+          "reasons": [
+            "1 inhoudelijke wijziging op het aanbevolen document",
+            "Werkte inhoudelijk aan 1 document",
+            "Laatste inhoudelijke wijziging: 03/06/2025"
+          ],
+          "warning": null
+        },
+        {
+          "author": "Sofie Claes",
+          "score": 1.0,
+          "inhoud": 1,
+          "opmaak": 0,
+          "documents": 1,
+          "last_activity": "2025-10-14",
+          "reasons": [
+            "Werkte inhoudelijk aan 1 document",
+            "Laatste inhoudelijke wijziging: 14/10/2025"
+          ],
+          "warning": null
+        }
+      ]
     },
     {
       "documents": [
         "doc-08",
         "doc-09"
       ],
-      "independent_sources": 2
+      "topic": "verlof",
+      "independent_sources": 2,
+      "experts": [
+        {
+          "author": "Sofie Claes",
+          "score": 3.12,
+          "inhoud": 3,
+          "opmaak": 0,
+          "documents": 2,
+          "last_activity": "2024-12-09",
+          "reasons": [
+            "Eigenaar van het aanbevolen document",
+            "2 inhoudelijke wijzigingen op het aanbevolen document",
+            "Werkte inhoudelijk aan 2 documenten",
+            "Laatste inhoudelijke wijziging: 09/12/2024"
+          ],
+          "warning": null
+        }
+      ]
+    },
+    {
+      "documents": [
+        "doc-10"
+      ],
+      "topic": "verlof",
+      "independent_sources": 1,
+      "experts": [
+        {
+          "author": "Sofie Claes",
+          "score": 0.8,
+          "inhoud": 1,
+          "opmaak": 0,
+          "documents": 1,
+          "last_activity": "2025-01-15",
+          "reasons": [
+            "Werkte inhoudelijk aan 1 document",
+            "Laatste inhoudelijke wijziging: 15/01/2025"
+          ],
+          "warning": null
+        }
+      ]
+    },
+    {
+      "documents": [
+        "doc-11"
+      ],
+      "topic": "bedrijfswagens",
+      "independent_sources": 1,
+      "experts": [
+        {
+          "author": "Pieter Wouters",
+          "score": 1.31,
+          "inhoud": 2,
+          "opmaak": 0,
+          "documents": 1,
+          "last_activity": "2024-11-05",
+          "reasons": [
+            "Werkte inhoudelijk aan 1 document",
+            "Laatste inhoudelijke wijziging: 05/11/2024"
+          ],
+          "warning": null
+        }
+      ]
+    },
+    {
+      "documents": [
+        "doc-12"
+      ],
+      "topic": "bedrijfswagens",
+      "independent_sources": 1,
+      "experts": [
+        {
+          "author": "Jens Maes",
+          "score": 0.93,
+          "inhoud": 1,
+          "opmaak": 0,
+          "documents": 1,
+          "last_activity": "2024-11-20",
+          "reasons": [
+            "Werkte inhoudelijk aan 1 document",
+            "Laatste inhoudelijke wijziging: 20/11/2024"
+          ],
+          "warning": null
+        },
+        {
+          "author": "Pieter Wouters",
+          "score": 0.77,
+          "inhoud": 1,
+          "opmaak": 0,
+          "documents": 1,
+          "last_activity": "2024-03-12",
+          "reasons": [
+            "Werkte inhoudelijk aan 1 document",
+            "Laatste inhoudelijke wijziging: 12/03/2024"
+          ],
+          "warning": null
+        }
+      ]
+    },
+    {
+      "documents": [
+        "doc-13"
+      ],
+      "topic": "bedrijfswagens",
+      "independent_sources": 1,
+      "experts": [
+        {
+          "author": "Lukas Becker",
+          "score": 1.34,
+          "inhoud": 2,
+          "opmaak": 0,
+          "documents": 1,
+          "last_activity": "2024-12-02",
+          "reasons": [
+            "Werkte inhoudelijk aan 1 document",
+            "Laatste inhoudelijke wijziging: 02/12/2024"
+          ],
+          "warning": null
+        }
+      ]
+    },
+    {
+      "documents": [
+        "doc-14"
+      ],
+      "topic": "onboarding",
+      "independent_sources": 1,
+      "experts": [
+        {
+          "author": "Sofie Claes",
+          "score": 1.29,
+          "inhoud": 2,
+          "opmaak": 0,
+          "documents": 1,
+          "last_activity": "2025-02-03",
+          "reasons": [
+            "Werkte inhoudelijk aan 1 document",
+            "Laatste inhoudelijke wijziging: 03/02/2025"
+          ],
+          "warning": null
+        }
+      ]
+    },
+    {
+      "documents": [
+        "doc-15"
+      ],
+      "topic": "onboarding",
+      "independent_sources": 1,
+      "experts": [
+        {
+          "author": "An Peeters",
+          "score": 1.29,
+          "inhoud": 2,
+          "opmaak": 0,
+          "documents": 1,
+          "last_activity": "2025-01-08",
+          "reasons": [
+            "Werkte inhoudelijk aan 1 document",
+            "Laatste inhoudelijke wijziging: 08/01/2025"
+          ],
+          "warning": null
+        }
+      ]
     },
     {
       "documents": [
@@ -216,13 +504,92 @@
         "doc-17",
         "doc-18"
       ],
-      "independent_sources": 3
+      "topic": "ecocheques",
+      "independent_sources": 3,
+      "experts": [
+        {
+          "author": "An Peeters",
+          "score": 3.24,
+          "inhoud": 2,
+          "opmaak": 0,
+          "documents": 2,
+          "last_activity": "2025-04-22",
+          "reasons": [
+            "Eigenaar van het aanbevolen document",
+            "1 inhoudelijke wijziging op het aanbevolen document",
+            "Werkte inhoudelijk aan 2 documenten",
+            "Laatste inhoudelijke wijziging: 22/04/2025"
+          ],
+          "warning": null
+        },
+        {
+          "author": "Pieter Wouters",
+          "score": 0.87,
+          "inhoud": 1,
+          "opmaak": 0,
+          "documents": 1,
+          "last_activity": "2024-09-09",
+          "reasons": [
+            "Werkte inhoudelijk aan 1 document",
+            "Laatste inhoudelijke wijziging: 09/09/2024"
+          ],
+          "warning": null
+        }
+      ]
+    },
+    {
+      "documents": [
+        "doc-19"
+      ],
+      "topic": "loonbetaling",
+      "independent_sources": 1,
+      "experts": [
+        {
+          "author": "Pieter Wouters",
+          "score": 0.74,
+          "inhoud": 1,
+          "opmaak": 0,
+          "documents": 1,
+          "last_activity": "2024-01-22",
+          "reasons": [
+            "Werkte inhoudelijk aan 1 document",
+            "Laatste inhoudelijke wijziging: 22/01/2024"
+          ],
+          "warning": null
+        }
+      ]
+    },
+    {
+      "documents": [
+        "doc-20"
+      ],
+      "topic": "onboarding",
+      "independent_sources": 1,
+      "experts": [
+        {
+          "author": "Femke de Jong",
+          "score": 0.86,
+          "inhoud": 1,
+          "opmaak": 0,
+          "documents": 1,
+          "last_activity": "2024-08-19",
+          "reasons": [
+            "Werkte inhoudelijk aan 1 document",
+            "Laatste inhoudelijke wijziging: 19/08/2024"
+          ],
+          "warning": null
+        }
+      ]
     }
   ],
   "author_stats": {
     "doc-01": {
       "An Peeters": {
         "inhoud": 4,
+        "opmaak": 0
+      },
+      "Tom Vermeulen": {
+        "inhoud": 1,
         "opmaak": 0
       },
       "Jens Maes": {
@@ -232,6 +599,10 @@
     },
     "doc-02": {
       "An Peeters": {
+        "inhoud": 2,
+        "opmaak": 0
+      },
+      "Tom Vermeulen": {
         "inhoud": 2,
         "opmaak": 0
       },
@@ -245,6 +616,10 @@
       }
     },
     "doc-03": {
+      "Tom Vermeulen": {
+        "inhoud": 3,
+        "opmaak": 0
+      },
       "Sofie Claes": {
         "inhoud": 1,
         "opmaak": 0
@@ -255,6 +630,10 @@
       }
     },
     "doc-04": {
+      "Tom Vermeulen": {
+        "inhoud": 3,
+        "opmaak": 0
+      },
       "Sofie Claes": {
         "inhoud": 1,
         "opmaak": 0

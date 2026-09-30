@@ -13,11 +13,29 @@ export interface AnalysisEdge {
   explanation: string
 }
 
+export interface Expert {
+  author: string
+  score: number
+  inhoud: number
+  opmaak: number
+  documents: number
+  last_activity: string
+  reasons: string[]
+  warning: string | null
+}
+
+export interface Cluster {
+  documents: string[]
+  topic: string
+  independent_sources: number
+  experts: Expert[]
+}
+
 export interface Analysis {
   edges: AnalysisEdge[]
   recommended: Record<string, string[]>
   duplicate_groups: { original: string; copies: string[] }[]
-  clusters: { documents: string[]; independent_sources: number }[]
+  clusters: Cluster[]
   author_stats: Record<string, Record<string, { inhoud: number; opmaak: number }>>
 }
 
@@ -40,25 +58,20 @@ export function independentSources(docIds: string[]): number {
   return new Set(docIds.map((id) => copyToOriginal.get(id) ?? id)).size
 }
 
-export interface AuthorSummary {
-  author: string
-  inhoud: number
-  opmaak: number
-}
-
-/** Authors ranked by content changes over the given documents. */
-export function topAuthors(docIds: string[], limit: number): AuthorSummary[] {
-  const totals = new Map<string, AuthorSummary>()
-  for (const id of docIds) {
-    for (const [author, s] of Object.entries(analysis.author_stats[id] ?? {})) {
-      const t = totals.get(author) ?? { author, inhoud: 0, opmaak: 0 }
-      t.inhoud += s.inhoud
-      t.opmaak += s.opmaak
-      totals.set(author, t)
+/**
+ * The cluster that best matches what the user is looking at: the one containing the most
+ * matched documents, then the largest one.
+ */
+export function primaryCluster(matchedIds: string[]): Cluster | undefined {
+  const matched = new Set(matchedIds)
+  let best: Cluster | undefined
+  let bestHits = 0
+  for (const c of analysis.clusters) {
+    const hits = c.documents.filter((d) => matched.has(d)).length
+    if (hits > bestHits || (hits === bestHits && hits > 0 && best && c.documents.length > best.documents.length)) {
+      best = c
+      bestHits = hits
     }
   }
-  return [...totals.values()]
-    .filter((t) => t.inhoud > 0)
-    .sort((a, b) => b.inhoud - a.inhoud || a.author.localeCompare(b.author, 'nl'))
-    .slice(0, limit)
+  return best
 }

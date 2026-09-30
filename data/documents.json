@@ -20,6 +20,12 @@
         "summary": "Werkgeversbijdrage aangepast naar € 8,40"
       },
       {
+        "author": "Tom Vermeulen",
+        "date": "2025-02-25",
+        "change": "inhoud",
+        "summary": "Typfout in voorbeeld verbeterd"
+      },
+      {
         "author": "An Peeters",
         "date": "2025-02-18",
         "change": "inhoud",
@@ -72,10 +78,22 @@
         "summary": "Regels voor deeltijdsen verduidelijkt"
       },
       {
+        "author": "Tom Vermeulen",
+        "date": "2023-02-09",
+        "change": "inhoud",
+        "summary": "Regel papieren cheques herschreven"
+      },
+      {
         "author": "An Peeters",
         "date": "2023-02-06",
         "change": "inhoud",
         "summary": "Bedragen 2023 ingevuld"
+      },
+      {
+        "author": "Tom Vermeulen",
+        "date": "2023-01-27",
+        "change": "inhoud",
+        "summary": "Uitzonderingen voor studenten toegevoegd"
       },
       {
         "author": "Pieter Wouters",
@@ -106,6 +124,24 @@
         "summary": "Logo team Antwerpen toegevoegd"
       },
       {
+        "author": "Tom Vermeulen",
+        "date": "2023-06-09",
+        "change": "inhoud",
+        "summary": "Controlestap aangepast"
+      },
+      {
+        "author": "Tom Vermeulen",
+        "date": "2023-06-07",
+        "change": "inhoud",
+        "summary": "Berekening deeltijdsen herschreven"
+      },
+      {
+        "author": "Tom Vermeulen",
+        "date": "2023-06-06",
+        "change": "inhoud",
+        "summary": "Voorbeelden team Antwerpen toegevoegd"
+      },
+      {
         "author": "Sofie Claes",
         "date": "2023-06-05",
         "change": "inhoud",
@@ -132,6 +168,24 @@
         "date": "2024-09-03",
         "change": "opmaak",
         "summary": "Lettertype aangepast"
+      },
+      {
+        "author": "Tom Vermeulen",
+        "date": "2024-07-08",
+        "change": "inhoud",
+        "summary": "Uitleg correcties herschreven"
+      },
+      {
+        "author": "Tom Vermeulen",
+        "date": "2024-05-21",
+        "change": "inhoud",
+        "summary": "Voorbeeldberekening toegevoegd"
+      },
+      {
+        "author": "Tom Vermeulen",
+        "date": "2024-03-05",
+        "change": "inhoud",
+        "summary": "Antwoorden op klantvragen uitgebreid"
       },
       {
         "author": "Sofie Claes",
