@@ -7,7 +7,7 @@ import { buildTopics, topicForQuestion, TRUST, type Topic, type Trust } from './
 import { createTimeline, type TimelineCallbacks } from './askme/timeline'
 import { createTopicGraph } from './askme/topicGraph'
 import { PeopleOverview } from './people/PeopleOverview'
-import { PeopleControls, WhoKnowsGrid, WhoKnowsTopic } from './people/WhoKnows'
+import { PeopleControls, WhoKnowsGrid } from './people/WhoKnows'
 
 const fileById = new Map(libraryItems.filter((f) => f.document).map((f) => [f.id, f]))
 const LEGEND: Trust[] = ['best', 'similar', 'expired', 'support', 'other_scope']
@@ -59,7 +59,7 @@ export function AskMeView({ items, onOpen, query }: ViewProps) {
             )}
             <strong>{title}</strong>
             <span className="askme-hint">
-              Eerst wie het weet, daarna de documenten.
+              Eerst de documenten, daarna wie er meer over weet.
               {asked && ' Maak de zoekbalk leeg om alle onderwerpen te zien.'}
             </span>
           </>
@@ -77,7 +77,6 @@ export function AskMeView({ items, onOpen, query }: ViewProps) {
 
       {title ? (
         <>
-          {peopleTopic && <WhoKnowsTopic key={`who-${peopleTopic.id}`} topic={peopleTopic} viewer={viewer} />}
           <h3 className="people-heading">Documenten over dit onderwerp</h3>
           {topic ? (
             <>

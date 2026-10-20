@@ -1191,55 +1191,7 @@ button.crumb:hover {
   font-size: 13px;
 }
 .people-detail {
-  display: grid;
-  grid-template-columns: minmax(280px, 1fr) minmax(320px, 1.2fr);
-  gap: 16px;
-  align-items: start;
-}
-@media (max-width: 900px) {
-  .people-detail {
-    grid-template-columns: 1fr;
-  }
-}
-.people-graph {
-  width: 100%;
-  max-height: 420px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  background: var(--bg);
-}
-.graph-person line {
-  stroke: #c8c6c4;
-}
-.graph-person circle {
-  fill: #c7e0f4;
-  stroke: #4a82de;
-  stroke-width: 1.5;
-}
-.graph-person.best circle {
-  fill: #c9ead8;
-  stroke: #1e9e63;
-  stroke-width: 3;
-}
-.graph-person.best line {
-  stroke: #1e9e63;
-}
-.graph-initials {
-  font-size: 11px;
-  font-weight: 700;
-  fill: var(--text);
-}
-.graph-name {
-  font-size: 12px;
-  fill: var(--muted);
-}
-.graph-topic {
-  fill: var(--accent);
-}
-.graph-topic-label {
-  fill: #fff;
-  font-size: 11px;
-  font-weight: 700;
+  max-width: 760px;
 }
 .people-cards {
   display: flex;
@@ -1452,59 +1404,6 @@ button.crumb:hover {
   flex-wrap: wrap;
   align-items: center;
   gap: 8px;
-}
-.people-graph-wrap {
-  margin: 0;
-}
-.graph-ring {
-  fill: none;
-  stroke: var(--border);
-  stroke-dasharray: 4 4;
-}
-.graph-person.verdict-likely circle {
-  fill: #c9ead8;
-  stroke: #1e9e63;
-}
-.graph-person.verdict-outdated circle {
-  fill: #fff4ce;
-  stroke: #d99a12;
-}
-.graph-person.verdict-few circle {
-  fill: var(--surface);
-  stroke: #98a2b3;
-}
-.graph-person.best circle {
-  stroke-width: 3;
-}
-.graph-legend {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px 14px;
-  margin-top: 6px;
-  color: var(--muted);
-  font-size: 12px;
-}
-.graph-legend b {
-  color: var(--text);
-}
-.dot {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  border: 2px solid;
-  vertical-align: -1px;
-}
-.dot.verdict-likely {
-  background: #c9ead8;
-  border-color: #1e9e63;
-}
-.dot.verdict-outdated {
-  background: #fff4ce;
-  border-color: #d99a12;
-}
-.dot.verdict-few {
-  border-color: #98a2b3;
 }
 .expert-facts {
   display: grid;

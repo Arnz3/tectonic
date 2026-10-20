@@ -145,7 +145,6 @@ export function WhoKnowsTopic({ topic, viewer }: { topic: Topic; viewer: Viewer 
         </div>
       )}
       <div className="people-detail">
-        <TopicGraph topic={topic} experts={experts.slice(0, 7)} />
         <div className="people-cards">
           <h3 className="people-heading">Beste aanspreekpunt</h3>
           <ExpertCard expert={best} viewer={viewer} confirmed={confirmed} big onNotice={setNotice} />
@@ -240,71 +239,5 @@ function LockedActions({ first, onNotice }: { first: string; onNotice: (text: st
       </button>
       <button onClick={() => onNotice('Demo: toegangsaanvraag verstuurd naar de eigenaar van de bron.')}>Vraag toegang</button>
     </span>
-  )
-}
-
-/**
- * Topic in the middle. Size = why (how long and how much someone worked on it),
- * distance and colour = who (chance of the right answer). Positions are deterministic.
- */
-function TopicGraph({ topic, experts }: { topic: Topic; experts: Expert[] }) {
-  const W = 460
-  const H = 460
-  const cx = W / 2
-  const cy = 225
-  const lines = topic.label.split(' & ')
-  const maxScore = experts[0]?.score ?? 1
-  const maxSignals = Math.max(...experts.map((e) => e.involvement.signals), 1)
-  return (
-    <figure className="people-graph-wrap">
-      <svg className="people-graph" viewBox={`0 0 ${W} ${H}`} role="img" aria-label={`Wie weet het over ${topic.label}`}>
-        <circle cx={cx} cy={cy} r={115} className="graph-ring" />
-        <circle cx={cx} cy={cy} r={185} className="graph-ring" />
-        {experts.map((e, i) => {
-          const share = e.score / maxScore
-          const angle = (i / experts.length) * Math.PI * 2 - Math.PI / 2 + (i % 2 ? 0.25 : 0)
-          const dist = 105 + (1 - share) * 80
-          const r = 8 + 20 * Math.sqrt(e.involvement.signals / maxSignals)
-          const x = cx + Math.cos(angle) * dist
-          const y = cy + Math.sin(angle) * dist
-          return (
-            <g key={e.person.name} className={`graph-person verdict-${e.verdict}${i === 0 ? ' best' : ''}`}>
-              <title>{`${e.person.name}: ${VERDICT_LABEL[e.verdict]}. ${involvementText(e.involvement)}`}</title>
-              <line x1={cx} y1={cy} x2={x} y2={y} />
-              <circle cx={x} cy={y} r={r} />
-              <text x={x} y={y + 4} textAnchor="middle" className="graph-initials">
-                {initials(e.person.name)}
-              </text>
-              <text x={x} y={y + r + 14} textAnchor="middle" className="graph-name">
-                {firstName(e.person.name)}
-              </text>
-            </g>
-          )
-        })}
-        <circle cx={cx} cy={cy} r={50} className="graph-topic" />
-        {lines.map((line, i) => (
-          <text key={line} x={cx} y={cy + 4 + (i - (lines.length - 1) / 2) * 14} textAnchor="middle" className="graph-topic-label">
-            {lines.length > 1 && i === 0 ? `${line} &` : line}
-          </text>
-        ))}
-      </svg>
-      <figcaption className="graph-legend">
-        <span>
-          <b>Grootte</b> = hoe lang en hoeveel iemand ermee bezig is
-        </span>
-        <span>
-          <b>Dichterbij</b> = meer kans op het juiste antwoord
-        </span>
-        <span>
-          <i className="dot verdict-likely" /> {VERDICT_LABEL.likely}
-        </span>
-        <span>
-          <i className="dot verdict-outdated" /> {VERDICT_LABEL.outdated}
-        </span>
-        <span>
-          <i className="dot verdict-few" /> {VERDICT_LABEL.few}
-        </span>
-      </figcaption>
-    </figure>
   )
 }
