@@ -543,6 +543,11 @@ def main() -> None:
 
     signals.run(use_llm=not args.no_llm)
 
+    # New documents that contradict the library → micro actions in Teams.
+    import checks
+
+    checks.run(use_llm=not args.no_llm)
+
 
 if __name__ == "__main__":
     main()

@@ -1,0 +1,14 @@
+{
+  "checks": [
+    {
+      "id": "check:doc-40:doc-16",
+      "new_doc": "doc-40",
+      "existing_doc": "doc-16",
+      "topic": "ecocheques",
+      "daysAgo": 0,
+      "statement_new": "Een voltijdse werknemer met een volledige referteperiode ontvangt ecocheques voor een totaal van € 200 per jaar.",
+      "statement_existing": "Een voltijdse werknemer met een volledige referteperiode ontvangt ecocheques voor een totaal van € 250 per jaar.",
+      "explanation": "Het nieuwe document noemt een ander bedrag dan Procedure ecocheques 2025."
+    }
+  ]
+}

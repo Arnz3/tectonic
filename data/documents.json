@@ -1162,5 +1162,27 @@
         "summary": "Eerste versie"
       }
     ]
+  },
+  {
+    "id": "doc-40",
+    "title": "Infofiche ecocheques voor klanten",
+    "filename": "Infofiche_ecocheques_klanten.docx",
+    "folder": "Klantendienst / Gedeelde documenten",
+    "country": "BE",
+    "topic": "ecocheques",
+    "layer": "procedure",
+    "status": "concept",
+    "owner": null,
+    "created": "2025-10-14",
+    "modified": "2025-10-14",
+    "text": "Infofiche ecocheques voor klanten\n\nDeze infofiche beantwoordt de vragen die klanten het vaakst stellen over ecocheques. Ze is bedoeld voor het klantenteam en mag naar klanten worden doorgestuurd.\n\nHoeveel? Een voltijdse werknemer met een volledige referteperiode ontvangt ecocheques voor een totaal van € 200 per jaar. Deeltijdse werknemers krijgen een bedrag in verhouding tot hun arbeidsregime.\n\nWanneer? De ecocheques worden elektronisch toegekend in juni, op dezelfde kaart als de maaltijdcheques wanneer de klant dat wil.\n\nWaarvoor? Ecocheques zijn bedoeld voor producten en diensten met een ecologisch karakter, zoals fietsen, spaarlampen of tweedehandsproducten.\n\nUit dienst. Wie in de loop van de referteperiode vertrekt, krijgt een bedrag in verhouding tot zijn prestaties bij de laatste loonafrekening.\n\nAndere vragen stuur je naar het klantenteam.",
+    "history": [
+      {
+        "author": "Jens Maes",
+        "date": "2025-10-14",
+        "change": "inhoud",
+        "summary": "Infofiche opgesteld op basis van klantvragen"
+      }
+    ]
   }
 ]

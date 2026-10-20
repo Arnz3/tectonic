@@ -17,6 +17,7 @@ import {
 } from '../../people/model'
 import { expertContext, resetDemo, usePeopleData } from '../../people/store'
 import { InterviewModal } from './InterviewModal'
+import { MicroActionsButton, MicroActionStrip } from './MicroActions'
 import { VerificationCard } from './VerificationCard'
 
 const VIEWER_KEY = 'tectonic.viewer'
@@ -62,6 +63,7 @@ export function PeopleControls({ viewer, onViewer, topicId }: { viewer: Viewer; 
   const [verifying, setVerifying] = useState(false)
   return (
     <>
+      <MicroActionsButton />
       <button className="people-tool" onClick={() => setVerifying(true)} title="Mock van de Teams-kaart die de organisator na een meeting krijgt">
         ✓ Verificatie na meeting
       </button>
@@ -147,6 +149,7 @@ export function WhoKnowsTopic({ topic, viewer }: { topic: Topic; viewer: Viewer 
   return (
     <section className="people">
       <h3 className="people-heading">Wie weet het?</h3>
+      <MicroActionStrip topicId={topic.id} />
       {bus && (
         <div className="bus-banner" role="status">
           <span>

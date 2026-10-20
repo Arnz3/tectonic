@@ -1,11 +1,14 @@
 /**
  * Signal data for "Wie weet het?": the precomputed signals.json plus what this browser added
- * (knowledge interviews and the organiser's one-click verification). There is no backend,
+ * (knowledge interviews, the organiser's one-click verification and micro-action answers on
+ * contradicting new documents from checks.json). There is no backend,
  * so additions live in localStorage and are validated like any other untrusted input.
  */
 import { useMemo, useSyncExternalStore } from 'react'
+import checksJson from '../../data/checks.json'
 import signalsJson from '../../data/signals.json'
 import { analysis } from '../analysis'
+import { documents } from '../library'
 import { parseSignal, parseSignalData, type ExpertContext, type Signal, type SignalData } from './model'
 
 export const baseData: SignalData = parseSignalData(signalsJson)
@@ -19,6 +22,54 @@ export function expertContext(topic: string, confirmed: Set<string>): ExpertCont
   )
   return { outdated, recommendedDocs, confirmed }
 }
+
+// --- Micro actions: a new document contradicts the library -------------------------------
+
+export interface Check {
+  id: string
+  newDoc: string
+  existingDoc: string
+  topic: string
+  daysAgo: number
+  statementNew: string
+  statementExisting: string
+  explanation: string
+}
+
+export type MicroAnswer = 'ja' | 'nee' | 'beide' | 'weet_niet'
+
+export interface MicroReply {
+  person: string
+  answer: MicroAnswer
+}
+
+const docIds = new Set(documents.map((d) => d.id))
+const isShortText = (v: unknown): v is string => typeof v === 'string' && v.length <= 500
+
+function parseCheck(v: unknown): Check | null {
+  if (typeof v !== 'object' || v === null) return null
+  const o = v as Record<string, unknown>
+  if (typeof o.id !== 'string' || o.id.length > 100) return null
+  if (typeof o.new_doc !== 'string' || !docIds.has(o.new_doc) || typeof o.existing_doc !== 'string' || !docIds.has(o.existing_doc)) return null
+  if (typeof o.topic !== 'string' || typeof o.daysAgo !== 'number' || !Number.isInteger(o.daysAgo) || o.daysAgo < 0) return null
+  if (!isShortText(o.statement_new) || !isShortText(o.statement_existing) || !isShortText(o.explanation)) return null
+  return {
+    id: o.id,
+    newDoc: o.new_doc,
+    existingDoc: o.existing_doc,
+    topic: o.topic,
+    daysAgo: o.daysAgo,
+    statementNew: o.statement_new,
+    statementExisting: o.statement_existing,
+    explanation: o.explanation,
+  }
+}
+
+export const checks: Check[] = ((checksJson as { checks?: unknown[] }).checks ?? []).map(parseCheck).filter((c): c is Check => c !== null)
+const checkIds = new Set(checks.map((c) => c.id))
+
+const MICRO_KEY = 'tectonic.microactions.v1'
+const ANSWERS: MicroAnswer[] = ['ja', 'nee', 'beide', 'weet_niet']
 
 const INTERVIEWS_KEY = 'tectonic.interviews.v1'
 const VERIFIED_KEY = 'tectonic.verified.v1'
@@ -65,6 +116,22 @@ function loadVerification(): Verification {
   return { confirmed: ids(o.confirmed), rejected: ids(o.rejected) }
 }
 
+/** Per check the replies so far, in order; 'weet_niet' passes the question to the next person. */
+function loadReplies(): Record<string, MicroReply[]> {
+  const raw = read(MICRO_KEY)
+  const result: Record<string, MicroReply[]> = {}
+  if (typeof raw !== 'object' || raw === null) return result
+  for (const [id, list] of Object.entries(raw as Record<string, unknown>)) {
+    if (!checkIds.has(id) || !Array.isArray(list)) continue
+    result[id] = list
+      .filter((r): r is MicroReply => typeof r === 'object' && r !== null && names.has(r.person) && ANSWERS.includes(r.answer))
+      .map((r) => ({ person: r.person, answer: r.answer }))
+      .slice(0, 10)
+  }
+  return result
+}
+
+let replies = loadReplies()
 let interviews = loadInterviews()
 let verification = loadVerification()
 let version = 0
@@ -117,7 +184,42 @@ export function verify(confirmed: string[], rejected: string[]) {
   changed()
 }
 
+/** One tap in Teams. A real answer (not 'weet ik niet') also counts as a signal for that person. */
+export function answerCheck(checkId: string, person: string, answer: MicroAnswer) {
+  if (!checkIds.has(checkId) || !names.has(person) || !ANSWERS.includes(answer)) return
+  replies = { ...replies, [checkId]: [...(replies[checkId] ?? []), { person, answer }].slice(0, 10) }
+  write(MICRO_KEY, replies)
+  changed()
+}
+
+function validationSignals(): Signal[] {
+  const titleOf = new Map(documents.map((d) => [d.id, d.title]))
+  return checks.flatMap((c) =>
+    (replies[c.id] ?? [])
+      .filter((r) => r.answer !== 'weet_niet')
+      .flatMap((r) => {
+        const signal = parseSignal(
+          {
+            id: `validation:${c.id}:${r.person}`,
+            type: 'teams',
+            topic: c.topic,
+            daysAgo: 0,
+            title: `Validatie: ${titleOf.get(c.newDoc) ?? c.newDoc}`,
+            people: [{ name: r.person, role: 'answered', quote: '' }],
+            visibility: 'open',
+            allowed: [],
+          },
+          names,
+          topicIds,
+        )
+        return signal ? [signal] : []
+      }),
+  )
+}
+
 export function resetDemo() {
+  replies = {}
+  write(MICRO_KEY, replies)
   interviews = []
   verification = { confirmed: [], rejected: [] }
   write(INTERVIEWS_KEY, interviews)
@@ -131,7 +233,8 @@ export function usePeopleData() {
   return useMemo(
     () => ({
       version: v,
-      data: { ...baseData, signals: [...baseData.signals, ...interviews] } as SignalData,
+      data: { ...baseData, signals: [...baseData.signals, ...interviews, ...validationSignals()] } as SignalData,
+      replies,
       confirmed: new Set(verification.confirmed),
       rejected: new Set(verification.rejected),
     }),

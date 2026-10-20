@@ -192,7 +192,7 @@
     {
       "source": "doc-16",
       "target": "doc-17",
-      "similarity": 0.56,
+      "similarity": 0.54,
       "relation": "gelijkaardig",
       "statement_a": "",
       "statement_b": "",
@@ -226,17 +226,8 @@
       "explanation": ""
     },
     {
-      "source": "doc-16",
-      "target": "doc-35",
-      "similarity": 0.47,
-      "relation": "gelijkaardig",
-      "statement_a": "",
-      "statement_b": "",
-      "explanation": ""
-    },
-    {
-      "source": "doc-17",
-      "target": "doc-18",
+      "source": "doc-24",
+      "target": "doc-27",
       "similarity": 0.46,
       "relation": "gelijkaardig",
       "statement_a": "",
@@ -253,26 +244,8 @@
       "explanation": ""
     },
     {
-      "source": "doc-24",
-      "target": "doc-27",
-      "similarity": 0.46,
-      "relation": "gelijkaardig",
-      "statement_a": "",
-      "statement_b": "",
-      "explanation": ""
-    },
-    {
       "source": "doc-16",
-      "target": "doc-18",
-      "similarity": 0.46,
-      "relation": "gelijkaardig",
-      "statement_a": "",
-      "statement_b": "",
-      "explanation": ""
-    },
-    {
-      "source": "doc-03",
-      "target": "doc-34",
+      "target": "doc-40",
       "similarity": 0.46,
       "relation": "gelijkaardig",
       "statement_a": "",
@@ -289,9 +262,36 @@
       "explanation": ""
     },
     {
-      "source": "doc-17",
+      "source": "doc-03",
+      "target": "doc-34",
+      "similarity": 0.45,
+      "relation": "gelijkaardig",
+      "statement_a": "",
+      "statement_b": "",
+      "explanation": ""
+    },
+    {
+      "source": "doc-16",
       "target": "doc-35",
       "similarity": 0.45,
+      "relation": "gelijkaardig",
+      "statement_a": "",
+      "statement_b": "",
+      "explanation": ""
+    },
+    {
+      "source": "doc-17",
+      "target": "doc-18",
+      "similarity": 0.45,
+      "relation": "gelijkaardig",
+      "statement_a": "",
+      "statement_b": "",
+      "explanation": ""
+    },
+    {
+      "source": "doc-16",
+      "target": "doc-18",
+      "similarity": 0.44,
       "relation": "gelijkaardig",
       "statement_a": "",
       "statement_b": "",
@@ -316,6 +316,15 @@
       "explanation": ""
     },
     {
+      "source": "doc-17",
+      "target": "doc-35",
+      "similarity": 0.43,
+      "relation": "gelijkaardig",
+      "statement_a": "",
+      "statement_b": "",
+      "explanation": ""
+    },
+    {
       "source": "doc-23",
       "target": "doc-31",
       "similarity": 0.43,
@@ -327,7 +336,7 @@
     {
       "source": "doc-06",
       "target": "doc-32",
-      "similarity": 0.42,
+      "similarity": 0.43,
       "relation": "gelijkaardig",
       "statement_a": "",
       "statement_b": "",
@@ -352,6 +361,15 @@
       "explanation": ""
     },
     {
+      "source": "doc-17",
+      "target": "doc-40",
+      "similarity": 0.41,
+      "relation": "gelijkaardig",
+      "statement_a": "",
+      "statement_b": "",
+      "explanation": ""
+    },
+    {
       "source": "doc-24",
       "target": "doc-31",
       "similarity": 0.41,
@@ -363,7 +381,7 @@
     {
       "source": "doc-26",
       "target": "doc-27",
-      "similarity": 0.4,
+      "similarity": 0.41,
       "relation": "gelijkaardig",
       "statement_a": "",
       "statement_b": "",
@@ -397,6 +415,15 @@
       "explanation": ""
     },
     {
+      "source": "doc-35",
+      "target": "doc-40",
+      "similarity": 0.39,
+      "relation": "gelijkaardig",
+      "statement_a": "",
+      "statement_b": "",
+      "explanation": ""
+    },
+    {
       "source": "doc-22",
       "target": "doc-23",
       "similarity": 0.38,
@@ -415,6 +442,15 @@
       "explanation": ""
     },
     {
+      "source": "doc-22",
+      "target": "doc-25",
+      "similarity": 0.37,
+      "relation": "gelijkaardig",
+      "statement_a": "",
+      "statement_b": "",
+      "explanation": ""
+    },
+    {
       "source": "doc-06",
       "target": "doc-36",
       "similarity": 0.37,
@@ -425,25 +461,7 @@
     },
     {
       "source": "doc-22",
-      "target": "doc-25",
-      "similarity": 0.37,
-      "relation": "gelijkaardig",
-      "statement_a": "",
-      "statement_b": "",
-      "explanation": ""
-    },
-    {
-      "source": "doc-22",
       "target": "doc-24",
-      "similarity": 0.36,
-      "relation": "gelijkaardig",
-      "statement_a": "",
-      "statement_b": "",
-      "explanation": ""
-    },
-    {
-      "source": "doc-18",
-      "target": "doc-35",
       "similarity": 0.36,
       "relation": "gelijkaardig",
       "statement_a": "",
@@ -461,6 +479,15 @@
     },
     {
       "source": "doc-25",
+      "target": "doc-33",
+      "similarity": 0.35,
+      "relation": "ander_toepassingsgebied",
+      "statement_a": "",
+      "statement_b": "",
+      "explanation": "Ander land (BE en NL): ander toepassingsgebied, geen tegenstrijdigheid."
+    },
+    {
+      "source": "doc-24",
       "target": "doc-33",
       "similarity": 0.35,
       "relation": "ander_toepassingsgebied",
@@ -487,7 +514,7 @@
       "Vervangt verouderde versie doc-09"
     ],
     "doc-18": [
-      "Meest recent (25/04/2025)",
+      "Laatst gewijzigd 25/04/2025",
       "Goedgekeurd",
       "Eigenaar: An Peeters"
     ],
@@ -852,10 +879,11 @@
         "doc-16",
         "doc-17",
         "doc-18",
-        "doc-35"
+        "doc-35",
+        "doc-40"
       ],
       "topic": "ecocheques",
-      "independent_sources": 4,
+      "independent_sources": 5,
       "experts": [
         {
           "author": "An Peeters",
@@ -882,6 +910,19 @@
           "reasons": [
             "Werkte inhoudelijk aan 2 documenten",
             "Laatste inhoudelijke wijziging: 13/01/2025"
+          ],
+          "warning": null
+        },
+        {
+          "author": "Jens Maes",
+          "score": 1.0,
+          "inhoud": 1,
+          "opmaak": 2,
+          "documents": 1,
+          "last_activity": "2025-10-14",
+          "reasons": [
+            "Werkte inhoudelijk aan 1 document",
+            "Laatste inhoudelijke wijziging: 14/10/2025"
           ],
           "warning": null
         }
@@ -1496,6 +1537,12 @@
     },
     "doc-39": {
       "Sofie Claes": {
+        "inhoud": 1,
+        "opmaak": 0
+      }
+    },
+    "doc-40": {
+      "Jens Maes": {
         "inhoud": 1,
         "opmaak": 0
       }
