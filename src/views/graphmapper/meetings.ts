@@ -89,6 +89,33 @@ export const MEETING_CHANGES: Document[] = [
     line: 'Directie heeft beslist dat overgedragen verlofdagen voortaan tot 30 april opgenomen mogen worden.',
     verifiedBy: 'Sofie Claes',
   }),
+  // The Teams meeting from the demo scenario: a new amount is said and the contact person confirms it.
+  seedChange({
+    replaces: 'doc-01',
+    oldSentence: 'De totale nominale waarde van een maaltijdcheque bedraagt € 10,00 per gewerkte dag.',
+    newSentence: 'De totale nominale waarde van een maaltijdcheque bedraagt € 12,00 per gewerkte dag.',
+    oldValue: '€ 10,00',
+    newValue: '€ 12,00',
+    title: 'Maaltijdcheques: € 12,00 per dag',
+    meeting: 'Teamoverleg Payroll BE',
+    date: '2026-10-14',
+    speaker: 'Tom Vermeulen',
+    line: 'Nieuws van de sociale partners: de maaltijdcheque gaat vanaf 1 november naar € 12,00 per gewerkte dag.',
+    verifiedBy: 'An Peeters',
+  }),
+  seedChange({
+    replaces: 'doc-11',
+    oldSentence: 'Schade wordt binnen 48 uur gemeld aan de fleetafdeling.',
+    newSentence: 'Schade wordt binnen 24 uur gemeld aan de fleetafdeling.',
+    oldValue: '48 uur',
+    newValue: '24 uur',
+    title: 'Bedrijfswagens: schade binnen 24 uur',
+    meeting: 'Teams-chat Fleet België',
+    date: '2026-08-27',
+    speaker: 'Lukas Becker',
+    line: 'De leasemaatschappij vraagt nu dat we schade binnen 24 uur melden, anders dekt de verzekering het niet meer.',
+    verifiedBy: 'Pieter Wouters',
+  }),
 ]
 
 /** All documents, including the verified meeting changes. */

@@ -3,10 +3,10 @@ import { allDocuments } from './meetings'
 import type { ViewProps } from '../../types'
 import type { GmDocument as Document } from './types'
 import { buildTopics, topicForQuestion, TRUST, type Topic, type Trust } from './data'
-import { DocPanel } from './DocPanel'
+import { libraryItems } from '../../library'
 import { GroupPopover } from './GroupPopover'
 import { MeetingChangePanel } from './MeetingChangePanel'
-import { createTimeline, type CardAnchor, type TimelineCallbacks } from './timeline'
+import { CHAT_GLYPH, createTimeline, DOC_GLYPH, type CardAnchor, type TimelineCallbacks } from './timeline'
 import './graphmapper.css'
 
 const LEGEND: Trust[] = ['meeting', 'best', 'similar', 'expired', 'support', 'other_scope']
@@ -14,23 +14,54 @@ const DEFAULT_TOPIC = 'ecocheques'
 
 const topics = buildTopics(allDocuments)
 const docById = new Map(allDocuments.map((d) => [d.id, d]))
+const fileById = new Map(libraryItems.filter((f) => f.document).map((f) => [f.id, f]))
+
+/**
+ * The graph mapper timeline for one topic, for use inside another view (Graffify's "Hoe kom ik eraan?").
+ * Library documents open as the SharePoint file through `onOpenFile`; purple cards open the change.
+ */
+export function GraphMapperTimeline({ topicId, onOpenFile }: { topicId: string; onOpenFile: (id: string) => void }) {
+  const [change, setChange] = useState<Document | null>(null)
+  const topic = topics.find((t) => t.id === topicId)
+  if (!topic) return null
+
+  const openDoc = (id: string) => {
+    const found = docById.get(id)
+    if (!found) return
+    if (found.meeting) return setChange(found)
+    setChange(null)
+    onOpenFile(id)
+  }
+
+  return (
+    <div className="gm">
+      <Timeline key={topic.id} topic={topic} onOpenDoc={openDoc} />
+      {change && (
+        <MeetingChangePanel
+          doc={change}
+          onOpenDoc={(id) => {
+            setChange(null)
+            onOpenFile(id)
+          }}
+          onClose={() => setChange(null)}
+        />
+      )}
+    </div>
+  )
+}
 
 /**
  * Graph mapper: the trust timeline for one topic. Pick a topic, or type a question in the search box.
  * Purple cards are changes from meetings that a person verified; they overrule a sentence in a document.
  */
-export function GraphMapperView({ query }: ViewProps) {
+export function GraphMapperView({ query, onOpen }: ViewProps) {
   const [picked, setPicked] = useState(() => (topics.some((t) => t.id === DEFAULT_TOPIC) ? DEFAULT_TOPIC : topics[0].id))
-  const [change, setChange] = useState<Document | null>(null)
-  const [doc, setDoc] = useState<Document | null>(null)
   const asked = useMemo(() => topicForQuestion(query, topics, allDocuments), [query])
   const topic = asked ?? topics.find((t) => t.id === picked)!
-
-  const openDoc = (id: string) => {
-    const found = docById.get(id)
-    if (!found) return
-    setDoc(found.meeting ? null : found)
-    setChange(found.meeting ? found : null)
+  // Library documents open as the real SharePoint file, in the app's own document panel.
+  const openFile = (id: string) => {
+    const file = fileById.get(id)
+    if (file) onOpen(file)
   }
 
   return (
@@ -48,9 +79,7 @@ export function GraphMapperView({ query }: ViewProps) {
           </button>
         ))}
       </div>
-      <Timeline key={topic.id} topic={topic} onOpenDoc={openDoc} />
-      {change && <MeetingChangePanel doc={change} onOpenDoc={openDoc} onClose={() => setChange(null)} />}
-      {doc && <DocPanel doc={doc} onClose={() => setDoc(null)} />}
+      <GraphMapperTimeline key={topic.id} topicId={topic.id} onOpenFile={openFile} />
     </div>
   )
 }
@@ -102,7 +131,11 @@ function Timeline({ topic, onOpenDoc }: { topic: Topic; onOpenDoc: (id: string) 
       <div className="gm-legend">
         {LEGEND.filter((k) => used.has(k)).map((k) => (
           <span key={k}>
-            <span className="gm-legend-dot" style={{ background: TRUST[k].color }} aria-hidden />
+            <span className="gm-legend-icon" style={{ background: TRUST[k].color }} aria-hidden>
+              <svg width="14" height="14" viewBox="-8 -8 16 16">
+                <path d={k === 'meeting' ? CHAT_GLYPH : DOC_GLYPH} />
+              </svg>
+            </span>
             {TRUST[k].label}
           </span>
         ))}

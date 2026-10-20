@@ -5,13 +5,17 @@ import { LANES, TRUST, type DocGroup, type Lane, type TimelineDoc, type Topic, t
 
 const FADED: Trust[] = ['expired', 'similar', 'support', 'other_scope']
 
-const M = { left: 160, top: 44, bottom: 52, pad: 16, rowH: 58, cardH: 46 }
-const ICON_R = 5
-const CARD_L = 16 // card left edge → status dot (the dot sits on the date)
-const TEXT_X = 14 // status dot → text
+const M = { left: 196, top: 44, bottom: 56, pad: 18, rowH: 64, cardH: 52 }
+// Round icons with a document glyph, as in the original Graffify timeline.
+const ICON_R = 17
+const CARD_L = 27 // card left edge → icon centre (the icon sits on the date)
+const TEXT_X = 26 // icon centre → text
+export const DOC_GLYPH = 'M-4.5 -6.5h5.5l3.5 3.5v9.5h-9z M1 -6.5v3.5h3.5 M-2 0.5h4 M-2 3h4'
+// A speech bubble for changes that come from a Teams meeting or chat.
+export const CHAT_GLYPH = 'M-6.5 -5.5h13v8.5h-7l-3.5 3v-3h-2.5z M-3.5 -2h7 M-3.5 0.5h4.5'
 const GROUP_GAP = 28 // space between cards of an expanded bundle
-const FONT_TITLE = "600 13px Inter, system-ui, sans-serif"
-const FONT_SUB = "400 12px Inter, system-ui, sans-serif"
+const FONT_TITLE = "600 13.5px 'Segoe UI', system-ui, sans-serif"
+const FONT_SUB = "400 12.5px 'Segoe UI', system-ui, sans-serif"
 
 /** Where a card sits on the stage, in pixels; used to place a popover next to it. */
 export interface CardAnchor {
@@ -385,12 +389,13 @@ export function createTimeline(opts: {
           .attr('aria-label', (d) => d.title)
           .attr('transform', (d) => `translate(${d.tx - 40},${d.ty})`)
           .style('opacity', 0)
-        g.append('rect').attr('class', 'gm-card-bg').attr('x', -CARD_L).attr('y', -M.cardH / 2).attr('height', M.cardH).attr('rx', 8)
+        g.append('rect').attr('class', 'gm-card-bg').attr('x', -CARD_L).attr('y', -M.cardH / 2).attr('height', M.cardH).attr('rx', 12)
         g.append('circle').attr('class', 'gm-icon').attr('r', ICON_R)
-        g.append('text').attr('class', 'gm-title').attr('x', TEXT_X).attr('y', -3)
-        g.append('text').attr('class', 'gm-sub').attr('x', TEXT_X).attr('y', 13)
-        const badge = g.append('g').attr('class', 'gm-badge').attr('transform', `translate(${-CARD_L},${-M.cardH / 2})`)
-        badge.append('circle').attr('r', 9)
+        g.append('path').attr('class', 'gm-glyph')
+        g.append('text').attr('class', 'gm-title').attr('x', TEXT_X).attr('y', -4)
+        g.append('text').attr('class', 'gm-sub').attr('x', TEXT_X).attr('y', 14)
+        const badge = g.append('g').attr('class', 'gm-badge').attr('transform', 'translate(13,-17)')
+        badge.append('circle').attr('r', 11)
         badge.append('text').attr('text-anchor', 'middle').attr('dy', '0.35em')
         const chev = g.append('g').attr('class', 'gm-chev')
         chev.append('rect').attr('x', -12).attr('y', -14).attr('width', 24).attr('height', 28).attr('fill', 'transparent')
@@ -418,6 +423,7 @@ export function createTimeline(opts: {
     // A bundle (card with +N) gets a dashed border.
     cards.select('.gm-card-bg').attr('class', (d) => `gm-card-bg t-${d.trust}${d.card.isLead ? ' bundle' : ''}`)
     cards.select('.gm-icon').attr('fill', (d) => TRUST[d.trust].color)
+    cards.select('.gm-glyph').attr('d', (d) => (d.trust === 'meeting' ? CHAT_GLYPH : DOC_GLYPH))
     cards.select('.gm-title').text((d) => d.card.title).classed('muted', (d) => d.trust === 'other_scope')
     cards.select('.gm-sub').text((d) => d.card.sub)
     cards.select('.gm-badge text').text((d) => `+${d.card.badge}`)
