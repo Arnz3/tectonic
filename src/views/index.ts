@@ -2,6 +2,7 @@ import type { ComponentType } from 'react'
 import type { ViewProps } from '../types'
 import { AskMeView } from './AskMeView'
 import { CompactView } from './CompactView'
+// import { GraphMapperView } from './graphmapper/GraphMapperView'
 // import { KnowledgeGraphView } from './KnowledgeGraphView'
 import { ListView } from './ListView'
 import { TilesView } from './TilesView'
@@ -39,4 +40,7 @@ export const views: ViewDefinition[] = [
   // { id: 'graph', label: 'Kennisgraaf', icon: '◉', component: KnowledgeGraphView, scope: 'library' },
   { id: 'askme', label: 'Graffify', icon: '✦', logo: '/graffify-logo.png', component: AskMeView, scope: 'library', search: 'question',
     placeholder: 'Stel een vraag, bv. Wie kent de tankkaart? of Hoeveel bedragen de maaltijdcheques?' },
+  // Hidden: the graph mapper is reached through Graffify ("Hoe kom ik eraan?"); uncomment for a separate tab.
+  // { id: 'graphmapper', label: 'Graph mapper', icon: '◆', component: GraphMapperView, scope: 'library', search: 'question',
+  //   placeholder: 'Kies een onderwerp of typ er een, bv. ecocheques' },
 ]

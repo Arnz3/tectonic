@@ -1530,3 +1530,39 @@
     animation: none;
   }
 }
+
+/* Download of the updated document, and its edit history */
+.gm-doc-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.gm-download {
+  padding: 7px 14px;
+  border: 1px solid var(--meeting);
+  border-radius: 8px;
+  background: var(--meeting);
+  color: #fff;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+}
+.gm-download:hover {
+  background: #5a49c2;
+}
+.gm-download-note {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+.gm-history li.from-meeting {
+  margin: 0 -8px;
+  padding: 8px;
+  border-radius: 8px;
+  background: var(--meeting-soft);
+}
+.gm-history li.from-meeting .gm-change {
+  background: var(--meeting);
+  color: #fff;
+}
