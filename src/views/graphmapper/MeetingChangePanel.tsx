@@ -4,6 +4,7 @@ import { formatDate } from '../../format'
 import { allDocuments } from './meetings'
 import type { GmDocument as Document } from './types'
 import { creatorOf } from './data'
+import { downloadUpdatedDocument, historyAfterChange } from './download'
 
 /**
  * A change from a meeting, shown inside the original document: the overruled sentence is struck
@@ -94,8 +95,34 @@ export function MeetingChangePanel({ doc, onOpenDoc, onClose }: { doc: Document;
         </dd>
       </dl>
 
-      <h3>Document</h3>
+      <div className="gm-doc-heading">
+        <h3>Document</h3>
+        {original && (
+          <button className="gm-download" onClick={() => downloadUpdatedDocument(original, doc)}>
+            ↓ Download bijgewerkt document
+          </button>
+        )}
+      </div>
       {original && <PdfPage doc={original} mark={{ sentence: m.oldSentence, node: change }} />}
+      {original && <p className="gm-download-note">De download bevat de nieuwe tekst zonder markeringen, met de wijzigingsgeschiedenis onderaan.</p>}
+
+      {original && (
+        <>
+          <h3>Wijzigingsgeschiedenis</h3>
+          <ul className="gm-history">
+            {historyAfterChange(original, doc).map((h, i) => (
+              <li key={i} className={i === 0 ? 'from-meeting' : ''}>
+                <span className={`gm-change gm-change-${h.change}`}>{i === 0 ? 'meeting' : h.change}</span>
+                <span>
+                  <strong>{h.author}</strong> · {formatDate(h.date)}
+                  <br />
+                  {h.summary}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </>
+      )}
 
       {original && (
         <button className="meeting-replaces" onClick={() => onOpenDoc(original.id)}>
