@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-/** Round call button next to a contact. Demo only: shows that a Teams call would start. */
+/** Teams-style call button next to a contact. Demo only: shows that a Teams call would start. */
 export function CallButton({ name }: { name: string }) {
   const [calling, setCalling] = useState(false)
   useEffect(() => {
@@ -17,16 +17,17 @@ export function CallButton({ name }: { name: string }) {
         e.stopPropagation()
         setCalling(true)
       }}
-      title={`Bel ${first} via Teams`}
+      title={`Bellen met ${first} in Microsoft Teams`}
       aria-label={`Bel ${name} via Teams`}
     >
-      <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden>
+      <svg width="16" height="16" viewBox="0 0 20 20" aria-hidden>
+        {/* Fluent-style call icon, as in Teams */}
         <path
-          d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"
+          d="M5.4 2.3 6.5 2a1.8 1.8 0 0 1 2.1 1l.9 2a1.8 1.8 0 0 1-.4 2.1l-1.4 1.3c-.1.1-.1.3-.1.4.4 1 1 2 1.9 2.8.8.7 1.6 1.2 2.3 1.4.1 0 .3 0 .4-.1l1.4-1.4a1.8 1.8 0 0 1 2.1-.4l2 .9a1.8 1.8 0 0 1 1 2.1l-.3 1.1A2.8 2.8 0 0 1 14.6 18c-2.7.4-5.4-.8-8-3.6S2.6 8.1 3 5.4a2.8 2.8 0 0 1 2.4-3.1z"
           fill="currentColor"
         />
       </svg>
-      <span>{calling ? `Bellen naar ${first}…` : 'Bel'}</span>
+      <span>{calling ? 'Belt…' : 'Bellen'}</span>
     </button>
   )
 }

@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { primaryCluster, type AnalysisEdge } from './analysis'
 import { EdgePanel } from './components/EdgePanel'
+import { CopilotLogo } from './components/CopilotLogo'
 import { PersonPanel } from './components/PersonPanel'
 import { PreviewPanel } from './components/PreviewPanel'
 import { documents, libraryItems } from './library'
@@ -124,14 +125,21 @@ export default function App() {
       <header className="suite-bar">
         <span className="waffle">⋮⋮⋮</span>
         <span className="brand">SharePoint</span>
-        <input
-          className="search"
-          type="search"
-          placeholder={view.placeholder ?? (questionMode ? 'Stel een vraag, bv. Hoeveel bedragen de maaltijdcheques?' : 'Zoeken in deze bibliotheek')}
-          maxLength={MAX_QUERY_LENGTH}
-          value={query}
-          onChange={(e) => setQuery(e.target.value.slice(0, MAX_QUERY_LENGTH))}
-        />
+        <div className={questionMode ? 'search-wrap ai' : 'search-wrap'}>
+          {questionMode && (
+            <span className="search-logo" title="Vraag aan Copilot">
+              <CopilotLogo />
+            </span>
+          )}
+          <input
+            className="search"
+            type="search"
+            placeholder={view.placeholder ?? (questionMode ? 'Stel een vraag, bv. Hoeveel bedragen de maaltijdcheques?' : 'Zoeken in deze bibliotheek')}
+            maxLength={MAX_QUERY_LENGTH}
+            value={query}
+            onChange={(e) => setQuery(e.target.value.slice(0, MAX_QUERY_LENGTH))}
+          />
+        </div>
         <span className="avatar">AC</span>
       </header>
 
