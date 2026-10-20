@@ -1,4 +1,5 @@
 import { analysis } from '../../analysis'
+import { scoreOf } from '../../docScore'
 import { formatDate } from '../../format'
 import type { GmDocument as Document } from './types'
 
@@ -171,6 +172,9 @@ function buildTopic(topicId: string, docs: Document[], color: string): Topic {
       trust = 'support'
       sub = `${STATUS[doc.status]} · ${owner}`
     }
+    // The trust score leads the second line, so truncation never hides it.
+    const score = doc.meeting ? undefined : scoreOf(doc.id)?.score
+    if (score !== undefined) sub = `Score ${score} · ${sub}`
     return {
       id: doc.id,
       title: doc.title,

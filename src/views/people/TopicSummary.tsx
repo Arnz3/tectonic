@@ -3,6 +3,7 @@ import { formatDate } from '../../format'
 import { Avatar } from '../../components/Avatar'
 import { CallButton } from '../../components/CallButton'
 import { FileIcon } from '../../components/FileIcon'
+import { ScoreBadge } from '../../components/ScoreBadge'
 import { documents, libraryItems } from '../../library'
 import { expertsFor, firstName, sentence, canSee, VERDICT_LABEL, type Topic as PeopleTopic } from '../../people/model'
 import { expertContext, usePeopleData } from '../../people/store'
@@ -64,6 +65,9 @@ export function TopicSummary(props: {
                 <button key={d.id} className="tile summary-file" onClick={() => onOpenDoc(d.id)} title={doc.title}>
                   <div className="tile-thumb">
                     <FileIcon kind={file.kind} size={56} />
+                    <span className="tile-score">
+                      <ScoreBadge id={d.id} />
+                    </span>
                     <span className={recommended ? 'file-badge' : 'file-badge lane'}>
                       ✓ {recommended ? 'Aanbevolen' : `Beste · ${laneLabel.get(d.lane)}`}
                     </span>

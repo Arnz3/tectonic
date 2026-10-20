@@ -3,6 +3,7 @@ import { formatDate } from '../format'
 import type { Document } from '../types'
 import { useVoteSummaries } from '../votes'
 import { VoteBox } from './VoteBox'
+import { ScoreDetail } from './ScoreBadge'
 import { WhyBox } from './WhyBox'
 
 const countryLabel: Record<Document['country'], string> = { BE: 'België', NL: 'Nederland', DE: 'Duitsland' }
@@ -40,6 +41,8 @@ export function PreviewPanel({ doc, query, onClose }: { doc: Document; query: st
         <dt>Gewijzigd</dt>
         <dd>{formatDate(doc.modified)}</dd>
       </dl>
+
+      <ScoreDetail id={doc.id} />
 
       {reasons && (
         <div className="recommended-box">

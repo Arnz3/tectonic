@@ -1972,3 +1972,93 @@ button.crumb:hover {
     display: none;
   }
 }
+
+/* Trust score per document */
+.score-badge {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 1px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+.score-badge small {
+  font-size: 10px;
+  font-weight: 600;
+  opacity: 0.75;
+}
+.score-badge.high {
+  background: #dff6dd;
+  color: #0b6a3c;
+}
+.score-badge.mid {
+  background: #fff4ce;
+  color: #8a5300;
+}
+.score-badge.low {
+  background: #fde7e9;
+  color: #a4262c;
+}
+.score-badge.large {
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 22px;
+}
+.score-badge.large small {
+  font-size: 12px;
+}
+.tile-score {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+.score-detail {
+  margin-top: 14px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+.score-detail-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.score-detail-head small {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+}
+.score-detail ul {
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 13px;
+}
+.score-detail li {
+  display: flex;
+  gap: 8px;
+  padding: 2px 0;
+}
+.score-points {
+  min-width: 34px;
+  color: #0b6a3c;
+  font-weight: 700;
+  text-align: right;
+}
+.score-points.minus {
+  color: #a4262c;
+}
+/* Narrow content (side panel open): let contact rows wrap instead of squeezing the text. */
+.summary-contact {
+  flex-wrap: wrap;
+}
+.summary-contact .summary-person {
+  flex: 1 1 320px;
+  flex-wrap: wrap;
+}
+.summary-contact .summary-main {
+  flex: 1 1 180px;
+  min-width: 180px;
+}
