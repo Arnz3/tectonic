@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
 import { ActivityItem } from '../../components/Activity'
-import { contactsForQuery, expertsFor, involvementText, VERDICT_LABEL, type Expert, type Signal, type Topic } from '../../people/model'
+import { contactsForQuery, countsFor, countsText, expertsFor, involvementText, teamContacts, VERDICT_LABEL, type Expert, type Signal, type Topic } from '../../people/model'
 import { expertContext, usePeopleData } from '../../people/store'
 
-const MAX_PEOPLE = 6
+const MAX_PEOPLE = 8
 
 /**
  * A simple list of people who may know more, for a topic or (without files) for a search query.
@@ -18,9 +18,10 @@ export function PeopleOverview(props: { topic?: Topic; query?: string; initialOp
   useEffect(() => {
     if (initialOpen) sectionRef.current?.scrollIntoView({ block: 'start', behavior: 'smooth' })
   }, [initialOpen])
-  const experts = (
-    topic ? expertsFor(topic.id, data, rejected, expertContext(topic.id, confirmed)) : contactsForQuery(query, data, rejected)
-  ).slice(0, MAX_PEOPLE)
+  const all = topic ? expertsFor(topic.id, data, rejected, expertContext(topic.id, confirmed)) : contactsForQuery(query, data, rejected)
+  // One contact per department: another department sees who to ask without access to the files.
+  const contacts = teamContacts(all)
+  const experts = all.slice(0, MAX_PEOPLE)
   if (experts.length === 0) return null
 
   return (
@@ -41,8 +42,13 @@ export function PeopleOverview(props: { topic?: Topic; query?: string; initialOp
                   {isOpen ? '▾' : '▸'}
                 </span>
                 <strong>{name}</strong>
-                <small>{e.person.role}</small>
+                <small>
+                  {e.person.role} · <span className="team-tag">{e.person.team}</span>
+                </small>
+                {contacts.get(e.person.team) === name && <span className="contact-tag">Contactpersoon {e.person.team}</span>}
+
                 <span className={`verdict verdict-${e.verdict}`}>{VERDICT_LABEL[e.verdict]}</span>
+                <small className="overview-counts">{countsText(countsFor(name, activity))}</small>
               </button>
               {isOpen && (
                 <div className="overview-detail">

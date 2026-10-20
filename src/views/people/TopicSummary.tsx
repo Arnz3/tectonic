@@ -79,7 +79,9 @@ export function TopicSummary(props: {
               <li key={e.person.name}>
                 <button className="summary-person" onClick={() => onAdvanced(e.person.name)}>
                   <span className="summary-main">
-                    <strong>{e.person.name}</strong>
+                    <strong>
+                      {e.person.name} <span className="team-tag">{e.person.team}</span>
+                    </strong>
                     <small>{sentence(e.person.name, e.headline, canSee(e.headline.signal, viewer))}</small>
                   </span>
                   <span className={`verdict verdict-${e.verdict}`}>{VERDICT_LABEL[e.verdict]}</span>

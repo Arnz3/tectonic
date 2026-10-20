@@ -454,66 +454,24 @@ export function contactsForQuery(query: string, data: SignalData, excluded: Set<
   return expertsFor(QUERY_TOPIC_ID, { ...data, signals })
 }
 
-// --- Department web -------------------------------------------------------------------
-
-export interface DepartmentPerson {
-  person: Person
-  total: number
-  /** Per topic: number of signals per source (meetings, documents, Teams, tickets). Counts only. */
-  byTopic: Record<string, Partial<Record<SignalType, number>>>
-}
-
-export interface DepartmentTopic {
-  topic: Topic
-  total: number
-  /** Recommended contact in this department for the topic. */
-  contact: Expert | null
-}
-
-export interface DepartmentWeb {
-  team: string
-  people: DepartmentPerson[]
-  topics: DepartmentTopic[]
-}
-
-export function departments(data: SignalData): string[] {
-  return [...new Set(data.people.map((p) => p.team))].sort((a, b) => a.localeCompare(b, 'nl'))
-}
+// --- Departments ------------------------------------------------------------------------
 
 /**
- * Who in a department works on which topics, as counts only: another department sees who to ask
- * without access to the files or meetings themselves. Per topic the best contact in the department.
+ * Per department (team) the person to contact about a topic: the best one likely to have the right
+ * answer. A department without such a person gets none. Lets another department find who to ask
+ * without access to the files.
  */
-export function departmentWeb(
-  team: string,
-  data: SignalData,
-  excluded: Set<string> = new Set(),
-  contextFor: (topic: string) => ExpertContext = () => ({}),
-): DepartmentWeb {
-  const members = data.people.filter((p) => p.team === team)
-  const names = new Set(members.map((p) => p.name))
-  const byName = new Map<string, DepartmentPerson>(members.map((p) => [p.name, { person: p, total: 0, byTopic: {} }]))
-  const topicTotals = new Map<string, number>()
-  for (const s of data.signals) {
-    if (excluded.has(s.id)) continue
-    for (const p of s.people) {
-      const entry = byName.get(p.name)
-      if (!entry) continue
-      const counts = (entry.byTopic[s.topic] ??= {})
-      counts[s.type] = (counts[s.type] ?? 0) + 1
-      entry.total++
-      topicTotals.set(s.topic, (topicTotals.get(s.topic) ?? 0) + 1)
-    }
-  }
-  const topics = data.topics
-    .filter((t) => topicTotals.has(t.id))
-    .map((topic) => {
-      const inTeam = expertsFor(topic.id, data, excluded, contextFor(topic.id)).filter((e) => names.has(e.person.name))
-      return { topic, total: topicTotals.get(topic.id)!, contact: inTeam.find((e) => e.verdict === 'likely') ?? inTeam[0] ?? null }
-    })
-    .sort((a, b) => b.total - a.total || a.topic.label.localeCompare(b.topic.label, 'nl'))
-  const people = [...byName.values()].filter((p) => p.total > 0).sort((a, b) => b.total - a.total || a.person.name.localeCompare(b.person.name, 'nl'))
-  return { team, people, topics }
+export function teamContacts(experts: Expert[]): Map<string, string> {
+  const contacts = new Map<string, string>()
+  for (const e of experts) if (e.verdict === 'likely' && !contacts.has(e.person.team)) contacts.set(e.person.team, e.person.name)
+  return contacts
+}
+
+/** Number of signals per source for a person, from a list of signals. Counts only. */
+export function countsFor(name: string, signals: Signal[]): Partial<Record<SignalType, number>> {
+  const counts: Partial<Record<SignalType, number>> = {}
+  for (const s of signals) if (s.people.some((p) => p.name === name)) counts[s.type] = (counts[s.type] ?? 0) + 1
+  return counts
 }
 
 /** "2 meetings, 1 document" — counts per source, no titles. */
