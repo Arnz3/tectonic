@@ -7,7 +7,7 @@ import { buildTopics, topicForQuestion, TRUST, type Topic, type Trust } from './
 import { createTimeline, type TimelineCallbacks } from './askme/timeline'
 import { createTopicGraph } from './askme/topicGraph'
 import { PeopleOverview } from './people/PeopleOverview'
-import { PeopleControls, WhoKnowsGrid } from './people/WhoKnows'
+import { PeopleControls } from './people/WhoKnows'
 
 const fileById = new Map(libraryItems.filter((f) => f.document).map((f) => [f.id, f]))
 const LEGEND: Trust[] = ['best', 'similar', 'expired', 'support', 'other_scope']
@@ -19,7 +19,7 @@ const LEGEND: Trust[] = ['best', 'similar', 'expired', 'support', 'other_scope']
 export function AskMeView({ items, onOpen, query }: ViewProps) {
   const docs = useMemo(() => items.flatMap((i) => (i.document ? [i.document] : [])), [items])
   const topics = useMemo(() => buildTopics(docs), [docs])
-  const { data: peopleData, viewer } = usePeopleData()
+  const { data: peopleData } = usePeopleData()
   const [picked, setPicked] = useState<string | null>(null)
 
   // People topics know more synonyms ("wie kent de tankkaart?") and include topics without documents.
@@ -92,10 +92,7 @@ export function AskMeView({ items, onOpen, query }: ViewProps) {
           {peopleTopic && <PeopleOverview key={`people-${peopleTopic.id}`} topic={peopleTopic} />}
         </>
       ) : (
-        <>
-          <AskMeTopics key={topics.map((t) => t.id).join('|')} topics={topics} onOpenTopic={setPicked} />
-          <WhoKnowsGrid viewer={viewer} onOpenTopic={setPicked} />
-        </>
+        <AskMeTopics key={topics.map((t) => t.id).join('|')} topics={topics} onOpenTopic={setPicked} />
       )}
     </div>
   )
