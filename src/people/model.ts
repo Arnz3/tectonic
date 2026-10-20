@@ -1,0 +1,334 @@
+/**
+ * "Wie weet het?": who knows what, derived from work signals (meetings, Teams, tickets, documents).
+ *
+ * Pure functions only, so they can be tested with `node --test` without a bundler.
+ */
+
+export type SignalType = 'meeting' | 'teams' | 'ticket' | 'document' | 'interview'
+export type Role = 'explained' | 'decided' | 'answered' | 'resolved' | 'owner' | 'contributed' | 'attended' | 'asked'
+export type Visibility = 'open' | 'beperkt' | 'vertrouwelijk'
+
+export interface Person {
+  name: string
+  role: string
+  team: string
+  status: 'actief' | 'nieuwe_rol'
+  previous_role?: string
+  /** Topics of the previous role; signals on these count for less. */
+  former_topics?: string[]
+}
+
+export interface Topic {
+  id: string
+  label: string
+  synonyms: string[]
+}
+
+export interface SignalPerson {
+  name: string
+  role: Role
+  /** Literal quote from the source, empty when there is none. */
+  quote: string
+}
+
+export interface Signal {
+  id: string
+  type: SignalType
+  topic: string
+  daysAgo: number
+  title: string
+  people: SignalPerson[]
+  visibility: Visibility
+  /** Teams with access when `visibility` is 'beperkt'. */
+  allowed: string[]
+  /** Meetings only: who gets the verification card. */
+  organizer?: string
+}
+
+export interface SignalData {
+  people: Person[]
+  topics: Topic[]
+  signals: Signal[]
+}
+
+// --- Validation ----------------------------------------------------------------------
+
+const ROLES_BY_TYPE: Record<SignalType, Role[]> = {
+  meeting: ['explained', 'decided', 'asked', 'attended'],
+  teams: ['answered'],
+  ticket: ['resolved'],
+  document: ['owner', 'contributed'],
+  interview: ['explained'],
+}
+const VISIBILITIES: Visibility[] = ['open', 'beperkt', 'vertrouwelijk']
+const MAX_TEXT = 500
+
+const isObject = (v: unknown): v is Record<string, unknown> => typeof v === 'object' && v !== null && !Array.isArray(v)
+const isText = (v: unknown, max = MAX_TEXT): v is string => typeof v === 'string' && v.length <= max
+const isTextList = (v: unknown): v is string[] => Array.isArray(v) && v.every((x) => isText(x, 100))
+
+function parsePerson(v: unknown): Person | null {
+  if (!isObject(v) || !isText(v.name, 100) || !v.name || !isText(v.role) || !isText(v.team, 100)) return null
+  if (v.status !== 'actief' && v.status !== 'nieuwe_rol') return null
+  if (v.previous_role !== undefined && !isText(v.previous_role)) return null
+  if (v.former_topics !== undefined && !isTextList(v.former_topics)) return null
+  return {
+    name: v.name,
+    role: v.role,
+    team: v.team,
+    status: v.status,
+    previous_role: v.previous_role as string | undefined,
+    former_topics: v.former_topics as string[] | undefined,
+  }
+}
+
+function parseTopic(v: unknown): Topic | null {
+  if (!isObject(v) || !isText(v.id, 100) || !v.id || !isText(v.label, 100) || !isTextList(v.synonyms)) return null
+  return { id: v.id, label: v.label, synonyms: v.synonyms }
+}
+
+/**
+ * Checks one signal against the known people and topics. Confidential signals are rejected
+ * here, so nothing downstream can show them, not even as a topic or in a score.
+ */
+export function parseSignal(v: unknown, peopleNames: Set<string>, topicIds: Set<string>): Signal | null {
+  if (!isObject(v) || !isText(v.id, 100) || !v.id || !isText(v.title) || !isText(v.topic, 100)) return null
+  const type = v.type as SignalType
+  if (!(type in ROLES_BY_TYPE) || !topicIds.has(v.topic)) return null
+  if (typeof v.daysAgo !== 'number' || !Number.isInteger(v.daysAgo) || v.daysAgo < 0 || v.daysAgo > 36500) return null
+  if (!VISIBILITIES.includes(v.visibility as Visibility) || v.visibility === 'vertrouwelijk') return null
+  if (!isTextList(v.allowed)) return null
+  if (v.organizer !== undefined && !(isText(v.organizer, 100) && peopleNames.has(v.organizer))) return null
+  if (!Array.isArray(v.people) || v.people.length === 0) return null
+  const people: SignalPerson[] = []
+  for (const p of v.people) {
+    if (!isObject(p) || !isText(p.name, 100) || !peopleNames.has(p.name) || !isText(p.quote)) return null
+    if (!ROLES_BY_TYPE[type].includes(p.role as Role)) return null
+    people.push({ name: p.name, role: p.role as Role, quote: p.quote })
+  }
+  return {
+    id: v.id,
+    type,
+    topic: v.topic,
+    daysAgo: v.daysAgo,
+    title: v.title,
+    people,
+    visibility: v.visibility as Visibility,
+    allowed: v.allowed,
+    organizer: v.organizer as string | undefined,
+  }
+}
+
+/** Everything from JSON or localStorage is untrusted: keep only well-formed entries. */
+export function parseSignalData(raw: unknown): SignalData {
+  const data = isObject(raw) ? raw : {}
+  const people = (Array.isArray(data.people) ? data.people : []).map(parsePerson).filter((p): p is Person => p !== null)
+  const topics = (Array.isArray(data.topics) ? data.topics : []).map(parseTopic).filter((t): t is Topic => t !== null)
+  const names = new Set(people.map((p) => p.name))
+  const topicIds = new Set(topics.map((t) => t.id))
+  const signals = (Array.isArray(data.signals) ? data.signals : [])
+    .map((s) => parseSignal(s, names, topicIds))
+    .filter((s): s is Signal => s !== null)
+  return { people, topics, signals }
+}
+
+// --- Access ----------------------------------------------------------------------------
+
+export interface Viewer {
+  id: string
+  label: string
+  teams: string[]
+}
+
+export const VIEWERS: Viewer[] = [
+  { id: 'consultant', label: 'Payrollconsultant BE', teams: ['Payroll BE', 'Reward & Benefits'] },
+  { id: 'newcomer', label: 'Nieuwe medewerker', teams: [] },
+]
+
+/**
+ * The one access check. Open: everyone. Restricted: only viewers in an allowed team.
+ * Confidential (or anything unknown): nobody.
+ */
+export function canSee(signal: Pick<Signal, 'visibility' | 'allowed'>, viewer: Viewer): boolean {
+  if (signal.visibility === 'open') return true
+  if (signal.visibility === 'beperkt') return signal.allowed.some((team) => viewer.teams.includes(team))
+  return false
+}
+
+// --- Expertise score --------------------------------------------------------------------
+
+/** Weight per source and role (design doc, "Signalen in plaats van invoer"). */
+export const WEIGHTS: Record<SignalType, Partial<Record<Role, number>>> = {
+  meeting: { explained: 3, decided: 2.5, attended: 0.4, asked: 0.2 },
+  teams: { answered: 2 },
+  ticket: { resolved: 2 },
+  document: { owner: 1.5, contributed: 1 },
+  interview: { explained: 3 },
+}
+export const HALF_LIFE_DAYS = 30
+export const ROLE_CHANGE_FACTOR = 0.4
+/** Signals that show real knowledge, not just presence. */
+const KNOWLEDGE_ROLES: Role[] = ['explained', 'decided', 'answered', 'resolved']
+/** Window for the bus factor: knowledge and documents older than this do not count. */
+export const BUS_FACTOR_DAYS = 90
+const MIN_SCORE = 0.05
+
+export interface Evidence {
+  signal: Signal
+  role: Role
+  quote: string
+  points: number
+}
+
+export interface Expert {
+  person: Person
+  score: number
+  /** Most recent sign of real knowledge, or the strongest signal when there is none. */
+  headline: Evidence
+  /** Up to 3 further reasons, strongest first. */
+  more: Evidence[]
+  warning: string | null
+}
+
+export const decay = (daysAgo: number) => 0.5 ** (daysAgo / HALF_LIFE_DAYS)
+
+function changedRole(person: Person, topic: string): boolean {
+  return person.status === 'nieuwe_rol' && (person.former_topics ?? []).includes(topic)
+}
+
+/** Ranked people for a topic. `excluded` holds signal ids a human marked as wrong. */
+export function expertsFor(topic: string, data: SignalData, excluded: Set<string> = new Set()): Expert[] {
+  const byName = new Map(data.people.map((p) => [p.name, p]))
+  const evidence = new Map<string, Evidence[]>()
+  for (const signal of data.signals) {
+    if (signal.topic !== topic || excluded.has(signal.id)) continue
+    for (const p of signal.people) {
+      const person = byName.get(p.name)
+      if (!person) continue
+      const factor = changedRole(person, topic) ? ROLE_CHANGE_FACTOR : 1
+      const points = (WEIGHTS[signal.type][p.role] ?? 0) * decay(signal.daysAgo) * factor
+      evidence.set(p.name, [...(evidence.get(p.name) ?? []), { signal, role: p.role, quote: p.quote, points }])
+    }
+  }
+
+  const experts: Expert[] = []
+  for (const [name, list] of evidence) {
+    const person = byName.get(name)!
+    const score = list.reduce((sum, e) => sum + e.points, 0)
+    if (score < MIN_SCORE) continue
+    const knowledge = list.filter((e) => KNOWLEDGE_ROLES.includes(e.role) || e.signal.type === 'interview')
+    const strongest = [...list].sort((a, b) => b.points - a.points)
+    const headline = knowledge.length
+      ? [...knowledge].sort((a, b) => a.signal.daysAgo - b.signal.daysAgo || b.points - a.points)[0]
+      : strongest[0]
+    experts.push({
+      person,
+      score,
+      headline,
+      more: strongest.filter((e) => e !== headline).slice(0, 3),
+      warning: changedRole(person, topic)
+        ? `Heeft sinds kort een andere rol (nu: ${person.role}); telt nog voor ${ROLE_CHANGE_FACTOR * 100}% mee`
+        : null,
+    })
+  }
+  return experts.sort((a, b) => b.score - a.score || a.person.name.localeCompare(b.person.name, 'nl'))
+}
+
+/**
+ * "Enkel Karim kent dit echt": exactly one active person showed real knowledge recently and no
+ * recent document or interview captures it.
+ */
+export function busFactorPerson(topic: string, data: SignalData, excluded: Set<string> = new Set()): Person | null {
+  const recent = data.signals.filter((s) => s.topic === topic && s.daysAgo <= BUS_FACTOR_DAYS && !excluded.has(s.id))
+  if (recent.some((s) => s.type === 'document' || s.type === 'interview')) return null
+  const byName = new Map(data.people.map((p) => [p.name, p]))
+  const holders = new Set(
+    recent.flatMap((s) =>
+      s.people
+        .filter((p) => KNOWLEDGE_ROLES.includes(p.role))
+        .filter((p) => {
+          const person = byName.get(p.name)
+          return person !== undefined && !changedRole(person, topic)
+        })
+        .map((p) => p.name),
+    ),
+  )
+  return holders.size === 1 ? byName.get([...holders][0]) ?? null : null
+}
+
+// --- Plain-language sentences -----------------------------------------------------------
+
+export function when(daysAgo: number): string {
+  if (daysAgo === 0) return 'vandaag'
+  if (daysAgo === 1) return 'gisteren'
+  if (daysAgo < 7) return `${daysAgo} dagen geleden`
+  if (daysAgo < 14) return 'vorige week'
+  if (daysAgo < 28) return `${Math.floor(daysAgo / 7)} weken geleden`
+  if (daysAgo < 60) return 'vorige maand'
+  if (daysAgo < 365) return `${Math.floor(daysAgo / 30)} maanden geleden`
+  const years = Math.floor(daysAgo / 365)
+  return years === 1 ? 'meer dan een jaar geleden' : `${years} jaar geleden`
+}
+
+const OPEN_SENTENCE: Record<SignalType, Partial<Record<Role, (w: string) => string>>> = {
+  meeting: {
+    explained: (w) => `had ${w} een meeting hierover en gaf er uitleg`,
+    decided: (w) => `nam ${w} een beslissing hierover in een meeting`,
+    asked: (w) => `stelde ${w} een vraag hierover in een meeting`,
+    attended: (w) => `was ${w} aanwezig in een meeting hierover`,
+  },
+  teams: { answered: (w) => `beantwoordde ${w} een vraag hierover in Teams` },
+  ticket: { resolved: (w) => `loste ${w} een ticket hierover op` },
+  document: {
+    owner: (w) => `is eigenaar van een document hierover (gewijzigd ${w})`,
+    contributed: (w) => `werkte ${w} inhoudelijk mee aan een document hierover`,
+  },
+  interview: { explained: (w) => `legde ${w} kennis hierover vast in een kennisinterview` },
+}
+
+const HIDDEN_SENTENCE: Record<SignalType, Partial<Record<Role, (w: string) => string>>> = {
+  meeting: {
+    explained: (w) => `gaf ${w} uitleg in een afgeschermde meeting`,
+    decided: (w) => `nam ${w} een beslissing in een afgeschermde meeting`,
+    asked: (w) => `was ${w} betrokken bij een afgeschermde meeting`,
+    attended: (w) => `was ${w} betrokken bij een afgeschermde meeting`,
+  },
+  teams: { answered: (w) => `beantwoordde ${w} een vraag in een afgeschermd kanaal` },
+  ticket: { resolved: (w) => `loste ${w} een afgeschermd ticket op` },
+  document: {
+    owner: () => 'is eigenaar van een afgeschermd document',
+    contributed: (w) => `werkte ${w} mee aan een afgeschermd document`,
+  },
+  interview: { explained: (w) => `legde ${w} kennis vast in een afgeschermd interview` },
+}
+
+export const firstName = (name: string) => name.split(' ')[0]
+
+/** "Karim had 4 dagen geleden een meeting hierover en gaf er uitleg". Hidden sources reveal no title or content. */
+export function sentence(name: string, e: Pick<Evidence, 'signal' | 'role'>, visible: boolean): string {
+  const table = visible ? OPEN_SENTENCE : HIDDEN_SENTENCE
+  const make = table[e.signal.type][e.role] ?? ((w: string) => `was ${w} betrokken`)
+  return `${firstName(name)} ${make(when(e.signal.daysAgo))}`
+}
+
+export const SOURCE_LABEL: Record<SignalType, string> = {
+  meeting: 'Meeting',
+  teams: 'Teams',
+  ticket: 'Ticket',
+  document: 'Document',
+  interview: 'Kennisinterview',
+}
+
+/** Question in the search box → topic, on whole words of the label, id or synonyms. */
+export function topicForQuery(query: string, topics: Topic[]): Topic | null {
+  const q = ` ${query.toLowerCase().replace(/[^\p{L}\p{N}\s]/gu, ' ').replace(/\s+/g, ' ').trim()} `
+  if (q.trim() === '') return null
+  let best: { topic: Topic; length: number } | null = null
+  for (const t of topics) {
+    for (const word of [t.id, t.label, ...t.synonyms]) {
+      const w = word.toLowerCase().replace(/[^\p{L}\p{N}\s]/gu, ' ').replace(/\s+/g, ' ').trim()
+      if (w && q.includes(` ${w} `) && (!best || w.length > best.length)) best = { topic: t, length: w.length }
+    }
+  }
+  return best?.topic ?? null
+}

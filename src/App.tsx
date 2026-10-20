@@ -127,7 +127,7 @@ export default function App() {
         <input
           className="search"
           type="search"
-          placeholder={questionMode ? 'Stel een vraag, bv. Hoeveel bedragen de maaltijdcheques?' : 'Zoeken in deze bibliotheek'}
+          placeholder={view.placeholder ?? (questionMode ? 'Stel een vraag, bv. Hoeveel bedragen de maaltijdcheques?' : 'Zoeken in deze bibliotheek')}
           maxLength={MAX_QUERY_LENGTH}
           value={query}
           onChange={(e) => setQuery(e.target.value.slice(0, MAX_QUERY_LENGTH))}
