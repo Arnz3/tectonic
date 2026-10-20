@@ -8,7 +8,7 @@ Medewerkers vinden vaak meerdere versies van hetzelfde document en weten niet we
 
 ## Draaien
 
-Vereisten: Node.js 22+ en Python 3.12+.
+Vereisten: Node.js 22.18+ en Python 3.12+.
 
 ```sh
 # 1. Frontend
@@ -27,6 +27,7 @@ cp .env.example .env        # vul GEMINI_API_KEY in
 
 # 5. App starten
 npm run dev                  # http://localhost:5173
+npm test                     # toegangsfilter en demoscenario (node --test)
 ```
 
 Open de bibliotheek, kies **Kennisgraaf** en zoek bijvoorbeeld op `maaltijdcheques`.
@@ -68,6 +69,22 @@ In de Kennisgraaf kun je wisselen tussen een **vrije graaf** en een **tijdlijnwe
 Klik op een kaartje om het document te openen in het voorbeeldpaneel. In Graffify filtert de zoekbalk niet; de vraag bepaalt welk onderwerp opent (op onderwerpnaam, synoniemen of gedeelde woorden). De code staat in `src/views/AskMeView.tsx` en `src/views/askme/` (D3).
 
 **In productie** zou de analyse draaien bij elke documentwijziging via de Microsoft Graph API, in plaats van vooraf op een vaste dataset.
+
+## Wie weet het? (finale)
+
+> *Je hoeft een document niet te mogen lezen om te weten wie je moet bellen.*
+
+Kennis zit in meetings en in hoofden, en de meeste mensen mogen veel documenten niet openen. De weergave **Wie weet het?** toont daarom geen documenten maar mensen: per onderwerp wie je best contacteert, met één zin waarom, bijvoorbeeld *"Karim had 4 dagen geleden een meeting hierover en gaf er uitleg"*.
+
+- **Signalen in plaats van invoer.** `scripts/signals.py` (draait mee met `analyze.py`) zet fictieve meetingtranscripten (`data/meetings.json`), Teams-antwoorden en opgeloste tickets (`data/workspace.json`) en documenteigenaars en -wijzigingen (`data/documents.json`) om in één lijst signalen: persoon, onderwerp, rol, leeftijd, letterlijk citaat en zichtbaarheid → `data/signals.json`. Met een `GEMINI_API_KEY` bepaalt Gemini per meeting wie uitleg gaf, besliste of een vraag stelde (gecachet; citaten moeten letterlijk in het transcript staan); zonder key of met `--no-llm` doen eenvoudige regels dat.
+- **Score die vanzelf veroudert.** Gewicht per bron en rol (uitleg in meeting 3, beslissing 2,5, Teams-antwoord 2, ticket 2, eigenaar 1,5, meegewerkt 1, aanwezig 0,4, vraag 0,2) × 0,5^(dagen/30). Wie van rol wisselde, telt op zijn oude onderwerpen nog voor 40% mee en krijgt een waarschuwing.
+- **Toegang.** Elk signaal is `open`, `beperkt` (met teams die toegang hebben) of `vertrouwelijk`. Vertrouwelijke bronnen worden al in het script én bij het inlezen geweigerd, ook uit score en onderwerpen. Met **Bekijk als** wissel je tussen *Payrollconsultant BE* en *Nieuwe medewerker*: dezelfde vraag geeft dezelfde persoon, maar afgeschermde bronnen tonen alleen *dat* iemand iets weet ("Karim gaf vorige week uitleg in een afgeschermde meeting"), met de knoppen *Vraag Karim* en *Vraag toegang*. De toegangscontrole zit in één functie (`canSee` in `src/people/model.ts`) en wordt getest met `npm test`.
+- **Bus factor en kennisinterview.** Weet maar één actieve persoon er de laatste 90 dagen aantoonbaar iets van en is er geen recent document, dan verschijnt "Enkel Karim kent dit echt" met een knop voor een kennisinterview van 5 minuten. De antwoorden worden een nieuw signaal.
+- **Verificatie met één klik.** *Verificatie na meeting* toont een mock van de Teams-kaart voor de organisator: kloppen de opgepikte onderwerpen? Bevestigde signalen krijgen een vinkje, afgewezen tellen niet meer mee.
+
+Demo: kies **Wie weet het?**, typ `wie kent de tankkaart?`, schakel *Bekijk als* naar *Nieuwe medewerker*, start het kennisinterview. *Demo resetten* onderaan wist interviews en verificaties.
+
+Beperkingen: de transcripten, personen, berichten en tickets zijn fictief; er is geen koppeling met Teams, Microsoft Graph of ElevenLabs (de browser leest de interviewvragen voor); interviews en verificaties staan in `localStorage` van de browser en zijn zonder authenticatie manipuleerbaar. We tonen expertise, nooit prestaties. In productie filtert Microsoft Graph per gebruiker op toegang en bepalen sensitivity labels wat vertrouwelijk is.
 
 ## Een nieuwe weergave toevoegen
 

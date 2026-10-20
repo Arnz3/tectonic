@@ -3,7 +3,7 @@
   "people": [
     { "name": "An Peeters", "role": "Senior payrollconsultant", "team": "Payroll BE", "status": "actief" },
     { "name": "Karim El Amrani", "role": "Fleet specialist", "team": "Reward & Benefits", "status": "actief" },
-    { "name": "Pieter Wouters", "role": "Teamlead onboarding", "team": "HR BE", "status": "nieuwe_rol", "previous_role": "Payroll-expert regelgeving en fleet" },
+    { "name": "Pieter Wouters", "role": "Teamlead onboarding", "team": "HR BE", "status": "nieuwe_rol", "previous_role": "Payroll-expert regelgeving en fleet", "former_topics": ["bedrijfswagens", "geboorteverlof", "eindejaarspremie", "ecocheques", "maaltijdcheques"] },
     { "name": "Sofie Claes", "role": "HR-adviseur", "team": "HR BE", "status": "actief" },
     { "name": "Jens Maes", "role": "Intranetredacteur", "team": "Communicatie", "status": "actief" },
     { "name": "Tom Vermeulen", "role": "Payrollconsultant", "team": "Payroll BE", "status": "actief" },
@@ -55,7 +55,7 @@
     },
     {
       "id": "teams-06", "daysAgo": 40, "channel": "#payroll-be", "title": "Vakantiedagen overdragen",
-      "topic": "verlof", "asked_by": "Tom Vermeulen", "answered_by": "Sofie Claes",
+      "topic": "verlof", "asked_by": "Tom Vermeulen", "answered_by": "An Peeters",
       "quote": "Wettelijke vakantiedagen kun je niet overdragen, extralegale verlofdagen wel tot eind maart.",
       "visibility": "open", "allowed": []
     }
@@ -81,7 +81,7 @@
     },
     {
       "id": "ticket-104", "daysAgo": 22, "title": "Fout bedrag maaltijdcheques bij klant",
-      "topic": "maaltijdcheques", "resolved_by": "An Peeters",
+      "topic": "maaltijdcheques", "resolved_by": "Tom Vermeulen",
       "quote": "Klant gebruikte nog het bedrag uit de procedure van 2023.",
       "visibility": "beperkt", "allowed": ["Payroll BE"]
     }

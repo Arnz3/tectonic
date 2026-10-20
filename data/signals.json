@@ -17,7 +17,14 @@
       "role": "Teamlead onboarding",
       "team": "HR BE",
       "status": "nieuwe_rol",
-      "previous_role": "Payroll-expert regelgeving en fleet"
+      "previous_role": "Payroll-expert regelgeving en fleet",
+      "former_topics": [
+        "bedrijfswagens",
+        "geboorteverlof",
+        "eindejaarspremie",
+        "ecocheques",
+        "maaltijdcheques"
+      ]
     },
     {
       "name": "Sofie Claes",
@@ -487,8 +494,8 @@
         },
         {
           "name": "An Peeters",
-          "role": "attended",
-          "quote": ""
+          "role": "explained",
+          "quote": "Klopt, en let op: periodes van onbetaalde afwezigheid tellen niet mee voor de ecocheques, periodes van gewaarborgd loon en vakantie wel, zoals in de procedure van 2025."
         }
       ],
       "visibility": "open",
@@ -540,7 +547,7 @@
       "title": "Fout bedrag maaltijdcheques bij klant",
       "people": [
         {
-          "name": "An Peeters",
+          "name": "Tom Vermeulen",
           "role": "resolved",
           "quote": "Klant gebruikte nog het bedrag uit de procedure van 2023."
         }
@@ -636,7 +643,7 @@
       "title": "#payroll-be: Vakantiedagen overdragen",
       "people": [
         {
-          "name": "Sofie Claes",
+          "name": "An Peeters",
           "role": "answered",
           "quote": "Wettelijke vakantiedagen kun je niet overdragen, extralegale verlofdagen wel tot eind maart."
         }
