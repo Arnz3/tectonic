@@ -77,7 +77,7 @@ export function AskMeView({ items, onOpen, query }: ViewProps) {
 
       {title ? (
         <>
-          {peopleTopic && <WhoKnowsTopic key={peopleTopic.id} topic={peopleTopic} viewer={viewer} />}
+          {peopleTopic && <WhoKnowsTopic key={`who-${peopleTopic.id}`} topic={peopleTopic} viewer={viewer} />}
           <h3 className="people-heading">Documenten over dit onderwerp</h3>
           {topic ? (
             <>
@@ -85,12 +85,12 @@ export function AskMeView({ items, onOpen, query }: ViewProps) {
                 {topic.docs.length} {topic.docs.length === 1 ? 'bron' : 'bronnen'}, van oud naar nieuw. Klik op een kaartje om het document te
                 openen.
               </span>
-              <AskMeTimeline key={topic.id} topic={topic} onOpenDoc={openDoc} />
+              <AskMeTimeline key={`timeline-${topic.id}`} topic={topic} onOpenDoc={openDoc} />
             </>
           ) : (
             <div className="graph-empty">Geen documenten over dit onderwerp: deze kennis zit alleen bij mensen.</div>
           )}
-          {peopleTopic && <PeopleOverview key={peopleTopic.id} topic={peopleTopic} />}
+          {peopleTopic && <PeopleOverview key={`people-${peopleTopic.id}`} topic={peopleTopic} />}
         </>
       ) : (
         <>
