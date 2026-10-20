@@ -180,9 +180,37 @@ export interface Evidence {
   points: number
 }
 
+/** Why this person matters: how long and how much they worked on the topic (all signals, unweighted). */
+export interface Involvement {
+  signals: number
+  bySource: Partial<Record<SignalType, number>>
+  firstDaysAgo: number
+  lastDaysAgo: number
+}
+
+/** Who probably has the right answer. */
+export type Verdict = 'likely' | 'outdated' | 'few'
+
+export interface ExpertContext {
+  /** People whose content changes on this topic were mostly on outdated versions or copies. */
+  outdated?: Set<string>
+  /** Documents recommended by the trust rules (analysis.json). */
+  recommendedDocs?: Set<string>
+  /** Signals the meeting organiser confirmed. */
+  confirmed?: Set<string>
+}
+
+/** Ranking weight for people who mostly worked on outdated versions. */
+export const OUTDATED_FACTOR = 0.5
+
 export interface Expert {
   person: Person
+  /** Chance of the right answer: recency- and role-weighted, lower for outdated work. Drives rank and distance. */
   score: number
+  involvement: Involvement
+  verdict: Verdict
+  /** Plain-language reasons for the verdict. */
+  verdictReasons: string[]
   /** Most recent sign of real knowledge, or the strongest signal when there is none. */
   headline: Evidence
   /** Up to 3 further reasons, strongest first. */
@@ -197,7 +225,7 @@ function changedRole(person: Person, topic: string): boolean {
 }
 
 /** Ranked people for a topic. `excluded` holds signal ids a human marked as wrong. */
-export function expertsFor(topic: string, data: SignalData, excluded: Set<string> = new Set()): Expert[] {
+export function expertsFor(topic: string, data: SignalData, excluded: Set<string> = new Set(), context: ExpertContext = {}): Expert[] {
   const byName = new Map(data.people.map((p) => [p.name, p]))
   const evidence = new Map<string, Evidence[]>()
   for (const signal of data.signals) {
@@ -214,16 +242,41 @@ export function expertsFor(topic: string, data: SignalData, excluded: Set<string
   const experts: Expert[] = []
   for (const [name, list] of evidence) {
     const person = byName.get(name)!
-    const score = list.reduce((sum, e) => sum + e.points, 0)
+    const outdated = context.outdated?.has(name) ?? false
+    const score = list.reduce((sum, e) => sum + e.points, 0) * (outdated ? OUTDATED_FACTOR : 1)
     if (score < MIN_SCORE) continue
     const knowledge = list.filter((e) => KNOWLEDGE_ROLES.includes(e.role) || e.signal.type === 'interview')
     const strongest = [...list].sort((a, b) => b.points - a.points)
     const headline = knowledge.length
       ? [...knowledge].sort((a, b) => a.signal.daysAgo - b.signal.daysAgo || b.points - a.points)[0]
       : strongest[0]
+    const bySource: Partial<Record<SignalType, number>> = {}
+    for (const e of list) bySource[e.signal.type] = (bySource[e.signal.type] ?? 0) + 1
+    const days = list.map((e) => e.signal.daysAgo)
+    const recentKnowledge = knowledge.filter((e) => e.signal.daysAgo <= BUS_FACTOR_DAYS)
+    const onRecommended = list.some((e) => e.signal.type === 'document' && context.recommendedDocs?.has(e.signal.id))
+    const isConfirmed = list.some((e) => context.confirmed?.has(e.signal.id) && KNOWLEDGE_ROLES.includes(e.role))
+    let verdict: Verdict
+    const verdictReasons: string[] = []
+    if (outdated || changedRole(person, topic)) {
+      verdict = 'outdated'
+      if (outdated) verdictReasons.push('Werkte vooral aan verouderde versies of kopieën')
+      if (changedRole(person, topic)) verdictReasons.push(`Andere functie sinds kort (nu: ${person.role})`)
+    } else if (recentKnowledge.length > 0 || onRecommended) {
+      verdict = 'likely'
+      if (recentKnowledge.length > 0) verdictReasons.push(`Recente uitleg of antwoord (${when(Math.min(...recentKnowledge.map((e) => e.signal.daysAgo)))})`)
+      if (onRecommended) verdictReasons.push('Werkte aan het aanbevolen document')
+    } else {
+      verdict = 'few'
+      verdictReasons.push('Weinig recente signalen van echte kennis')
+    }
+    if (isConfirmed) verdictReasons.push('Bevestigd door de organisator')
     experts.push({
       person,
       score,
+      involvement: { signals: list.length, bySource, firstDaysAgo: Math.max(...days), lastDaysAgo: Math.min(...days) },
+      verdict,
+      verdictReasons,
       headline,
       more: strongest.filter((e) => e !== headline).slice(0, 3),
       warning: changedRole(person, topic)
@@ -303,6 +356,37 @@ const HIDDEN_SENTENCE: Record<SignalType, Partial<Record<Role, (w: string) => st
 }
 
 export const firstName = (name: string) => name.split(' ')[0]
+
+export const VERDICT_LABEL: Record<Verdict, string> = {
+  likely: 'Waarschijnlijk juist antwoord',
+  outdated: 'Weet veel, maar mogelijk verouderd',
+  few: 'Weinig signalen',
+}
+
+function duration(days: number): string {
+  if (days < 14) return days === 1 ? '1 dag' : `${days} dagen`
+  if (days < 60) return `${Math.floor(days / 7)} weken`
+  if (days < 365) return `${Math.floor(days / 30)} maanden`
+  const years = Math.floor(days / 365)
+  return years === 1 ? 'meer dan een jaar' : `${years} jaar`
+}
+
+const SOURCE_COUNT: Record<SignalType, [string, string]> = {
+  meeting: ['meeting', 'meetings'],
+  teams: ['Teams-antwoord', 'Teams-antwoorden'],
+  ticket: ['ticket', 'tickets'],
+  document: ['document', 'documenten'],
+  interview: ['kennisinterview', 'kennisinterviews'],
+}
+
+/** "Al 3 weken mee bezig · 4 signalen: 2 meetings, 1 Teams-antwoord, 1 ticket · laatst 4 dagen geleden". Counts only, no titles. */
+export function involvementText(inv: Involvement): string {
+  const parts = (Object.keys(SOURCE_COUNT) as SignalType[])
+    .filter((t) => inv.bySource[t])
+    .map((t) => `${inv.bySource[t]} ${SOURCE_COUNT[t][inv.bySource[t] === 1 ? 0 : 1]}`)
+  const since = inv.firstDaysAgo === 0 ? 'Sinds vandaag mee bezig' : `Al ${duration(inv.firstDaysAgo)} mee bezig`
+  return `${since} · ${inv.signals} ${inv.signals === 1 ? 'signaal' : 'signalen'}: ${parts.join(', ')} · laatst ${when(inv.lastDaysAgo)}`
+}
 
 /** "Karim had 4 dagen geleden een meeting hierover en gaf er uitleg". Hidden sources reveal no title or content. */
 export function sentence(name: string, e: Pick<Evidence, 'signal' | 'role'>, visible: boolean): string {

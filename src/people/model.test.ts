@@ -2,7 +2,7 @@
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { test } from 'node:test'
-import { busFactorPerson, canSee, expertsFor, parseSignalData, sentence, topicForQuery, VIEWERS } from './model.ts'
+import { busFactorPerson, canSee, expertsFor, involvementText, parseSignalData, sentence, topicForQuery, VIEWERS } from './model.ts'
 
 const data = parseSignalData(JSON.parse(readFileSync(new URL('../../data/signals.json', import.meta.url), 'utf8')))
 const [consultant, newcomer] = VIEWERS
@@ -54,4 +54,22 @@ test('hidden sentences reveal no title', () => {
   const text = sentence('Karim El Amrani', { signal: restricted, role: 'explained' }, false)
   assert.equal(text, 'Karim gaf vorige week uitleg in een afgeschermde meeting')
   assert.ok(!text.includes(restricted.title))
+})
+
+test('why: involvement counts signals per source, without titles', () => {
+  const karim = expertsFor('bedrijfswagens', data).find((e) => e.person.name === 'Karim El Amrani')!
+  assert.equal(
+    involvementText(karim.involvement),
+    'Al 2 weken mee bezig · 4 signalen: 2 meetings, 1 Teams-antwoord, 1 ticket · laatst 4 dagen geleden',
+  )
+})
+
+test('who: mostly outdated work lowers the verdict and the rank', () => {
+  const experts = expertsFor('maaltijdcheques', data, new Set(), { outdated: new Set(['Tom Vermeulen']), recommendedDocs: new Set(['doc-01']) })
+  const an = experts.find((e) => e.person.name === 'An Peeters')!
+  const tom = experts.find((e) => e.person.name === 'Tom Vermeulen')!
+  assert.equal(experts[0], an)
+  assert.equal(an.verdict, 'likely')
+  assert.equal(tom.verdict, 'outdated')
+  assert.ok(tom.involvement.signals > an.involvement.signals)
 })

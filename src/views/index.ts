@@ -4,7 +4,6 @@ import { AskMeView } from './AskMeView'
 import { CompactView } from './CompactView'
 // import { KnowledgeGraphView } from './KnowledgeGraphView'
 import { ListView } from './ListView'
-import { PeopleView } from './PeopleView'
 import { TilesView } from './TilesView'
 
 export interface ViewDefinition {
@@ -33,19 +32,11 @@ export interface ViewDefinition {
  * it shows up in the view switcher automatically.
  */
 export const views: ViewDefinition[] = [
-  {
-    id: 'people',
-    label: 'Wie weet het?',
-    icon: '👥',
-    component: PeopleView,
-    scope: 'library',
-    search: 'question',
-    placeholder: 'Wie weet het? Bv. wie kent de tankkaart?',
-  },
   { id: 'list', label: 'Lijst', icon: '☰', component: ListView },
   { id: 'tiles', label: 'Tegels', icon: '▦', component: TilesView },
   { id: 'compact', label: 'Compact', icon: '⋮⋮', component: CompactView },
   // Hidden for the Graffify demo; uncomment to show the original Kennisgraaf again.
   // { id: 'graph', label: 'Kennisgraaf', icon: '◉', component: KnowledgeGraphView, scope: 'library' },
-  { id: 'askme', label: 'Graffify', icon: '✦', logo: '/graffify-logo.png', component: AskMeView, scope: 'library', search: 'question' },
+  { id: 'askme', label: 'Graffify', icon: '✦', logo: '/graffify-logo.png', component: AskMeView, scope: 'library', search: 'question',
+    placeholder: 'Stel een vraag, bv. Wie kent de tankkaart? of Hoeveel bedragen de maaltijdcheques?' },
 ]

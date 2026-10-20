@@ -1,27 +1,41 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { libraryItems } from '../library'
+import { topicForQuery } from '../people/model'
+import { usePeopleData } from '../people/store'
 import type { ViewProps } from '../types'
 import { buildTopics, topicForQuestion, TRUST, type Topic, type Trust } from './askme/askmeData'
 import { createTimeline, type TimelineCallbacks } from './askme/timeline'
 import { createTopicGraph } from './askme/topicGraph'
+import { loadViewer, PeopleControls, WhoKnowsGrid, WhoKnowsTopic } from './people/WhoKnows'
 
 const fileById = new Map(libraryItems.filter((f) => f.document).map((f) => [f.id, f]))
 const LEGEND: Trust[] = ['best', 'similar', 'expired', 'support', 'other_scope']
 
 /**
- * ASKME: topics of the library as a graph; a topic (clicked, or recognised in a question typed
- * in the search box) opens a timeline that shows which source to trust.
+ * Graffify: topics of the library as a graph. A topic (clicked, or recognised in a question typed
+ * in the search box) shows who knows it ("Wie weet het?") and a timeline of which source to trust.
  */
 export function AskMeView({ items, onOpen, query }: ViewProps) {
   const docs = useMemo(() => items.flatMap((i) => (i.document ? [i.document] : [])), [items])
   const topics = useMemo(() => buildTopics(docs), [docs])
-  const asked = useMemo(() => topicForQuestion(query, topics, docs), [query, topics, docs])
+  const { data: peopleData } = usePeopleData()
+  const [viewer, setViewer] = useState(loadViewer)
   const [picked, setPicked] = useState<string | null>(null)
+
+  // People topics know more synonyms ("wie kent de tankkaart?") and include topics without documents.
+  const askedId = useMemo(
+    () => topicForQuery(query, peopleData.topics)?.id ?? topicForQuestion(query, topics, docs)?.id ?? null,
+    [query, peopleData.topics, topics, docs],
+  )
 
   // A new question starts from scratch.
   useEffect(() => setPicked(null), [query])
 
-  const topic = asked ?? topics.find((t) => t.id === picked)
+  const topicId = askedId ?? picked
+  const asked = askedId !== null
+  const topic = topics.find((t) => t.id === topicId)
+  const peopleTopic = peopleData.topics.find((t) => t.id === topicId)
+  const title = topic?.title ?? peopleTopic?.label
 
   if (docs.length === 0) return <div className="graph-empty">Geen documenten gevonden voor deze zoekopdracht.</div>
 
@@ -33,7 +47,7 @@ export function AskMeView({ items, onOpen, query }: ViewProps) {
   return (
     <div className="askme">
       <div className="askme-bar">
-        {topic ? (
+        {title ? (
           <>
             {!asked && (
               <>
@@ -43,10 +57,9 @@ export function AskMeView({ items, onOpen, query }: ViewProps) {
                 <span className="askme-sep">›</span>
               </>
             )}
-            <strong>{topic.title}</strong>
+            <strong>{title}</strong>
             <span className="askme-hint">
-              {topic.docs.length} {topic.docs.length === 1 ? 'bron' : 'bronnen'}, van oud naar nieuw. Klik op een kaartje om het document te
-              openen.
+              Eerst wie het weet, daarna de documenten.
               {asked && ' Maak de zoekbalk leeg om alle onderwerpen te zien.'}
             </span>
           </>
@@ -54,15 +67,35 @@ export function AskMeView({ items, onOpen, query }: ViewProps) {
           <span className="askme-hint">
             {query
               ? 'Geen onderwerp herkend in je vraag. Kies hieronder een onderwerp.'
-              : 'Klik op een onderwerp om de tijdlijn te openen, of stel een vraag in de zoekbalk.'}
+              : 'Klik op een onderwerp, of stel een vraag in de zoekbalk, bv. "wie kent de tankkaart?"'}
           </span>
         )}
+        <span className="askme-controls">
+          <PeopleControls viewer={viewer} onViewer={setViewer} topicId={topicId} />
+        </span>
       </div>
 
-      {topic ? (
-        <AskMeTimeline key={topic.id} topic={topic} onOpenDoc={openDoc} />
+      {title ? (
+        <>
+          {peopleTopic && <WhoKnowsTopic key={peopleTopic.id} topic={peopleTopic} viewer={viewer} />}
+          <h3 className="people-heading">Documenten over dit onderwerp</h3>
+          {topic ? (
+            <>
+              <span className="askme-hint">
+                {topic.docs.length} {topic.docs.length === 1 ? 'bron' : 'bronnen'}, van oud naar nieuw. Klik op een kaartje om het document te
+                openen.
+              </span>
+              <AskMeTimeline key={topic.id} topic={topic} onOpenDoc={openDoc} />
+            </>
+          ) : (
+            <div className="graph-empty">Geen documenten over dit onderwerp: deze kennis zit alleen bij mensen.</div>
+          )}
+        </>
       ) : (
-        <AskMeTopics key={topics.map((t) => t.id).join('|')} topics={topics} onOpenTopic={setPicked} />
+        <>
+          <AskMeTopics key={topics.map((t) => t.id).join('|')} topics={topics} onOpenTopic={setPicked} />
+          <WhoKnowsGrid viewer={viewer} onOpenTopic={setPicked} />
+        </>
       )}
     </div>
   )

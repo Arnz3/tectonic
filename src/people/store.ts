@@ -5,9 +5,20 @@
  */
 import { useMemo, useSyncExternalStore } from 'react'
 import signalsJson from '../../data/signals.json'
-import { parseSignal, parseSignalData, type Signal, type SignalData } from './model'
+import { analysis } from '../analysis'
+import { parseSignal, parseSignalData, type ExpertContext, type Signal, type SignalData } from './model'
 
 export const baseData: SignalData = parseSignalData(signalsJson)
+
+const recommendedDocs = new Set(Object.keys(analysis.recommended))
+
+/** Trust context for a topic from the document analysis: who mostly worked on outdated versions. */
+export function expertContext(topic: string, confirmed: Set<string>): ExpertContext {
+  const outdated = new Set(
+    analysis.clusters.filter((c) => c.topic === topic).flatMap((c) => c.experts.filter((e) => e.warning).map((e) => e.author)),
+  )
+  return { outdated, recommendedDocs, confirmed }
+}
 
 const INTERVIEWS_KEY = 'tectonic.interviews.v1'
 const VERIFIED_KEY = 'tectonic.verified.v1'
