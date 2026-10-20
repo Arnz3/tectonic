@@ -67,6 +67,24 @@
       "role": "Payrollconsultant",
       "team": "Payroll DE",
       "status": "actief"
+    },
+    {
+      "name": "Ines Claessens",
+      "role": "Teamlead klantendienst",
+      "team": "Klantendienst",
+      "status": "actief"
+    },
+    {
+      "name": "Bram Willems",
+      "role": "Klantadviseur",
+      "team": "Klantendienst",
+      "status": "actief"
+    },
+    {
+      "name": "Sara Dubois",
+      "role": "Klantadviseur",
+      "team": "Klantendienst",
+      "status": "actief"
     }
   ],
   "topics": [
@@ -287,6 +305,60 @@
       "allowed": []
     },
     {
+      "id": "meeting-10:ecocheques",
+      "type": "meeting",
+      "topic": "ecocheques",
+      "daysAgo": 5,
+      "title": "Klantendienst weekoverleg",
+      "organizer": "Ines Claessens",
+      "people": [
+        {
+          "name": "Bram Willems",
+          "role": "asked",
+          "quote": "Wat zeggen we als een klant vraagt waarom de ecocheques maar 200 euro zijn op de nieuwe infofiche?"
+        },
+        {
+          "name": "Sara Dubois",
+          "role": "explained",
+          "quote": "De procedure zegt 250 euro per jaar voor een voltijdse werknemer, dus de infofiche van vorige week klopt niet en die sturen we voorlopig niet door naar klanten."
+        },
+        {
+          "name": "Ines Claessens",
+          "role": "attended",
+          "quote": ""
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "meeting-10:maaltijdcheques",
+      "type": "meeting",
+      "topic": "maaltijdcheques",
+      "daysAgo": 5,
+      "title": "Klantendienst weekoverleg",
+      "organizer": "Ines Claessens",
+      "people": [
+        {
+          "name": "Ines Claessens",
+          "role": "explained",
+          "quote": "Klanten bellen nog vaak over de maaltijdcheques: sinds januari is de nominale waarde 10 euro, en wie nog 8,25 euro noemt, gebruikt de oude procedure van 2023 die we niet meer doorsturen."
+        },
+        {
+          "name": "Bram Willems",
+          "role": "attended",
+          "quote": ""
+        },
+        {
+          "name": "Sara Dubois",
+          "role": "attended",
+          "quote": ""
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
       "id": "meeting-04:geboorteverlof",
       "type": "meeting",
       "topic": "geboorteverlof",
@@ -316,6 +388,22 @@
         "Payroll BE",
         "Legal"
       ]
+    },
+    {
+      "id": "teams-07",
+      "type": "teams",
+      "topic": "maaltijdcheques",
+      "daysAgo": 6,
+      "title": "#klantendienst: Bedrag maaltijdcheques voor klanten",
+      "people": [
+        {
+          "name": "Ines Claessens",
+          "role": "answered",
+          "quote": "Geef klanten altijd het bedrag uit de procedure van 2025: 10 euro per gewerkte dag."
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
     },
     {
       "id": "ticket-102",
@@ -376,6 +464,24 @@
       ]
     },
     {
+      "id": "ticket-105",
+      "type": "ticket",
+      "topic": "ecocheques",
+      "daysAgo": 9,
+      "title": "Klant krijgt geen ecocheques na uitdiensttreding",
+      "people": [
+        {
+          "name": "Sara Dubois",
+          "role": "resolved",
+          "quote": "Pro-rata bedrag alsnog op de laatste loonafrekening gezet."
+        }
+      ],
+      "visibility": "beperkt",
+      "allowed": [
+        "Klantendienst"
+      ]
+    },
+    {
       "id": "teams-02",
       "type": "teams",
       "topic": "eindejaarspremie",
@@ -390,6 +496,35 @@
       ],
       "visibility": "open",
       "allowed": []
+    },
+    {
+      "id": "meeting-11:eindejaarspremie",
+      "type": "meeting",
+      "topic": "eindejaarspremie",
+      "daysAgo": 11,
+      "title": "Escalaties eindejaarspremie",
+      "organizer": "Bram Willems",
+      "people": [
+        {
+          "name": "Bram Willems",
+          "role": "explained",
+          "quote": "Drie klanten belden omdat de eindejaarspremie op de loonfiche ontbrak; telkens stond de looncode niet actief voor het paritair comité, dus we sturen die meldingen meteen door naar Payroll BE."
+        },
+        {
+          "name": "Tom Vermeulen",
+          "role": "asked",
+          "quote": "Kunnen jullie het klantnummer en het paritair comité meteen in het ticket zetten?"
+        },
+        {
+          "name": "Ines Claessens",
+          "role": "decided",
+          "quote": "Afgesproken, dat wordt een verplicht veld in het ticket."
+        }
+      ],
+      "visibility": "beperkt",
+      "allowed": [
+        "Klantendienst"
+      ]
     },
     {
       "id": "meeting-05:onboarding",
@@ -413,6 +548,22 @@
           "name": "Sofie Claes",
           "role": "decided",
           "quote": "Vanaf nu gebruiken we enkel de nieuwe onboarding checklist, de oude Excel verdwijnt uit de HR-map."
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "teams-08",
+      "type": "teams",
+      "topic": "verlof",
+      "daysAgo": 13,
+      "title": "#klantendienst: Verlofaanvraag in het HR-portaal uitleggen",
+      "people": [
+        {
+          "name": "Bram Willems",
+          "role": "answered",
+          "quote": "Klanten vinden de verlofaanvraag in het HR-portaal onder Afwezigheden; de leidinggevende keurt goed."
         }
       ],
       "visibility": "open",
@@ -475,6 +626,33 @@
           "name": "Karim El Amrani",
           "role": "answered",
           "quote": "Met de tankkaart mag je in de buurlanden tanken, maar laden aan een publieke laadpaal gaat altijd via de laadpas."
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "meeting-12:onboarding",
+      "type": "meeting",
+      "topic": "onboarding",
+      "daysAgo": 18,
+      "title": "Opleiding nieuwe klantadviseurs",
+      "organizer": "Sara Dubois",
+      "people": [
+        {
+          "name": "Sara Dubois",
+          "role": "explained",
+          "quote": "Elke nieuwe medewerker van de klantendienst volgt in de eerste week drie opleidingen: het klantportaal, de belangrijkste payrollvragen en hoe je een ticket correct doorstuurt naar Payroll BE."
+        },
+        {
+          "name": "Pieter Wouters",
+          "role": "attended",
+          "quote": ""
+        },
+        {
+          "name": "Ines Claessens",
+          "role": "attended",
+          "quote": ""
         }
       ],
       "visibility": "open",

@@ -5,6 +5,7 @@ import { usePeopleData } from '../people/store'
 import type { ViewProps } from '../types'
 import { buildTopics, topicForQuestion, TRUST, type Topic, type Trust } from './askme/askmeData'
 import { createTimeline, type TimelineCallbacks } from './askme/timeline'
+import { DepartmentWeb } from './people/DepartmentWeb'
 import { PeopleOverview } from './people/PeopleOverview'
 import { TopicSummary } from './people/TopicSummary'
 import { PeopleControls } from './people/WhoKnows'
@@ -28,6 +29,12 @@ export function AskMeView({ items, onOpen, query }: ViewProps) {
     [query, peopleData.topics, topics, docs],
   )
 
+  // "Afdelingen": who works on which topics, per department. Typing a question goes back to search.
+  const [mode, setMode] = useState<'search' | 'departments'>('search')
+  useEffect(() => {
+    if (query) setMode('search')
+  }, [query])
+
   const topicId = askedId
   // Simple view first; "Hoe kom ik eraan?" opens the advanced view, optionally with one person opened.
   const [advanced, setAdvanced] = useState<{ person: string | null } | null>(null)
@@ -44,7 +51,17 @@ export function AskMeView({ items, onOpen, query }: ViewProps) {
   return (
     <div className="askme">
       <div className="askme-bar">
-        {title ? (
+        <span className="mode-switch" role="tablist" aria-label="Weergave in Graffify">
+          <button role="tab" aria-selected={mode === 'search'} className={mode === 'search' ? 'active' : ''} onClick={() => setMode('search')}>
+            Zoeken
+          </button>
+          <button role="tab" aria-selected={mode === 'departments'} className={mode === 'departments' ? 'active' : ''} onClick={() => setMode('departments')}>
+            Afdelingen
+          </button>
+        </span>
+        {mode === 'departments' ? (
+          <span className="askme-hint">Wie met welke onderwerpen bezig is, per afdeling.</span>
+        ) : title ? (
           <>
             <strong>{title}</strong>
             <span className="askme-hint">{advanced ? 'Alle bronnen en personen.' : 'De beste bestanden en wie het meest weet.'}</span>
@@ -57,7 +74,9 @@ export function AskMeView({ items, onOpen, query }: ViewProps) {
         </span>
       </div>
 
-      {!query ? (
+      {mode === 'departments' ? (
+        <DepartmentWeb />
+      ) : !query ? (
         <div className="search-prompt" role="status">
           <strong>Geef een zoekterm in.</strong>
           <span>Bijvoorbeeld "wie kent de tankkaart?" of "maaltijdcheques". Je krijgt de beste bestanden en wie er het meest over weet.</span>

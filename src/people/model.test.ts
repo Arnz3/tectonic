@@ -2,7 +2,7 @@
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { test } from 'node:test'
-import { busFactorPerson, canSee, contactsForQuery, expertsFor, involvementText, parseSignalData, sentence, topicForQuery, VIEWERS } from './model.ts'
+import { busFactorPerson, canSee, contactsForQuery, departmentWeb, expertsFor, involvementText, parseSignalData, sentence, topicForQuery, VIEWERS } from './model.ts'
 
 const data = parseSignalData(JSON.parse(readFileSync(new URL('../../data/signals.json', import.meta.url), 'utf8')))
 const [consultant, newcomer] = VIEWERS
@@ -79,4 +79,16 @@ test('no files: contacts come from meetings and Teams that mention the words', (
   assert.equal(contacts[0]?.person.name, 'Karim El Amrani')
   assert.ok(contacts.every((c) => c.headline.signal.type === 'meeting' || c.headline.signal.type === 'teams'))
   assert.deepEqual(contactsForQuery('wie weet iets?', data), [])
+})
+
+test('department web: counts per person and topic, a contact per topic, no titles', () => {
+  const web = departmentWeb('Klantendienst', data)
+  assert.deepEqual(web.people.map((p) => p.person.name).sort(), ['Bram Willems', 'Ines Claessens', 'Sara Dubois'])
+  const ines = web.people.find((p) => p.person.name === 'Ines Claessens')!
+  assert.equal(ines.byTopic.maaltijdcheques.meeting, 1)
+  assert.equal(ines.byTopic.maaltijdcheques.teams, 1)
+  const maaltijd = web.topics.find((t) => t.topic.id === 'maaltijdcheques')!
+  assert.equal(maaltijd.contact?.person.name, 'Ines Claessens')
+  // Only members of the department appear, even when others attended their meetings.
+  assert.ok(web.people.every((p) => p.person.team === 'Klantendienst'))
 })

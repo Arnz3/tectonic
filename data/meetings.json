@@ -4,16 +4,39 @@
     "title": "Fleet-overleg",
     "daysAgo": 4,
     "organizer": "Sofie Claes",
-    "attendees": ["Sofie Claes", "Karim El Amrani", "Lotte Janssens", "Pieter Wouters"],
+    "attendees": [
+      "Sofie Claes",
+      "Karim El Amrani",
+      "Lotte Janssens",
+      "Pieter Wouters"
+    ],
     "visibility": "open",
     "allowed": [],
     "transcript": [
-      { "speaker": "Sofie Claes", "text": "Welkom allemaal. Vandaag één punt: de vragen over de tankkaart en het voordeel alle aard voor elektrische wagens." },
-      { "speaker": "Karim El Amrani", "text": "Ik leg het kort uit. Het voordeel alle aard voor elektrische wagens berekenen we op de cataloguswaarde met een CO2-percentage van vier procent. De tankkaart blijft gekoppeld aan de nummerplaat, dus bij een vervangwagen moet je altijd een nieuwe kaart aanvragen via het fleetportaal." },
-      { "speaker": "Lotte Janssens", "text": "Geldt dat ook voor de laadpas als iemand thuis laadt?" },
-      { "speaker": "Karim El Amrani", "text": "Ja, de laadpas volgt dezelfde regel. Thuis laden wordt maandelijks terugbetaald op basis van de gemeten kWh van de laadpaal, tegen het tarief dat wij elk kwartaal vastleggen." },
-      { "speaker": "Pieter Wouters", "text": "Goed, dan pas ik dat niet meer aan in de oude car policy, dat is nu jullie domein." },
-      { "speaker": "Sofie Claes", "text": "Dan sluiten we af. Karim zet de uitleg ook in het fleetkanaal." }
+      {
+        "speaker": "Sofie Claes",
+        "text": "Welkom allemaal. Vandaag één punt: de vragen over de tankkaart en het voordeel alle aard voor elektrische wagens."
+      },
+      {
+        "speaker": "Karim El Amrani",
+        "text": "Ik leg het kort uit. Het voordeel alle aard voor elektrische wagens berekenen we op de cataloguswaarde met een CO2-percentage van vier procent. De tankkaart blijft gekoppeld aan de nummerplaat, dus bij een vervangwagen moet je altijd een nieuwe kaart aanvragen via het fleetportaal."
+      },
+      {
+        "speaker": "Lotte Janssens",
+        "text": "Geldt dat ook voor de laadpas als iemand thuis laadt?"
+      },
+      {
+        "speaker": "Karim El Amrani",
+        "text": "Ja, de laadpas volgt dezelfde regel. Thuis laden wordt maandelijks terugbetaald op basis van de gemeten kWh van de laadpaal, tegen het tarief dat wij elk kwartaal vastleggen."
+      },
+      {
+        "speaker": "Pieter Wouters",
+        "text": "Goed, dan pas ik dat niet meer aan in de oude car policy, dat is nu jullie domein."
+      },
+      {
+        "speaker": "Sofie Claes",
+        "text": "Dan sluiten we af. Karim zet de uitleg ook in het fleetkanaal."
+      }
     ]
   },
   {
@@ -21,13 +44,27 @@
     "title": "Klantmeeting Voorbeeld NV: wagenpark",
     "daysAgo": 9,
     "organizer": "Karim El Amrani",
-    "attendees": ["Karim El Amrani", "Tom Vermeulen"],
+    "attendees": [
+      "Karim El Amrani",
+      "Tom Vermeulen"
+    ],
     "visibility": "beperkt",
-    "allowed": ["Reward & Benefits"],
+    "allowed": [
+      "Reward & Benefits"
+    ],
     "transcript": [
-      { "speaker": "Karim El Amrani", "text": "Voorbeeld NV wil het wagenpark volledig elektrisch maken tegen volgend jaar. Voor hen betekent dat een nieuwe car policy, een laadpas per bestuurder en een aangepaste berekening van het voordeel alle aard in de payroll." },
-      { "speaker": "Tom Vermeulen", "text": "Moeten we de looncodes voor de tankkaart dan schrappen?" },
-      { "speaker": "Karim El Amrani", "text": "Nee, we houden de looncode voor de tankkaart actief tot de laatste brandstofwagen is ingeleverd, daarna zetten we ze op inactief." }
+      {
+        "speaker": "Karim El Amrani",
+        "text": "Voorbeeld NV wil het wagenpark volledig elektrisch maken tegen volgend jaar. Voor hen betekent dat een nieuwe car policy, een laadpas per bestuurder en een aangepaste berekening van het voordeel alle aard in de payroll."
+      },
+      {
+        "speaker": "Tom Vermeulen",
+        "text": "Moeten we de looncodes voor de tankkaart dan schrappen?"
+      },
+      {
+        "speaker": "Karim El Amrani",
+        "text": "Nee, we houden de looncode voor de tankkaart actief tot de laatste brandstofwagen is ingeleverd, daarna zetten we ze op inactief."
+      }
     ]
   },
   {
@@ -35,17 +72,43 @@
     "title": "Payroll BE weekoverleg",
     "daysAgo": 3,
     "organizer": "An Peeters",
-    "attendees": ["An Peeters", "Tom Vermeulen", "Lotte Janssens", "Jens Maes"],
+    "attendees": [
+      "An Peeters",
+      "Tom Vermeulen",
+      "Lotte Janssens",
+      "Jens Maes"
+    ],
     "visibility": "open",
     "allowed": [],
     "transcript": [
-      { "speaker": "An Peeters", "text": "Eerste punt zijn de maaltijdcheques. Er circuleren nog drie kopieën van de procedure van 2023 met het oude bedrag van 8,25 euro. Sinds januari geldt de procedure van 2025: de nominale waarde is 10 euro per gewerkte dag en de werkgeversbijdrage maximaal 8,40 euro." },
-      { "speaker": "Tom Vermeulen", "text": "Ik gebruikte nog de versie uit de map van team Antwerpen. Welke moeten klanten dan krijgen?" },
-      { "speaker": "An Peeters", "text": "Alleen de procedure van 2025. We beslissen dat de procedure van 2023 vandaag als verouderd wordt gemarkeerd en dat de kopieën uit de teammappen verdwijnen." },
-      { "speaker": "Jens Maes", "text": "Ik pas de link op het intranet aan zodat die naar de nieuwe versie wijst." },
-      { "speaker": "Tom Vermeulen", "text": "Dan nog de eindejaarspremie: de deadline voor correcties ligt op 5 december, de premie gaat mee met de loonverwerking van december en wordt pro rata berekend voor wie in de loop van het jaar vertrekt." },
-      { "speaker": "Lotte Janssens", "text": "Wordt de eindejaarspremie voor deeltijdse medewerkers dan ook anders berekend?" },
-      { "speaker": "Tom Vermeulen", "text": "Ja, in verhouding tot hun arbeidsregime in het referentiejaar." }
+      {
+        "speaker": "An Peeters",
+        "text": "Eerste punt zijn de maaltijdcheques. Er circuleren nog drie kopieën van de procedure van 2023 met het oude bedrag van 8,25 euro. Sinds januari geldt de procedure van 2025: de nominale waarde is 10 euro per gewerkte dag en de werkgeversbijdrage maximaal 8,40 euro."
+      },
+      {
+        "speaker": "Tom Vermeulen",
+        "text": "Ik gebruikte nog de versie uit de map van team Antwerpen. Welke moeten klanten dan krijgen?"
+      },
+      {
+        "speaker": "An Peeters",
+        "text": "Alleen de procedure van 2025. We beslissen dat de procedure van 2023 vandaag als verouderd wordt gemarkeerd en dat de kopieën uit de teammappen verdwijnen."
+      },
+      {
+        "speaker": "Jens Maes",
+        "text": "Ik pas de link op het intranet aan zodat die naar de nieuwe versie wijst."
+      },
+      {
+        "speaker": "Tom Vermeulen",
+        "text": "Dan nog de eindejaarspremie: de deadline voor correcties ligt op 5 december, de premie gaat mee met de loonverwerking van december en wordt pro rata berekend voor wie in de loop van het jaar vertrekt."
+      },
+      {
+        "speaker": "Lotte Janssens",
+        "text": "Wordt de eindejaarspremie voor deeltijdse medewerkers dan ook anders berekend?"
+      },
+      {
+        "speaker": "Tom Vermeulen",
+        "text": "Ja, in verhouding tot hun arbeidsregime in het referentiejaar."
+      }
     ]
   },
   {
@@ -53,14 +116,34 @@
     "title": "Juridisch overleg geboorteverlof",
     "daysAgo": 6,
     "organizer": "Nadia Bouzid",
-    "attendees": ["Nadia Bouzid", "Sofie Claes", "An Peeters"],
+    "attendees": [
+      "Nadia Bouzid",
+      "Sofie Claes",
+      "An Peeters"
+    ],
     "visibility": "beperkt",
-    "allowed": ["HR BE", "Payroll BE", "Legal"],
+    "allowed": [
+      "HR BE",
+      "Payroll BE",
+      "Legal"
+    ],
     "transcript": [
-      { "speaker": "Nadia Bouzid", "text": "Het geboorteverlof bedraagt sinds 2023 twintig dagen, niet meer vijftien. De eerste drie dagen zijn gewaarborgd loon ten laste van de werkgever, de rest betaalt het ziekenfonds, en het verlof moet binnen vier maanden na de geboorte worden opgenomen." },
-      { "speaker": "Sofie Claes", "text": "In Teams zegt men nog steeds vijftien dagen. Hoe pakken we dat aan?" },
-      { "speaker": "Nadia Bouzid", "text": "We spreken af dat HR een correctie in het kanaal zet en dat de oude intranetprocedure over geboorteverlof wordt gearchiveerd." },
-      { "speaker": "An Peeters", "text": "Voor Bakkerij Janssens geldt bovenop het geboorteverlof nog één extra verlofdag volgens hun klantafspraak." }
+      {
+        "speaker": "Nadia Bouzid",
+        "text": "Het geboorteverlof bedraagt sinds 2023 twintig dagen, niet meer vijftien. De eerste drie dagen zijn gewaarborgd loon ten laste van de werkgever, de rest betaalt het ziekenfonds, en het verlof moet binnen vier maanden na de geboorte worden opgenomen."
+      },
+      {
+        "speaker": "Sofie Claes",
+        "text": "In Teams zegt men nog steeds vijftien dagen. Hoe pakken we dat aan?"
+      },
+      {
+        "speaker": "Nadia Bouzid",
+        "text": "We spreken af dat HR een correctie in het kanaal zet en dat de oude intranetprocedure over geboorteverlof wordt gearchiveerd."
+      },
+      {
+        "speaker": "An Peeters",
+        "text": "Voor Bakkerij Janssens geldt bovenop het geboorteverlof nog één extra verlofdag volgens hun klantafspraak."
+      }
     ]
   },
   {
@@ -68,14 +151,30 @@
     "title": "Onboarding sync",
     "daysAgo": 12,
     "organizer": "Pieter Wouters",
-    "attendees": ["Pieter Wouters", "Sofie Claes", "Lotte Janssens"],
+    "attendees": [
+      "Pieter Wouters",
+      "Sofie Claes",
+      "Lotte Janssens"
+    ],
     "visibility": "open",
     "allowed": [],
     "transcript": [
-      { "speaker": "Pieter Wouters", "text": "De nieuwe onboarding checklist is klaar. Elke nieuwe medewerker krijgt op dag één een buddy, de badge wordt een week vooraf aangevraagd en de registratie in de payroll gebeurt ten laatste vijf werkdagen voor de indiensttreding." },
-      { "speaker": "Lotte Janssens", "text": "Wie registreert starters die op de eerste van de maand beginnen?" },
-      { "speaker": "Pieter Wouters", "text": "Dat doet Payroll BE, op basis van de checklist die HR doorstuurt." },
-      { "speaker": "Sofie Claes", "text": "Vanaf nu gebruiken we enkel de nieuwe onboarding checklist, de oude Excel verdwijnt uit de HR-map." }
+      {
+        "speaker": "Pieter Wouters",
+        "text": "De nieuwe onboarding checklist is klaar. Elke nieuwe medewerker krijgt op dag één een buddy, de badge wordt een week vooraf aangevraagd en de registratie in de payroll gebeurt ten laatste vijf werkdagen voor de indiensttreding."
+      },
+      {
+        "speaker": "Lotte Janssens",
+        "text": "Wie registreert starters die op de eerste van de maand beginnen?"
+      },
+      {
+        "speaker": "Pieter Wouters",
+        "text": "Dat doet Payroll BE, op basis van de checklist die HR doorstuurt."
+      },
+      {
+        "speaker": "Sofie Claes",
+        "text": "Vanaf nu gebruiken we enkel de nieuwe onboarding checklist, de oude Excel verdwijnt uit de HR-map."
+      }
     ]
   },
   {
@@ -83,13 +182,25 @@
     "title": "Ecocheques planning Q4",
     "daysAgo": 20,
     "organizer": "Lotte Janssens",
-    "attendees": ["Lotte Janssens", "An Peeters"],
+    "attendees": [
+      "Lotte Janssens",
+      "An Peeters"
+    ],
     "visibility": "open",
     "allowed": [],
     "transcript": [
-      { "speaker": "Lotte Janssens", "text": "De ecocheques voor dit jaar worden in juni berekend over de referteperiode van 1 juni tot 31 mei. Een voltijdse werknemer krijgt 250 euro, deeltijdse werknemers krijgen een bedrag in verhouding tot hun arbeidsregime." },
-      { "speaker": "An Peeters", "text": "Klopt, en let op: periodes van onbetaalde afwezigheid tellen niet mee voor de ecocheques, periodes van gewaarborgd loon en vakantie wel, zoals in de procedure van 2025." },
-      { "speaker": "Lotte Janssens", "text": "Bij twee klanten zijn de ecocheques niet geladen omdat de referteperiode fout stond, die bestellingen heb ik opnieuw doorgestuurd naar de uitgever." }
+      {
+        "speaker": "Lotte Janssens",
+        "text": "De ecocheques voor dit jaar worden in juni berekend over de referteperiode van 1 juni tot 31 mei. Een voltijdse werknemer krijgt 250 euro, deeltijdse werknemers krijgen een bedrag in verhouding tot hun arbeidsregime."
+      },
+      {
+        "speaker": "An Peeters",
+        "text": "Klopt, en let op: periodes van onbetaalde afwezigheid tellen niet mee voor de ecocheques, periodes van gewaarborgd loon en vakantie wel, zoals in de procedure van 2025."
+      },
+      {
+        "speaker": "Lotte Janssens",
+        "text": "Bij twee klanten zijn de ecocheques niet geladen omdat de referteperiode fout stond, die bestellingen heb ik opnieuw doorgestuurd naar de uitgever."
+      }
     ]
   },
   {
@@ -97,13 +208,26 @@
     "title": "Thuiswerkvergoeding 2026",
     "daysAgo": 35,
     "organizer": "Tom Vermeulen",
-    "attendees": ["Tom Vermeulen", "Jens Maes", "Lotte Janssens"],
+    "attendees": [
+      "Tom Vermeulen",
+      "Jens Maes",
+      "Lotte Janssens"
+    ],
     "visibility": "open",
     "allowed": [],
     "transcript": [
-      { "speaker": "Tom Vermeulen", "text": "De thuiswerkvergoeding is een forfaitaire bureauvergoeding die we maandelijks uitbetalen aan wie structureel minstens één dag per week thuiswerkt. Ze is vrijgesteld van sociale bijdragen zolang het bedrag onder het fictieve plafond van 150 euro blijft." },
-      { "speaker": "Jens Maes", "text": "Moeten we de thuiswerkvergoeding ook op het intranet zetten?" },
-      { "speaker": "Tom Vermeulen", "text": "Ja, maar pas als de klanten het nieuwe bedrag hebben bevestigd." }
+      {
+        "speaker": "Tom Vermeulen",
+        "text": "De thuiswerkvergoeding is een forfaitaire bureauvergoeding die we maandelijks uitbetalen aan wie structureel minstens één dag per week thuiswerkt. Ze is vrijgesteld van sociale bijdragen zolang het bedrag onder het fictieve plafond van 150 euro blijft."
+      },
+      {
+        "speaker": "Jens Maes",
+        "text": "Moeten we de thuiswerkvergoeding ook op het intranet zetten?"
+      },
+      {
+        "speaker": "Tom Vermeulen",
+        "text": "Ja, maar pas als de klanten het nieuwe bedrag hebben bevestigd."
+      }
     ]
   },
   {
@@ -111,13 +235,26 @@
     "title": "Verlofplanning eindejaar",
     "daysAgo": 15,
     "organizer": "Sofie Claes",
-    "attendees": ["Sofie Claes", "Lotte Janssens", "Tom Vermeulen"],
+    "attendees": [
+      "Sofie Claes",
+      "Lotte Janssens",
+      "Tom Vermeulen"
+    ],
     "visibility": "open",
     "allowed": [],
     "transcript": [
-      { "speaker": "Sofie Claes", "text": "Vakantiedagen voor de eindejaarsperiode vraag je aan in het HR-portaal ten laatste op 15 november. Wettelijke vakantiedagen moeten dit jaar opgenomen zijn, extralegale verlofdagen mag je overdragen tot eind maart." },
-      { "speaker": "Lotte Janssens", "text": "En als een verlofaanvraag te laat binnenkomt?" },
-      { "speaker": "Sofie Claes", "text": "Dan beslist de leidinggevende, maar we spreken af dat we dat dit jaar soepel toepassen." }
+      {
+        "speaker": "Sofie Claes",
+        "text": "Vakantiedagen voor de eindejaarsperiode vraag je aan in het HR-portaal ten laatste op 15 november. Wettelijke vakantiedagen moeten dit jaar opgenomen zijn, extralegale verlofdagen mag je overdragen tot eind maart."
+      },
+      {
+        "speaker": "Lotte Janssens",
+        "text": "En als een verlofaanvraag te laat binnenkomt?"
+      },
+      {
+        "speaker": "Sofie Claes",
+        "text": "Dan beslist de leidinggevende, maar we spreken af dat we dat dit jaar soepel toepassen."
+      }
     ]
   },
   {
@@ -125,12 +262,102 @@
     "title": "Reorganisatie Payroll BE",
     "daysAgo": 2,
     "organizer": "An Peeters",
-    "attendees": ["An Peeters", "Tom Vermeulen"],
+    "attendees": [
+      "An Peeters",
+      "Tom Vermeulen"
+    ],
     "visibility": "vertrouwelijk",
-    "allowed": ["Directie"],
+    "allowed": [
+      "Directie"
+    ],
     "transcript": [
-      { "speaker": "An Peeters", "text": "Dit blijft onder ons: bij de reorganisatie verschuift de onboarding van nieuwe medewerkers naar een centraal team." },
-      { "speaker": "Tom Vermeulen", "text": "Wat betekent dat voor de verdeling van de klanten?" }
+      {
+        "speaker": "An Peeters",
+        "text": "Dit blijft onder ons: bij de reorganisatie verschuift de onboarding van nieuwe medewerkers naar een centraal team."
+      },
+      {
+        "speaker": "Tom Vermeulen",
+        "text": "Wat betekent dat voor de verdeling van de klanten?"
+      }
+    ]
+  },
+  {
+    "id": "meeting-10",
+    "title": "Klantendienst weekoverleg",
+    "daysAgo": 5,
+    "organizer": "Ines Claessens",
+    "attendees": [
+      "Ines Claessens",
+      "Bram Willems",
+      "Sara Dubois"
+    ],
+    "visibility": "open",
+    "allowed": [],
+    "transcript": [
+      {
+        "speaker": "Ines Claessens",
+        "text": "Klanten bellen nog vaak over de maaltijdcheques: sinds januari is de nominale waarde 10 euro, en wie nog 8,25 euro noemt, gebruikt de oude procedure van 2023 die we niet meer doorsturen."
+      },
+      {
+        "speaker": "Bram Willems",
+        "text": "Wat zeggen we als een klant vraagt waarom de ecocheques maar 200 euro zijn op de nieuwe infofiche?"
+      },
+      {
+        "speaker": "Sara Dubois",
+        "text": "De procedure zegt 250 euro per jaar voor een voltijdse werknemer, dus de infofiche van vorige week klopt niet en die sturen we voorlopig niet door naar klanten."
+      }
+    ]
+  },
+  {
+    "id": "meeting-11",
+    "title": "Escalaties eindejaarspremie",
+    "daysAgo": 11,
+    "organizer": "Bram Willems",
+    "attendees": [
+      "Bram Willems",
+      "Ines Claessens",
+      "Tom Vermeulen"
+    ],
+    "visibility": "beperkt",
+    "allowed": [
+      "Klantendienst"
+    ],
+    "transcript": [
+      {
+        "speaker": "Bram Willems",
+        "text": "Drie klanten belden omdat de eindejaarspremie op de loonfiche ontbrak; telkens stond de looncode niet actief voor het paritair comité, dus we sturen die meldingen meteen door naar Payroll BE."
+      },
+      {
+        "speaker": "Tom Vermeulen",
+        "text": "Kunnen jullie het klantnummer en het paritair comité meteen in het ticket zetten?"
+      },
+      {
+        "speaker": "Ines Claessens",
+        "text": "Afgesproken, dat wordt een verplicht veld in het ticket."
+      }
+    ]
+  },
+  {
+    "id": "meeting-12",
+    "title": "Opleiding nieuwe klantadviseurs",
+    "daysAgo": 18,
+    "organizer": "Sara Dubois",
+    "attendees": [
+      "Sara Dubois",
+      "Ines Claessens",
+      "Pieter Wouters"
+    ],
+    "visibility": "open",
+    "allowed": [],
+    "transcript": [
+      {
+        "speaker": "Sara Dubois",
+        "text": "Elke nieuwe medewerker van de klantendienst volgt in de eerste week drie opleidingen: het klantportaal, de belangrijkste payrollvragen en hoe je een ticket correct doorstuurt naar Payroll BE."
+      },
+      {
+        "speaker": "Pieter Wouters",
+        "text": "Neem de onboarding checklist van HR erbij, dan is alles op één plek."
+      }
     ]
   }
 ]
