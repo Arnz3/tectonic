@@ -1503,3 +1503,30 @@
   color: var(--muted);
   text-align: center;
 }
+
+/*
+ * While the graph mapper is on screen, the app's document panel floats over the page instead of
+ * taking width from it, so the timeline does not jump. Other views keep the panel as it is.
+ */
+.app:has(.gm) .preview-panel {
+  position: fixed;
+  top: 48px;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  /* same size as the panel of a verified meeting change */
+  width: min(600px, 100vw);
+  box-shadow: -12px 0 32px rgba(15, 23, 42, 0.12);
+  animation: gm-panel-in 0.18s ease-out;
+}
+@keyframes gm-panel-in {
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .app:has(.gm) .preview-panel {
+    animation: none;
+  }
+}
