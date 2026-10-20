@@ -6,7 +6,7 @@ import type { ViewProps } from '../types'
 import { buildTopics, topicForQuestion, TRUST, type Topic, type Trust } from './askme/askmeData'
 import { createTimeline, type TimelineCallbacks } from './askme/timeline'
 import { createTopicGraph } from './askme/topicGraph'
-import { loadViewer, PeopleControls, WhoKnowsGrid, WhoKnowsTopic } from './people/WhoKnows'
+import { PeopleControls, WhoKnowsGrid, WhoKnowsTopic } from './people/WhoKnows'
 
 const fileById = new Map(libraryItems.filter((f) => f.document).map((f) => [f.id, f]))
 const LEGEND: Trust[] = ['best', 'similar', 'expired', 'support', 'other_scope']
@@ -18,8 +18,7 @@ const LEGEND: Trust[] = ['best', 'similar', 'expired', 'support', 'other_scope']
 export function AskMeView({ items, onOpen, query }: ViewProps) {
   const docs = useMemo(() => items.flatMap((i) => (i.document ? [i.document] : [])), [items])
   const topics = useMemo(() => buildTopics(docs), [docs])
-  const { data: peopleData } = usePeopleData()
-  const [viewer, setViewer] = useState(loadViewer)
+  const { data: peopleData, viewer } = usePeopleData()
   const [picked, setPicked] = useState<string | null>(null)
 
   // People topics know more synonyms ("wie kent de tankkaart?") and include topics without documents.
@@ -71,7 +70,7 @@ export function AskMeView({ items, onOpen, query }: ViewProps) {
           </span>
         )}
         <span className="askme-controls">
-          <PeopleControls viewer={viewer} onViewer={setViewer} topicId={topicId} />
+          <PeopleControls topicId={topicId} />
         </span>
       </div>
 

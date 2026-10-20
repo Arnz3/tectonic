@@ -3,6 +3,7 @@ import { formatDate } from '../format'
 import type { Document } from '../types'
 import { useVoteSummaries } from '../votes'
 import { VoteBox } from './VoteBox'
+import { WhyBox } from './WhyBox'
 
 const countryLabel: Record<Document['country'], string> = { BE: 'België', NL: 'Nederland', DE: 'Duitsland' }
 
@@ -52,6 +53,8 @@ export function PreviewPanel({ doc, query, onClose }: { doc: Document; query: st
       )}
 
       {query && <VoteBox docId={doc.id} query={query} />}
+
+      <WhyBox doc={doc} />
 
       <h3>Inhoud</h3>
       <div className="preview-text">{doc.text}</div>

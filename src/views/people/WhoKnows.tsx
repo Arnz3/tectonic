@@ -15,28 +15,10 @@ import {
   type Topic,
   type Viewer,
 } from '../../people/model'
-import { expertContext, resetDemo, usePeopleData } from '../../people/store'
+import { expertContext, resetDemo, setViewer, usePeopleData } from '../../people/store'
 import { InterviewModal } from './InterviewModal'
 import { MicroActionsButton, MicroActionStrip } from './MicroActions'
 import { VerificationCard } from './VerificationCard'
-
-const VIEWER_KEY = 'tectonic.viewer'
-
-export function loadViewer(): Viewer {
-  try {
-    return VIEWERS.find((v) => v.id === localStorage.getItem(VIEWER_KEY)) ?? VIEWERS[0]
-  } catch {
-    return VIEWERS[0]
-  }
-}
-
-export function saveViewer(viewer: Viewer) {
-  try {
-    localStorage.setItem(VIEWER_KEY, viewer.id)
-  } catch {
-    /* storage unavailable */
-  }
-}
 
 const initials = (name: string) =>
   name
@@ -58,8 +40,8 @@ function useExperts(topicId: string) {
 }
 
 /** "Bekijk als" and the verification card mock, shown in the Graffify bar. */
-export function PeopleControls({ viewer, onViewer, topicId }: { viewer: Viewer; onViewer: (v: Viewer) => void; topicId: string | null }) {
-  const { data } = usePeopleData()
+export function PeopleControls({ topicId }: { topicId: string | null }) {
+  const { data, viewer } = usePeopleData()
   const [verifying, setVerifying] = useState(false)
   return (
     <>
@@ -73,8 +55,7 @@ export function PeopleControls({ viewer, onViewer, topicId }: { viewer: Viewer; 
           value={viewer.id}
           onChange={(e) => {
             const next = VIEWERS.find((v) => v.id === e.target.value) ?? VIEWERS[0]
-            saveViewer(next)
-            onViewer(next)
+            setViewer(next)
           }}
         >
           {VIEWERS.map((v) => (

@@ -1652,3 +1652,56 @@ button.crumb:hover {
   color: #0b5a2a;
   font-size: 13px;
 }
+
+/* Side panel: why this information is interesting */
+.why-box {
+  margin-top: 16px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+}
+.why-box h3 {
+  margin: 0;
+  font-size: 15px;
+}
+.why-sub {
+  margin: 2px 0 8px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.why-person {
+  padding: 8px 0;
+  border-top: 1px solid var(--border);
+  font-size: 13px;
+}
+.why-person header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 8px;
+}
+.why-person header small {
+  color: var(--muted);
+  font-size: 12px;
+}
+.why-person .verdict {
+  font-size: 12px;
+}
+.why-summary {
+  margin: 4px 0;
+  color: var(--text);
+  font-size: 12.5px;
+}
+.why-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12.5px;
+}
+.why-more {
+  color: var(--muted);
+}

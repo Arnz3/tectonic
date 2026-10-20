@@ -9,7 +9,7 @@ import checksJson from '../../data/checks.json'
 import signalsJson from '../../data/signals.json'
 import { analysis } from '../analysis'
 import { documents } from '../library'
-import { parseSignal, parseSignalData, type ExpertContext, type Signal, type SignalData } from './model'
+import { parseSignal, parseSignalData, VIEWERS, type ExpertContext, type Signal, type SignalData, type Viewer } from './model'
 
 export const baseData: SignalData = parseSignalData(signalsJson)
 
@@ -131,6 +131,29 @@ function loadReplies(): Record<string, MicroReply[]> {
   return result
 }
 
+const VIEWER_KEY = 'tectonic.viewer'
+
+/** "Bekijk als": shared by Graffify and the document side panel, so both hide the same sources. */
+function loadViewer(): Viewer {
+  try {
+    return VIEWERS.find((v) => v.id === localStorage.getItem(VIEWER_KEY)) ?? VIEWERS[0]
+  } catch {
+    return VIEWERS[0]
+  }
+}
+
+let viewer = loadViewer()
+
+export function setViewer(next: Viewer) {
+  viewer = next
+  try {
+    localStorage.setItem(VIEWER_KEY, next.id)
+  } catch {
+    /* storage unavailable */
+  }
+  changed()
+}
+
 let replies = loadReplies()
 let interviews = loadInterviews()
 let verification = loadVerification()
@@ -235,6 +258,7 @@ export function usePeopleData() {
       version: v,
       data: { ...baseData, signals: [...baseData.signals, ...interviews, ...validationSignals()] } as SignalData,
       replies,
+      viewer,
       confirmed: new Set(verification.confirmed),
       rejected: new Set(verification.rejected),
     }),
