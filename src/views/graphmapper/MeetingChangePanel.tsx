@@ -104,7 +104,7 @@ export function MeetingChangePanel({ doc, onOpenDoc, onClose }: { doc: Document;
         )}
       </div>
       {original && <PdfPage doc={original} mark={{ sentence: m.oldSentence, node: change }} />}
-      {original && <p className="gm-download-note">De download bevat de nieuwe tekst zonder markeringen, met de wijzigingsgeschiedenis onderaan.</p>}
+      {original && <p className="gm-download-note">Downloadt een PDF met de nieuwe tekst zonder markeringen, en de wijzigingsgeschiedenis onderaan.</p>}
 
       {original && (
         <>
