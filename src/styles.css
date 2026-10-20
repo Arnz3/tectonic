@@ -1644,3 +1644,93 @@ button.crumb:hover {
 .overview-detail {
   padding: 4px 12px 10px 32px;
 }
+
+/* Graffify: simple topic view (best files, who knows most) */
+.topic-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 760px;
+}
+.summary-list {
+  margin: 6px 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.summary-doc,
+.summary-person {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  text-align: left;
+  font-size: 13px;
+}
+.summary-doc {
+  border-left: 4px solid #1e9e63;
+}
+.summary-doc:hover,
+.summary-person:hover {
+  border-color: var(--accent);
+  background: var(--hover);
+}
+.summary-check {
+  display: inline-grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #c9ead8;
+  color: #0b6a3c;
+  font-weight: 700;
+}
+.summary-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.summary-main strong {
+  font-size: 14px;
+}
+.summary-main small {
+  color: var(--muted);
+  font-size: 12px;
+}
+.summary-person .verdict {
+  font-size: 12px;
+}
+.summary-empty {
+  padding: 10px 14px;
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  color: var(--muted);
+  font-size: 13px;
+}
+.summary-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+.primary-action {
+  padding: 8px 16px;
+  border-radius: 4px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+}
+.primary-action:hover {
+  background: var(--accent-dark);
+}
+.summary-back {
+  align-self: flex-start;
+}

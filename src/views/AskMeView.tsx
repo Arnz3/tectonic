@@ -7,6 +7,7 @@ import { buildTopics, topicForQuestion, TRUST, type Topic, type Trust } from './
 import { createTimeline, type TimelineCallbacks } from './askme/timeline'
 import { createTopicGraph } from './askme/topicGraph'
 import { PeopleOverview } from './people/PeopleOverview'
+import { TopicSummary } from './people/TopicSummary'
 import { PeopleControls } from './people/WhoKnows'
 
 const fileById = new Map(libraryItems.filter((f) => f.document).map((f) => [f.id, f]))
@@ -32,6 +33,9 @@ export function AskMeView({ items, onOpen, query }: ViewProps) {
   useEffect(() => setPicked(null), [query])
 
   const topicId = askedId ?? picked
+  // Simple view first; "Hoe kom ik eraan?" opens the advanced view, optionally with one person opened.
+  const [advanced, setAdvanced] = useState<{ person: string | null } | null>(null)
+  useEffect(() => setAdvanced(null), [topicId])
   const asked = askedId !== null
   const topic = topics.find((t) => t.id === topicId)
   const peopleTopic = peopleData.topics.find((t) => t.id === topicId)
@@ -59,7 +63,7 @@ export function AskMeView({ items, onOpen, query }: ViewProps) {
             )}
             <strong>{title}</strong>
             <span className="askme-hint">
-              Eerst de documenten, daarna wie er meer over weet.
+              {advanced ? 'Alle bronnen en personen.' : 'De beste bestanden en wie het meest weet.'}
               {asked && ' Maak de zoekbalk leeg om alle onderwerpen te zien.'}
             </span>
           </>
@@ -75,8 +79,19 @@ export function AskMeView({ items, onOpen, query }: ViewProps) {
         </span>
       </div>
 
-      {title ? (
+      {title && !advanced ? (
+        <TopicSummary
+          key={`summary-${topicId}`}
+          topic={topic}
+          peopleTopic={peopleTopic}
+          onOpenDoc={openDoc}
+          onAdvanced={(person) => setAdvanced({ person: person ?? null })}
+        />
+      ) : title ? (
         <>
+          <button className="askme-back summary-back" onClick={() => setAdvanced(null)}>
+            ← Terug naar de beste bestanden
+          </button>
           <h3 className="people-heading">Documenten over dit onderwerp</h3>
           {topic ? (
             <>
@@ -89,7 +104,7 @@ export function AskMeView({ items, onOpen, query }: ViewProps) {
           ) : (
             <div className="graph-empty">Geen documenten over dit onderwerp: deze kennis zit alleen bij mensen.</div>
           )}
-          {peopleTopic && <PeopleOverview key={`people-${peopleTopic.id}`} topic={peopleTopic} />}
+          {peopleTopic && <PeopleOverview key={`people-${peopleTopic.id}`} topic={peopleTopic} initialOpen={advanced?.person ?? null} />}
         </>
       ) : (
         <AskMeTopics key={topics.map((t) => t.id).join('|')} topics={topics} onOpenTopic={setPicked} />
