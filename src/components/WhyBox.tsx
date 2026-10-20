@@ -3,35 +3,13 @@ import {
   expertsFor,
   firstName,
   involvementText,
-  SOURCE_LABEL,
   VERDICT_LABEL,
-  when,
   type Involvement,
-  type Role,
   type Signal,
-  type SignalType,
 } from '../people/model'
 import { expertContext, usePeopleData } from '../people/store'
 import type { Document } from '../types'
-
-const ROLE_TEXT: Record<Role, string> = {
-  explained: 'gaf uitleg',
-  decided: 'nam een beslissing',
-  asked: 'stelde een vraag',
-  attended: 'was aanwezig',
-  answered: 'beantwoordde een vraag',
-  resolved: 'loste het op',
-  owner: 'eigenaar',
-  contributed: 'werkte mee',
-}
-
-const LOCKED_TEXT: Record<SignalType, string> = {
-  meeting: 'Afgeschermde meeting',
-  teams: 'Afgeschermd kanaal',
-  ticket: 'Afgeschermd ticket',
-  document: 'Afgeschermd document',
-  interview: 'Afgeschermd interview',
-}
+import { ActivityItem } from './Activity'
 
 const MAX_PEOPLE = 3
 const MAX_ITEMS = 4
@@ -90,10 +68,7 @@ export function WhyBox({ doc }: { doc: Document }) {
             <ul className="why-list">
               {docs.length > 0 && <DocsLine first={firstName(name)} docs={docs} topic={topic.label.toLowerCase()} visible={(s) => canSee(s, viewer)} />}
               {other.slice(0, MAX_ITEMS).map((s) => (
-                <li key={s.id}>
-                  <span className="source-tag">{canSee(s, viewer) ? SOURCE_LABEL[s.type] : '🔒'}</span>
-                  {canSee(s, viewer) ? s.title : LOCKED_TEXT[s.type]} · {roleOf(s, name)} · {when(s.daysAgo)}
-                </li>
+                <ActivityItem key={s.id} signal={s} name={name} viewer={viewer} />
               ))}
               {other.length > MAX_ITEMS && <li className="why-more">en nog {other.length - MAX_ITEMS} andere signalen</li>}
               {mine.length === 0 && <li className="why-more">Geen andere signalen over dit onderwerp.</li>}
@@ -103,10 +78,6 @@ export function WhyBox({ doc }: { doc: Document }) {
       })}
     </section>
   )
-}
-
-function roleOf(signal: Signal, name: string): string {
-  return ROLE_TEXT[signal.people.find((p) => p.name === name)?.role ?? 'attended']
 }
 
 function DocsLine({ first, docs, topic, visible }: { first: string; docs: Signal[]; topic: string; visible: (s: Signal) => boolean }) {

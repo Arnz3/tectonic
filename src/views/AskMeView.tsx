@@ -6,6 +6,7 @@ import type { ViewProps } from '../types'
 import { buildTopics, topicForQuestion, TRUST, type Topic, type Trust } from './askme/askmeData'
 import { createTimeline, type TimelineCallbacks } from './askme/timeline'
 import { createTopicGraph } from './askme/topicGraph'
+import { PeopleOverview } from './people/PeopleOverview'
 import { PeopleControls, WhoKnowsGrid, WhoKnowsTopic } from './people/WhoKnows'
 
 const fileById = new Map(libraryItems.filter((f) => f.document).map((f) => [f.id, f]))
@@ -89,6 +90,7 @@ export function AskMeView({ items, onOpen, query }: ViewProps) {
           ) : (
             <div className="graph-empty">Geen documenten over dit onderwerp: deze kennis zit alleen bij mensen.</div>
           )}
+          {peopleTopic && <PeopleOverview key={peopleTopic.id} topic={peopleTopic} />}
         </>
       ) : (
         <>

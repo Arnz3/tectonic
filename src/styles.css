@@ -1705,3 +1705,43 @@ button.crumb:hover {
 .why-more {
   color: var(--muted);
 }
+
+/* Graffify: people who know more, under the timeline */
+.people-overview > ul {
+  margin: 6px 0 0;
+  padding: 0;
+  list-style: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+.people-overview > ul > li + li {
+  border-top: 1px solid var(--border);
+}
+.overview-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 10px;
+  width: 100%;
+  padding: 8px 12px;
+  text-align: left;
+  font-size: 13px;
+}
+.overview-row:hover,
+.people-overview li.open .overview-row {
+  background: var(--hover);
+}
+.overview-row small {
+  color: var(--muted);
+}
+.overview-row .verdict {
+  margin-left: auto;
+  font-size: 12px;
+}
+.overview-caret {
+  width: 10px;
+  color: var(--muted);
+}
+.overview-detail {
+  padding: 4px 12px 10px 32px;
+}
