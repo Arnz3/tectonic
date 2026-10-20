@@ -2062,3 +2062,168 @@ button.crumb:hover {
   flex: 1 1 180px;
   min-width: 180px;
 }
+
+/* ---------- Mobile (phones) ---------- */
+@media (max-width: 700px) {
+  /* Command bar: only the view switcher, spread over the full width */
+  .command-bar > button,
+  .command-bar .spacer {
+    display: none;
+  }
+  .view-switcher {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .view-switcher button {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    padding: 4px 2px;
+    font-size: 12px;
+  }
+  .view-switcher .view-logo {
+    height: 16px;
+  }
+  .breadcrumb {
+    font-size: 18px;
+  }
+
+  /* Graffify: compact file tiles, two per row */
+  .summary-files {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .summary-file .tile-thumb {
+    height: 92px;
+    padding-top: 20px;
+  }
+  .summary-file .tile-thumb .file-icon {
+    transform: scale(0.75);
+  }
+  .summary-file .tile-name {
+    font-size: 13px;
+  }
+  .file-badge,
+  .tile-score {
+    top: 6px;
+  }
+  .file-badge {
+    left: 6px;
+    padding: 1px 6px;
+    font-size: 10px;
+  }
+  .tile-score {
+    right: 6px;
+  }
+
+  /* Contacts: call button as a round icon inside the card */
+  .summary-contact {
+    position: relative;
+  }
+  .summary-contact .summary-person {
+    flex-basis: 100%;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding-right: 64px;
+  }
+  .summary-contact .summary-main {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+  .summary-contact .summary-person .verdict {
+    flex-basis: 100%;
+    padding-left: 64px;
+  }
+  .summary-contact .call-button,
+  .people-overview .call-button {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 50%;
+  }
+  .call-button span {
+    display: none;
+  }
+
+  /* People list: name and tags on top, label underneath, call button in the corner */
+  .people-overview .overview-head {
+    position: relative;
+    padding-right: 0;
+  }
+  .people-overview .overview-row {
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding: 12px 64px 12px 12px;
+  }
+  .people-overview .overview-row .avatar-photo {
+    width: 40px;
+    height: 40px;
+  }
+  .overview-who {
+    flex: 1 1 0;
+  }
+  .people-overview .overview-row .verdict {
+    order: 3;
+    flex-basis: 100%;
+    padding-left: 52px;
+    white-space: normal;
+    font-size: 12px;
+  }
+  .people-overview .overview-caret {
+    display: none;
+  }
+  .people-overview .overview-detail {
+    padding: 4px 12px 14px;
+  }
+  .activity-card {
+    flex-wrap: wrap;
+    gap: 4px 10px;
+  }
+  .activity-when {
+    flex-basis: 100%;
+    padding-left: 44px;
+  }
+
+  /* Side panel: full screen, above the sticky command bar */
+  .preview-panel {
+    inset: 48px 0 0 0;
+    width: 100vw;
+    z-index: 30;
+  }
+  .search-prompt {
+    margin: 24px 0;
+  }
+}
+@media (max-width: 700px) {
+  /* Same minimum as the timeline's drawing width on a phone (timeline.ts), so it is not stretched. */
+  .gm-timeline {
+    min-width: 480px;
+  }
+  .gm-lane-name {
+    font-size: 13px;
+  }
+  .gm-lane-count,
+  .gm-lane-none {
+    font-size: 11px;
+  }
+}
+@media (max-width: 700px) {
+  /* List view: only the name column; long file names wrap */
+  .list-view th:nth-child(n + 2),
+  .list-view td:nth-child(n + 2) {
+    display: none;
+  }
+  .list-view td {
+    padding: 8px 4px;
+    white-space: normal;
+  }
+  .list-view .name-cell span {
+    overflow-wrap: anywhere;
+  }
+}

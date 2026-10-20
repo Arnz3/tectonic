@@ -133,10 +133,14 @@ export function createTimeline(opts: {
   }
 
   // Measured on the scroll container, because the stage itself grows when a bundle does not fit.
-  const availableWidth = () => Math.max(640, (stage.parentElement ?? stage).clientWidth)
+  const containerWidth = () => (stage.parentElement ?? stage).clientWidth
+  // On a phone the lane names get a narrower column and the drawing a smaller minimum width.
+  const narrow = () => containerWidth() < 700
+  const availableWidth = () => Math.max(narrow() ? 480 : 640, containerWidth())
 
   /* ---------- layout ---------- */
   function compute() {
+    M.left = narrow() ? 132 : 196
     W = availableWidth()
     docs.forEach((d) => (d.card = cardFor(d)))
     const years = docs.map((d) => d.date.getFullYear())
