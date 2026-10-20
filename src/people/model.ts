@@ -416,3 +416,39 @@ export function topicForQuery(query: string, topics: Topic[]): Topic | null {
   }
   return best?.topic ?? null
 }
+
+// --- Contacts without files -------------------------------------------------------------
+
+/** Question words that say nothing about the subject. */
+const QUERY_STOP_WORDS = new Set(
+  'wie weet kent iets over welke waar hoeveel bedragen bedraagt moet kan zijn heeft hebben mijn info informatie vraag vragen meer deze die dat voor met naar'.split(' '),
+)
+
+export const QUERY_TOPIC_ID = '__query__'
+
+function queryWords(query: string): string[] {
+  return query
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N}\s-]/gu, ' ')
+    .split(/\s+/)
+    .filter((w) => w.length >= 4 && !QUERY_STOP_WORDS.has(w))
+}
+
+/**
+ * When no files match, find contacts in meetings and Teams messages whose title or quote
+ * mentions the search words. Returns the data re-labelled under one pseudo topic, so the
+ * normal expertise score and sentences apply.
+ */
+export function contactsForQuery(query: string, data: SignalData, excluded: Set<string> = new Set()): Expert[] {
+  const words = queryWords(query)
+  if (words.length === 0) return []
+  const matches = (text: string) => {
+    const t = ` ${text.toLowerCase().replace(/[^\p{L}\p{N}\s-]/gu, ' ')} `
+    return words.some((w) => (w.length >= 5 ? t.includes(w) : t.includes(` ${w} `)))
+  }
+  const signals = data.signals
+    .filter((s) => (s.type === 'meeting' || s.type === 'teams') && !excluded.has(s.id))
+    .filter((s) => matches(s.title) || s.people.some((p) => matches(p.quote)))
+    .map((s) => ({ ...s, topic: QUERY_TOPIC_ID }))
+  return expertsFor(QUERY_TOPIC_ID, { ...data, signals })
+}

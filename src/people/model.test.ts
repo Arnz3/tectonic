@@ -2,7 +2,7 @@
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { test } from 'node:test'
-import { busFactorPerson, canSee, expertsFor, involvementText, parseSignalData, sentence, topicForQuery, VIEWERS } from './model.ts'
+import { busFactorPerson, canSee, contactsForQuery, expertsFor, involvementText, parseSignalData, sentence, topicForQuery, VIEWERS } from './model.ts'
 
 const data = parseSignalData(JSON.parse(readFileSync(new URL('../../data/signals.json', import.meta.url), 'utf8')))
 const [consultant, newcomer] = VIEWERS
@@ -72,4 +72,11 @@ test('who: mostly outdated work lowers the verdict and the rank', () => {
   assert.equal(an.verdict, 'likely')
   assert.equal(tom.verdict, 'outdated')
   assert.ok(tom.involvement.signals > an.involvement.signals)
+})
+
+test('no files: contacts come from meetings and Teams that mention the words', () => {
+  const contacts = contactsForQuery('wie weet iets over de laadpas?', data)
+  assert.equal(contacts[0]?.person.name, 'Karim El Amrani')
+  assert.ok(contacts.every((c) => c.headline.signal.type === 'meeting' || c.headline.signal.type === 'teams'))
+  assert.deepEqual(contactsForQuery('wie weet iets?', data), [])
 })
