@@ -105,3 +105,11 @@ test('many files on mobiliteitsbudget, one recommended; Karim is the contact', (
   assert.equal(best.person.name, 'Karim El Amrani')
   assert.equal(best.verdict, 'likely')
 })
+
+test('sketch: a media colleague asks where to send a website banner', () => {
+  const topic = topicForQuery('Naar wie stuur ik een banner voor de website?', data.topics)
+  assert.equal(topic?.id, 'website')
+  const experts = expertsFor('website', data)
+  assert.equal(experts[0].person.name, 'Wout Jacobs')
+  assert.equal(experts.find((e) => e.person.name === 'Jens Maes')?.verdict, 'outdated')
+})

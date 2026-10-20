@@ -414,5 +414,32 @@
         "text": "Afgesproken, en we meten per kanaal hoeveel demo-aanvragen er binnenkomen."
       }
     ]
+  },
+  {
+    "id": "meeting-15",
+    "title": "Webteam planning",
+    "daysAgo": 2,
+    "organizer": "Wout Jacobs",
+    "attendees": [
+      "Wout Jacobs",
+      "Lien Vermeersch",
+      "Jens Maes"
+    ],
+    "visibility": "open",
+    "allowed": [],
+    "transcript": [
+      {
+        "speaker": "Wout Jacobs",
+        "text": "Banners voor de website stuur je via het aanvraagformulier naar het webteam; wij publiceren elke dinsdag en donderdag, en Lien kijkt eerst of de banner de huisstijl volgt."
+      },
+      {
+        "speaker": "Lien Vermeersch",
+        "text": "Afgesproken: zonder goedkeuring van de huisstijl gaat geen banner live op de website."
+      },
+      {
+        "speaker": "Jens Maes",
+        "text": "Ik doe enkel nog het intranet, dus vragen over de website mogen naar Wout."
+      }
+    ]
   }
 ]

@@ -36,7 +36,11 @@
       "name": "Jens Maes",
       "role": "Intranetredacteur",
       "team": "Communicatie",
-      "status": "actief"
+      "status": "nieuwe_rol",
+      "previous_role": "Webredacteur website",
+      "former_topics": [
+        "website"
+      ]
     },
     {
       "name": "Tom Vermeulen",
@@ -95,6 +99,18 @@
     {
       "name": "Yusuf Aydin",
       "role": "Contentmarketeer",
+      "team": "Marketing",
+      "status": "actief"
+    },
+    {
+      "name": "Wout Jacobs",
+      "role": "Webmaster",
+      "team": "Digital",
+      "status": "actief"
+    },
+    {
+      "name": "Hanne De Wolf",
+      "role": "Mediamedewerker",
       "team": "Marketing",
       "status": "actief"
     }
@@ -204,6 +220,20 @@
         "mobiliteitsbudgetten",
         "mobiliteitsportaal"
       ]
+    },
+    {
+      "id": "website",
+      "label": "Website en banners",
+      "synonyms": [
+        "website",
+        "websites",
+        "banner",
+        "banners",
+        "webbanner",
+        "homepage",
+        "webpagina",
+        "webteam"
+      ]
     }
   ],
   "signals": [
@@ -235,6 +265,33 @@
         {
           "name": "Jens Maes",
           "role": "contributed",
+          "quote": ""
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "meeting-15:website",
+      "type": "meeting",
+      "topic": "website",
+      "daysAgo": 2,
+      "title": "Webteam planning",
+      "organizer": "Wout Jacobs",
+      "people": [
+        {
+          "name": "Wout Jacobs",
+          "role": "explained",
+          "quote": "Banners voor de website stuur je via het aanvraagformulier naar het webteam; wij publiceren elke dinsdag en donderdag, en Lien kijkt eerst of de banner de huisstijl volgt."
+        },
+        {
+          "name": "Lien Vermeersch",
+          "role": "decided",
+          "quote": "Afgesproken: zonder goedkeuring van de huisstijl gaat geen banner live op de website."
+        },
+        {
+          "name": "Jens Maes",
+          "role": "attended",
           "quote": ""
         }
       ],
@@ -540,6 +597,22 @@
       ]
     },
     {
+      "id": "teams-10",
+      "type": "teams",
+      "topic": "website",
+      "daysAgo": 9,
+      "title": "#webteam: Formaat van een banner voor de homepage",
+      "people": [
+        {
+          "name": "Wout Jacobs",
+          "role": "answered",
+          "quote": "Een banner voor de homepage is 1920 bij 600 pixels en maximaal 300 KB; stuur hem via het aanvraagformulier naar het webteam."
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
       "id": "ticket-105",
       "type": "ticket",
       "topic": "ecocheques",
@@ -663,6 +736,44 @@
       "allowed": [
         "Payroll BE"
       ]
+    },
+    {
+      "id": "ticket-106",
+      "type": "ticket",
+      "topic": "website",
+      "daysAgo": 14,
+      "title": "Banner klantportaal op de homepage zetten",
+      "people": [
+        {
+          "name": "Wout Jacobs",
+          "role": "resolved",
+          "quote": "Banner na goedkeuring van marketing gepubliceerd op de homepage."
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "doc-53",
+      "type": "document",
+      "topic": "website",
+      "daysAgo": 15,
+      "title": "Procedure publicatie op de website 2025",
+      "status": "goedgekeurd",
+      "people": [
+        {
+          "name": "Wout Jacobs",
+          "role": "owner",
+          "quote": ""
+        },
+        {
+          "name": "Lien Vermeersch",
+          "role": "contributed",
+          "quote": ""
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
     },
     {
       "id": "meeting-08:verlof",
@@ -1516,6 +1627,23 @@
       "allowed": []
     },
     {
+      "id": "doc-55",
+      "type": "document",
+      "topic": "website",
+      "daysAgo": 952,
+      "title": "Teams-bericht: banners naar Jens",
+      "status": "concept",
+      "people": [
+        {
+          "name": "Tom Vermeulen",
+          "role": "contributed",
+          "quote": ""
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
       "id": "doc-02",
       "type": "document",
       "topic": "maaltijdcheques",
@@ -1723,6 +1851,23 @@
         {
           "name": "Sofie Claes",
           "role": "contributed",
+          "quote": ""
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "doc-54",
+      "type": "document",
+      "topic": "website",
+      "daysAgo": 1373,
+      "title": "Procedure website 2021",
+      "status": "verouderd",
+      "people": [
+        {
+          "name": "Jens Maes",
+          "role": "owner",
           "quote": ""
         }
       ],

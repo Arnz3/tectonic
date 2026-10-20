@@ -37,7 +37,11 @@
       "name": "Jens Maes",
       "role": "Intranetredacteur",
       "team": "Communicatie",
-      "status": "actief"
+      "status": "nieuwe_rol",
+      "previous_role": "Webredacteur website",
+      "former_topics": [
+        "website"
+      ]
     },
     {
       "name": "Tom Vermeulen",
@@ -96,6 +100,18 @@
     {
       "name": "Yusuf Aydin",
       "role": "Contentmarketeer",
+      "team": "Marketing",
+      "status": "actief"
+    },
+    {
+      "name": "Wout Jacobs",
+      "role": "Webmaster",
+      "team": "Digital",
+      "status": "actief"
+    },
+    {
+      "name": "Hanne De Wolf",
+      "role": "Mediamedewerker",
       "team": "Marketing",
       "status": "actief"
     }
@@ -204,6 +220,20 @@
         "mobiliteitsbudget",
         "mobiliteitsbudgetten",
         "mobiliteitsportaal"
+      ]
+    },
+    {
+      "id": "website",
+      "label": "Website en banners",
+      "synonyms": [
+        "website",
+        "websites",
+        "banner",
+        "banners",
+        "webbanner",
+        "homepage",
+        "webpagina",
+        "webteam"
       ]
     }
   ],
@@ -315,6 +345,18 @@
       "quote": "Alle beelden en logo's voor de campagne staan in de gedeelde map Marketing / Campagnes / Klantportaal.",
       "visibility": "open",
       "allowed": []
+    },
+    {
+      "id": "teams-10",
+      "daysAgo": 9,
+      "channel": "#webteam",
+      "title": "Formaat van een banner voor de homepage",
+      "topic": "website",
+      "asked_by": "Hanne De Wolf",
+      "answered_by": "Wout Jacobs",
+      "quote": "Een banner voor de homepage is 1920 bij 600 pixels en maximaal 300 KB; stuur hem via het aanvraagformulier naar het webteam.",
+      "visibility": "open",
+      "allowed": []
     }
   ],
   "tickets": [
@@ -373,6 +415,16 @@
       "allowed": [
         "Klantendienst"
       ]
+    },
+    {
+      "id": "ticket-106",
+      "daysAgo": 14,
+      "title": "Banner klantportaal op de homepage zetten",
+      "topic": "website",
+      "resolved_by": "Wout Jacobs",
+      "quote": "Banner na goedkeuring van marketing gepubliceerd op de homepage.",
+      "visibility": "open",
+      "allowed": []
     }
   ]
 }

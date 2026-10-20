@@ -1484,5 +1484,89 @@
         "summary": "Rekenvoorbeeld opgesteld"
       }
     ]
+  },
+  {
+    "id": "doc-53",
+    "title": "Procedure publicatie op de website 2025",
+    "filename": "Procedure_publicatie_website_2025.docx",
+    "folder": "Digital / Website",
+    "country": "BE",
+    "topic": "website",
+    "layer": "procedure",
+    "status": "goedgekeurd",
+    "owner": "Wout Jacobs",
+    "created": "2025-08-18",
+    "modified": "2025-09-29",
+    "text": "Procedure publicatie op de website 2025\n\nDeze procedure vervangt alle eerdere versies. Ze geldt voor iedereen die een banner, nieuwsbericht of pagina op de website wil laten publiceren.\n\nAanvraag. Stuur de banner via het aanvraagformulier naar het webteam. Mails naar individuele collega's worden niet meer behandeld.\n\nFormaat. Een banner voor de homepage is 1920 bij 600 pixels, in JPG of PNG, en maximaal 300 KB. Voeg een alternatieve tekst toe voor schermlezers.\n\nGoedkeuring. Marketing (Lien Vermeersch) controleert eerst of de banner de huisstijl volgt. Zonder die goedkeuring gaat niets live.\n\nPublicatie. Het webteam publiceert elke dinsdag en donderdag. Dringende aanvragen meld je in het kanaal #webteam.\n\nContact. Webmaster: Wout Jacobs.",
+    "history": [
+      {
+        "author": "Wout Jacobs",
+        "date": "2025-09-29",
+        "change": "inhoud",
+        "summary": "Publicatiedagen aangepast"
+      },
+      {
+        "author": "Lien Vermeersch",
+        "date": "2025-09-02",
+        "change": "inhoud",
+        "summary": "Goedkeuring huisstijl toegevoegd"
+      },
+      {
+        "author": "Wout Jacobs",
+        "date": "2025-08-18",
+        "change": "inhoud",
+        "summary": "Nieuwe procedure opgesteld"
+      }
+    ]
+  },
+  {
+    "id": "doc-54",
+    "title": "Procedure website 2021",
+    "filename": "Procedure_website_2021.docx",
+    "folder": "Communicatie / Website",
+    "country": "BE",
+    "topic": "website",
+    "layer": "procedure",
+    "status": "verouderd",
+    "owner": "Jens Maes",
+    "created": "2021-04-12",
+    "modified": "2022-01-10",
+    "text": "Procedure website 2021\n\nWie iets op de website wil laten zetten, mailt de tekst of banner naar Jens Maes van Communicatie. Een banner is 1200 bij 400 pixels. Jens publiceert wanneer hij tijd heeft, meestal binnen de week. Er is geen aparte goedkeuring nodig.",
+    "history": [
+      {
+        "author": "Jens Maes",
+        "date": "2022-01-10",
+        "change": "inhoud",
+        "summary": "Formaat banner aangepast"
+      },
+      {
+        "author": "Jens Maes",
+        "date": "2021-04-12",
+        "change": "inhoud",
+        "summary": "Eerste versie"
+      }
+    ]
+  },
+  {
+    "id": "doc-55",
+    "title": "Teams-bericht: banners naar Jens",
+    "filename": "Teams_banners_naar_Jens.txt",
+    "folder": "Teams / Marketing",
+    "country": "BE",
+    "topic": "website",
+    "layer": "procedure",
+    "status": "concept",
+    "owner": null,
+    "created": "2023-03-07",
+    "modified": "2023-03-07",
+    "text": "Teams-bericht in #marketing: Banners voor de website kun je gewoon naar Jens mailen, die zet ze online.",
+    "history": [
+      {
+        "author": "Tom Vermeulen",
+        "date": "2023-03-07",
+        "change": "inhoud",
+        "summary": "Bericht geplaatst"
+      }
+    ]
   }
 ]
