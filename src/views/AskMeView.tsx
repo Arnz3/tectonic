@@ -7,7 +7,6 @@ import { buildTopics, topicForQuestion, TRUST, type Topic, type Trust } from './
 import { createTimeline, type TimelineCallbacks } from './askme/timeline'
 import { PeopleOverview } from './people/PeopleOverview'
 import { TopicSummary } from './people/TopicSummary'
-import { PeopleControls } from './people/WhoKnows'
 
 const fileById = new Map(libraryItems.filter((f) => f.document).map((f) => [f.id, f]))
 const LEGEND: Trust[] = ['best', 'similar', 'expired', 'support', 'other_scope']
@@ -52,9 +51,6 @@ export function AskMeView({ items, onOpen, query }: ViewProps) {
         ) : query ? (
           <span className="askme-hint">Geen bestanden gevonden voor deze zoekterm.</span>
         ) : null}
-        <span className="askme-controls">
-          <PeopleControls topicId={topicId} />
-        </span>
       </div>
 
       {!query ? (
