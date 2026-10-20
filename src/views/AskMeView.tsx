@@ -1,15 +1,14 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { libraryItems } from '../library'
 import { contactsForQuery, topicForQuery } from '../people/model'
 import { usePeopleData } from '../people/store'
 import type { ViewProps } from '../types'
-import { buildTopics, topicForQuestion, TRUST, type Topic, type Trust } from './askme/askmeData'
-import { createTimeline, type TimelineCallbacks } from './askme/timeline'
+import { buildTopics, topicForQuestion } from './askme/askmeData'
+import { GraphMapperTimeline } from './graphmapper/GraphMapperView'
 import { PeopleOverview } from './people/PeopleOverview'
 import { TopicSummary } from './people/TopicSummary'
 
 const fileById = new Map(libraryItems.filter((f) => f.document).map((f) => [f.id, f]))
-const LEGEND: Trust[] = ['best', 'similar', 'expired', 'support', 'other_scope']
 
 /**
  * Graffify: a question in the search box opens its topic: first the best files and who knows most,
@@ -80,7 +79,7 @@ export function AskMeView({ items, onOpen, query }: ViewProps) {
                 {topic.docs.length} {topic.docs.length === 1 ? 'bron' : 'bronnen'}, van oud naar nieuw. Klik op een kaartje om het document te
                 openen.
               </span>
-              <AskMeTimeline key={`timeline-${topic.id}`} topic={topic} onOpenDoc={openDoc} />
+              <GraphMapperTimeline key={`timeline-${topic.id}`} topicId={topic.id} onOpenFile={openDoc} />
             </>
           ) : (
             <div className="graph-empty">Geen documenten over dit onderwerp: deze kennis zit alleen bij mensen.</div>
@@ -104,54 +103,6 @@ function QueryContacts({ query }: { query: string }) {
           : 'Geen bestanden gevonden, en ook in meetings en Teams sprak niemand hierover. Probeer een andere zoekterm.'}
       </div>
       {found && <PeopleOverview query={query} heading="Mogelijke contactpersonen" />}
-    </div>
-  )
-}
-
-function AskMeTimeline({ topic, onOpenDoc }: { topic: Topic; onOpenDoc: (id: string) => void }) {
-  const [expanded, setExpanded] = useState<Record<string, boolean>>({})
-  const stageRef = useRef<HTMLDivElement>(null)
-  const svgRef = useRef<SVGSVGElement>(null)
-  const tipRef = useRef<HTMLDivElement>(null)
-  const timelineRef = useRef<ReturnType<typeof createTimeline> | null>(null)
-  const callbacks = useRef<TimelineCallbacks>({ onOpenDoc, onToggleGroup: () => {} })
-  callbacks.current = { onOpenDoc, onToggleGroup: (id) => setExpanded((e) => ({ ...e, [id]: !e[id] })) }
-
-  useEffect(() => {
-    const timeline = createTimeline({ stage: stageRef.current!, svgEl: svgRef.current!, tip: tipRef.current!, callbacks })
-    timelineRef.current = timeline
-    timeline.render(topic, new Date())
-    return () => {
-      timeline.destroy()
-      timelineRef.current = null
-    }
-  }, [topic])
-
-  useEffect(() => {
-    timelineRef.current?.setExpanded(expanded)
-  }, [expanded])
-
-  const used = new Set(topic.docs.map((d) => d.trust))
-  return (
-    <div className="askme-stage-wrap">
-      <div className="askme-scroll">
-        <div className="askme-stage askme-timeline" ref={stageRef}>
-          <svg ref={svgRef} role="img" aria-label={`Tijdlijn ${topic.title}`} />
-          <div className="askme-tip" ref={tipRef} />
-        </div>
-      </div>
-      <div className="askme-legend">
-        {LEGEND.filter((k) => used.has(k)).map((k) => (
-          <span key={k}>
-            <span className="askme-legend-icon" style={{ background: TRUST[k].color }} aria-hidden>
-              <svg width="14" height="14" viewBox="-8 -8 16 16">
-                <path d="M-4.5 -6.5h5.5l3.5 3.5v9.5h-9z M1 -6.5v3.5h3.5 M-2 0.5h4 M-2 3h4" />
-              </svg>
-            </span>
-            {TRUST[k].label}
-          </span>
-        ))}
-      </div>
     </div>
   )
 }

@@ -1,0 +1,1532 @@
+/* Graph mapper: its own colour tokens, scoped to the view so the rest of the app is untouched. */
+.gm {
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --border: #e2e8f0;
+  --text: #0f172a;
+  --muted: #64748b;
+  --hover: #f1f5f9;
+  --ok: #16a34a;
+  --attention: #d97706;
+  --danger: #dc2626;
+  color: var(--text);
+}
+
+/* Preview panel */
+.gm-panel {
+  position: fixed;
+  top: 48px;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  width: min(440px, 100vw);
+  overflow: auto;
+  padding: 20px 24px 32px;
+  background: var(--surface);
+  border-left: 1px solid var(--border);
+  box-shadow: -12px 0 32px rgba(15, 23, 42, 0.08);
+}
+.gm-panel-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+.gm-panel-header h2 {
+  flex: 1;
+  margin: 0;
+  font-size: 18px;
+}
+.gm-close {
+  padding: 4px 8px;
+  border-radius: 2px;
+}
+.gm-close:hover {
+  background: var(--hover);
+}
+.gm-panel h3 {
+  margin: 20px 0 8px;
+  font-size: 14px;
+}
+.gm-meta {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 4px 12px;
+  margin: 16px 0 0;
+}
+.gm-meta dt {
+  color: var(--muted);
+}
+.gm-meta dd {
+  margin: 0;
+}
+.gm-text {
+  white-space: pre-wrap;
+  line-height: 1.6;
+  padding: 14px 16px;
+  background: var(--bg);
+  border-radius: 10px;
+  color: #334155;
+}
+.gm-status,
+.gm-change {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.gm-status-goedgekeurd {
+  background: #dcfce7;
+  color: #15803d;
+}
+.gm-status-concept {
+  background: #fff4ce;
+  color: #8a6d00;
+}
+.gm-status-verouderd {
+  background: #edebe9;
+  color: var(--muted);
+}
+.gm-warning {
+  color: #a4262c;
+  font-weight: 600;
+}
+.gm-history {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.gm-history li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border);
+}
+.gm-change {
+  flex-shrink: 0;
+  width: 60px;
+  text-align: center;
+}
+.gm-change-inhoud {
+  background: var(--selected);
+  color: var(--accent-dark);
+}
+.gm-change-opmaak {
+  background: var(--hover);
+  color: var(--muted);
+}
+
+
+.gm-recommended-box {
+  margin-top: 20px;
+  padding: 12px 14px;
+  border: 1px solid #bbf7d0;
+  border-radius: 10px;
+  background: #f0fdf4;
+}
+.gm-recommended-title {
+  font-weight: 600;
+  color: #15803d;
+}
+.gm-recommended-box ul {
+  margin: 6px 0 0;
+  padding-left: 18px;
+}
+
+
+/* Graffify: topics, answer and trust timeline */
+.gm-view {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.gm-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px;
+  margin-top: -6px;
+}
+.gm-back {
+  color: var(--muted);
+  font-weight: 500;
+  padding: 0;
+}
+.gm-back:hover {
+  color: var(--text);
+}
+.gm-sep {
+  color: #cbd5e1;
+}
+.gm-hint {
+  color: var(--muted);
+}
+.gm-stage-wrap {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+.gm-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.gm-stage {
+  position: relative;
+  height: 560px;
+}
+.gm-stage svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.gm-timeline {
+  min-width: 640px;
+}
+.gm-tip {
+  position: absolute;
+  pointer-events: none;
+  background: var(--text);
+  color: #fff;
+  font-size: 12px;
+  line-height: 1.45;
+  padding: 8px 10px;
+  border-radius: 8px;
+  max-width: 300px;
+  opacity: 0;
+  transition: opacity 0.12s;
+  z-index: 5;
+}
+.gm-tip-title {
+  font-weight: 600;
+}
+
+/* answer card */
+.answer {
+  padding: 20px 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+.answer-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.answer-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ok);
+}
+.answer-quote {
+  margin: 10px 0 14px;
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+}
+.answer-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 16px;
+  color: var(--muted);
+  font-size: 13px;
+}
+.answer-doc {
+  padding: 0;
+  color: var(--text);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: #cbd5e1;
+  text-underline-offset: 3px;
+}
+.answer-doc:hover {
+  text-decoration-color: var(--text);
+}
+.answer-warning {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  color: var(--attention);
+  font-size: 13px;
+}
+.answer-none p {
+  margin: 8px 0 0;
+}
+
+/* topic graph */
+.gm-link {
+  stroke: var(--border);
+  stroke-width: 1;
+}
+.gm-bubble {
+  fill: var(--surface);
+  stroke: #cbd5e1;
+  stroke-width: 1.5;
+  transition: stroke 0.15s, fill 0.15s;
+}
+.gm-center .gm-bubble {
+  fill: var(--text);
+  stroke: none;
+}
+.gm-center .gm-count {
+  fill: #fff;
+}
+.gm-topic {
+  cursor: pointer;
+}
+.gm-topic.hover .gm-bubble,
+.gm-topic:focus-visible .gm-bubble {
+  stroke: var(--text);
+  fill: var(--hover);
+}
+.gm-topic:focus,
+.gm-topic:focus-visible {
+  outline: none;
+}
+.gm-health {
+  stroke: var(--surface);
+  stroke-width: 2.5;
+}
+.gm-count {
+  text-anchor: middle;
+  font-size: 20px;
+  font-weight: 700;
+  fill: var(--text);
+  pointer-events: none;
+}
+.gm-node-label {
+  text-anchor: middle;
+  font-size: 14px;
+  font-weight: 600;
+  fill: var(--text);
+  pointer-events: none;
+}
+.gm-node-sub {
+  text-anchor: middle;
+  font-size: 12px;
+  fill: var(--muted);
+  pointer-events: none;
+}
+.gm-node-sub.attention {
+  fill: var(--attention);
+  font-weight: 500;
+}
+
+/* timeline */
+.gm-lane-bg {
+  fill: var(--surface);
+}
+.gm-lane-bg.alt {
+  fill: var(--surface);
+}
+.gm-lane-sep {
+  stroke: var(--border);
+}
+.gm-lane-name {
+  font-size: 14px;
+  font-weight: 600;
+  fill: var(--text);
+}
+.gm-lane-count {
+  font-size: 12px;
+  fill: var(--muted);
+}
+.gm-lane-none {
+  font-size: 12px;
+  font-weight: 600;
+  fill: var(--danger);
+}
+.gm-grid {
+  stroke: #f1f5f9;
+}
+.gm-base {
+  stroke: var(--border);
+}
+.gm-year {
+  font-size: 12px;
+  fill: var(--muted);
+}
+.gm-today {
+  stroke: var(--text);
+  stroke-width: 1;
+  stroke-dasharray: 3 3;
+}
+.gm-today-t {
+  font-size: 12px;
+  font-weight: 600;
+  fill: var(--text);
+}
+.gm-card {
+  cursor: pointer;
+}
+.gm-card:focus,
+.gm-card:focus-visible {
+  outline: none;
+}
+.gm-card:focus-visible .gm-card-bg {
+  stroke: var(--text);
+}
+.gm-card-bg {
+  fill: var(--surface);
+  stroke: var(--border);
+  stroke-width: 1;
+  transition: stroke 0.15s;
+}
+.gm-card-bg.t-expired {
+  fill: #fef2f2;
+  stroke: #fecaca;
+}
+.gm-card-bg.t-similar {
+  fill: #fffbeb;
+  stroke: #fde68a;
+}
+.gm-card-bg.t-other_scope {
+  fill: var(--bg);
+  stroke: var(--border);
+}
+.gm-card:hover .gm-card-bg {
+  stroke: #94a3b8;
+}
+.gm-card-bg.bundle {
+  stroke: #f59e0b;
+  stroke-dasharray: 4 3;
+}
+.gm-title {
+  font-size: 13px;
+  font-weight: 600;
+  fill: var(--text);
+  pointer-events: none;
+}
+.gm-title.muted {
+  fill: var(--muted);
+}
+.gm-sub {
+  font-size: 12px;
+  fill: var(--muted);
+  pointer-events: none;
+}
+.gm-badge {
+  pointer-events: none;
+}
+.gm-badge circle {
+  fill: var(--attention);
+  stroke: var(--surface);
+  stroke-width: 2;
+}
+.gm-badge text {
+  fill: #fff;
+  font-size: 10px;
+  font-weight: 700;
+}
+.gm-chev {
+  cursor: pointer;
+}
+.gm-chev path {
+  fill: none;
+  stroke: var(--attention);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.gm-conn {
+  fill: none;
+  stroke-width: 1.5;
+}
+.gm-conn.red {
+  stroke: var(--danger);
+}
+.gm-conn.orange {
+  stroke: var(--attention);
+}
+.gm-conn.green {
+  stroke: var(--ok);
+}
+.gm-dot.red {
+  fill: var(--danger);
+}
+.gm-dot.orange {
+  fill: var(--attention);
+}
+.gm-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
+  padding: 14px 24px;
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+  color: var(--muted);
+}
+.gm-legend > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.gm-legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.gm-legend-line {
+  width: 18px;
+  height: 2px;
+  border-radius: 1px;
+}
+.gm-legend-line.green {
+  background: var(--ok);
+}
+.gm-legend-line.red {
+  background: var(--danger);
+}
+/* bundle of copies: a popover over the timeline */
+.popover-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  background: rgba(15, 23, 42, 0.06);
+}
+.group-popover {
+  position: fixed;
+  z-index: 21;
+  padding: 6px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.14), 0 2px 6px rgba(15, 23, 42, 0.06);
+  animation: popover-in 0.14s ease-out;
+}
+@keyframes popover-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+.group-popover-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 10px 6px 8px 12px;
+}
+.group-popover-title {
+  font-weight: 600;
+}
+.group-popover-sub {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.group-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.group-item,
+.group-replaced {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 10px;
+  text-align: left;
+}
+.group-item:hover,
+.group-replaced:hover {
+  background: var(--hover);
+}
+.group-dot,
+.group-replaced-dot {
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--attention);
+}
+.group-replaced-dot {
+  background: var(--ok);
+}
+.group-text {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+.group-name {
+  font-weight: 600;
+}
+.group-meta {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.group-replaced .group-meta {
+  margin: 0 0 2px;
+}
+.group-tag {
+  margin-left: 8px;
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: var(--hover);
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+  vertical-align: 1px;
+}
+.group-chev {
+  color: #94a3b8;
+  font-size: 18px;
+}
+.group-replaced {
+  position: relative;
+  margin-top: 7px;
+}
+.group-replaced::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 12px;
+  right: 12px;
+  border-top: 1px solid var(--border);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gm-tip,
+  .gm-card-bg,
+  .gm-bubble {
+    transition: none;
+  }
+  .group-popover {
+    animation: none;
+  }
+}
+
+/* Changes verified in a meeting: purple */
+.gm {
+  --meeting: #6d5bd0;
+  --meeting-soft: #f3f1fd;
+  --meeting-line: #d9d3f7;
+}
+.gm-conn.purple {
+  stroke: var(--meeting);
+  stroke-dasharray: 4 3;
+}
+.gm-dot.purple {
+  fill: var(--meeting);
+}
+.gm-card-bg.t-meeting {
+  fill: var(--meeting-soft);
+  stroke: var(--meeting);
+  stroke-width: 1.5;
+}
+.gm-card:hover .gm-card-bg.t-meeting {
+  stroke: #5242b8;
+}
+.gm-legend-line.purple {
+  background: var(--meeting);
+}
+
+
+/* Not useful documents fade back; hover brings them back. */
+.gm-card.faded > * {
+  opacity: 0.4;
+  transition: opacity 0.15s;
+}
+.gm-card.faded:hover > *,
+.gm-card.faded:focus-visible > * {
+  opacity: 1;
+}
+
+
+/* Topic picker above the timeline */
+.gm-topic-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding-top: 24px;
+}
+.gm-topic-pills button {
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--muted);
+  font-weight: 500;
+}
+.gm-topic-pills button:hover {
+  color: var(--text);
+  border-color: #cbd5e1;
+}
+.gm-topic-pills button.active {
+  border-color: var(--text);
+  background: var(--text);
+  color: #fff;
+}
+
+
+/* Teams meeting demo, island notification and changes verified in a meeting (purple). */
+
+.meeting-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  border: 1px solid var(--meeting-line);
+  border-radius: 999px;
+  background: var(--meeting-soft);
+  color: #4c3db0;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.meeting-button:hover,
+.meeting-button.active {
+  background: var(--meeting);
+  border-color: var(--meeting);
+  color: #fff;
+}
+.meeting-button-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+/* meeting window */
+.meeting-window {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  width: min(400px, calc(100vw - 32px));
+  max-height: min(560px, calc(100vh - 100px));
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.18);
+  overflow: hidden;
+}
+.meeting-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 14px 16px;
+  background: var(--meeting);
+  color: #fff;
+}
+.meeting-title {
+  font-weight: 700;
+}
+.meeting-rec {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 3px;
+  font-size: 12px;
+  opacity: 0.9;
+}
+.rec-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ff6b6b;
+}
+.meeting-close {
+  padding: 2px 6px;
+  border-radius: 6px;
+  color: #fff;
+}
+.meeting-close:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+.transcript {
+  flex: 1;
+  margin: 0;
+  padding: 10px 12px;
+  overflow: auto;
+  list-style: none;
+}
+.transcript li {
+  display: flex;
+  gap: 10px;
+  padding: 8px;
+  border-radius: 10px;
+  animation: popover-in 0.2s ease-out;
+}
+.transcript li.flagged {
+  background: var(--meeting-soft);
+  box-shadow: inset 3px 0 0 var(--meeting);
+}
+.transcript-avatar {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--hover);
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+.transcript-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  line-height: 1.45;
+}
+.transcript-who {
+  font-weight: 600;
+  font-size: 13px;
+}
+.transcript-who time {
+  margin-left: 6px;
+  color: var(--muted);
+  font-weight: 400;
+  font-size: 12px;
+}
+.transcript-flag {
+  align-self: flex-start;
+  margin-top: 4px;
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: var(--meeting);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+}
+.transcript-typing {
+  color: var(--muted);
+  font-size: 12px;
+  font-style: italic;
+}
+.meeting-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 16px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 12px;
+}
+.meeting-foot button {
+  color: var(--meeting);
+  font-weight: 600;
+}
+
+/* island */
+.island {
+  position: fixed;
+  /* Just under the top bar, so it never covers the search or the view switcher. */
+  top: 70px;
+  left: 50%;
+  z-index: 40;
+  transform: translateX(-50%);
+  animation: island-in 0.25s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+}
+@keyframes island-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -12px) scale(0.96);
+  }
+}
+.island-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border-radius: 999px;
+  background: #1e1b3a;
+  color: #fff;
+  font-weight: 600;
+  font-size: 13px;
+  box-shadow: 0 8px 24px rgba(30, 27, 58, 0.3);
+}
+.island-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #a99bff;
+  box-shadow: 0 0 0 4px rgba(169, 155, 255, 0.25);
+}
+.island-card {
+  width: min(460px, calc(100vw - 24px));
+  padding: 16px 18px 18px;
+  border-radius: 22px;
+  background: #1e1b3a;
+  color: #fff;
+  box-shadow: 0 18px 48px rgba(30, 27, 58, 0.35);
+}
+.island-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.island-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #c9c1ff;
+  font-size: 12px;
+  font-weight: 600;
+}
+.island-min {
+  padding: 0 8px;
+  border-radius: 6px;
+  color: #c9c1ff;
+  font-size: 18px;
+}
+.island-min:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+.island-title {
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+.island-sub {
+  margin-top: 4px;
+  color: #cfcbe6;
+  font-size: 13px;
+  line-height: 1.45;
+}
+.island-quote {
+  margin: 12px 0 0;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.07);
+  font-size: 13px;
+  line-height: 1.45;
+}
+.island-quote footer {
+  margin-top: 4px;
+  color: #a9a3cc;
+  font-size: 11px;
+}
+.island-actions,
+.island-edit {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 8px;
+  margin-top: 14px;
+}
+.island-actions button,
+.island-edit button {
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-weight: 600;
+}
+.island-actions button:hover,
+.island-edit button:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+.island-actions .island-yes,
+.island-edit .island-yes {
+  background: var(--meeting);
+}
+.island-actions .island-yes:hover,
+.island-edit .island-yes:hover {
+  background: #7d6de0;
+}
+.island-edit label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: #cfcbe6;
+  font-size: 12px;
+}
+.island-input {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 36px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+.island-input input {
+  width: 80px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #fff;
+  font: inherit;
+  font-weight: 600;
+}
+.island-error {
+  width: 100%;
+  color: #ffb4b4;
+  font-size: 12px;
+}
+
+/* answer card and panel for a change from a meeting */
+.answer.answer-meeting {
+  border-color: var(--meeting-line);
+  background: linear-gradient(180deg, var(--meeting-soft), var(--surface) 70%);
+}
+.answer-meeting .answer-dot {
+  background: var(--meeting);
+}
+.answer-meeting .answer-label {
+  color: var(--meeting);
+}
+.meeting-change {
+  margin-top: 18px;
+  padding: 14px 16px;
+  border: 1px solid var(--meeting-line);
+  border-radius: 12px;
+  background: var(--meeting-soft);
+}
+.meeting-change-label {
+  color: var(--meeting);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.meeting-change-values {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 6px;
+  font-size: 22px;
+  font-weight: 700;
+}
+.meeting-old {
+  color: var(--muted);
+  font-weight: 500;
+  text-decoration: line-through;
+}
+.meeting-new {
+  color: var(--meeting);
+}
+.meeting-verified {
+  color: var(--ok);
+  font-weight: 600;
+}
+.meeting-quote {
+  margin: 0;
+  padding: 12px 14px;
+  border-left: 3px solid var(--meeting);
+  border-radius: 0 10px 10px 0;
+  background: var(--bg);
+  line-height: 1.5;
+}
+.meeting-quote footer {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.meeting-replaces {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  text-align: left;
+}
+.meeting-replaces:hover {
+  background: var(--hover);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .island,
+  .transcript li {
+    animation: none;
+  }
+}
+
+@media (max-width: 1000px) {
+  .meeting-button {
+    padding: 9px;
+  }
+  .meeting-button-label {
+    display: none;
+  }
+}
+
+/* ---------- Copilot style (overrides the dark island and the meeting window) ---------- */
+.island,
+.meeting-window {
+  --cp-grad: linear-gradient(120deg, #2f7cf6, #8a5cf6 55%, #e85c9b);
+  --cp-text: #242424;
+  --cp-muted: #616161;
+  --cp-brand: #5b5fc7;
+  font-family: 'Segoe UI', 'Segoe UI Variable', Inter, system-ui, sans-serif;
+}
+.sparkle {
+  flex-shrink: 0;
+}
+
+/* island: light card with a gradient border */
+.island-pill {
+  gap: 8px;
+  padding: 8px 16px 8px 12px;
+  border: 1.5px solid transparent;
+  background:
+    linear-gradient(#fff, #fff) padding-box,
+    var(--cp-grad) border-box;
+  color: var(--cp-text);
+  box-shadow: 0 6px 20px rgba(91, 95, 199, 0.18);
+}
+.island-card {
+  padding: 16px 18px 18px;
+  border: 1.5px solid transparent;
+  border-radius: 16px;
+  background:
+    linear-gradient(180deg, #fbfaff, #fff 45%) padding-box,
+    var(--cp-grad) border-box;
+  color: var(--cp-text);
+  box-shadow: 0 16px 44px rgba(91, 95, 199, 0.2), 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+.island-brand {
+  gap: 10px;
+  color: var(--cp-text);
+  font-size: 13px;
+}
+.island-brand > span {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+.island-for {
+  color: var(--cp-muted);
+  font-size: 11px;
+  font-weight: 400;
+}
+.island-min {
+  color: var(--cp-muted);
+}
+.island-min:hover {
+  background: #f0f0f0;
+}
+.island-title {
+  font-size: 16px;
+  font-weight: 600;
+}
+.island-sub {
+  color: var(--cp-muted);
+}
+.island-quote {
+  border-left: 3px solid #c7c3f5;
+  border-radius: 0 8px 8px 0;
+  background: #f5f5f5;
+  color: var(--cp-text);
+}
+.island-quote footer {
+  color: var(--cp-muted);
+}
+.island-actions button,
+.island-edit button {
+  padding: 6px 14px;
+  border: 1px solid #d1d1d1;
+  border-radius: 6px;
+  background: #fff;
+  color: var(--cp-text);
+  font-weight: 600;
+}
+.island-actions button:hover,
+.island-edit button:hover {
+  background: #f5f5f5;
+}
+.island-actions .island-yes,
+.island-edit .island-yes {
+  border-color: var(--cp-brand);
+  background: var(--cp-brand);
+  color: #fff;
+}
+.island-actions .island-yes:hover,
+.island-edit .island-yes:hover {
+  border-color: #4f52b2;
+  background: #4f52b2;
+}
+.island-edit label {
+  color: var(--cp-muted);
+}
+.island-input {
+  border: 1px solid #d1d1d1;
+  border-bottom: 2px solid var(--cp-brand);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--cp-text);
+}
+.island-input input {
+  color: var(--cp-text);
+}
+.island-error {
+  color: #c50f1f;
+}
+
+/* meeting window: Teams-like header, Copilot tab and summary */
+.meeting-window {
+  border-radius: 12px;
+}
+.meeting-head {
+  background: #2b2b40;
+}
+.copilot-tabs {
+  display: flex;
+  gap: 18px;
+  padding: 0 16px;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 13px;
+}
+.copilot-tabs span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 0 8px;
+  border-bottom: 2px solid transparent;
+  color: var(--cp-muted);
+}
+.copilot-tabs span.active {
+  border-bottom-color: var(--cp-brand);
+  color: var(--cp-text);
+  font-weight: 600;
+}
+.copilot-summary {
+  display: flex;
+  gap: 10px;
+  margin: 12px 12px 0;
+  padding: 12px 14px;
+  border: 1.5px solid transparent;
+  border-radius: 12px;
+  background:
+    linear-gradient(#faf9ff, #faf9ff) padding-box,
+    var(--cp-grad) border-box;
+  color: var(--cp-text);
+  font-size: 13px;
+  line-height: 1.45;
+}
+.transcript li.flagged {
+  background: #f4f3fd;
+  box-shadow: inset 3px 0 0 var(--cp-brand);
+}
+.transcript-flag {
+  background: var(--cp-brand);
+}
+.transcript-typing {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--cp-muted);
+}
+.meeting-foot button {
+  color: var(--cp-brand);
+}
+
+/* The original document with the change from the meeting marked in it */
+.meeting-panel-sub {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+.meeting-change .meeting-quote {
+  margin-top: 12px;
+  background: #fff;
+}
+.doc-with-change {
+  margin-bottom: 16px;
+}
+.doc-change {
+  display: inline;
+  padding: 2px 0;
+}
+.doc-del {
+  background: #fdecec;
+  color: #b42318;
+  text-decoration: line-through;
+  text-decoration-color: rgba(180, 35, 24, 0.6);
+}
+.doc-ins {
+  padding: 1px 3px;
+  border-radius: 4px;
+  background: #ece9fd;
+  color: #4c3db0;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: inset 0 -2px 0 var(--meeting);
+}
+.doc-note {
+  display: block;
+  margin: 6px 0 4px;
+  padding: 6px 10px;
+  border-left: 3px solid var(--meeting);
+  border-radius: 0 6px 6px 0;
+  background: var(--meeting-soft);
+  color: #4c3db0;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Where the original document came from */
+.origin-meta {
+  margin-top: 0;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg);
+}
+.origin-replaced {
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: var(--meeting-soft);
+  color: #4c3db0;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+
+/* PDF viewer: an official-looking page behind every document. */
+
+/* Wider panel, so the page reads like a document. */
+.gm-panel {
+  width: min(600px, 100vw);
+}
+
+.pdf-viewer {
+  overflow: hidden;
+  border: 1px solid #d4d7dd;
+  border-radius: 10px;
+  background: #525659;
+}
+.pdf-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 12px;
+  background: #323639;
+  color: #f1f1f1;
+  font-size: 12px;
+}
+.pdf-file {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.pdf-icon {
+  flex-shrink: 0;
+  padding: 1px 5px;
+  border-radius: 3px;
+  background: #d13438;
+  color: #fff;
+  font-size: 9px;
+  font-weight: 700;
+}
+.pdf-tools {
+  flex-shrink: 0;
+  color: #bdbdbd;
+}
+.pdf-canvas {
+  max-height: 70vh;
+  overflow: auto;
+  padding: 20px 18px 24px;
+}
+.pdf-page {
+  position: relative;
+  overflow: hidden;
+  min-height: 640px;
+  padding: 36px 38px 28px;
+  background: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25), 0 8px 24px rgba(0, 0, 0, 0.25);
+  color: #1f2328;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 13px;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+}
+.pdf-watermark {
+  position: absolute;
+  top: 42%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-30deg);
+  color: rgba(220, 38, 38, 0.1);
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 72px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  pointer-events: none;
+  white-space: nowrap;
+}
+.pdf-letterhead {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #1f2328;
+  font-family: Inter, system-ui, sans-serif;
+}
+.pdf-dept {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.pdf-kind {
+  margin-top: 2px;
+  color: #59636e;
+  font-size: 11px;
+}
+.pdf-ref {
+  color: #59636e;
+  font-size: 11px;
+  text-align: right;
+}
+.pdf-title {
+  margin: 22px 0 14px;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+.pdf-meta {
+  width: 100%;
+  margin-bottom: 18px;
+  border-collapse: collapse;
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 11px;
+}
+.pdf-meta th,
+.pdf-meta td {
+  padding: 5px 8px;
+  border: 1px solid #d8dee4;
+  text-align: left;
+  vertical-align: top;
+}
+.pdf-meta th {
+  width: 18%;
+  background: #f6f8fa;
+  color: #59636e;
+  font-weight: 600;
+}
+.pdf-body {
+  flex: 1;
+}
+.pdf-body p {
+  margin: 0 0 10px;
+  text-align: justify;
+  hyphens: auto;
+}
+.pdf-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+  padding-top: 8px;
+  border-top: 1px solid #d8dee4;
+  color: #8c959f;
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 10px;
+}
+
+/* the change from a meeting, inside the page */
+.pdf-page .doc-change {
+  font-family: Georgia, 'Times New Roman', serif;
+}
+.pdf-page .doc-note {
+  font-family: Inter, system-ui, sans-serif;
+  text-align: left;
+}
+
+@media (max-width: 640px) {
+  .pdf-page {
+    padding: 24px 20px;
+  }
+}
+
+/* Round icons with a glyph, as in the original Graffify timeline */
+.gm-glyph {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  pointer-events: none;
+}
+.gm-card-bg {
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.06)) drop-shadow(0 4px 10px rgba(0, 0, 0, 0.04));
+}
+.gm-badge text {
+  font-size: 11px;
+}
+.gm-legend-icon {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+}
+.gm-legend-icon path {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+}
+
+/* Heading and empty state of the graph mapper tab */
+.gm-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding-top: 16px;
+}
+.gm-heading span {
+  color: var(--muted);
+}
+.gm-empty {
+  margin-top: 16px;
+  padding: 48px 24px;
+  border: 1px dashed var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+  color: var(--muted);
+  text-align: center;
+}
+
+/*
+ * While the graph mapper is on screen, the app's document panel floats over the page instead of
+ * taking width from it, so the timeline does not jump. Other views keep the panel as it is.
+ */
+.app:has(.gm) .preview-panel {
+  position: fixed;
+  top: 48px;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  /* same size as the panel of a verified meeting change */
+  width: min(600px, 100vw);
+  box-shadow: -12px 0 32px rgba(15, 23, 42, 0.12);
+  animation: gm-panel-in 0.18s ease-out;
+}
+@keyframes gm-panel-in {
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .app:has(.gm) .preview-panel {
+    animation: none;
+  }
+}
