@@ -1184,5 +1184,305 @@
         "summary": "Infofiche opgesteld op basis van klantvragen"
       }
     ]
+  },
+  {
+    "id": "doc-41",
+    "title": "Procedure mobiliteitsbudget 2025",
+    "filename": "Procedure_mobiliteitsbudget_2025.docx",
+    "folder": "Reward & Benefits / Procedures",
+    "country": "BE",
+    "topic": "mobiliteitsbudget",
+    "layer": "procedure",
+    "status": "goedgekeurd",
+    "owner": "Karim El Amrani",
+    "created": "2025-05-02",
+    "modified": "2025-09-15",
+    "text": "Procedure mobiliteitsbudget 2025 – Payroll België\n\nDeze procedure vervangt alle eerdere versies en geldt vanaf 1 januari 2025 voor klanten met Belgische werknemers. Alle bedragen in dit document zijn fictief.\n\nBedrag. Het jaarlijkse budget bedraagt minimaal € 3.000 en maximaal € 16.000, op basis van de totale kostprijs van de bedrijfswagen waar de werknemer recht op heeft.\n\nPijlers. Pijler 1 is een emissievrije bedrijfswagen. Pijler 2 omvat duurzame vervoermiddelen, zoals een fiets, een abonnement op het openbaar vervoer of deelmobiliteit, en de huur of lening voor een woning dicht bij het werk. Pijler 3 is het saldo, dat na een bijzondere bijdrage in cash wordt uitbetaald.\n\nAanvraag. De werknemer vraagt het budget aan in het mobiliteitsportaal. Papieren formulieren worden niet meer verwerkt.\n\nUitbetaling. Het saldo van pijler 3 wordt jaarlijks uitbetaald met het loon van december.\n\nContact. Vragen over deze procedure richt je aan Reward & Benefits.",
+    "history": [
+      {
+        "author": "Karim El Amrani",
+        "date": "2025-09-15",
+        "change": "inhoud",
+        "summary": "Uitbetaling saldo naar december verplaatst"
+      },
+      {
+        "author": "Jens Maes",
+        "date": "2025-06-10",
+        "change": "opmaak",
+        "summary": "Huisstijl"
+      },
+      {
+        "author": "Karim El Amrani",
+        "date": "2025-05-20",
+        "change": "inhoud",
+        "summary": "Pijler 2 uitgebreid met deelmobiliteit"
+      },
+      {
+        "author": "Karim El Amrani",
+        "date": "2025-05-02",
+        "change": "inhoud",
+        "summary": "Nieuwe procedure 2025 opgesteld"
+      }
+    ]
+  },
+  {
+    "id": "doc-42",
+    "title": "Procedure mobiliteitsbudget 2022",
+    "filename": "Procedure_mobiliteitsbudget_2022.docx",
+    "folder": "Payroll BE / Procedures",
+    "country": "BE",
+    "topic": "mobiliteitsbudget",
+    "layer": "procedure",
+    "status": "verouderd",
+    "owner": "Pieter Wouters",
+    "created": "2022-03-01",
+    "modified": "2022-06-20",
+    "text": "Procedure mobiliteitsbudget – Payroll België\n\nDeze procedure beschrijft hoe Payroll BE het mobiliteitsbudget verwerkt voor klanten met Belgische werknemers. Het mobiliteitsbudget is een alternatief voor de bedrijfswagen.\n\nBedrag. Het jaarlijkse budget bedraagt minimaal € 2.000 en maximaal € 12.000, op basis van de totale kostprijs van de bedrijfswagen waar de werknemer recht op heeft.\n\nPijlers. Pijler 1 is een milieuvriendelijke bedrijfswagen. Pijler 2 omvat duurzame vervoermiddelen en huisvesting. Pijler 3 is het saldo, dat jaarlijks in cash wordt uitbetaald na een bijzondere bijdrage.\n\nAanvraag. De werknemer vraagt het mobiliteitsbudget aan via een papieren formulier dat de werkgever naar Payroll BE stuurt.\n\nUitbetaling. Het saldo van pijler 3 wordt uitbetaald in januari van het volgende jaar.\n\nVragen over deze procedure richt je aan Payroll BE.",
+    "history": [
+      {
+        "author": "Pieter Wouters",
+        "date": "2022-06-20",
+        "change": "inhoud",
+        "summary": "Pijler 3 toegevoegd"
+      },
+      {
+        "author": "Pieter Wouters",
+        "date": "2022-03-01",
+        "change": "inhoud",
+        "summary": "Eerste versie"
+      }
+    ]
+  },
+  {
+    "id": "doc-43",
+    "title": "Mobiliteitsbudget – werkinstructie team Gent",
+    "filename": "Mobiliteitsbudget_team_Gent.docx",
+    "folder": "HR BE / Team Gent",
+    "country": "BE",
+    "topic": "mobiliteitsbudget",
+    "layer": "procedure",
+    "status": "goedgekeurd",
+    "owner": null,
+    "created": "2022-09-12",
+    "modified": "2023-01-16",
+    "text": "Mobiliteitsbudget – werkinstructie team Gent\n\nDeze procedure beschrijft hoe Payroll BE het mobiliteitsbudget verwerkt voor klanten met Belgische werknemers. Het mobiliteitsbudget is een alternatief voor de bedrijfswagen.\n\nBedrag. Het jaarlijkse budget bedraagt minimaal € 2.000 en maximaal € 12.000, op basis van de totale kostprijs van de bedrijfswagen waar de werknemer recht op heeft.\n\nPijlers. Pijler 1 is een milieuvriendelijke bedrijfswagen. Pijler 2 omvat duurzame vervoermiddelen en huisvesting. Pijler 3 is het saldo, dat jaarlijks in cash wordt uitbetaald na een bijzondere bijdrage.\n\nAanvraag. De werknemer vraagt het mobiliteitsbudget aan via een papieren formulier dat de werkgever naar Payroll BE stuurt.\n\nUitbetaling. Het saldo van pijler 3 wordt uitbetaald in januari van het volgende jaar.\n\nVragen over deze procedure richt je aan Payroll BE.",
+    "history": [
+      {
+        "author": "Tom Vermeulen",
+        "date": "2023-01-16",
+        "change": "inhoud",
+        "summary": "Kopie aangepast voor team Gent"
+      },
+      {
+        "author": "Sofie Claes",
+        "date": "2022-09-12",
+        "change": "inhoud",
+        "summary": "Tekst gekopieerd uit procedure"
+      }
+    ]
+  },
+  {
+    "id": "doc-44",
+    "title": "Mobiliteitsbudget – info klantenteam",
+    "filename": "Mobiliteitsbudget_info_klantenteam.docx",
+    "folder": "Klantendienst / Gedeelde documenten",
+    "country": "BE",
+    "topic": "mobiliteitsbudget",
+    "layer": "procedure",
+    "status": "goedgekeurd",
+    "owner": null,
+    "created": "2023-02-08",
+    "modified": "2023-02-08",
+    "text": "Mobiliteitsbudget – info klantenteam\n\nDeze procedure beschrijft hoe Payroll BE het mobiliteitsbudget verwerkt voor klanten met Belgische werknemers. Het mobiliteitsbudget is een alternatief voor de bedrijfswagen.\n\nBedrag. Het jaarlijkse budget bedraagt minimaal € 2.000 en maximaal € 12.000, op basis van de totale kostprijs van de bedrijfswagen waar de werknemer recht op heeft.\n\nPijlers. Pijler 1 is een milieuvriendelijke bedrijfswagen. Pijler 2 omvat duurzame vervoermiddelen en huisvesting. Pijler 3 is het saldo, dat jaarlijks in cash wordt uitbetaald na een bijzondere bijdrage.\n\nAanvraag. De werknemer vraagt het mobiliteitsbudget aan via een papieren formulier dat de werkgever naar Payroll BE stuurt.\n\nUitbetaling. Het saldo van pijler 3 wordt uitbetaald in januari van het volgende jaar.\n\nVragen over deze procedure richt je aan Payroll BE.",
+    "history": [
+      {
+        "author": "Tom Vermeulen",
+        "date": "2023-02-08",
+        "change": "inhoud",
+        "summary": "Tekst gekopieerd voor klantvragen"
+      }
+    ]
+  },
+  {
+    "id": "doc-45",
+    "title": "FAQ mobiliteitsbudget (concept)",
+    "filename": "FAQ_mobiliteitsbudget_concept.docx",
+    "folder": "Reward & Benefits / Werkmap",
+    "country": "BE",
+    "topic": "mobiliteitsbudget",
+    "layer": "procedure",
+    "status": "concept",
+    "owner": null,
+    "created": "2024-11-04",
+    "modified": "2024-11-04",
+    "text": "FAQ mobiliteitsbudget (concept, niet verspreiden)\n\nKan een werknemer halverwege het jaar instappen? Nog na te vragen.\nTelt een elektrische step mee in pijler 2? Waarschijnlijk wel, nog te bevestigen.\nWanneer wordt het saldo uitbetaald? In de oude procedure in januari, nog na te kijken in de nieuwe versie.\nWat als de werknemer verhuist? Nog geen antwoord.\n\nDeze lijst wordt aangevuld zodra de nieuwe procedure klaar is.",
+    "history": [
+      {
+        "author": "Lotte Janssens",
+        "date": "2024-11-04",
+        "change": "inhoud",
+        "summary": "Eerste vragen verzameld"
+      }
+    ]
+  },
+  {
+    "id": "doc-46",
+    "title": "Mobiliteitsbudget Nederland",
+    "filename": "Mobiliteitsbudget_Nederland.docx",
+    "folder": "Payroll NL / Procedures",
+    "country": "NL",
+    "topic": "mobiliteitsbudget",
+    "layer": "procedure",
+    "status": "goedgekeurd",
+    "owner": "Femke de Jong",
+    "created": "2024-04-10",
+    "modified": "2024-04-10",
+    "text": "Mobiliteitsbudget Nederland (fictief voorbeeld)\n\nIn Nederland bestaat geen wettelijk mobiliteitsbudget zoals in België. Werkgevers kunnen wel een eigen mobiliteitsregeling aanbieden binnen de werkkostenregeling. Payroll NL verwerkt een vaste maandelijkse vergoeding van € 150 (fictief) voor werknemers die afzien van een leaseauto. Deze regeling geldt niet voor Belgische werknemers.",
+    "history": [
+      {
+        "author": "Femke de Jong",
+        "date": "2024-04-10",
+        "change": "inhoud",
+        "summary": "Regeling Nederland beschreven"
+      }
+    ]
+  },
+  {
+    "id": "doc-47",
+    "title": "Mobiliteitsbudget Duitsland",
+    "filename": "Mobiliteitsbudget_Duitsland.docx",
+    "folder": "Payroll DE / Procedures",
+    "country": "DE",
+    "topic": "mobiliteitsbudget",
+    "layer": "procedure",
+    "status": "goedgekeurd",
+    "owner": "Lukas Becker",
+    "created": "2024-06-18",
+    "modified": "2024-06-18",
+    "text": "Mobiliteitsbudget Duitsland (fictief voorbeeld)\n\nDuitse werkgevers bieden een mobiliteitsbudget aan als vrijwillig voordeel naast of in plaats van een bedrijfswagen. Payroll DE verwerkt een maandelijks budget van maximaal € 300 (fictief) voor openbaar vervoer, fietslease en deelmobiliteit. De Belgische pijlers gelden hier niet.",
+    "history": [
+      {
+        "author": "Lukas Becker",
+        "date": "2024-06-18",
+        "change": "inhoud",
+        "summary": "Regeling Duitsland beschreven"
+      }
+    ]
+  },
+  {
+    "id": "doc-48",
+    "title": "Teams-bericht: mobiliteitsbudget saldo",
+    "filename": "Teams_mobiliteitsbudget_saldo.txt",
+    "folder": "Teams / Payroll BE",
+    "country": "BE",
+    "topic": "mobiliteitsbudget",
+    "layer": "procedure",
+    "status": "concept",
+    "owner": null,
+    "created": "2024-01-09",
+    "modified": "2024-01-09",
+    "text": "Teams-bericht in #payroll-be: Ter info, het saldo van het mobiliteitsbudget wordt uitbetaald in januari, zoals altijd. Het maximum is volgens mij nog altijd € 12.000. Klopt dit nog?",
+    "history": [
+      {
+        "author": "Tom Vermeulen",
+        "date": "2024-01-09",
+        "change": "inhoud",
+        "summary": "Bericht geplaatst"
+      }
+    ]
+  },
+  {
+    "id": "doc-49",
+    "title": "Mail aan klant: mobiliteitsbudget aanvragen",
+    "filename": "Mail_klant_mobiliteitsbudget.txt",
+    "folder": "Teams / Payroll BE",
+    "country": "BE",
+    "topic": "mobiliteitsbudget",
+    "layer": "procedure",
+    "status": "concept",
+    "owner": null,
+    "created": "2023-05-22",
+    "modified": "2023-05-22",
+    "text": "Mail aan klant: Beste, uw werknemers kunnen het mobiliteitsbudget aanvragen met het papieren formulier in bijlage. Stuur het ingevulde formulier naar Payroll BE. Met vriendelijke groeten, Payroll BE.",
+    "history": [
+      {
+        "author": "Tom Vermeulen",
+        "date": "2023-05-22",
+        "change": "inhoud",
+        "summary": "Mail opgesteld"
+      }
+    ]
+  },
+  {
+    "id": "doc-50",
+    "title": "Opleiding mobiliteitsbudget 2021",
+    "filename": "Opleiding_mobiliteitsbudget_2021.pptx",
+    "folder": "HR BE / Opleidingen",
+    "country": "BE",
+    "topic": "mobiliteitsbudget",
+    "layer": "procedure",
+    "status": "verouderd",
+    "owner": "Sofie Claes",
+    "created": "2021-10-05",
+    "modified": "2021-10-05",
+    "text": "Opleiding mobiliteitsbudget 2021\n\nSlide 1: wat is het mobiliteitsbudget? Slide 2: de drie pijlers. Slide 3: het budget bedraagt maximaal € 10.000 per jaar. Slide 4: aanvragen met het papieren formulier. Slide 5: vragen?",
+    "history": [
+      {
+        "author": "Sofie Claes",
+        "date": "2021-10-05",
+        "change": "inhoud",
+        "summary": "Opleiding opgesteld"
+      }
+    ]
+  },
+  {
+    "id": "doc-51",
+    "title": "Notulen werkgroep mobiliteitsbudget 2022",
+    "filename": "Notulen_werkgroep_mobiliteitsbudget_2022.docx",
+    "folder": "Reward & Benefits / Werkgroepen",
+    "country": "BE",
+    "topic": "mobiliteitsbudget",
+    "layer": "procedure",
+    "status": "verouderd",
+    "owner": null,
+    "created": "2022-02-14",
+    "modified": "2022-02-14",
+    "text": "Notulen werkgroep mobiliteitsbudget, februari 2022\n\nAanwezig: Pieter, Sofie, Tom. De werkgroep bespreekt het ontwerp van de procedure. Voorstel: maximum € 12.000, saldo uitbetalen in januari, aanvraag op papier. Actiepunt: Pieter schrijft de procedure.",
+    "history": [
+      {
+        "author": "Sofie Claes",
+        "date": "2022-02-14",
+        "change": "inhoud",
+        "summary": "Notulen opgesteld"
+      }
+    ]
+  },
+  {
+    "id": "doc-52",
+    "title": "Rekenvoorbeeld mobiliteitsbudget 2023",
+    "filename": "Rekenvoorbeeld_mobiliteitsbudget_2023.xlsx",
+    "folder": "Payroll BE / Rekenvoorbeelden",
+    "country": "BE",
+    "topic": "mobiliteitsbudget",
+    "layer": "procedure",
+    "status": "verouderd",
+    "owner": "Tom Vermeulen",
+    "created": "2023-03-15",
+    "modified": "2023-04-02",
+    "text": "Rekenvoorbeeld mobiliteitsbudget 2023\n\nTotale kostprijs bedrijfswagen: € 9.000. Pijler 1: € 0. Pijler 2: fietslease € 1.800 en abonnement € 700. Pijler 3: saldo € 6.500, min bijzondere bijdrage, uitbetaald in januari 2024. Gebaseerd op de procedure van 2022.",
+    "history": [
+      {
+        "author": "Tom Vermeulen",
+        "date": "2023-04-02",
+        "change": "inhoud",
+        "summary": "Saldo herberekend"
+      },
+      {
+        "author": "Tom Vermeulen",
+        "date": "2023-03-15",
+        "change": "inhoud",
+        "summary": "Rekenvoorbeeld opgesteld"
+      }
+    ]
   }
 ]

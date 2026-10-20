@@ -195,6 +195,15 @@
         "campagnes",
         "marketing"
       ]
+    },
+    {
+      "id": "mobiliteitsbudget",
+      "label": "Mobiliteitsbudget",
+      "synonyms": [
+        "mobiliteitsbudget",
+        "mobiliteitsbudgetten",
+        "mobiliteitsportaal"
+      ]
     }
   ],
   "signals": [
@@ -860,6 +869,23 @@
       "allowed": []
     },
     {
+      "id": "doc-41",
+      "type": "document",
+      "topic": "mobiliteitsbudget",
+      "daysAgo": 29,
+      "title": "Procedure mobiliteitsbudget 2025",
+      "status": "goedgekeurd",
+      "people": [
+        {
+          "name": "Karim El Amrani",
+          "role": "owner",
+          "quote": ""
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
       "id": "teams-05",
       "type": "teams",
       "topic": "onboarding",
@@ -1257,6 +1283,23 @@
       "allowed": []
     },
     {
+      "id": "doc-45",
+      "type": "document",
+      "topic": "mobiliteitsbudget",
+      "daysAgo": 344,
+      "title": "FAQ mobiliteitsbudget (concept)",
+      "status": "concept",
+      "people": [
+        {
+          "name": "Lotte Janssens",
+          "role": "contributed",
+          "quote": ""
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
       "id": "doc-17",
       "type": "document",
       "topic": "ecocheques",
@@ -1313,6 +1356,23 @@
       "allowed": []
     },
     {
+      "id": "doc-47",
+      "type": "document",
+      "topic": "mobiliteitsbudget",
+      "daysAgo": 483,
+      "title": "Mobiliteitsbudget Duitsland",
+      "status": "goedgekeurd",
+      "people": [
+        {
+          "name": "Lukas Becker",
+          "role": "owner",
+          "quote": ""
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
       "id": "doc-38",
       "type": "document",
       "topic": "bedrijfswagens",
@@ -1349,6 +1409,23 @@
       "allowed": []
     },
     {
+      "id": "doc-46",
+      "type": "document",
+      "topic": "mobiliteitsbudget",
+      "daysAgo": 552,
+      "title": "Mobiliteitsbudget Nederland",
+      "status": "goedgekeurd",
+      "people": [
+        {
+          "name": "Femke de Jong",
+          "role": "owner",
+          "quote": ""
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
       "id": "doc-33",
       "type": "document",
       "topic": "geboorteverlof",
@@ -1359,6 +1436,23 @@
         {
           "name": "Femke de Jong",
           "role": "owner",
+          "quote": ""
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "doc-48",
+      "type": "document",
+      "topic": "mobiliteitsbudget",
+      "daysAgo": 644,
+      "title": "Teams-bericht: mobiliteitsbudget saldo",
+      "status": "concept",
+      "people": [
+        {
+          "name": "Tom Vermeulen",
+          "role": "contributed",
           "quote": ""
         }
       ],
@@ -1381,6 +1475,40 @@
         {
           "name": "Tom Vermeulen",
           "role": "contributed",
+          "quote": ""
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "doc-49",
+      "type": "document",
+      "topic": "mobiliteitsbudget",
+      "daysAgo": 876,
+      "title": "Mail aan klant: mobiliteitsbudget aanvragen",
+      "status": "concept",
+      "people": [
+        {
+          "name": "Tom Vermeulen",
+          "role": "contributed",
+          "quote": ""
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "doc-52",
+      "type": "document",
+      "topic": "mobiliteitsbudget",
+      "daysAgo": 926,
+      "title": "Rekenvoorbeeld mobiliteitsbudget 2023",
+      "status": "verouderd",
+      "people": [
+        {
+          "name": "Tom Vermeulen",
+          "role": "owner",
           "quote": ""
         }
       ],
@@ -1415,6 +1543,23 @@
       "allowed": []
     },
     {
+      "id": "doc-44",
+      "type": "document",
+      "topic": "mobiliteitsbudget",
+      "daysAgo": 979,
+      "title": "Mobiliteitsbudget – info klantenteam",
+      "status": "goedgekeurd",
+      "people": [
+        {
+          "name": "Tom Vermeulen",
+          "role": "contributed",
+          "quote": ""
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
       "id": "doc-26",
       "type": "document",
       "topic": "geboorteverlof",
@@ -1429,6 +1574,28 @@
         },
         {
           "name": "An Peeters",
+          "role": "contributed",
+          "quote": ""
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "doc-43",
+      "type": "document",
+      "topic": "mobiliteitsbudget",
+      "daysAgo": 1002,
+      "title": "Mobiliteitsbudget – werkinstructie team Gent",
+      "status": "goedgekeurd",
+      "people": [
+        {
+          "name": "Sofie Claes",
+          "role": "contributed",
+          "quote": ""
+        },
+        {
+          "name": "Tom Vermeulen",
           "role": "contributed",
           "quote": ""
         }
@@ -1507,6 +1674,23 @@
       ]
     },
     {
+      "id": "doc-42",
+      "type": "document",
+      "topic": "mobiliteitsbudget",
+      "daysAgo": 1212,
+      "title": "Procedure mobiliteitsbudget 2022",
+      "status": "verouderd",
+      "people": [
+        {
+          "name": "Pieter Wouters",
+          "role": "owner",
+          "quote": ""
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
       "id": "doc-24",
       "type": "document",
       "topic": "geboorteverlof",
@@ -1522,6 +1706,40 @@
         {
           "name": "Tom Vermeulen",
           "role": "contributed",
+          "quote": ""
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "doc-51",
+      "type": "document",
+      "topic": "mobiliteitsbudget",
+      "daysAgo": 1338,
+      "title": "Notulen werkgroep mobiliteitsbudget 2022",
+      "status": "verouderd",
+      "people": [
+        {
+          "name": "Sofie Claes",
+          "role": "contributed",
+          "quote": ""
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "doc-50",
+      "type": "document",
+      "topic": "mobiliteitsbudget",
+      "daysAgo": 1470,
+      "title": "Opleiding mobiliteitsbudget 2021",
+      "status": "verouderd",
+      "people": [
+        {
+          "name": "Sofie Claes",
+          "role": "owner",
           "quote": ""
         }
       ],

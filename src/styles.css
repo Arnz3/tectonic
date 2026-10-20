@@ -1786,3 +1786,13 @@ button.crumb:hover {
   flex-basis: 100%;
   padding-left: 20px;
 }
+.summary-count {
+  margin-left: 8px;
+  padding: 1px 8px;
+  border-radius: 8px;
+  background: #c9ead8;
+  color: #0b6a3c;
+  font-size: 11px;
+  letter-spacing: 0;
+  text-transform: none;
+}

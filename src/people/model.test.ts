@@ -97,3 +97,11 @@ test('a topic without files still has contacts from meetings and Teams', () => {
   const names = expertsFor('marketingcampagne', data).map((e) => e.person.name)
   assert.deepEqual(names.slice(0, 2).sort(), ['Lien Vermeersch', 'Yusuf Aydin'])
 })
+
+test('many files on mobiliteitsbudget, one recommended; Karim is the contact', () => {
+  const docs = data.signals.filter((s) => s.topic === 'mobiliteitsbudget' && s.type === 'document')
+  assert.equal(docs.length, 12)
+  const [best] = expertsFor('mobiliteitsbudget', data, new Set(), { outdated: new Set(['Tom Vermeulen', 'Pieter Wouters', 'Sofie Claes']), recommendedDocs: new Set(['doc-41']) })
+  assert.equal(best.person.name, 'Karim El Amrani')
+  assert.equal(best.verdict, 'likely')
+})

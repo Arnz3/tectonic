@@ -41,7 +41,14 @@ export function TopicSummary(props: {
   return (
     <div className="topic-summary">
       <section>
-        <h3 className="people-heading">Aanbevolen bestanden</h3>
+        <h3 className="people-heading">
+          Aanbevolen bestanden
+          {topic && best.length > 0 && (
+            <span className="summary-count">
+              {best.length} van {topic.docs.length} {topic.docs.length === 1 ? 'bestand' : 'bestanden'}
+            </span>
+          )}
+        </h3>
         {best.length === 0 ? (
           <div className="summary-empty">Geen aanbevolen bestand over dit onderwerp: deze kennis zit vooral bij mensen.</div>
         ) : (

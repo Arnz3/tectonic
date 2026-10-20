@@ -196,6 +196,15 @@
         "campagnes",
         "marketing"
       ]
+    },
+    {
+      "id": "mobiliteitsbudget",
+      "label": "Mobiliteitsbudget",
+      "synonyms": [
+        "mobiliteitsbudget",
+        "mobiliteitsbudgetten",
+        "mobiliteitsportaal"
+      ]
     }
   ],
   "teams_messages": [
