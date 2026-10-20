@@ -1,0 +1,89 @@
+{
+  "_note": "Fictieve demodata. Personen, teams, berichten en tickets bestaan niet.",
+  "people": [
+    { "name": "An Peeters", "role": "Senior payrollconsultant", "team": "Payroll BE", "status": "actief" },
+    { "name": "Karim El Amrani", "role": "Fleet specialist", "team": "Reward & Benefits", "status": "actief" },
+    { "name": "Pieter Wouters", "role": "Teamlead onboarding", "team": "HR BE", "status": "nieuwe_rol", "previous_role": "Payroll-expert regelgeving en fleet" },
+    { "name": "Sofie Claes", "role": "HR-adviseur", "team": "HR BE", "status": "actief" },
+    { "name": "Jens Maes", "role": "Intranetredacteur", "team": "Communicatie", "status": "actief" },
+    { "name": "Tom Vermeulen", "role": "Payrollconsultant", "team": "Payroll BE", "status": "actief" },
+    { "name": "Nadia Bouzid", "role": "Juridisch adviseur sociale wetgeving", "team": "Legal", "status": "actief" },
+    { "name": "Lotte Janssens", "role": "Junior payrollconsultant", "team": "Payroll BE", "status": "actief" },
+    { "name": "Femke de Jong", "role": "Payrollconsultant", "team": "Payroll NL", "status": "actief" },
+    { "name": "Lukas Becker", "role": "Payrollconsultant", "team": "Payroll DE", "status": "actief" }
+  ],
+  "topics": [
+    { "id": "maaltijdcheques", "label": "Maaltijdcheques", "synonyms": ["maaltijdcheque", "maaltijdcheques", "werkgeversbijdrage"] },
+    { "id": "bedrijfswagens", "label": "Bedrijfswagens & tankkaart", "synonyms": ["bedrijfswagen", "bedrijfswagens", "tankkaart", "tankkaarten", "laadpas", "fleet", "voordeel alle aard", "car policy", "wagenpark", "auto"] },
+    { "id": "geboorteverlof", "label": "Geboorteverlof", "synonyms": ["geboorteverlof", "vaderschapsverlof", "partnerverlof", "geboorte"] },
+    { "id": "eindejaarspremie", "label": "Eindejaarspremie", "synonyms": ["eindejaarspremie", "dertiende maand"] },
+    { "id": "ecocheques", "label": "Ecocheques", "synonyms": ["ecocheque", "ecocheques"] },
+    { "id": "verlof", "label": "Verlof en vakantie", "synonyms": ["verlof", "vakantie", "vakantiedagen", "verlofdagen", "verlofaanvraag"] },
+    { "id": "onboarding", "label": "Onboarding", "synonyms": ["onboarding", "nieuwe medewerker", "nieuwe medewerkers", "indiensttreding", "starter", "starters"] },
+    { "id": "thuiswerk", "label": "Thuiswerkvergoeding", "synonyms": ["thuiswerk", "thuiswerkvergoeding", "telewerk", "bureauvergoeding"] }
+  ],
+  "teams_messages": [
+    {
+      "id": "teams-01", "daysAgo": 8, "channel": "#payroll-be", "title": "Vraag over maaltijdcheques bij deeltijdwerk",
+      "topic": "maaltijdcheques", "asked_by": "Lotte Janssens", "answered_by": "An Peeters",
+      "quote": "Bij deeltijdwerk tel je de effectief gewerkte dagen, niet de uren.",
+      "visibility": "open", "allowed": []
+    },
+    {
+      "id": "teams-02", "daysAgo": 10, "channel": "#payroll-be", "title": "Deadline eindejaarspremie",
+      "topic": "eindejaarspremie", "asked_by": "Jens Maes", "answered_by": "Tom Vermeulen",
+      "quote": "De eindejaarspremie gaat mee met de loonverwerking van december, de deadline voor correcties is 5 december.",
+      "visibility": "open", "allowed": []
+    },
+    {
+      "id": "teams-03", "daysAgo": 15, "channel": "#fleet", "title": "Tankkaart in het buitenland",
+      "topic": "bedrijfswagens", "asked_by": "Tom Vermeulen", "answered_by": "Karim El Amrani",
+      "quote": "Met de tankkaart mag je in de buurlanden tanken, maar laden aan een publieke laadpaal gaat altijd via de laadpas.",
+      "visibility": "open", "allowed": []
+    },
+    {
+      "id": "teams-04", "daysAgo": 18, "channel": "#hr-be", "title": "Geboorteverlof aanvragen in het HR-portaal",
+      "topic": "geboorteverlof", "asked_by": "Lotte Janssens", "answered_by": "Sofie Claes",
+      "quote": "Je vraagt geboorteverlof aan in het HR-portaal onder Afwezigheden, met de geboorteakte als bijlage.",
+      "visibility": "open", "allowed": []
+    },
+    {
+      "id": "teams-05", "daysAgo": 30, "channel": "#hr-be", "title": "Wie maakt de badge voor starters?",
+      "topic": "onboarding", "asked_by": "Lotte Janssens", "answered_by": "Pieter Wouters",
+      "quote": "De badge voor starters wordt aangevraagd door het onboardingteam, ten laatste een week voor de eerste werkdag.",
+      "visibility": "open", "allowed": []
+    },
+    {
+      "id": "teams-06", "daysAgo": 40, "channel": "#payroll-be", "title": "Vakantiedagen overdragen",
+      "topic": "verlof", "asked_by": "Tom Vermeulen", "answered_by": "Sofie Claes",
+      "quote": "Wettelijke vakantiedagen kun je niet overdragen, extralegale verlofdagen wel tot eind maart.",
+      "visibility": "open", "allowed": []
+    }
+  ],
+  "tickets": [
+    {
+      "id": "ticket-101", "daysAgo": 20, "title": "Tankkaart geblokkeerd na vervanging wagen",
+      "topic": "bedrijfswagens", "resolved_by": "Karim El Amrani",
+      "quote": "Nieuwe tankkaart gekoppeld aan de nummerplaat van de vervangwagen.",
+      "visibility": "open", "allowed": []
+    },
+    {
+      "id": "ticket-102", "daysAgo": 7, "title": "Eindejaarspremie ontbreekt op loonfiche klant",
+      "topic": "eindejaarspremie", "resolved_by": "Tom Vermeulen",
+      "quote": "Looncode eindejaarspremie stond niet actief voor dit paritair comité.",
+      "visibility": "beperkt", "allowed": ["Payroll BE"]
+    },
+    {
+      "id": "ticket-103", "daysAgo": 26, "title": "Ecocheques niet geladen op kaart",
+      "topic": "ecocheques", "resolved_by": "Lotte Janssens",
+      "quote": "Bestelling bij de uitgever opnieuw doorgestuurd na correctie van de referteperiode.",
+      "visibility": "open", "allowed": []
+    },
+    {
+      "id": "ticket-104", "daysAgo": 22, "title": "Fout bedrag maaltijdcheques bij klant",
+      "topic": "maaltijdcheques", "resolved_by": "An Peeters",
+      "quote": "Klant gebruikte nog het bedrag uit de procedure van 2023.",
+      "visibility": "beperkt", "allowed": ["Payroll BE"]
+    }
+  ]
+}

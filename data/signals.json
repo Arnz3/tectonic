@@ -1,0 +1,1292 @@
+{
+  "people": [
+    {
+      "name": "An Peeters",
+      "role": "Senior payrollconsultant",
+      "team": "Payroll BE",
+      "status": "actief"
+    },
+    {
+      "name": "Karim El Amrani",
+      "role": "Fleet specialist",
+      "team": "Reward & Benefits",
+      "status": "actief"
+    },
+    {
+      "name": "Pieter Wouters",
+      "role": "Teamlead onboarding",
+      "team": "HR BE",
+      "status": "nieuwe_rol",
+      "previous_role": "Payroll-expert regelgeving en fleet"
+    },
+    {
+      "name": "Sofie Claes",
+      "role": "HR-adviseur",
+      "team": "HR BE",
+      "status": "actief"
+    },
+    {
+      "name": "Jens Maes",
+      "role": "Intranetredacteur",
+      "team": "Communicatie",
+      "status": "actief"
+    },
+    {
+      "name": "Tom Vermeulen",
+      "role": "Payrollconsultant",
+      "team": "Payroll BE",
+      "status": "actief"
+    },
+    {
+      "name": "Nadia Bouzid",
+      "role": "Juridisch adviseur sociale wetgeving",
+      "team": "Legal",
+      "status": "actief"
+    },
+    {
+      "name": "Lotte Janssens",
+      "role": "Junior payrollconsultant",
+      "team": "Payroll BE",
+      "status": "actief"
+    },
+    {
+      "name": "Femke de Jong",
+      "role": "Payrollconsultant",
+      "team": "Payroll NL",
+      "status": "actief"
+    },
+    {
+      "name": "Lukas Becker",
+      "role": "Payrollconsultant",
+      "team": "Payroll DE",
+      "status": "actief"
+    }
+  ],
+  "topics": [
+    {
+      "id": "maaltijdcheques",
+      "label": "Maaltijdcheques",
+      "synonyms": [
+        "maaltijdcheque",
+        "maaltijdcheques",
+        "werkgeversbijdrage"
+      ]
+    },
+    {
+      "id": "bedrijfswagens",
+      "label": "Bedrijfswagens & tankkaart",
+      "synonyms": [
+        "bedrijfswagen",
+        "bedrijfswagens",
+        "tankkaart",
+        "tankkaarten",
+        "laadpas",
+        "fleet",
+        "voordeel alle aard",
+        "car policy",
+        "wagenpark",
+        "auto"
+      ]
+    },
+    {
+      "id": "geboorteverlof",
+      "label": "Geboorteverlof",
+      "synonyms": [
+        "geboorteverlof",
+        "vaderschapsverlof",
+        "partnerverlof",
+        "geboorte"
+      ]
+    },
+    {
+      "id": "eindejaarspremie",
+      "label": "Eindejaarspremie",
+      "synonyms": [
+        "eindejaarspremie",
+        "dertiende maand"
+      ]
+    },
+    {
+      "id": "ecocheques",
+      "label": "Ecocheques",
+      "synonyms": [
+        "ecocheque",
+        "ecocheques"
+      ]
+    },
+    {
+      "id": "verlof",
+      "label": "Verlof en vakantie",
+      "synonyms": [
+        "verlof",
+        "vakantie",
+        "vakantiedagen",
+        "verlofdagen",
+        "verlofaanvraag"
+      ]
+    },
+    {
+      "id": "onboarding",
+      "label": "Onboarding",
+      "synonyms": [
+        "onboarding",
+        "nieuwe medewerker",
+        "nieuwe medewerkers",
+        "indiensttreding",
+        "starter",
+        "starters"
+      ]
+    },
+    {
+      "id": "thuiswerk",
+      "label": "Thuiswerkvergoeding",
+      "synonyms": [
+        "thuiswerk",
+        "thuiswerkvergoeding",
+        "telewerk",
+        "bureauvergoeding"
+      ]
+    }
+  ],
+  "signals": [
+    {
+      "id": "doc-06",
+      "type": "document",
+      "topic": "eindejaarspremie",
+      "daysAgo": 0,
+      "title": "Teams-bericht: eindejaarspremie deadline",
+      "status": "concept",
+      "people": [
+        {
+          "name": "Sofie Claes",
+          "role": "contributed",
+          "quote": ""
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "meeting-03:eindejaarspremie",
+      "type": "meeting",
+      "topic": "eindejaarspremie",
+      "daysAgo": 3,
+      "title": "Payroll BE weekoverleg",
+      "organizer": "An Peeters",
+      "people": [
+        {
+          "name": "Tom Vermeulen",
+          "role": "explained",
+          "quote": "Dan nog de eindejaarspremie: de deadline voor correcties ligt op 5 december, de premie gaat mee met de loonverwerking van december en wordt pro rata berekend voor wie in de loop van het jaar vertrekt."
+        },
+        {
+          "name": "Lotte Janssens",
+          "role": "asked",
+          "quote": "Wordt de eindejaarspremie voor deeltijdse medewerkers dan ook anders berekend?"
+        },
+        {
+          "name": "An Peeters",
+          "role": "attended",
+          "quote": ""
+        },
+        {
+          "name": "Jens Maes",
+          "role": "attended",
+          "quote": ""
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "meeting-03:maaltijdcheques",
+      "type": "meeting",
+      "topic": "maaltijdcheques",
+      "daysAgo": 3,
+      "title": "Payroll BE weekoverleg",
+      "organizer": "An Peeters",
+      "people": [
+        {
+          "name": "An Peeters",
+          "role": "explained",
+          "quote": "Sinds januari geldt de procedure van 2025: de nominale waarde is 10 euro per gewerkte dag en de werkgeversbijdrage maximaal 8,40 euro."
+        },
+        {
+          "name": "Tom Vermeulen",
+          "role": "asked",
+          "quote": "Ik gebruikte nog de versie uit de map van team Antwerpen. Welke moeten klanten dan krijgen?"
+        },
+        {
+          "name": "Jens Maes",
+          "role": "attended",
+          "quote": ""
+        },
+        {
+          "name": "Lotte Janssens",
+          "role": "attended",
+          "quote": ""
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "meeting-01:bedrijfswagens",
+      "type": "meeting",
+      "topic": "bedrijfswagens",
+      "daysAgo": 4,
+      "title": "Fleet-overleg",
+      "organizer": "Sofie Claes",
+      "people": [
+        {
+          "name": "Karim El Amrani",
+          "role": "explained",
+          "quote": "Het voordeel alle aard voor elektrische wagens berekenen we op de cataloguswaarde met een CO2-percentage van vier procent."
+        },
+        {
+          "name": "Lotte Janssens",
+          "role": "asked",
+          "quote": "Geldt dat ook voor de laadpas als iemand thuis laadt?"
+        },
+        {
+          "name": "Sofie Claes",
+          "role": "attended",
+          "quote": ""
+        },
+        {
+          "name": "Pieter Wouters",
+          "role": "attended",
+          "quote": ""
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "meeting-04:geboorteverlof",
+      "type": "meeting",
+      "topic": "geboorteverlof",
+      "daysAgo": 6,
+      "title": "Juridisch overleg geboorteverlof",
+      "organizer": "Nadia Bouzid",
+      "people": [
+        {
+          "name": "Nadia Bouzid",
+          "role": "explained",
+          "quote": "Het geboorteverlof bedraagt sinds 2023 twintig dagen, niet meer vijftien."
+        },
+        {
+          "name": "Sofie Claes",
+          "role": "asked",
+          "quote": "In Teams zegt men nog steeds vijftien dagen. Hoe pakken we dat aan?"
+        },
+        {
+          "name": "An Peeters",
+          "role": "attended",
+          "quote": ""
+        }
+      ],
+      "visibility": "beperkt",
+      "allowed": [
+        "HR BE",
+        "Payroll BE",
+        "Legal"
+      ]
+    },
+    {
+      "id": "ticket-102",
+      "type": "ticket",
+      "topic": "eindejaarspremie",
+      "daysAgo": 7,
+      "title": "Eindejaarspremie ontbreekt op loonfiche klant",
+      "people": [
+        {
+          "name": "Tom Vermeulen",
+          "role": "resolved",
+          "quote": "Looncode eindejaarspremie stond niet actief voor dit paritair comité."
+        }
+      ],
+      "visibility": "beperkt",
+      "allowed": [
+        "Payroll BE"
+      ]
+    },
+    {
+      "id": "teams-01",
+      "type": "teams",
+      "topic": "maaltijdcheques",
+      "daysAgo": 8,
+      "title": "#payroll-be: Vraag over maaltijdcheques bij deeltijdwerk",
+      "people": [
+        {
+          "name": "An Peeters",
+          "role": "answered",
+          "quote": "Bij deeltijdwerk tel je de effectief gewerkte dagen, niet de uren."
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "meeting-02:bedrijfswagens",
+      "type": "meeting",
+      "topic": "bedrijfswagens",
+      "daysAgo": 9,
+      "title": "Klantmeeting Voorbeeld NV: wagenpark",
+      "organizer": "Karim El Amrani",
+      "people": [
+        {
+          "name": "Karim El Amrani",
+          "role": "explained",
+          "quote": "Voorbeeld NV wil het wagenpark volledig elektrisch maken tegen volgend jaar."
+        },
+        {
+          "name": "Tom Vermeulen",
+          "role": "asked",
+          "quote": "Moeten we de looncodes voor de tankkaart dan schrappen?"
+        }
+      ],
+      "visibility": "beperkt",
+      "allowed": [
+        "Reward & Benefits"
+      ]
+    },
+    {
+      "id": "teams-02",
+      "type": "teams",
+      "topic": "eindejaarspremie",
+      "daysAgo": 10,
+      "title": "#payroll-be: Deadline eindejaarspremie",
+      "people": [
+        {
+          "name": "Tom Vermeulen",
+          "role": "answered",
+          "quote": "De eindejaarspremie gaat mee met de loonverwerking van december, de deadline voor correcties is 5 december."
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "meeting-05:onboarding",
+      "type": "meeting",
+      "topic": "onboarding",
+      "daysAgo": 12,
+      "title": "Onboarding sync",
+      "organizer": "Pieter Wouters",
+      "people": [
+        {
+          "name": "Pieter Wouters",
+          "role": "explained",
+          "quote": "De nieuwe onboarding checklist is klaar."
+        },
+        {
+          "name": "Lotte Janssens",
+          "role": "asked",
+          "quote": "Wie registreert starters die op de eerste van de maand beginnen?"
+        },
+        {
+          "name": "Sofie Claes",
+          "role": "decided",
+          "quote": "Vanaf nu gebruiken we enkel de nieuwe onboarding checklist, de oude Excel verdwijnt uit de HR-map."
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "doc-30",
+      "type": "document",
+      "topic": "geboorteverlof",
+      "daysAgo": 14,
+      "title": "Loonfiche Jan september 2025",
+      "status": "goedgekeurd",
+      "people": [
+        {
+          "name": "An Peeters",
+          "role": "contributed",
+          "quote": ""
+        }
+      ],
+      "visibility": "beperkt",
+      "allowed": [
+        "Payroll BE"
+      ]
+    },
+    {
+      "id": "meeting-08:verlof",
+      "type": "meeting",
+      "topic": "verlof",
+      "daysAgo": 15,
+      "title": "Verlofplanning eindejaar",
+      "organizer": "Sofie Claes",
+      "people": [
+        {
+          "name": "Sofie Claes",
+          "role": "explained",
+          "quote": "Vakantiedagen voor de eindejaarsperiode vraag je aan in het HR-portaal ten laatste op 15 november."
+        },
+        {
+          "name": "Lotte Janssens",
+          "role": "asked",
+          "quote": "En als een verlofaanvraag te laat binnenkomt?"
+        },
+        {
+          "name": "Tom Vermeulen",
+          "role": "attended",
+          "quote": ""
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "teams-03",
+      "type": "teams",
+      "topic": "bedrijfswagens",
+      "daysAgo": 15,
+      "title": "#fleet: Tankkaart in het buitenland",
+      "people": [
+        {
+          "name": "Karim El Amrani",
+          "role": "answered",
+          "quote": "Met de tankkaart mag je in de buurlanden tanken, maar laden aan een publieke laadpaal gaat altijd via de laadpas."
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "teams-04",
+      "type": "teams",
+      "topic": "geboorteverlof",
+      "daysAgo": 18,
+      "title": "#hr-be: Geboorteverlof aanvragen in het HR-portaal",
+      "people": [
+        {
+          "name": "Sofie Claes",
+          "role": "answered",
+          "quote": "Je vraagt geboorteverlof aan in het HR-portaal onder Afwezigheden, met de geboorteakte als bijlage."
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "meeting-06:ecocheques",
+      "type": "meeting",
+      "topic": "ecocheques",
+      "daysAgo": 20,
+      "title": "Ecocheques planning Q4",
+      "organizer": "Lotte Janssens",
+      "people": [
+        {
+          "name": "Lotte Janssens",
+          "role": "explained",
+          "quote": "De ecocheques voor dit jaar worden in juni berekend over de referteperiode van 1 juni tot 31 mei."
+        },
+        {
+          "name": "An Peeters",
+          "role": "attended",
+          "quote": ""
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "ticket-101",
+      "type": "ticket",
+      "topic": "bedrijfswagens",
+      "daysAgo": 20,
+      "title": "Tankkaart geblokkeerd na vervanging wagen",
+      "people": [
+        {
+          "name": "Karim El Amrani",
+          "role": "resolved",
+          "quote": "Nieuwe tankkaart gekoppeld aan de nummerplaat van de vervangwagen."
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "doc-32",
+      "type": "document",
+      "topic": "geboorteverlof",
+      "daysAgo": 22,
+      "title": "Teams-bericht: geboorteverlof is 15 dagen",
+      "status": "concept",
+      "people": [
+        {
+          "name": "Sofie Claes",
+          "role": "contributed",
+          "quote": ""
+        },
+        {
+          "name": "Tom Vermeulen",
+          "role": "contributed",
+          "quote": ""
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "ticket-104",
+      "type": "ticket",
+      "topic": "maaltijdcheques",
+      "daysAgo": 22,
+      "title": "Fout bedrag maaltijdcheques bij klant",
+      "people": [
+        {
+          "name": "An Peeters",
+          "role": "resolved",
+          "quote": "Klant gebruikte nog het bedrag uit de procedure van 2023."
+        }
+      ],
+      "visibility": "beperkt",
+      "allowed": [
+        "Payroll BE"
+      ]
+    },
+    {
+      "id": "ticket-103",
+      "type": "ticket",
+      "topic": "ecocheques",
+      "daysAgo": 26,
+      "title": "Ecocheques niet geladen op kaart",
+      "people": [
+        {
+          "name": "Lotte Janssens",
+          "role": "resolved",
+          "quote": "Bestelling bij de uitgever opnieuw doorgestuurd na correctie van de referteperiode."
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "teams-05",
+      "type": "teams",
+      "topic": "onboarding",
+      "daysAgo": 30,
+      "title": "#hr-be: Wie maakt de badge voor starters?",
+      "people": [
+        {
+          "name": "Pieter Wouters",
+          "role": "answered",
+          "quote": "De badge voor starters wordt aangevraagd door het onboardingteam, ten laatste een week voor de eerste werkdag."
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "doc-29",
+      "type": "document",
+      "topic": "geboorteverlof",
+      "daysAgo": 34,
+      "title": "Geboorteakte Jan (Bakkerij Janssens)",
+      "status": "goedgekeurd",
+      "people": [
+        {
+          "name": "An Peeters",
+          "role": "contributed",
+          "quote": ""
+        }
+      ],
+      "visibility": "beperkt",
+      "allowed": [
+        "Payroll BE"
+      ]
+    },
+    {
+      "id": "meeting-07:thuiswerk",
+      "type": "meeting",
+      "topic": "thuiswerk",
+      "daysAgo": 35,
+      "title": "Thuiswerkvergoeding 2026",
+      "organizer": "Tom Vermeulen",
+      "people": [
+        {
+          "name": "Tom Vermeulen",
+          "role": "explained",
+          "quote": "De thuiswerkvergoeding is een forfaitaire bureauvergoeding die we maandelijks uitbetalen aan wie structureel minstens één dag per week thuiswerkt."
+        },
+        {
+          "name": "Jens Maes",
+          "role": "asked",
+          "quote": "Moeten we de thuiswerkvergoeding ook op het intranet zetten?"
+        },
+        {
+          "name": "Lotte Janssens",
+          "role": "attended",
+          "quote": ""
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "teams-06",
+      "type": "teams",
+      "topic": "verlof",
+      "daysAgo": 40,
+      "title": "#payroll-be: Vakantiedagen overdragen",
+      "people": [
+        {
+          "name": "Sofie Claes",
+          "role": "answered",
+          "quote": "Wettelijke vakantiedagen kun je niet overdragen, extralegale verlofdagen wel tot eind maart."
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "doc-39",
+      "type": "document",
+      "topic": "onboarding",
+      "daysAgo": 74,
+      "title": "Onboarding nieuwe bakker Bakkerij Janssens",
+      "status": "concept",
+      "people": [
+        {
+          "name": "Sofie Claes",
+          "role": "owner",
+          "quote": ""
+        }
+      ],
+      "visibility": "beperkt",
+      "allowed": [
+        "Payroll BE"
+      ]
+    },
+    {
+      "id": "doc-07",
+      "type": "document",
+      "topic": "eindejaarspremie",
+      "daysAgo": 133,
+      "title": "Procedure eindejaarspremie 2025",
+      "status": "goedgekeurd",
+      "people": [
+        {
+          "name": "Pieter Wouters",
+          "role": "owner",
+          "quote": ""
+        },
+        {
+          "name": "An Peeters",
+          "role": "contributed",
+          "quote": ""
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "doc-18",
+      "type": "document",
+      "topic": "ecocheques",
+      "daysAgo": 172,
+      "title": "Klantafspraak ecocheques Voorbeeld NV",
+      "status": "goedgekeurd",
+      "people": [
+        {
+          "name": "An Peeters",
+          "role": "owner",
+          "quote": ""
+        }
+      ],
+      "visibility": "beperkt",
+      "allowed": [
+        "Payroll BE"
+      ]
+    },
+    {
+      "id": "doc-01",
+      "type": "document",
+      "topic": "maaltijdcheques",
+      "daysAgo": 216,
+      "title": "Procedure maaltijdcheques 2025",
+      "status": "goedgekeurd",
+      "people": [
+        {
+          "name": "An Peeters",
+          "role": "owner",
+          "quote": ""
+        },
+        {
+          "name": "Tom Vermeulen",
+          "role": "contributed",
+          "quote": ""
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "doc-16",
+      "type": "document",
+      "topic": "ecocheques",
+      "daysAgo": 218,
+      "title": "Procedure ecocheques 2025",
+      "status": "goedgekeurd",
+      "people": [
+        {
+          "name": "An Peeters",
+          "role": "owner",
+          "quote": ""
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "doc-05",
+      "type": "document",
+      "topic": "maaltijdcheques",
+      "daysAgo": 242,
+      "title": "Procedure maaltijdcheques Nederland 2025",
+      "status": "goedgekeurd",
+      "people": [
+        {
+          "name": "Femke de Jong",
+          "role": "owner",
+          "quote": ""
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "doc-14",
+      "type": "document",
+      "topic": "onboarding",
+      "daysAgo": 251,
+      "title": "Onboarding checklist België",
+      "status": "goedgekeurd",
+      "people": [
+        {
+          "name": "Sofie Claes",
+          "role": "owner",
+          "quote": ""
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "doc-27",
+      "type": "document",
+      "topic": "geboorteverlof",
+      "daysAgo": 253,
+      "title": "Werkinstructie looncode en aangifte geboorteverlof",
+      "status": "concept",
+      "people": [
+        {
+          "name": "An Peeters",
+          "role": "owner",
+          "quote": ""
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "doc-10",
+      "type": "document",
+      "topic": "verlof",
+      "daysAgo": 267,
+      "title": "Werkinstructie vakantie aanvragen in HR-portaal",
+      "status": "concept",
+      "people": [
+        {
+          "name": "Sofie Claes",
+          "role": "owner",
+          "quote": ""
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "doc-35",
+      "type": "document",
+      "topic": "ecocheques",
+      "daysAgo": 267,
+      "title": "Ecocheques Bakkerij Janssens 2025",
+      "status": "goedgekeurd",
+      "people": [
+        {
+          "name": "An Peeters",
+          "role": "owner",
+          "quote": ""
+        },
+        {
+          "name": "Pieter Wouters",
+          "role": "contributed",
+          "quote": ""
+        }
+      ],
+      "visibility": "beperkt",
+      "allowed": [
+        "Payroll BE"
+      ]
+    },
+    {
+      "id": "doc-15",
+      "type": "document",
+      "topic": "onboarding",
+      "daysAgo": 279,
+      "title": "Werkinstructie nieuwe medewerker registreren in payroll",
+      "status": "goedgekeurd",
+      "people": [
+        {
+          "name": "An Peeters",
+          "role": "owner",
+          "quote": ""
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "doc-08",
+      "type": "document",
+      "topic": "verlof",
+      "daysAgo": 306,
+      "title": "Verlofbeleid 2025",
+      "status": "goedgekeurd",
+      "people": [
+        {
+          "name": "Sofie Claes",
+          "role": "owner",
+          "quote": ""
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "doc-34",
+      "type": "document",
+      "topic": "maaltijdcheques",
+      "daysAgo": 308,
+      "title": "Klantafspraak maaltijdcheques Bakkerij Janssens",
+      "status": "goedgekeurd",
+      "people": [
+        {
+          "name": "An Peeters",
+          "role": "owner",
+          "quote": ""
+        }
+      ],
+      "visibility": "beperkt",
+      "allowed": [
+        "Payroll BE"
+      ]
+    },
+    {
+      "id": "doc-13",
+      "type": "document",
+      "topic": "bedrijfswagens",
+      "daysAgo": 316,
+      "title": "Bedrijfswagenbeleid Duitsland 2025",
+      "status": "goedgekeurd",
+      "people": [
+        {
+          "name": "Lukas Becker",
+          "role": "owner",
+          "quote": ""
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "doc-12",
+      "type": "document",
+      "topic": "bedrijfswagens",
+      "daysAgo": 328,
+      "title": "Procedure tankkaart en laadpas",
+      "status": "goedgekeurd",
+      "people": [
+        {
+          "name": "Jens Maes",
+          "role": "contributed",
+          "quote": ""
+        },
+        {
+          "name": "Pieter Wouters",
+          "role": "contributed",
+          "quote": ""
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "doc-36",
+      "type": "document",
+      "topic": "eindejaarspremie",
+      "daysAgo": 328,
+      "title": "Eindejaarspremie Bakkerij Janssens",
+      "status": "goedgekeurd",
+      "people": [
+        {
+          "name": "Pieter Wouters",
+          "role": "owner",
+          "quote": ""
+        }
+      ],
+      "visibility": "beperkt",
+      "allowed": [
+        "Payroll BE"
+      ]
+    },
+    {
+      "id": "doc-11",
+      "type": "document",
+      "topic": "bedrijfswagens",
+      "daysAgo": 340,
+      "title": "Car policy bedrijfswagens 2025",
+      "status": "goedgekeurd",
+      "people": [
+        {
+          "name": "Pieter Wouters",
+          "role": "owner",
+          "quote": ""
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "doc-17",
+      "type": "document",
+      "topic": "ecocheques",
+      "daysAgo": 400,
+      "title": "Sectorakkoord ecocheques (samenvatting)",
+      "status": "goedgekeurd",
+      "people": [
+        {
+          "name": "Pieter Wouters",
+          "role": "owner",
+          "quote": ""
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "doc-04",
+      "type": "document",
+      "topic": "maaltijdcheques",
+      "daysAgo": 406,
+      "title": "Maaltijdcheques – info klantenteam",
+      "status": "goedgekeurd",
+      "people": [
+        {
+          "name": "Sofie Claes",
+          "role": "contributed",
+          "quote": ""
+        },
+        {
+          "name": "Tom Vermeulen",
+          "role": "contributed",
+          "quote": ""
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "doc-20",
+      "type": "document",
+      "topic": "onboarding",
+      "daysAgo": 417,
+      "title": "Onboarding checklist Nederland",
+      "status": "goedgekeurd",
+      "people": [
+        {
+          "name": "Femke de Jong",
+          "role": "owner",
+          "quote": ""
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "doc-38",
+      "type": "document",
+      "topic": "bedrijfswagens",
+      "daysAgo": 517,
+      "title": "Bestelwagen Bakkerij Janssens: voordeel alle aard",
+      "status": "goedgekeurd",
+      "people": [
+        {
+          "name": "Pieter Wouters",
+          "role": "owner",
+          "quote": ""
+        }
+      ],
+      "visibility": "beperkt",
+      "allowed": [
+        "Payroll BE"
+      ]
+    },
+    {
+      "id": "doc-31",
+      "type": "document",
+      "topic": "geboorteverlof",
+      "daysAgo": 550,
+      "title": "Mail aan klant: geboorteverlof 15 dagen",
+      "status": "concept",
+      "people": [
+        {
+          "name": "Tom Vermeulen",
+          "role": "contributed",
+          "quote": ""
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "doc-33",
+      "type": "document",
+      "topic": "geboorteverlof",
+      "daysAgo": 581,
+      "title": "Geboorteverlof Nederland (partnerverlof)",
+      "status": "goedgekeurd",
+      "people": [
+        {
+          "name": "Femke de Jong",
+          "role": "owner",
+          "quote": ""
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "doc-03",
+      "type": "document",
+      "topic": "maaltijdcheques",
+      "daysAgo": 855,
+      "title": "Werkinstructie maaltijdcheques team Antwerpen",
+      "status": "goedgekeurd",
+      "people": [
+        {
+          "name": "Sofie Claes",
+          "role": "owner",
+          "quote": ""
+        },
+        {
+          "name": "Tom Vermeulen",
+          "role": "contributed",
+          "quote": ""
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "doc-02",
+      "type": "document",
+      "topic": "maaltijdcheques",
+      "daysAgo": 967,
+      "title": "Procedure maaltijdcheques 2023",
+      "status": "goedgekeurd",
+      "people": [
+        {
+          "name": "Pieter Wouters",
+          "role": "owner",
+          "quote": ""
+        },
+        {
+          "name": "An Peeters",
+          "role": "contributed",
+          "quote": ""
+        },
+        {
+          "name": "Tom Vermeulen",
+          "role": "contributed",
+          "quote": ""
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "doc-26",
+      "type": "document",
+      "topic": "geboorteverlof",
+      "daysAgo": 998,
+      "title": "Procedure geboorteverlof 2023",
+      "status": "goedgekeurd",
+      "people": [
+        {
+          "name": "Sofie Claes",
+          "role": "owner",
+          "quote": ""
+        },
+        {
+          "name": "An Peeters",
+          "role": "contributed",
+          "quote": ""
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "doc-21",
+      "type": "document",
+      "topic": "geboorteverlof",
+      "daysAgo": 1008,
+      "title": "Wet geboorteverlof 2023 (samenvatting)",
+      "status": "goedgekeurd",
+      "people": [
+        {
+          "name": "Pieter Wouters",
+          "role": "owner",
+          "quote": ""
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "doc-09",
+      "type": "document",
+      "topic": "verlof",
+      "daysAgo": 1013,
+      "title": "Verlofbeleid 2023",
+      "status": "verouderd",
+      "people": [
+        {
+          "name": "Sofie Claes",
+          "role": "owner",
+          "quote": ""
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "doc-25",
+      "type": "document",
+      "topic": "geboorteverlof",
+      "daysAgo": 1064,
+      "title": "Opleiding nieuwe consultants: geboorteverlof",
+      "status": "goedgekeurd",
+      "people": [
+        {
+          "name": "Tom Vermeulen",
+          "role": "contributed",
+          "quote": ""
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "doc-28",
+      "type": "document",
+      "topic": "geboorteverlof",
+      "daysAgo": 1139,
+      "title": "Klantafspraak extra verlofdag Bakkerij Janssens",
+      "status": "goedgekeurd",
+      "people": [
+        {
+          "name": "An Peeters",
+          "role": "owner",
+          "quote": ""
+        }
+      ],
+      "visibility": "beperkt",
+      "allowed": [
+        "Payroll BE"
+      ]
+    },
+    {
+      "id": "doc-24",
+      "type": "document",
+      "topic": "geboorteverlof",
+      "daysAgo": 1231,
+      "title": "Werkinstructie geboorteverlof team Gent",
+      "status": "goedgekeurd",
+      "people": [
+        {
+          "name": "Sofie Claes",
+          "role": "owner",
+          "quote": ""
+        },
+        {
+          "name": "Tom Vermeulen",
+          "role": "contributed",
+          "quote": ""
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "doc-37",
+      "type": "document",
+      "topic": "verlof",
+      "daysAgo": 1504,
+      "title": "Arbeidsreglement Bakkerij Janssens: verlof",
+      "status": "goedgekeurd",
+      "people": [
+        {
+          "name": "An Peeters",
+          "role": "owner",
+          "quote": ""
+        }
+      ],
+      "visibility": "beperkt",
+      "allowed": [
+        "Payroll BE"
+      ]
+    },
+    {
+      "id": "doc-23",
+      "type": "document",
+      "topic": "geboorteverlof",
+      "daysAgo": 1679,
+      "title": "Procedure geboorteverlof (intranet)",
+      "status": "goedgekeurd",
+      "people": [
+        {
+          "name": "Tom Vermeulen",
+          "role": "owner",
+          "quote": ""
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "doc-22",
+      "type": "document",
+      "topic": "geboorteverlof",
+      "daysAgo": 1733,
+      "title": "Regeling geboorteverlof 2021 (samenvatting)",
+      "status": "verouderd",
+      "people": [
+        {
+          "name": "Pieter Wouters",
+          "role": "owner",
+          "quote": ""
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    }
+  ]
+}

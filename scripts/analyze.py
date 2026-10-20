@@ -538,6 +538,11 @@ def main() -> None:
     print(f"{len(edges)} verbanden ({dict(sorted(by_relation.items()))}), "
           f"{len(dup_groups)} duplicaatgroepen, {len(recommended)} aanbevelingen → {ANALYSIS_PATH.relative_to(ROOT)}")
 
+    # Expertise signals for "Wie weet het?" (meetings, Teams, tickets, documents).
+    import signals
+
+    signals.run(use_llm=not args.no_llm)
+
 
 if __name__ == "__main__":
     main()
