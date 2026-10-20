@@ -97,9 +97,17 @@ export function TopicSummary(props: {
           Hoe kom ik eraan?
         </button>
         <span className="askme-hint">
-          Toont de tijdlijn met alle {topic?.docs.length ?? 0} bronnen{experts.length > 0 && `, en wat ${experts.length === 1 ? firstName(experts[0].person.name) : `alle ${experts.length} personen`} erover deden`}.
+          {explainAdvanced(topic?.docs.length ?? 0, experts.length === 1 ? firstName(experts[0].person.name) : `alle ${experts.length} personen`, experts.length)}
         </span>
       </div>
     </div>
   )
+}
+
+function explainAdvanced(files: number, who: string, people: number): string {
+  const parts = [
+    ...(files > 0 ? [`de tijdlijn met ${files === 1 ? 'de enige bron' : `alle ${files} bronnen`}`] : []),
+    ...(people > 0 ? [`wat ${who} erover ${people === 1 ? 'deed' : 'deden'}`] : []),
+  ]
+  return parts.length ? `Toont ${parts.join(', en ')}.` : ''
 }

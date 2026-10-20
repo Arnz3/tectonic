@@ -359,5 +359,60 @@
         "text": "Neem de onboarding checklist van HR erbij, dan is alles op één plek."
       }
     ]
+  },
+  {
+    "id": "meeting-13",
+    "title": "Kick-off voorjaarscampagne klantportaal",
+    "daysAgo": 7,
+    "organizer": "Lien Vermeersch",
+    "attendees": [
+      "Lien Vermeersch",
+      "Yusuf Aydin",
+      "Jens Maes"
+    ],
+    "visibility": "open",
+    "allowed": [],
+    "transcript": [
+      {
+        "speaker": "Lien Vermeersch",
+        "text": "De marketing campagne voor het klantportaal start in maart: we richten ons op HR-managers van kleine klanten, met drie e-mails, een webinar en een landingspagina met een demovideo."
+      },
+      {
+        "speaker": "Yusuf Aydin",
+        "text": "Wie schrijft de teksten voor de landingspagina, en mogen we klantcases met naam gebruiken?"
+      },
+      {
+        "speaker": "Yusuf Aydin",
+        "text": "Dan schrijf ik de teksten en de e-mails; klantcases gebruiken we alleen met schriftelijke toestemming van de klant, en die vraagt Lien aan via het juridische team."
+      },
+      {
+        "speaker": "Jens Maes",
+        "text": "Ik zet de campagne op het intranet zodra de landingspagina live staat."
+      }
+    ]
+  },
+  {
+    "id": "meeting-14",
+    "title": "Evaluatie webinar",
+    "daysAgo": 24,
+    "organizer": "Yusuf Aydin",
+    "attendees": [
+      "Yusuf Aydin",
+      "Lien Vermeersch"
+    ],
+    "visibility": "beperkt",
+    "allowed": [
+      "Marketing"
+    ],
+    "transcript": [
+      {
+        "speaker": "Yusuf Aydin",
+        "text": "Het webinar van de vorige campagne trok 140 inschrijvingen; de helft kwam via de tweede e-mail, dus die versturen we voortaan op dinsdagochtend."
+      },
+      {
+        "speaker": "Lien Vermeersch",
+        "text": "Afgesproken, en we meten per kanaal hoeveel demo-aanvragen er binnenkomen."
+      }
+    ]
   }
 ]

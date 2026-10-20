@@ -86,6 +86,18 @@
       "role": "Klantadviseur",
       "team": "Klantendienst",
       "status": "actief"
+    },
+    {
+      "name": "Lien Vermeersch",
+      "role": "Marketingmanager",
+      "team": "Marketing",
+      "status": "actief"
+    },
+    {
+      "name": "Yusuf Aydin",
+      "role": "Contentmarketeer",
+      "team": "Marketing",
+      "status": "actief"
     }
   ],
   "topics": [
@@ -171,6 +183,18 @@
         "thuiswerkvergoeding",
         "telewerk",
         "bureauvergoeding"
+      ]
+    },
+    {
+      "id": "marketingcampagne",
+      "label": "Marketingcampagne",
+      "synonyms": [
+        "marketingcampagne",
+        "marketing campagne",
+        "marketingcampagnes",
+        "campagne",
+        "campagnes",
+        "marketing"
       ]
     }
   ],
@@ -268,6 +292,18 @@
       "asked_by": "Sara Dubois",
       "answered_by": "Bram Willems",
       "quote": "Klanten vinden de verlofaanvraag in het HR-portaal onder Afwezigheden; de leidinggevende keurt goed.",
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "teams-09",
+      "daysAgo": 3,
+      "channel": "#marketing",
+      "title": "Beelden en huisstijl voor de campagne",
+      "topic": "marketingcampagne",
+      "asked_by": "Sara Dubois",
+      "answered_by": "Yusuf Aydin",
+      "quote": "Alle beelden en logo's voor de campagne staan in de gedeelde map Marketing / Campagnes / Klantportaal.",
       "visibility": "open",
       "allowed": []
     }

@@ -89,3 +89,11 @@ test('departments: one contact per team, counts without titles', () => {
   const ines = countsFor('Ines Claessens', data.signals.filter((s) => s.topic === 'maaltijdcheques'))
   assert.deepEqual(ines, { meeting: 1, teams: 1 })
 })
+
+test('a topic without files still has contacts from meetings and Teams', () => {
+  const topic = topicForQuery('wie weet iets over de marketing campagne?', data.topics)
+  assert.equal(topic?.id, 'marketingcampagne')
+  assert.ok(!data.signals.some((s) => s.topic === 'marketingcampagne' && s.type === 'document'))
+  const names = expertsFor('marketingcampagne', data).map((e) => e.person.name)
+  assert.deepEqual(names.slice(0, 2).sort(), ['Lien Vermeersch', 'Yusuf Aydin'])
+})

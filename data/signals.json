@@ -85,6 +85,18 @@
       "role": "Klantadviseur",
       "team": "Klantendienst",
       "status": "actief"
+    },
+    {
+      "name": "Lien Vermeersch",
+      "role": "Marketingmanager",
+      "team": "Marketing",
+      "status": "actief"
+    },
+    {
+      "name": "Yusuf Aydin",
+      "role": "Contentmarketeer",
+      "team": "Marketing",
+      "status": "actief"
     }
   ],
   "topics": [
@@ -170,6 +182,18 @@
         "thuiswerkvergoeding",
         "telewerk",
         "bureauvergoeding"
+      ]
+    },
+    {
+      "id": "marketingcampagne",
+      "label": "Marketingcampagne",
+      "synonyms": [
+        "marketingcampagne",
+        "marketing campagne",
+        "marketingcampagnes",
+        "campagne",
+        "campagnes",
+        "marketing"
       ]
     }
   ],
@@ -267,6 +291,22 @@
           "name": "Lotte Janssens",
           "role": "attended",
           "quote": ""
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "teams-09",
+      "type": "teams",
+      "topic": "marketingcampagne",
+      "daysAgo": 3,
+      "title": "#marketing: Beelden en huisstijl voor de campagne",
+      "people": [
+        {
+          "name": "Yusuf Aydin",
+          "role": "answered",
+          "quote": "Alle beelden en logo's voor de campagne staan in de gedeelde map Marketing / Campagnes / Klantportaal."
         }
       ],
       "visibility": "open",
@@ -400,6 +440,33 @@
           "name": "Ines Claessens",
           "role": "answered",
           "quote": "Geef klanten altijd het bedrag uit de procedure van 2025: 10 euro per gewerkte dag."
+        }
+      ],
+      "visibility": "open",
+      "allowed": []
+    },
+    {
+      "id": "meeting-13:marketingcampagne",
+      "type": "meeting",
+      "topic": "marketingcampagne",
+      "daysAgo": 7,
+      "title": "Kick-off voorjaarscampagne klantportaal",
+      "organizer": "Lien Vermeersch",
+      "people": [
+        {
+          "name": "Lien Vermeersch",
+          "role": "explained",
+          "quote": "De marketing campagne voor het klantportaal start in maart: we richten ons op HR-managers van kleine klanten, met drie e-mails, een webinar en een landingspagina met een demovideo."
+        },
+        {
+          "name": "Yusuf Aydin",
+          "role": "explained",
+          "quote": "Dan schrijf ik de teksten en de e-mails; klantcases gebruiken we alleen met schriftelijke toestemming van de klant, en die vraagt Lien aan via het juridische team."
+        },
+        {
+          "name": "Jens Maes",
+          "role": "attended",
+          "quote": ""
         }
       ],
       "visibility": "open",
@@ -750,6 +817,30 @@
       "visibility": "beperkt",
       "allowed": [
         "Payroll BE"
+      ]
+    },
+    {
+      "id": "meeting-14:marketingcampagne",
+      "type": "meeting",
+      "topic": "marketingcampagne",
+      "daysAgo": 24,
+      "title": "Evaluatie webinar",
+      "organizer": "Yusuf Aydin",
+      "people": [
+        {
+          "name": "Yusuf Aydin",
+          "role": "explained",
+          "quote": "Het webinar van de vorige campagne trok 140 inschrijvingen; de helft kwam via de tweede e-mail, dus die versturen we voortaan op dinsdagochtend."
+        },
+        {
+          "name": "Lien Vermeersch",
+          "role": "decided",
+          "quote": "Afgesproken, en we meten per kanaal hoeveel demo-aanvragen er binnenkomen."
+        }
+      ],
+      "visibility": "beperkt",
+      "allowed": [
+        "Marketing"
       ]
     },
     {
