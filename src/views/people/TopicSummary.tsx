@@ -1,11 +1,13 @@
 import { analysis } from '../../analysis'
 import { formatDate } from '../../format'
-import { documents } from '../../library'
+import { FileIcon } from '../../components/FileIcon'
+import { documents, libraryItems } from '../../library'
 import { expertsFor, firstName, sentence, canSee, VERDICT_LABEL, type Topic as PeopleTopic } from '../../people/model'
 import { expertContext, usePeopleData } from '../../people/store'
 import { LANES, type Topic } from '../askme/askmeData'
 
 const docById = new Map(documents.map((d) => [d.id, d]))
+const fileById = new Map(libraryItems.map((f) => [f.id, f]))
 const laneLabel = new Map(LANES.map((l) => [l.id, l.label]))
 const laneOrder = new Map(LANES.map((l, i) => [l.id, i]))
 const MAX_PEOPLE = 3
@@ -43,28 +45,29 @@ export function TopicSummary(props: {
         {best.length === 0 ? (
           <div className="summary-empty">Geen aanbevolen bestand over dit onderwerp: deze kennis zit vooral bij mensen.</div>
         ) : (
-          <ul className="summary-list">
+          <div className="tiles-view summary-files">
             {best.map((d) => {
               const doc = docById.get(d.id)
-              const reasons = analysis.recommended[d.id]
+              const file = fileById.get(d.id)
+              if (!doc || !file) return null
+              const recommended = d.id in analysis.recommended
               return (
-                <li key={d.id}>
-                  <button className="summary-doc" onClick={() => onOpenDoc(d.id)}>
-                    <span className="summary-check" aria-hidden>
-                      ✓
+                <button key={d.id} className="tile summary-file" onClick={() => onOpenDoc(d.id)} title={doc.title}>
+                  <div className="tile-thumb">
+                    <FileIcon kind={file.kind} size={56} />
+                    <span className={recommended ? 'file-badge' : 'file-badge lane'}>
+                      ✓ {recommended ? 'Aanbevolen' : `Beste · ${laneLabel.get(d.lane)}`}
                     </span>
-                    <span className="summary-main">
-                      <strong>{d.title}</strong>
-                      <small>
-                        {reasons ? 'Aanbevolen' : `Meest betrouwbaar · ${laneLabel.get(d.lane)}`}
-                        {doc && ` · ${doc.owner ?? 'Geen eigenaar'} · gewijzigd ${formatDate(doc.modified)}`}
-                      </small>
-                    </span>
-                  </button>
-                </li>
+                  </div>
+                  <div className="tile-name">{file.name}</div>
+                  <div className="tile-meta">{doc.folder}</div>
+                  <div className="tile-meta">
+                    {formatDate(doc.modified)} · {doc.owner ?? 'Geen eigenaar'}
+                  </div>
+                </button>
               )
             })}
-          </ul>
+          </div>
         )}
       </section>
 

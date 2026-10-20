@@ -1660,7 +1660,6 @@ button.crumb:hover {
   flex-direction: column;
   gap: 8px;
 }
-.summary-doc,
 .summary-person {
   display: flex;
   align-items: center;
@@ -1673,24 +1672,9 @@ button.crumb:hover {
   text-align: left;
   font-size: 13px;
 }
-.summary-doc {
-  border-left: 4px solid #1e9e63;
-}
-.summary-doc:hover,
 .summary-person:hover {
   border-color: var(--accent);
   background: var(--hover);
-}
-.summary-check {
-  display: inline-grid;
-  place-items: center;
-  flex-shrink: 0;
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  background: #c9ead8;
-  color: #0b6a3c;
-  font-weight: 700;
 }
 .summary-main {
   flex: 1;
@@ -1733,4 +1717,30 @@ button.crumb:hover {
 }
 .summary-back {
   align-self: flex-start;
+}
+
+.summary-files {
+  margin-top: 6px;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+}
+.summary-file .tile-thumb {
+  position: relative;
+}
+.summary-file .tile-meta + .tile-meta {
+  margin-top: -6px;
+}
+.file-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: #1e9e63;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+}
+.file-badge.lane {
+  background: #c9ead8;
+  color: #0b6a3c;
 }
