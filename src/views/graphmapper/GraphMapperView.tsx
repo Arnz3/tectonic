@@ -10,7 +10,6 @@ import { CHAT_GLYPH, createTimeline, DOC_GLYPH, type CardAnchor, type TimelineCa
 import './graphmapper.css'
 
 const LEGEND: Trust[] = ['meeting', 'best', 'similar', 'expired', 'support', 'other_scope']
-const DEFAULT_TOPIC = 'ecocheques'
 
 const topics = buildTopics(allDocuments)
 const docById = new Map(allDocuments.map((d) => [d.id, d]))
@@ -51,13 +50,11 @@ export function GraphMapperTimeline({ topicId, onOpenFile }: { topicId: string; 
 }
 
 /**
- * Graph mapper: the trust timeline for one topic. Pick a topic, or type a question in the search box.
+ * Graph mapper: the trust timeline for the topic typed in the search box.
  * Purple cards are changes from meetings that a person verified; they overrule a sentence in a document.
  */
 export function GraphMapperView({ query, onOpen }: ViewProps) {
-  const [picked, setPicked] = useState(() => (topics.some((t) => t.id === DEFAULT_TOPIC) ? DEFAULT_TOPIC : topics[0].id))
-  const asked = useMemo(() => topicForQuestion(query, topics, allDocuments), [query])
-  const topic = asked ?? topics.find((t) => t.id === picked)!
+  const topic = useMemo(() => topicForQuestion(query, topics, allDocuments), [query])
   // Library documents open as the real SharePoint file, in the app's own document panel.
   const openFile = (id: string) => {
     const file = fileById.get(id)
@@ -66,20 +63,21 @@ export function GraphMapperView({ query, onOpen }: ViewProps) {
 
   return (
     <div className="gm gm-view">
-      <div className="gm-topic-pills" role="tablist" aria-label="Onderwerp">
-        {topics.map((t) => (
-          <button
-            key={t.id}
-            role="tab"
-            aria-selected={t.id === topic.id}
-            className={t.id === topic.id ? 'active' : ''}
-            onClick={() => setPicked(t.id)}
-          >
-            {t.title}
-          </button>
-        ))}
-      </div>
-      <GraphMapperTimeline key={topic.id} topicId={topic.id} onOpenFile={openFile} />
+      {topic ? (
+        <>
+          <div className="gm-heading">
+            <strong>{topic.title}</strong>
+            <span>
+              {topic.docs.length} {topic.docs.length === 1 ? 'bron' : 'bronnen'}
+            </span>
+          </div>
+          <GraphMapperTimeline key={topic.id} topicId={topic.id} onOpenFile={openFile} />
+        </>
+      ) : (
+        <div className="gm-empty">
+          {query ? 'Geen onderwerp herkend. Probeer bv. maaltijdcheques of ecocheques.' : 'Zoek een onderwerp in de zoekbalk, bv. maaltijdcheques of ecocheques.'}
+        </div>
+      )}
     </div>
   )
 }

@@ -1483,3 +1483,23 @@
   stroke-width: 1.5;
   stroke-linejoin: round;
 }
+
+/* Heading and empty state of the graph mapper tab */
+.gm-heading {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding-top: 16px;
+}
+.gm-heading span {
+  color: var(--muted);
+}
+.gm-empty {
+  margin-top: 16px;
+  padding: 48px 24px;
+  border: 1px dashed var(--border);
+  border-radius: 16px;
+  background: var(--surface);
+  color: var(--muted);
+  text-align: center;
+}
