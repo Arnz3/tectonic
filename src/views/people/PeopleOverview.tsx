@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
-import { ActivityItem } from '../../components/Activity'
+import { ActivityCard } from '../../components/Activity'
+import { Avatar } from '../../components/Avatar'
+import { CallButton } from '../../components/CallButton'
 import { contactsForQuery, countsFor, countsText, expertsFor, involvementText, teamContacts, VERDICT_LABEL, type Expert, type Signal, type Topic } from '../../people/model'
 import { expertContext, usePeopleData } from '../../people/store'
 
@@ -37,25 +39,31 @@ export function PeopleOverview(props: { topic?: Topic; query?: string; initialOp
             .sort((a, b) => a.daysAgo - b.daysAgo)
           return (
             <li key={name} className={isOpen ? 'open' : ''}>
-              <button className="overview-row" aria-expanded={isOpen} onClick={() => setOpen(isOpen ? null : name)}>
-                <span className="overview-caret" aria-hidden>
-                  {isOpen ? '▾' : '▸'}
-                </span>
-                <strong>{name}</strong>
-                <small>
-                  {e.person.role} · <span className="team-tag">{e.person.team}</span>
-                </small>
-                {contacts.get(e.person.team) === name && <span className="contact-tag">Contactpersoon {e.person.team}</span>}
-
-                <span className={`verdict verdict-${e.verdict}`}>{VERDICT_LABEL[e.verdict]}</span>
-                <small className="overview-counts">{countsText(countsFor(name, activity))}</small>
-              </button>
+              <div className="overview-head">
+                <button className="overview-row" aria-expanded={isOpen} onClick={() => setOpen(isOpen ? null : name)}>
+                  <Avatar name={name} size={44} />
+                  <span className="overview-who">
+                    <span className="overview-name">
+                      <strong>{name}</strong>
+                      <span className="team-tag">{e.person.team}</span>
+                      {contacts.get(e.person.team) === name && <span className="contact-tag">Contactpersoon {e.person.team}</span>}
+                    </span>
+                    <small>{e.person.role}</small>
+                    <small className="overview-counts">{countsText(countsFor(name, activity))}</small>
+                  </span>
+                  <span className={`verdict verdict-${e.verdict}`}>{VERDICT_LABEL[e.verdict]}</span>
+                  <span className="overview-caret" aria-hidden>
+                    {isOpen ? '▾' : '▸'}
+                  </span>
+                </button>
+                <CallButton name={name} />
+              </div>
               {isOpen && (
                 <div className="overview-detail">
-                  <div className="why-summary">{involvementText(e.involvement)}</div>
-                  <ul className="why-list">
+                  <div className="overview-summary">{involvementText(e.involvement)}</div>
+                  <ul className="activity-list">
                     {activity.map((s) => (
-                      <ActivityItem key={s.id} signal={s} name={name} viewer={viewer} />
+                      <ActivityCard key={s.id} signal={s} name={name} viewer={viewer} />
                     ))}
                   </ul>
                 </div>

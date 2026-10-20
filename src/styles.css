@@ -1796,3 +1796,144 @@ button.crumb:hover {
   letter-spacing: 0;
   text-transform: none;
 }
+
+/* Contacts: portrait, call button and larger hits */
+.avatar-photo {
+  flex-shrink: 0;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px var(--surface), 0 0 0 3px var(--border);
+}
+.call-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  padding: 6px 12px;
+  border: 1px solid #4f52b2;
+  border-radius: 16px;
+  background: var(--surface);
+  color: #4f52b2;
+  font-size: 13px;
+  font-weight: 600;
+}
+.call-button:hover {
+  background: #e8ebfa;
+}
+.call-button.calling {
+  background: #4f52b2;
+  color: #fff;
+}
+.summary-contact {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.summary-contact .summary-person {
+  flex: 1;
+  padding: 12px 14px;
+}
+.summary-role {
+  color: var(--text) !important;
+}
+.people-overview .overview-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-right: 12px;
+}
+.people-overview .overview-row {
+  flex: 1;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+}
+.overview-who {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.overview-name {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+}
+.people-overview .overview-row .verdict {
+  margin-left: 0;
+  white-space: nowrap;
+}
+.people-overview .overview-counts {
+  flex-basis: auto;
+  padding-left: 0;
+}
+.people-overview .overview-detail {
+  padding: 4px 16px 16px 68px;
+}
+.overview-summary {
+  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.activity-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.activity-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+}
+.activity-card.locked {
+  background: var(--bg);
+  color: var(--muted);
+}
+.activity-icon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: var(--hover);
+  font-size: 17px;
+}
+.activity-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.activity-main strong {
+  font-size: 14px;
+}
+.activity-main small {
+  color: var(--muted);
+  font-size: 12.5px;
+}
+.activity-when {
+  flex-shrink: 0;
+  color: var(--muted);
+  font-size: 12.5px;
+  white-space: nowrap;
+}
+@media (max-width: 640px) {
+  .people-overview .overview-detail {
+    padding-left: 16px;
+  }
+  .call-button span {
+    display: none;
+  }
+}

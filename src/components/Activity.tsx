@@ -30,3 +30,31 @@ export function ActivityItem({ signal, name, viewer }: { signal: Signal; name: s
     </li>
   )
 }
+
+const SOURCE_ICON: Record<SignalType, string> = {
+  meeting: '📅',
+  teams: '💬',
+  ticket: '🎫',
+  document: '📄',
+  interview: '🎙',
+}
+
+/** Larger version for the people list: icon, title, what the person did and when. */
+export function ActivityCard({ signal, name, viewer }: { signal: Signal; name: string; viewer: Viewer }) {
+  const visible = canSee(signal, viewer)
+  const role = signal.people.find((p) => p.name === name)?.role ?? 'attended'
+  return (
+    <li className={visible ? 'activity-card' : 'activity-card locked'}>
+      <span className="activity-icon" aria-hidden>
+        {visible ? SOURCE_ICON[signal.type] : '🔒'}
+      </span>
+      <span className="activity-main">
+        <strong>{visible ? signal.title : LOCKED_TEXT[signal.type]}</strong>
+        <small>
+          {SOURCE_LABEL[signal.type]} · {ROLE_TEXT[role]}
+        </small>
+      </span>
+      <span className="activity-when">{when(signal.daysAgo)}</span>
+    </li>
+  )
+}

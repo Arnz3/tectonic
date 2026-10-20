@@ -1,5 +1,7 @@
 import { analysis } from '../../analysis'
 import { formatDate } from '../../format'
+import { Avatar } from '../../components/Avatar'
+import { CallButton } from '../../components/CallButton'
 import { FileIcon } from '../../components/FileIcon'
 import { documents, libraryItems } from '../../library'
 import { expertsFor, firstName, sentence, canSee, VERDICT_LABEL, type Topic as PeopleTopic } from '../../people/model'
@@ -83,16 +85,19 @@ export function TopicSummary(props: {
           <h3 className="people-heading">Wie weet het meest</h3>
           <ul className="summary-list">
             {top.map((e) => (
-              <li key={e.person.name}>
+              <li key={e.person.name} className="summary-contact">
                 <button className="summary-person" onClick={() => onAdvanced(e.person.name)}>
+                  <Avatar name={e.person.name} size={52} />
                   <span className="summary-main">
                     <strong>
                       {e.person.name} <span className="team-tag">{e.person.team}</span>
                     </strong>
+                    <small className="summary-role">{e.person.role}</small>
                     <small>{sentence(e.person.name, e.headline, canSee(e.headline.signal, viewer))}</small>
                   </span>
                   <span className={`verdict verdict-${e.verdict}`}>{VERDICT_LABEL[e.verdict]}</span>
                 </button>
+                <CallButton name={e.person.name} />
               </li>
             ))}
           </ul>
