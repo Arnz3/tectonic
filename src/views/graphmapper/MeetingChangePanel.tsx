@@ -128,7 +128,7 @@ export function MeetingChangePanel({ doc, onOpenDoc, onClose }: { doc: Document;
         <button className="meeting-replaces" onClick={() => onOpenDoc(original.id)}>
           <span className="group-dot" style={{ background: 'var(--danger)' }} aria-hidden />
           <span className="group-text">
-            <span className="group-name">Open het originele bestand</span>
+            <span className="group-name">Origineel bestand, zonder meeting-aanpassingen</span>
             <span className="group-meta">
               {original.filename} · {original.owner ?? 'Geen eigenaar'} · {formatDate(original.modified)}
             </span>
